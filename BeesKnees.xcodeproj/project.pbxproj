@@ -15,6 +15,8 @@
 		9EE8EF401D6626E700BBB1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8EF3E1D6626E700BBB1F9 /* LaunchScreen.storyboard */; };
 		9EE8EF4B1D6626E700BBB1F9 /* BeesKneesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8EF4A1D6626E700BBB1F9 /* BeesKneesTests.swift */; };
 		9EE8EF561D6626E700BBB1F9 /* BeesKneesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8EF551D6626E700BBB1F9 /* BeesKneesUITests.swift */; };
+		9EE8EF951D663D4A00BBB1F9 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE8EF921D663C9400BBB1F9 /* CareKit.framework */; };
+		9EE8EF961D663D4A00BBB1F9 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE8EF921D663C9400BBB1F9 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +34,42 @@
 			remoteGlobalIDString = 9EE8EF2F1D6626E700BBB1F9;
 			remoteInfo = BeesKnees;
 		};
+		9EE8EF911D663C9400BBB1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
+		9EE8EF931D663C9400BBB1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
+			remoteInfo = CareKitTests;
+		};
+		9EE8EF971D663D4A00BBB1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9EE8EF991D663D4A00BBB1F9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9EE8EF961D663D4A00BBB1F9 /* CareKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9EE8EF301D6626E700BBB1F9 /* BeesKnees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeesKnees.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +86,7 @@
 		9EE8EF511D6626E700BBB1F9 /* BeesKneesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeesKneesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE8EF551D6626E700BBB1F9 /* BeesKneesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeesKneesUITests.swift; sourceTree = "<group>"; };
 		9EE8EF571D6626E700BBB1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE8EF951D663D4A00BBB1F9 /* CareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +122,7 @@
 				9EE8EF491D6626E700BBB1F9 /* BeesKneesTests */,
 				9EE8EF541D6626E700BBB1F9 /* BeesKneesUITests */,
 				9EE8EF311D6626E700BBB1F9 /* Products */,
+				9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +168,15 @@
 			path = BeesKneesUITests;
 			sourceTree = "<group>";
 		};
+		9EE8EF8C1D663C9400BBB1F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EE8EF921D663C9400BBB1F9 /* CareKit.framework */,
+				9EE8EF941D663C9400BBB1F9 /* CareKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +187,12 @@
 				9EE8EF2C1D6626E700BBB1F9 /* Sources */,
 				9EE8EF2D1D6626E700BBB1F9 /* Frameworks */,
 				9EE8EF2E1D6626E700BBB1F9 /* Resources */,
+				9EE8EF991D663D4A00BBB1F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9EE8EF981D663D4A00BBB1F9 /* PBXTargetDependency */,
 			);
 			name = BeesKnees;
 			productName = BeesKnees;
@@ -218,6 +269,12 @@
 			mainGroup = 9EE8EF271D6626E700BBB1F9;
 			productRefGroup = 9EE8EF311D6626E700BBB1F9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9EE8EF8C1D663C9400BBB1F9 /* Products */;
+					ProjectRef = 9EE8EF8B1D663C9400BBB1F9 /* CareKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9EE8EF2F1D6626E700BBB1F9 /* BeesKnees */,
@@ -226,6 +283,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9EE8EF921D663C9400BBB1F9 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = 9EE8EF911D663C9400BBB1F9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9EE8EF941D663C9400BBB1F9 /* CareKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CareKitTests.xctest;
+			remoteRef = 9EE8EF931D663C9400BBB1F9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9EE8EF2E1D6626E700BBB1F9 /* Resources */ = {
@@ -293,6 +367,11 @@
 			isa = PBXTargetDependency;
 			target = 9EE8EF2F1D6626E700BBB1F9 /* BeesKnees */;
 			targetProxy = 9EE8EF521D6626E700BBB1F9 /* PBXContainerItemProxy */;
+		};
+		9EE8EF981D663D4A00BBB1F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CareKit;
+			targetProxy = 9EE8EF971D663D4A00BBB1F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -488,6 +567,7 @@
 				9EE8EF5C1D6626E700BBB1F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EE8EF5D1D6626E700BBB1F9 /* Build configuration list for PBXNativeTarget "BeesKneesTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +576,7 @@
 				9EE8EF5F1D6626E700BBB1F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EE8EF601D6626E700BBB1F9 /* Build configuration list for PBXNativeTarget "BeesKneesUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +585,7 @@
 				9EE8EF621D6626E700BBB1F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
