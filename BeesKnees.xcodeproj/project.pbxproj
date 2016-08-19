@@ -18,6 +18,8 @@
 		9EE8F02C1D66834B00BBB1F9 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE8F0251D66833A00BBB1F9 /* CareKit.framework */; };
 		9EE8F02D1D66834B00BBB1F9 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE8F0251D66833A00BBB1F9 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EE8F0311D66836D00BBB1F9 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8F0301D66836D00BBB1F9 /* RootViewController.swift */; };
+		D22B18361D67B2B30042F842 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B18351D67B2B30042F842 /* Activity.swift */; };
+		D22B18381D67B5190042F842 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B18371D67B5190042F842 /* Walk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		9EE8F0141D66833000BBB1F9 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9EE8F01E1D66833900BBB1F9 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9EE8F0301D66836D00BBB1F9 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		D22B18351D67B2B30042F842 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		D22B18371D67B5190042F842 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 		9EE8EF321D6626E700BBB1F9 /* BeesKnees */ = {
 			isa = PBXGroup;
 			children = (
+				D22B18321D67B2A20042F842 /* Activities */,
 				9EE8EF331D6626E700BBB1F9 /* AppDelegate.swift */,
 				9EE8F0301D66836D00BBB1F9 /* RootViewController.swift */,
 				9EE8EF391D6626E700BBB1F9 /* Main.storyboard */,
@@ -216,6 +221,15 @@
 				9EE8F0271D66833A00BBB1F9 /* CareKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D22B18321D67B2A20042F842 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				D22B18351D67B2B30042F842 /* Activity.swift */,
+				D22B18371D67B5190042F842 /* Walk.swift */,
+			);
+			name = Activities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +408,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22B18381D67B5190042F842 /* Walk.swift in Sources */,
+				D22B18361D67B2B30042F842 /* Activity.swift in Sources */,
 				9EE8F0311D66836D00BBB1F9 /* RootViewController.swift in Sources */,
 				9EE8EF341D6626E700BBB1F9 /* AppDelegate.swift in Sources */,
 			);

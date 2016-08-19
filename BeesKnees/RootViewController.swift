@@ -14,6 +14,11 @@ class RootViewController: UITabBarController {
     // Care Plan Store constant
     let store: OCKCarePlanStore
     
+    // Activities
+    let activities: [Activity] = [
+        Walk()
+    ]
+    
     // Navigation controllers
     private var careCardViewController: OCKCareCardViewController!
     private var symptomTrackerViewController: OCKSymptomTrackerViewController!
@@ -31,7 +36,24 @@ class RootViewController: UITabBarController {
         // Create the care plan store
         store = OCKCarePlanStore(persistenceDirectoryURL: persistentDirectoryURL)
         
+        // Superclass initialization
         super.init(coder: aDecoder)
+        
+        #if DEBUG
+        // DEBUG ONLY: Clear the care plan store
+        self._clearStore()
+        #endif
+        
+        // Add the activities to the store
+        for activity in activities {
+            let carePlanActivity = activity.carePlanActivity()
+            
+            store.addActivity(carePlanActivity) { success, error in
+                if !success {
+                    print(error?.localizedDescription)
+                }
+            }
+        }
         
         // Create the navigation view controllers
         careCardViewController = createCareCardViewController()
@@ -61,5 +83,35 @@ class RootViewController: UITabBarController {
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "symptoms"), selectedImage: UIImage(named: "symptoms-filled"))
         
         return viewController
+    }
+    
+    
+    // MARK: Helpers
+    
+    private func _clearStore() {
+        let deleteGroup = dispatch_group_create()
+        let store = self.store
+        
+        dispatch_group_enter(deleteGroup)
+        store.activitiesWithCompletion { (success, activities, errorOrNil) in
+            guard success else {
+                fatalError(errorOrNil!.localizedDescription)
+            }
+            
+            for activity in activities {
+                dispatch_group_enter(deleteGroup)
+                store.removeActivity(activity) { (success, error) -> Void in
+                    guard success else {
+                        fatalError("*** An error occurred: \(error!.localizedDescription)")
+                    }
+                    dispatch_group_leave(deleteGroup)
+                }
+            }
+            
+            dispatch_group_leave(deleteGroup)
+        }
+        
+        // Wait until all the asynchronous calls are done
+        dispatch_group_wait(deleteGroup, DISPATCH_TIME_FOREVER)
     }
 }
