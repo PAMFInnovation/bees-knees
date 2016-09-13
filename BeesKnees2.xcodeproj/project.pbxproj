@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E5337901D835EF500DD7263 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53378F1D835EF500DD7263 /* PasscodeTask.swift */; };
+		9E9761FE1D6FABF100A1AFD5 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9761FD1D6FABF100A1AFD5 /* ConsentDocument.swift */; };
+		9E9762001D6FAD3200A1AFD5 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9761FF1D6FAD3200A1AFD5 /* ConsentTask.swift */; };
+		9EB706FA1D6FB3DF001E898F /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB706F91D6FB3DF001E898F /* SurveyTask.swift */; };
+		9EB706FD1D6FB82F001E898F /* MicrophoneTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB706FC1D6FB82F001E898F /* MicrophoneTask.swift */; };
 		9EE8EF341D6626E700BBB1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE8EF331D6626E700BBB1F9 /* AppDelegate.swift */; };
 		9EE8EF3B1D6626E700BBB1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8EF391D6626E700BBB1F9 /* Main.storyboard */; };
 		9EE8EF3D1D6626E700BBB1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8EF3C1D6626E700BBB1F9 /* Assets.xcassets */; };
@@ -21,6 +26,26 @@
 		D22B18361D67B2B30042F842 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B18351D67B2B30042F842 /* Activity.swift */; };
 		D22B18381D67B5190042F842 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B18371D67B5190042F842 /* Walk.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		9E5337911D83643D00DD7263 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+		9E5337921D83645400DD7263 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.swift;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# $(SWIFT_EXEC)\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		9EE8EF471D6626E700BBB1F9 /* PBXContainerItemProxy */ = {
@@ -97,6 +122,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E53378F1D835EF500DD7263 /* PasscodeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
+		9E9761FD1D6FABF100A1AFD5 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		9E9761FF1D6FAD3200A1AFD5 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
+		9EB706F91D6FB3DF001E898F /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		9EB706FC1D6FB82F001E898F /* MicrophoneTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneTask.swift; sourceTree = "<group>"; };
 		9EE8EF301D6626E700BBB1F9 /* BeesKnees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeesKnees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE8EF331D6626E700BBB1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EE8EF3A1D6626E700BBB1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +173,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E53378E1D835ED700DD7263 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				9E53378F1D835EF500DD7263 /* PasscodeTask.swift */,
+			);
+			name = Passcode;
+			sourceTree = "<group>";
+		};
+		9E9761F81D6FABE800A1AFD5 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				9E9761FD1D6FABF100A1AFD5 /* ConsentDocument.swift */,
+				9E9761FF1D6FAD3200A1AFD5 /* ConsentTask.swift */,
+			);
+			name = Consent;
+			sourceTree = "<group>";
+		};
+		9EB706F41D6FB3C9001E898F /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				9EB706F91D6FB3DF001E898F /* SurveyTask.swift */,
+			);
+			name = Survey;
+			sourceTree = "<group>";
+		};
+		9EB706FB1D6FB822001E898F /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				9EB706FC1D6FB82F001E898F /* MicrophoneTask.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
 		9EE8EF271D6626E700BBB1F9 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +230,10 @@
 		9EE8EF321D6626E700BBB1F9 /* BeesKnees */ = {
 			isa = PBXGroup;
 			children = (
+				9E53378E1D835ED700DD7263 /* Passcode */,
+				9EB706FB1D6FB822001E898F /* Tasks */,
+				9EB706F41D6FB3C9001E898F /* Survey */,
+				9E9761F81D6FABE800A1AFD5 /* Consent */,
 				D22B18321D67B2A20042F842 /* Activities */,
 				9EE8EF331D6626E700BBB1F9 /* AppDelegate.swift */,
 				9EE8F0301D66836D00BBB1F9 /* RootViewController.swift */,
@@ -245,6 +312,8 @@
 				9EE8EF991D663D4A00BBB1F9 /* Embed Frameworks */,
 			);
 			buildRules = (
+				9E5337921D83645400DD7263 /* PBXBuildRule */,
+				9E5337911D83643D00DD7263 /* PBXBuildRule */,
 			);
 			dependencies = (
 				9EE8F02B1D66834700BBB1F9 /* PBXTargetDependency */,
@@ -315,7 +384,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9EE8EF2B1D6626E700BBB1F9 /* Build configuration list for PBXProject "BeesKnees" */;
+			buildConfigurationList = 9EE8EF2B1D6626E700BBB1F9 /* Build configuration list for PBXProject "BeesKnees2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -411,7 +480,12 @@
 				D22B18381D67B5190042F842 /* Walk.swift in Sources */,
 				D22B18361D67B2B30042F842 /* Activity.swift in Sources */,
 				9EE8F0311D66836D00BBB1F9 /* RootViewController.swift in Sources */,
+				9E9762001D6FAD3200A1AFD5 /* ConsentTask.swift in Sources */,
+				9EB706FA1D6FB3DF001E898F /* SurveyTask.swift in Sources */,
 				9EE8EF341D6626E700BBB1F9 /* AppDelegate.swift in Sources */,
+				9E5337901D835EF500DD7263 /* PasscodeTask.swift in Sources */,
+				9EB706FD1D6FB82F001E898F /* MicrophoneTask.swift in Sources */,
+				9E9761FE1D6FABF100A1AFD5 /* ConsentDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,9 +590,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -555,9 +631,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -570,7 +648,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BeesKnees/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.sutterinnovation.BeesKnees;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.bees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -585,7 +663,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BeesKnees/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.sutterinnovation.BeesKnees;
+				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.bees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -640,7 +718,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9EE8EF2B1D6626E700BBB1F9 /* Build configuration list for PBXProject "BeesKnees" */ = {
+		9EE8EF2B1D6626E700BBB1F9 /* Build configuration list for PBXProject "BeesKnees2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EE8EF581D6626E700BBB1F9 /* Debug */,

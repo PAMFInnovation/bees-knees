@@ -1,0 +1,727 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
+		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
+		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
+		9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA05A1D8370F400FD6763 /* Assets.xcassets */; };
+		9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA05C1D8370F400FD6763 /* LaunchScreen.storyboard */; };
+		9EFDA0691D8370F400FD6763 /* Bees_KneesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0681D8370F400FD6763 /* Bees_KneesTests.swift */; };
+		9EFDA0741D8370F400FD6763 /* Bees_KneesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0731D8370F400FD6763 /* Bees_KneesUITests.swift */; };
+		9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0861D83713E00FD6763 /* PasscodeTask.swift */; };
+		9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0881D83715600FD6763 /* MicrophoneTask.swift */; };
+		9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08A1D83716900FD6763 /* SurveyTask.swift */; };
+		9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08C1D83717A00FD6763 /* ConsentDocument.swift */; };
+		9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08E1D83718700FD6763 /* ConsentTask.swift */; };
+		9EFDA0911D83719500FD6763 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0901D83719500FD6763 /* Activity.swift */; };
+		9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0921D8371A000FD6763 /* Walk.swift */; };
+		9EFDA0EF1D83731800FD6763 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */; };
+		9EFDA0F01D83731800FD6763 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9EFDA0F41D83731D00FD6763 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0D81D8372F100FD6763 /* CareKit.framework */; };
+		9EFDA0F51D83731D00FD6763 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0D81D8372F100FD6763 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EFDA0651D8370F400FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0481D8370F400FD6763 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EFDA04F1D8370F400FD6763;
+			remoteInfo = "Bees Knees";
+		};
+		9EFDA0701D8370F400FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0481D8370F400FD6763 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EFDA04F1D8370F400FD6763;
+			remoteInfo = "Bees Knees";
+		};
+		9EFDA0D71D8372F100FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
+		9EFDA0D91D8372F100FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
+			remoteInfo = CareKitTests;
+		};
+		9EFDA0EB1D83730400FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		9EFDA0ED1D83730400FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		9EFDA0F11D83731800FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		9EFDA0F61D83731D00FD6763 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9EFDA0F31D83731800FD6763 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9EFDA0F51D83731D00FD6763 /* CareKit.framework in Embed Frameworks */,
+				9EFDA0F01D83731800FD6763 /* ResearchKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		9EFDA0581D8370F400FD6763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9EFDA05A1D8370F400FD6763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9EFDA05D1D8370F400FD6763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EFDA05F1D8370F400FD6763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFDA0641D8370F400FD6763 /* Bees KneesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bees KneesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EFDA0681D8370F400FD6763 /* Bees_KneesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bees_KneesTests.swift; sourceTree = "<group>"; };
+		9EFDA06A1D8370F400FD6763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFDA06F1D8370F400FD6763 /* Bees KneesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bees KneesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EFDA0731D8370F400FD6763 /* Bees_KneesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bees_KneesUITests.swift; sourceTree = "<group>"; };
+		9EFDA0751D8370F400FD6763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFDA0861D83713E00FD6763 /* PasscodeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
+		9EFDA0881D83715600FD6763 /* MicrophoneTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneTask.swift; sourceTree = "<group>"; };
+		9EFDA08A1D83716900FD6763 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		9EFDA08C1D83717A00FD6763 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		9EFDA08E1D83718700FD6763 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
+		9EFDA0901D83719500FD6763 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		9EFDA0921D8371A000FD6763 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../../../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
+		9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EFDA04D1D8370F400FD6763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFDA0F41D83731D00FD6763 /* CareKit.framework in Frameworks */,
+				9EFDA0EF1D83731800FD6763 /* ResearchKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA0611D8370F400FD6763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA06C1D8370F400FD6763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EFDA0471D8370F400FD6763 = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0521D8370F400FD6763 /* Bees Knees */,
+				9EFDA0671D8370F400FD6763 /* Bees KneesTests */,
+				9EFDA0721D8370F400FD6763 /* Bees KneesUITests */,
+				9EFDA0941D8371CE00FD6763 /* Linked frameworks */,
+				9EFDA0511D8370F400FD6763 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9EFDA0511D8370F400FD6763 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0501D8370F400FD6763 /* Bees Knees.app */,
+				9EFDA0641D8370F400FD6763 /* Bees KneesTests.xctest */,
+				9EFDA06F1D8370F400FD6763 /* Bees KneesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EFDA0521D8370F400FD6763 /* Bees Knees */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0811D83710700FD6763 /* Passcode */,
+				9EFDA0821D83710D00FD6763 /* Tasks */,
+				9EFDA0831D83711100FD6763 /* Survey */,
+				9EFDA0841D83711600FD6763 /* Consent */,
+				9EFDA0851D83711A00FD6763 /* Activities */,
+				9EFDA0531D8370F400FD6763 /* AppDelegate.swift */,
+				9EFDA0551D8370F400FD6763 /* RootViewController.swift */,
+				9EFDA0571D8370F400FD6763 /* Main.storyboard */,
+				9EFDA05A1D8370F400FD6763 /* Assets.xcassets */,
+				9EFDA05C1D8370F400FD6763 /* LaunchScreen.storyboard */,
+				9EFDA05F1D8370F400FD6763 /* Info.plist */,
+			);
+			path = "Bees Knees";
+			sourceTree = "<group>";
+		};
+		9EFDA0671D8370F400FD6763 /* Bees KneesTests */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0681D8370F400FD6763 /* Bees_KneesTests.swift */,
+				9EFDA06A1D8370F400FD6763 /* Info.plist */,
+			);
+			path = "Bees KneesTests";
+			sourceTree = "<group>";
+		};
+		9EFDA0721D8370F400FD6763 /* Bees KneesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0731D8370F400FD6763 /* Bees_KneesUITests.swift */,
+				9EFDA0751D8370F400FD6763 /* Info.plist */,
+			);
+			path = "Bees KneesUITests";
+			sourceTree = "<group>";
+		};
+		9EFDA0811D83710700FD6763 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0861D83713E00FD6763 /* PasscodeTask.swift */,
+			);
+			name = Passcode;
+			sourceTree = "<group>";
+		};
+		9EFDA0821D83710D00FD6763 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0881D83715600FD6763 /* MicrophoneTask.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		9EFDA0831D83711100FD6763 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA08A1D83716900FD6763 /* SurveyTask.swift */,
+			);
+			name = Survey;
+			sourceTree = "<group>";
+		};
+		9EFDA0841D83711600FD6763 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA08C1D83717A00FD6763 /* ConsentDocument.swift */,
+				9EFDA08E1D83718700FD6763 /* ConsentTask.swift */,
+			);
+			name = Consent;
+			sourceTree = "<group>";
+		};
+		9EFDA0851D83711A00FD6763 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0901D83719500FD6763 /* Activity.swift */,
+				9EFDA0921D8371A000FD6763 /* Walk.swift */,
+			);
+			name = Activities;
+			sourceTree = "<group>";
+		};
+		9EFDA0941D8371CE00FD6763 /* Linked frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */,
+				9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */,
+			);
+			name = "Linked frameworks";
+			sourceTree = "<group>";
+		};
+		9EFDA0D21D8372F100FD6763 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0D81D8372F100FD6763 /* CareKit.framework */,
+				9EFDA0DA1D8372F100FD6763 /* CareKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EFDA0E61D83730400FD6763 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */,
+				9EFDA0EE1D83730400FD6763 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EFDA04F1D8370F400FD6763 /* Bees Knees */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EFDA0781D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees Knees" */;
+			buildPhases = (
+				9EFDA04C1D8370F400FD6763 /* Sources */,
+				9EFDA04D1D8370F400FD6763 /* Frameworks */,
+				9EFDA04E1D8370F400FD6763 /* Resources */,
+				9EFDA0F31D83731800FD6763 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EFDA0F21D83731800FD6763 /* PBXTargetDependency */,
+				9EFDA0F71D83731D00FD6763 /* PBXTargetDependency */,
+			);
+			name = "Bees Knees";
+			productName = "Bees Knees";
+			productReference = 9EFDA0501D8370F400FD6763 /* Bees Knees.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9EFDA0631D8370F400FD6763 /* Bees KneesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EFDA07B1D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees KneesTests" */;
+			buildPhases = (
+				9EFDA0601D8370F400FD6763 /* Sources */,
+				9EFDA0611D8370F400FD6763 /* Frameworks */,
+				9EFDA0621D8370F400FD6763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EFDA0661D8370F400FD6763 /* PBXTargetDependency */,
+			);
+			name = "Bees KneesTests";
+			productName = "Bees KneesTests";
+			productReference = 9EFDA0641D8370F400FD6763 /* Bees KneesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9EFDA06E1D8370F400FD6763 /* Bees KneesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EFDA07E1D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees KneesUITests" */;
+			buildPhases = (
+				9EFDA06B1D8370F400FD6763 /* Sources */,
+				9EFDA06C1D8370F400FD6763 /* Frameworks */,
+				9EFDA06D1D8370F400FD6763 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EFDA0711D8370F400FD6763 /* PBXTargetDependency */,
+			);
+			name = "Bees KneesUITests";
+			productName = "Bees KneesUITests";
+			productReference = 9EFDA06F1D8370F400FD6763 /* Bees KneesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EFDA0481D8370F400FD6763 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sutter Health";
+				TargetAttributes = {
+					9EFDA04F1D8370F400FD6763 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					9EFDA0631D8370F400FD6763 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 9EFDA04F1D8370F400FD6763;
+					};
+					9EFDA06E1D8370F400FD6763 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 9EFDA04F1D8370F400FD6763;
+					};
+				};
+			};
+			buildConfigurationList = 9EFDA04B1D8370F400FD6763 /* Build configuration list for PBXProject "Bees Knees" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9EFDA0471D8370F400FD6763;
+			productRefGroup = 9EFDA0511D8370F400FD6763 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9EFDA0D21D8372F100FD6763 /* Products */;
+					ProjectRef = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 9EFDA0E61D83730400FD6763 /* Products */;
+					ProjectRef = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9EFDA04F1D8370F400FD6763 /* Bees Knees */,
+				9EFDA0631D8370F400FD6763 /* Bees KneesTests */,
+				9EFDA06E1D8370F400FD6763 /* Bees KneesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9EFDA0D81D8372F100FD6763 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = 9EFDA0D71D8372F100FD6763 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9EFDA0DA1D8372F100FD6763 /* CareKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CareKitTests.xctest;
+			remoteRef = 9EFDA0D91D8372F100FD6763 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 9EFDA0EB1D83730400FD6763 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9EFDA0EE1D83730400FD6763 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 9EFDA0ED1D83730400FD6763 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EFDA04E1D8370F400FD6763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
+				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
+				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA0621D8370F400FD6763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA06D1D8370F400FD6763 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EFDA04C1D8370F400FD6763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
+				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
+				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
+				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
+				9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */,
+				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
+				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
+				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
+				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA0601D8370F400FD6763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFDA0691D8370F400FD6763 /* Bees_KneesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFDA06B1D8370F400FD6763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFDA0741D8370F400FD6763 /* Bees_KneesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EFDA0661D8370F400FD6763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EFDA04F1D8370F400FD6763 /* Bees Knees */;
+			targetProxy = 9EFDA0651D8370F400FD6763 /* PBXContainerItemProxy */;
+		};
+		9EFDA0711D8370F400FD6763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EFDA04F1D8370F400FD6763 /* Bees Knees */;
+			targetProxy = 9EFDA0701D8370F400FD6763 /* PBXContainerItemProxy */;
+		};
+		9EFDA0F21D83731800FD6763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = 9EFDA0F11D83731800FD6763 /* PBXContainerItemProxy */;
+		};
+		9EFDA0F71D83731D00FD6763 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CareKit;
+			targetProxy = 9EFDA0F61D83731D00FD6763 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9EFDA0571D8370F400FD6763 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EFDA0581D8370F400FD6763 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9EFDA05C1D8370F400FD6763 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EFDA05D1D8370F400FD6763 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9EFDA0761D8370F400FD6763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9EFDA0771D8370F400FD6763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9EFDA0791D8370F400FD6763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "Bees Knees/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9EFDA07A1D8370F400FD6763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "Bees Knees/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9EFDA07C1D8370F400FD6763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Bees KneesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bees Knees.app/Bees Knees";
+			};
+			name = Debug;
+		};
+		9EFDA07D1D8370F400FD6763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Bees KneesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bees Knees.app/Bees Knees";
+			};
+			name = Release;
+		};
+		9EFDA07F1D8370F400FD6763 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Bees KneesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Bees Knees";
+			};
+			name = Debug;
+		};
+		9EFDA0801D8370F400FD6763 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Bees KneesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Bees Knees";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EFDA04B1D8370F400FD6763 /* Build configuration list for PBXProject "Bees Knees" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EFDA0761D8370F400FD6763 /* Debug */,
+				9EFDA0771D8370F400FD6763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EFDA0781D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees Knees" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EFDA0791D8370F400FD6763 /* Debug */,
+				9EFDA07A1D8370F400FD6763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EFDA07B1D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees KneesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EFDA07C1D8370F400FD6763 /* Debug */,
+				9EFDA07D1D8370F400FD6763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EFDA07E1D8370F400FD6763 /* Build configuration list for PBXNativeTarget "Bees KneesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EFDA07F1D8370F400FD6763 /* Debug */,
+				9EFDA0801D8370F400FD6763 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EFDA0481D8370F400FD6763 /* Project object */;
+}

@@ -1,6 +1,6 @@
 //
 //  RootViewController.swift
-//  BeesKnees
+//  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 8/18/16.
 //  Copyright © 2016 Sutter Health. All rights reserved.
@@ -79,15 +79,20 @@ class RootViewController: UITabBarController {
             UINavigationController(rootViewController: audioTaskViewController)
         ]
         
+        // Set the TabBar delegate
+        self.delegate = self;
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
         let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
         if(passcodeSet == false) {
             let passcodeViewController = ORKTaskViewController(task: PasscodeTask, taskRunUUID: nil)
+            passcodeViewController.
+            passcodeViewController.delegate = self
             self.presentViewController(passcodeViewController, animated: true, completion: nil)
         }
         
-        // Set the TabBar delegate
-        self.delegate = self;
     }
     
     private func createCareCardViewController() -> OCKCareCardViewController {
