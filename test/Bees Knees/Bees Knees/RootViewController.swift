@@ -88,7 +88,7 @@ class RootViewController: UITabBarController {
         let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
         if(passcodeSet == false) {
             let passcodeViewController = ORKTaskViewController(task: PasscodeTask, taskRunUUID: nil)
-            passcodeViewController.
+            //passcodeViewController.
             passcodeViewController.delegate = self
             self.presentViewController(passcodeViewController, animated: true, completion: nil)
         }
