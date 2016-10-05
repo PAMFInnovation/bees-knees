@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; };
+		9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
+		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -21,13 +25,51 @@
 		9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08E1D83718700FD6763 /* ConsentTask.swift */; };
 		9EFDA0911D83719500FD6763 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0901D83719500FD6763 /* Activity.swift */; };
 		9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0921D8371A000FD6763 /* Walk.swift */; };
-		9EFDA0EF1D83731800FD6763 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */; };
-		9EFDA0F01D83731800FD6763 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9EFDA0F41D83731D00FD6763 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0D81D8372F100FD6763 /* CareKit.framework */; };
-		9EFDA0F51D83731D00FD6763 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFDA0D81D8372F100FD6763 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9E0C95A21DA5536300DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		9E0C95A41DA5536300DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		9E0C95AC1DA5536C00DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
+		9E0C95AE1DA5536C00DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
+			remoteInfo = CareKitTests;
+		};
+		9E0C95B21DA5538A00DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		9E0C95B61DA5539200DD9254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
 		9EFDA0651D8370F400FD6763 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9EFDA0481D8370F400FD6763 /* Project object */;
@@ -42,48 +84,6 @@
 			remoteGlobalIDString = 9EFDA04F1D8370F400FD6763;
 			remoteInfo = "Bees Knees";
 		};
-		9EFDA0D71D8372F100FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
-			remoteInfo = CareKit;
-		};
-		9EFDA0D91D8372F100FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
-			remoteInfo = CareKitTests;
-		};
-		9EFDA0EB1D83730400FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B183A5951A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		9EFDA0ED1D83730400FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
-		};
-		9EFDA0F11D83731800FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B183A4731A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		9EFDA0F61D83731D00FD6763 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
-			remoteInfo = CareKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,8 +93,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9EFDA0F51D83731D00FD6763 /* CareKit.framework in Embed Frameworks */,
-				9EFDA0F01D83731800FD6763 /* ResearchKit.framework in Embed Frameworks */,
+				9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */,
+				9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +102,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -122,8 +124,6 @@
 		9EFDA08E1D83718700FD6763 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		9EFDA0901D83719500FD6763 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		9EFDA0921D8371A000FD6763 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
-		9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../../../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
-		9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EFDA0F41D83731D00FD6763 /* CareKit.framework in Frameworks */,
-				9EFDA0EF1D83731800FD6763 /* ResearchKit.framework in Frameworks */,
+				9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */,
+				9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +153,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E0C959D1DA5536300DD9254 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C95A31DA5536300DD9254 /* ResearchKit.framework */,
+				9E0C95A51DA5536300DD9254 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E0C95A71DA5536C00DD9254 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E0C95AD1DA5536C00DD9254 /* CareKit.framework */,
+				9E0C95AF1DA5536C00DD9254 /* CareKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9EFDA0471D8370F400FD6763 = {
 			isa = PBXGroup;
 			children = (
@@ -255,28 +273,10 @@
 		9EFDA0941D8371CE00FD6763 /* Linked frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */,
-				9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */,
+				9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */,
+				9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */,
 			);
 			name = "Linked frameworks";
-			sourceTree = "<group>";
-		};
-		9EFDA0D21D8372F100FD6763 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9EFDA0D81D8372F100FD6763 /* CareKit.framework */,
-				9EFDA0DA1D8372F100FD6763 /* CareKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9EFDA0E61D83730400FD6763 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */,
-				9EFDA0EE1D83730400FD6763 /* ResearchKitTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,8 +294,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				9EFDA0F21D83731800FD6763 /* PBXTargetDependency */,
-				9EFDA0F71D83731D00FD6763 /* PBXTargetDependency */,
+				9E0C95B31DA5538A00DD9254 /* PBXTargetDependency */,
+				9E0C95B71DA5539200DD9254 /* PBXTargetDependency */,
 			);
 			name = "Bees Knees";
 			productName = "Bees Knees";
@@ -350,13 +350,16 @@
 				TargetAttributes = {
 					9EFDA04F1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					9EFDA0631D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 9EFDA04F1D8370F400FD6763;
 					};
 					9EFDA06E1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 9EFDA04F1D8370F400FD6763;
 					};
 				};
@@ -374,12 +377,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9EFDA0D21D8372F100FD6763 /* Products */;
-					ProjectRef = 9EFDA0D11D8372F100FD6763 /* CareKit.xcodeproj */;
+					ProductGroup = 9E0C95A71DA5536C00DD9254 /* Products */;
+					ProjectRef = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 9EFDA0E61D83730400FD6763 /* Products */;
-					ProjectRef = 9EFDA0E51D83730400FD6763 /* ResearchKit.xcodeproj */;
+					ProductGroup = 9E0C959D1DA5536300DD9254 /* Products */;
+					ProjectRef = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -392,32 +395,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9EFDA0D81D8372F100FD6763 /* CareKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CareKit.framework;
-			remoteRef = 9EFDA0D71D8372F100FD6763 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9EFDA0DA1D8372F100FD6763 /* CareKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CareKitTests.xctest;
-			remoteRef = 9EFDA0D91D8372F100FD6763 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9EFDA0EC1D83730400FD6763 /* ResearchKit.framework */ = {
+		9E0C95A31DA5536300DD9254 /* ResearchKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ResearchKit.framework;
-			remoteRef = 9EFDA0EB1D83730400FD6763 /* PBXContainerItemProxy */;
+			remoteRef = 9E0C95A21DA5536300DD9254 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9EFDA0EE1D83730400FD6763 /* ResearchKitTests.xctest */ = {
+		9E0C95A51DA5536300DD9254 /* ResearchKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
-			remoteRef = 9EFDA0ED1D83730400FD6763 /* PBXContainerItemProxy */;
+			remoteRef = 9E0C95A41DA5536300DD9254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E0C95AD1DA5536C00DD9254 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = 9E0C95AC1DA5536C00DD9254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E0C95AF1DA5536C00DD9254 /* CareKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CareKitTests.xctest;
+			remoteRef = 9E0C95AE1DA5536C00DD9254 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -485,6 +488,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9E0C95B31DA5538A00DD9254 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = 9E0C95B21DA5538A00DD9254 /* PBXContainerItemProxy */;
+		};
+		9E0C95B71DA5539200DD9254 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CareKit;
+			targetProxy = 9E0C95B61DA5539200DD9254 /* PBXContainerItemProxy */;
+		};
 		9EFDA0661D8370F400FD6763 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9EFDA04F1D8370F400FD6763 /* Bees Knees */;
@@ -494,16 +507,6 @@
 			isa = PBXTargetDependency;
 			target = 9EFDA04F1D8370F400FD6763 /* Bees Knees */;
 			targetProxy = 9EFDA0701D8370F400FD6763 /* PBXContainerItemProxy */;
-		};
-		9EFDA0F21D83731800FD6763 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ResearchKit;
-			targetProxy = 9EFDA0F11D83731800FD6763 /* PBXContainerItemProxy */;
-		};
-		9EFDA0F71D83731D00FD6763 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CareKit;
-			targetProxy = 9EFDA0F61D83731D00FD6763 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -615,24 +618,28 @@
 		9EFDA0791D8370F400FD6763 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		9EFDA07A1D8370F400FD6763 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -644,6 +651,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bees Knees.app/Bees Knees";
 			};
 			name = Debug;
@@ -656,6 +664,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bees Knees.app/Bees Knees";
 			};
 			name = Release;
@@ -667,6 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Bees Knees";
 			};
 			name = Debug;
@@ -678,6 +688,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-KneesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Bees Knees";
 			};
 			name = Release;

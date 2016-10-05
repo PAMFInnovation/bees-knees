@@ -17,7 +17,7 @@ public var PasscodeTask: ORKOrderedTask {
     steps += [welcomeStep]
     
     let passcodeStep = ORKPasscodeStep(identifier: "passcodeStep");
-    passcodeStep.passcodeType = ORKPasscodeType.Type6Digit;
+    passcodeStep.passcodeType = ORKPasscodeType.type6Digit;
     steps += [passcodeStep];
     
     let summaryStep = ORKCompletionStep(identifier: "summaryStep")

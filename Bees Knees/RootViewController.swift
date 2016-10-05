@@ -1,6 +1,6 @@
 //
 //  RootViewController.swift
-//  BeesKnees
+//  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 8/18/16.
 //  Copyright © 2016 Sutter Health. All rights reserved.
@@ -28,17 +28,17 @@ class RootViewController: UITabBarController {
     private var audioTaskViewController: ORKTaskViewController!
     
     // View to proceed to once passcode is successful
-    private var viewBehindPasscode: UIViewController?
+    fileprivate var viewBehindPasscode: UIViewController?
     
     
     required init?(coder aDecoder: NSCoder) {
         // Set the directory URL where we'll store the care plan store
-        let searchPaths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
+        let searchPaths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         let applicationSupportPath = searchPaths[0]
-        let persistentDirectoryURL = NSURL(fileURLWithPath: applicationSupportPath)
+        let persistentDirectoryURL = URL(fileURLWithPath: applicationSupportPath)
         
-        if !NSFileManager.defaultManager().fileExistsAtPath(persistentDirectoryURL.absoluteString, isDirectory: nil) {
-            try! NSFileManager.defaultManager().createDirectoryAtURL(persistentDirectoryURL, withIntermediateDirectories: true, attributes: nil)
+        if !FileManager.default.fileExists(atPath: persistentDirectoryURL.absoluteString, isDirectory: nil) {
+            try! FileManager.default.createDirectory(at: persistentDirectoryURL, withIntermediateDirectories: true, attributes: nil)
         }
         
         // Create the care plan store
@@ -56,7 +56,7 @@ class RootViewController: UITabBarController {
         for activity in activities {
             let carePlanActivity = activity.carePlanActivity()
             
-            store.addActivity(carePlanActivity) { success, error in
+            store.add(carePlanActivity) { success, error in
                 if !success {
                     print(error?.localizedDescription)
                 }
@@ -79,18 +79,22 @@ class RootViewController: UITabBarController {
             UINavigationController(rootViewController: audioTaskViewController)
         ]
         
-        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
-        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
-        if(passcodeSet == false) {
-            let passcodeViewController = ORKTaskViewController(task: PasscodeTask, taskRunUUID: nil)
-            self.presentViewController(passcodeViewController, animated: true, completion: nil)
-        }
-        
         // Set the TabBar delegate
         self.delegate = self;
     }
     
-    private func createCareCardViewController() -> OCKCareCardViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
+        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
+        if(passcodeSet == false) {
+            //let passcodeViewController = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
+            //passcodeViewController.delegate = self
+            //self.present(passcodeViewController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    fileprivate func createCareCardViewController() -> OCKCareCardViewController {
         let viewController = OCKCareCardViewController(carePlanStore: store)
         
         viewController.title = NSLocalizedString("Care Card", comment: "")
@@ -99,7 +103,7 @@ class RootViewController: UITabBarController {
         return viewController
     }
     
-    private func createSymptomTrackerViewController() -> OCKSymptomTrackerViewController {
+    fileprivate func createSymptomTrackerViewController() -> OCKSymptomTrackerViewController {
         let viewController = OCKSymptomTrackerViewController(carePlanStore: store)
         //viewController.delegate = self
         
@@ -109,8 +113,8 @@ class RootViewController: UITabBarController {
         return viewController
     }
     
-    private func createConsentTaskViewController() -> ORKTaskViewController {
-        let viewController = ORKTaskViewController(task: ConsentTask, taskRunUUID: nil)
+    fileprivate func createConsentTaskViewController() -> ORKTaskViewController {
+        let viewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         viewController.delegate = self;
         
         viewController.title = NSLocalizedString("Consent", comment: "")
@@ -119,8 +123,8 @@ class RootViewController: UITabBarController {
         return viewController
     }
     
-    private func createSurveyTaskViewController() -> ORKTaskViewController {
-        let viewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
+    fileprivate func createSurveyTaskViewController() -> ORKTaskViewController {
+        let viewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
         viewController.delegate = self;
         
         viewController.title = NSLocalizedString("Survey", comment: "")
@@ -129,9 +133,9 @@ class RootViewController: UITabBarController {
         return viewController
     }
     
-    private func createAudioTaskViewController() -> ORKTaskViewController {
-        let viewController = ORKTaskViewController(task: MicrophoneTask, taskRunUUID: nil)
-        viewController.outputDirectory = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0], isDirectory: true)
+    fileprivate func createAudioTaskViewController() -> ORKTaskViewController {
+        let viewController = ORKTaskViewController(task: MicrophoneTask, taskRun: nil)
+        viewController.outputDirectory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], isDirectory: true)
         
         viewController.title = NSLocalizedString("Audio", comment: "")
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named: "insights"), selectedImage: UIImage(named: "insights-filled"))
@@ -142,31 +146,31 @@ class RootViewController: UITabBarController {
     
     // MARK: Helpers
     
-    private func _clearStore() {
-        let deleteGroup = dispatch_group_create()
+    fileprivate func _clearStore() {
+        let deleteGroup = DispatchGroup()
         let store = self.store
         
-        dispatch_group_enter(deleteGroup)
-        store.activitiesWithCompletion { (success, activities, errorOrNil) in
+        deleteGroup.enter()
+        store.activities { (success, activities, errorOrNil) in
             guard success else {
                 fatalError(errorOrNil!.localizedDescription)
             }
             
             for activity in activities {
-                dispatch_group_enter(deleteGroup)
-                store.removeActivity(activity) { (success, error) -> Void in
+                deleteGroup.enter()
+                store.remove(activity) { (success, error) -> Void in
                     guard success else {
                         fatalError("*** An error occurred: \(error!.localizedDescription)")
                     }
-                    dispatch_group_leave(deleteGroup)
+                    deleteGroup.leave()
                 }
             }
             
-            dispatch_group_leave(deleteGroup)
+            deleteGroup.leave()
         }
         
         // Wait until all the asynchronous calls are done
-        dispatch_group_wait(deleteGroup, DISPATCH_TIME_FOREVER)
+        deleteGroup.wait(timeout: DispatchTime.distantFuture)
         
         // Clear the passcode
         ORKPasscodeViewController.removePasscodeFromKeychain()
@@ -174,21 +178,21 @@ class RootViewController: UITabBarController {
 }
 
 extension RootViewController : ORKTaskViewControllerDelegate {
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        taskViewController.dismiss(animated: true, completion: nil)
     }
 }
 
 extension RootViewController : UITabBarControllerDelegate {
-    func tabBarController(tabBarControlfler: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+    func tabBarController(_ tabBarControlfler: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         // Check for Audio Tab and show Passcode if necessary
         let showPasscode = viewController.title?.localizedCompare("Audio").rawValue == 0
         if(showPasscode) {
             viewBehindPasscode = viewController
             
-            let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewControllerWithText("Required to access sensitive information.", delegate: self)
+            let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Required to access sensitive information.", delegate: self)
             
-            self.presentViewController(passcodeViewController, animated: true, completion: nil)
+            self.present(passcodeViewController, animated: true, completion: nil)
             return false
         }
         
@@ -198,15 +202,15 @@ extension RootViewController : UITabBarControllerDelegate {
 }
 
 extension RootViewController : ORKPasscodeDelegate {
-    func passcodeViewControllerDidFinishWithSuccess(viewController: UIViewController) {
+    func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
         self.selectedViewController = viewBehindPasscode
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+        viewController.dismiss(animated: true, completion: nil)
     }
     
-    func passcodeViewControllerDidFailAuthentication(viewController: UIViewController) {
+    func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
     }
     
-    func passcodeViewControllerDidCancel(viewController: UIViewController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+    func passcodeViewControllerDidCancel(_ viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

@@ -1,15 +1,15 @@
 //
-//  BeesKneesTests.swift
-//  BeesKneesTests
+//  Bees_KneesTests.swift
+//  Bees KneesTests
 //
-//  Created by Ben Dapkiewicz on 8/18/16.
+//  Created by Ben Dapkiewicz on 9/9/16.
 //  Copyright © 2016 Sutter Health. All rights reserved.
 //
 
 import XCTest
-@testable import BeesKnees
+@testable import Bees_Knees
 
-class BeesKneesTests: XCTestCase {
+class Bees_KneesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -28,7 +28,7 @@ class BeesKneesTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
