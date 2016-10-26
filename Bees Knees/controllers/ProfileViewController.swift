@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol ProfileNextDelegate: class {
-    func buttonPressed(sender: ProfileViewController)
+    func profileNextButtonPressed(sender: ProfileViewController)
 }
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
@@ -62,6 +62,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardDoneButton()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Unregister from keyboard events
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
@@ -92,7 +101,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         ProfileManager.sharedInstance.phone = phoneField.text!
         
         // Trigger the delegate
-        delegate?.buttonPressed(sender: self)
+        delegate?.profileNextButtonPressed(sender: self)
     }
     
     

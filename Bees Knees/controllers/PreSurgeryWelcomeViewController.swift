@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol PreSurgeryWelcomeNextDelegate: class {
-    func buttonPressed(sender: PreSurgeryWelcomeViewController)
+    func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController)
 }
 
 class PreSurgeryWelcomeViewController: UIViewController {
@@ -51,6 +51,15 @@ class PreSurgeryWelcomeViewController: UIViewController {
         self.hideKeyboardDoneButton()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Unregister from keyboard events
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -84,7 +93,7 @@ class PreSurgeryWelcomeViewController: UIViewController {
         ProfileManager.sharedInstance.goal = goalTextArea.text
         
         // Trigger the delegate
-        delegate?.buttonPressed(sender: self)
+        delegate?.preSurgeryNextButtonPressed(sender: self)
     }
     
     
