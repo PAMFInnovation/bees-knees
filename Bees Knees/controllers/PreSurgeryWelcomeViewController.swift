@@ -9,17 +9,23 @@
 import UIKit
 
 
-protocol PreSurgeryWelcomeNextDelegate: class {
+protocol PreSurgeryWelcomeDelegate: class {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController)
 }
 
-class PreSurgeryWelcomeViewController: UIViewController {
+class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var goalTextArea: UITextView!
-    @IBOutlet weak var keyboardDoneButton: UIButton!
+    @IBOutlet weak var goalTextField: UITextField!
     
-    weak var delegate: PreSurgeryWelcomeNextDelegate?
+    // Next button delegate
+    weak var delegate: PreSurgeryWelcomeDelegate?
+    
+    // Keep track of the observed UI item in case we need to make it visible via scrolling
+    var activeElement: UIControl?
+    
+    // Keep default edge insets for when we need to reset scrolling
+    var defaultScrollInsets: UIEdgeInsets?
     
     
     // MARK: - Initialization
@@ -46,9 +52,6 @@ class PreSurgeryWelcomeViewController: UIViewController {
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardOnScreen), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        // Only show the keyboard done button when the keyboard is enabled
-        self.hideKeyboardDoneButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,39 +66,25 @@ class PreSurgeryWelcomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // Set the initial scroll view size
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 300)
+        // Set the initial scroll view size and insets
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 150)
+        defaultScrollInsets = scrollView.contentInset
         // An interactively-dismissed keyboard will dismiss when the user scrolls
         scrollView.keyboardDismissMode = .interactive
     }
     
     
-    // MARK: - Helper functions
-    func showKeyboardDoneButton() {
-        keyboardDoneButton.isHidden = false
-    }
-    
-    func hideKeyboardDoneButton() {
-        keyboardDoneButton.isHidden = true
-    }
-    
-    
     // MARK: - UI buttons
-    @IBAction func closeKeyboard(_ sender: UIButton) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         // Close the keyboard for good measure
         self.view.endEditing(true)
         
         // Save the goal text
-        ProfileManager.sharedInstance.goal = goalTextArea.text
+        ProfileManager.sharedInstance.goal = goalTextField.text!
         
         // Trigger the delegate
         delegate?.preSurgeryNextButtonPressed(sender: self)
     }
-    
     
     
     // MARK: - Keyboard events
@@ -105,7 +94,8 @@ class PreSurgeryWelcomeViewController: UIViewController {
         let kbSize = (info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as? NSValue)?.cgRectValue.size
         
         // Set the content insets of the scroll view using the keyboard's height
-        let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbSize!.height, 0.0)
+        var contentInsets:UIEdgeInsets = defaultScrollInsets!
+        contentInsets.bottom += kbSize!.height
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         
@@ -117,26 +107,32 @@ class PreSurgeryWelcomeViewController: UIViewController {
         // Convert the text view's center to the root view's coordinate system
         // We need to do this because we are checking the absolute position of
         // the text area against the screen bounds
-        let textAreaCenter: CGPoint = CGPoint(x: goalTextArea.frame.midX, y: goalTextArea.frame.midY)
-        let convertedPoint: CGPoint = (goalTextArea.superview?.convert(textAreaCenter, to: self.view))!
+        let textAreaCenter: CGPoint = CGPoint(x: activeElement!.frame.midX, y: activeElement!.frame.midY)
+        let convertedPoint: CGPoint = (activeElement!.superview?.convert(textAreaCenter, to: self.view))!
         
         // If the visible space does not contain the converted point, we need to scroll it in view
         if (!aRect.contains(convertedPoint)) {
             let scrollPoint:CGPoint = CGPoint(x: 0.0, y: scrollView.contentOffset.y + convertedPoint.y - kbSize!.height)
             scrollView.setContentOffset(scrollPoint, animated: true)
         }
-        
-        // Show the keyboard done button
-        self.showKeyboardDoneButton()
     }
     
     public func keyboardOffScreen(notification: NSNotification) {
         // Reset the scroll view insets
-        let contentInsets:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        scrollView.contentInset = defaultScrollInsets!
+        scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
+    
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeElement = textField
         
-        // Hide the keyboard done button
-        self.hideKeyboardDoneButton()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }

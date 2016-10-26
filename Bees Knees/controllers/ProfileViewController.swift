@@ -9,23 +9,25 @@
 import UIKit
 
 
-protocol ProfileNextDelegate: class {
+protocol ProfileDelegate: class {
     func profileNextButtonPressed(sender: ProfileViewController)
 }
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var keyboardDoneButton: UIButton!
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     
     // Next button delegate
-    weak var delegate: ProfileNextDelegate?
+    weak var delegate: ProfileDelegate?
     
     // Keep track of the observed UI item in case we need to make it visible via scrolling
     var activeElement: UIControl?
+    
+    // Keep default edge insets for when we need to reset scrolling
+    var defaultScrollInsets: UIEdgeInsets?
     
     
     // MARK: - Initialization
@@ -57,9 +59,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardOnScreen), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        // Only show the keyboard done button when the keyboard is enabled
-        self.hideKeyboardDoneButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,24 +72,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    }
-    
-    
-    // MARK: - Helper functions
-    func showKeyboardDoneButton() {
-        keyboardDoneButton.isHidden = false
-    }
-    
-    func hideKeyboardDoneButton() {
-        keyboardDoneButton.isHidden = true
+        
+        // Set default scroll insets
+        defaultScrollInsets = scrollView.contentInset
+        
+        // An interactively-dismissed keyboard will dismiss when the user scrolls
+        scrollView.keyboardDismissMode = .interactive
     }
     
     
     // MARK: - UI buttons
-    @IBAction func closeKeyboard(_ sender: UIButton) {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         // Close the keyboard for good measure
         self.view.endEditing(true)
@@ -112,7 +103,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let kbSize = (info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as? NSValue)?.cgRectValue.size
         
         // Set the content insets of the scroll view using the keyboard's height
-        let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbSize!.height, 0.0)
+        var contentInsets:UIEdgeInsets = defaultScrollInsets!
+        contentInsets.bottom += kbSize!.height
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
         
@@ -132,19 +124,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             let scrollPoint:CGPoint = CGPoint(x: 0.0, y: self.scrollView.contentOffset.y + convertedPoint.y - kbSize!.height)
             self.scrollView.setContentOffset(scrollPoint, animated: true)
         }
-        
-        // Show the keyboard done button
-        self.showKeyboardDoneButton()
     }
     
     public func keyboardOffScreen(notification: NSNotification) {
         // Reset the scroll view insets
-        let contentInsets:UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        // Hide the keyboard done button
-        self.hideKeyboardDoneButton()
+        scrollView.contentInset = defaultScrollInsets!
+        scrollView.scrollIndicatorInsets = defaultScrollInsets!
     }
     
     

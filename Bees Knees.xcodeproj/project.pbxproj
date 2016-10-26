@@ -18,6 +18,8 @@
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
 		9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */; };
+		9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */; };
+		9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -118,6 +120,8 @@
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
 		9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = controllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryTransitionInterface.xib; path = interfaces/PreSurgeryTransitionInterface.xib; sourceTree = "<group>"; };
+		9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryTransitionViewController.swift; path = controllers/PreSurgeryTransitionViewController.swift; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */,
 				9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */,
+				9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			children = (
 				9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */,
 				9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */,
+				9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */,
 			);
 			name = interfaces;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
+				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +524,7 @@
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
+				9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
 				9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */,

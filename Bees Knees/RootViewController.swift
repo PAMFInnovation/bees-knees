@@ -13,6 +13,7 @@ class RootViewController: UINavigationController {
     
     var preSurgeryWelcomeVC: PreSurgeryWelcomeViewController!
     var profileVC: ProfileViewController!
+    var preSurgeryTransitionVC: PreSurgeryTransitionViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +28,11 @@ class RootViewController: UINavigationController {
         profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
         profileVC.title = NSLocalizedString("Profile", comment: "")
         profileVC.delegate = self
+        
+        // Create the PreSurgery Transition VC
+        preSurgeryTransitionVC = PreSurgeryTransitionViewController(nibName: "PreSurgeryTransitionInterface", bundle: nil)
+        preSurgeryTransitionVC.title = NSLocalizedString("Pre-Surgery", comment: "")
+        preSurgeryTransitionVC.delegate = self
         
         // Set the view controllers
         self.viewControllers = [
@@ -43,15 +49,26 @@ class RootViewController: UINavigationController {
     }
 }
 
-extension RootViewController: PreSurgeryWelcomeNextDelegate {
+extension RootViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the profile view
         self.pushViewController(profileVC, animated: true)
     }
 }
 
-extension RootViewController: ProfileNextDelegate {
+extension RootViewController: ProfileDelegate {
     func profileNextButtonPressed(sender: ProfileViewController) {
-        print("profile button pressed")
+        // Navigate to the transition view
+        self.pushViewController(preSurgeryTransitionVC, animated: true)
+    }
+}
+
+extension RootViewController: PreSurgeryTransitionDelegate {
+    func setSurgeryButtonPressed(sender: PreSurgeryTransitionViewController) {
+        print("set surgery button")
+    }
+    
+    func goToCareCardButtonPressed(sender: PreSurgeryTransitionViewController) {
+        print("go to care card")
     }
 }
