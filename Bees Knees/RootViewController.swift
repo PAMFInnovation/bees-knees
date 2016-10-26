@@ -12,6 +12,7 @@ import UIKit
 class RootViewController: UIViewController {
     
     var preSurgeryWelcomeVC: PreSurgeryWelcomeViewController!
+    var profileVC: ProfileViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,6 +21,9 @@ class RootViewController: UIViewController {
         // Create the PreSurgery Welcome VC and establish the delegate
         preSurgeryWelcomeVC = PreSurgeryWelcomeViewController(nibName: "PreSurgeryWelcomeInterface", bundle: nil)
         preSurgeryWelcomeVC.delegate = self
+        
+        // Create the Profile VC
+        profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -29,8 +33,13 @@ class RootViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Add the PreSurgery Welcome
         self.addChildViewController(preSurgeryWelcomeVC)
         self.view.addSubview(preSurgeryWelcomeVC.view)
+        
+        // Add the Profile
+        self.addChildViewController(profileVC)
+        self.view.addSubview(profileVC.view)
     }
 }
 

@@ -1,25 +1,31 @@
 //
-//  PreSurgeryWelcomeViewController.swift
+//  ProfileViewController.swift
 //  Bees Knees
 //
-//  Created by Ben Dapkiewicz on 10/20/16.
+//  Created by Ben Dapkiewicz on 10/26/16.
 //  Copyright © 2016 Sutter Health. All rights reserved.
 //
 
 import UIKit
 
 
-protocol PreSurgeryWelcomeNextDelegate: class {
-    func buttonPressed(sender: PreSurgeryWelcomeViewController)
+protocol ProfileNextDelegate: class {
+    func buttonPressed(sender: ProfileViewController)
 }
 
-class PreSurgeryWelcomeViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var goalTextArea: UITextView!
     @IBOutlet weak var keyboardDoneButton: UIButton!
+    @IBOutlet weak var fullNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var phoneField: UITextField!
     
-    weak var delegate: PreSurgeryWelcomeNextDelegate?
+    // Next button delegate
+    weak var delegate: ProfileNextDelegate?
+    
+    // Keep track of the observed UI item in case we need to make it visible via scrolling
+    var activeElement: UIControl?
     
     
     // MARK: - Initialization
@@ -53,11 +59,6 @@ class PreSurgeryWelcomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        // Set the initial scroll view size
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 300)
-        // An interactively-dismissed keyboard will dismiss when the user scrolls
-        scrollView.keyboardDismissMode = .interactive
     }
     
     
@@ -80,13 +81,14 @@ class PreSurgeryWelcomeViewController: UIViewController {
         // Close the keyboard for good measure
         self.view.endEditing(true)
         
-        // Save the goal text
-        ProfileManager.sharedInstance.goal = goalTextArea.text
+        // Save the profile data
+        ProfileManager.sharedInstance.name = fullNameField.text!
+        ProfileManager.sharedInstance.email = emailField.text!
+        ProfileManager.sharedInstance.phone = phoneField.text!
         
         // Trigger the delegate
         delegate?.buttonPressed(sender: self)
     }
-    
     
     
     // MARK: - Keyboard events
@@ -97,8 +99,8 @@ class PreSurgeryWelcomeViewController: UIViewController {
         
         // Set the content insets of the scroll view using the keyboard's height
         let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbSize!.height, 0.0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
         
         //--- If the text area collides with the keyboard, we need to move it in view ---//
         // Get the bounds of the view that we can see, excluding the space occupied by the keyboard
@@ -108,13 +110,13 @@ class PreSurgeryWelcomeViewController: UIViewController {
         // Convert the text view's center to the root view's coordinate system
         // We need to do this because we are checking the absolute position of
         // the text area against the screen bounds
-        let textAreaCenter: CGPoint = CGPoint(x: goalTextArea.frame.midX, y: goalTextArea.frame.midY)
-        let convertedPoint: CGPoint = (goalTextArea.superview?.convert(textAreaCenter, to: self.view))!
+        let textAreaCenter: CGPoint = CGPoint(x: (self.activeElement?.frame.midX)!, y: (self.activeElement?.frame.midY)!)
+        let convertedPoint: CGPoint = (self.activeElement?.superview?.convert(textAreaCenter, to: self.view))!
         
         // If the visible space does not contain the converted point, we need to scroll it in view
         if (!aRect.contains(convertedPoint)) {
-            let scrollPoint:CGPoint = CGPoint(x: 0.0, y: scrollView.contentOffset.y + convertedPoint.y - kbSize!.height)
-            scrollView.setContentOffset(scrollPoint, animated: true)
+            let scrollPoint:CGPoint = CGPoint(x: 0.0, y: self.scrollView.contentOffset.y + convertedPoint.y - kbSize!.height)
+            self.scrollView.setContentOffset(scrollPoint, animated: true)
         }
         
         // Show the keyboard done button
@@ -129,5 +131,18 @@ class PreSurgeryWelcomeViewController: UIViewController {
         
         // Hide the keyboard done button
         self.hideKeyboardDoneButton()
+    }
+    
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeElement = textField
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }

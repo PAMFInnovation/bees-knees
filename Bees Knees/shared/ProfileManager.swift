@@ -15,8 +15,7 @@ class ProfileManager {
     private init() {}
     
     // Personal data
-    var firstName: String = ""
-    var lastName: String = ""
+    var name: String = ""
     var email: String = ""
     var phone: String = ""
     
