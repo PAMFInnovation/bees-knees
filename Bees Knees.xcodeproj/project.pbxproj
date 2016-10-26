@@ -13,7 +13,6 @@
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
 		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
-		9E17D3A81DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
@@ -114,7 +113,6 @@
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
 		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeView.swift; path = views/PreSurgeryWelcomeView.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		9E17D3A61DB94E540072CDC1 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
-				9E17D3A81DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,

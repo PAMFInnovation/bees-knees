@@ -39,7 +39,7 @@ class RootViewController: UIViewController {
         
         // Add the Profile
         self.addChildViewController(profileVC)
-        self.view.addSubview(profileVC.view)
+        //self.view.addSubview(profileVC.view)
     }
 }
 
