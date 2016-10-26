@@ -11,6 +11,13 @@
 		9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
+		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
+		9E17D3A81DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */; };
+		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
+		9E8D2B2B1DBFD6C200454093 /* PreSurgeryWelcomeInterface2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E8D2B2A1DBFD6C200454093 /* PreSurgeryWelcomeInterface2.xib */; };
+		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
+		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -104,6 +111,13 @@
 /* Begin PBXFileReference section */
 		9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
+		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
+		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeView.swift; path = views/PreSurgeryWelcomeView.swift; sourceTree = "<group>"; };
+		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
+		9E8D2B2A1DBFD6C200454093 /* PreSurgeryWelcomeInterface2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface2.xib; path = interfaces/PreSurgeryWelcomeInterface2.xib; sourceTree = "<group>"; };
+		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
+		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +185,40 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9E17D3A51DB942960072CDC1 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		9E17D3A61DB94E540072CDC1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9E17D3A71DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		9E17D3A91DBEB0D60072CDC1 /* interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				9E8D2B2A1DBFD6C200454093 /* PreSurgeryWelcomeInterface2.xib */,
+				9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */,
+			);
+			name = interfaces;
+			sourceTree = "<group>";
+		};
+		9EB5FC3F1DC110F600F9A53E /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				9EB5FC401DC1111300F9A53E /* HighlightButton.swift */,
+				9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */,
+			);
+			name = shared;
+			sourceTree = "<group>";
+		};
 		9EFDA0471D8370F400FD6763 = {
 			isa = PBXGroup;
 			children = (
@@ -195,12 +243,17 @@
 		9EFDA0521D8370F400FD6763 /* Bees Knees */ = {
 			isa = PBXGroup;
 			children = (
+				9E17D3A91DBEB0D60072CDC1 /* interfaces */,
+				9E17D3A51DB942960072CDC1 /* controllers */,
+				9E17D3A61DB94E540072CDC1 /* views */,
+				9EB5FC3F1DC110F600F9A53E /* shared */,
 				9EFDA0811D83710700FD6763 /* Passcode */,
 				9EFDA0821D83710D00FD6763 /* Tasks */,
 				9EFDA0831D83711100FD6763 /* Survey */,
 				9EFDA0841D83711600FD6763 /* Consent */,
 				9EFDA0851D83711A00FD6763 /* Activities */,
 				9EFDA0531D8370F400FD6763 /* AppDelegate.swift */,
+				9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */,
 				9EFDA0551D8370F400FD6763 /* RootViewController.swift */,
 				9EFDA0571D8370F400FD6763 /* Main.storyboard */,
 				9EFDA05A1D8370F400FD6763 /* Assets.xcassets */,
@@ -350,6 +403,7 @@
 				TargetAttributes = {
 					9EFDA04F1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ADEZZWZJT8;
 						LastSwiftMigration = 0800;
 					};
 					9EFDA0631D8370F400FD6763 = {
@@ -430,8 +484,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
+				9E8D2B2B1DBFD6C200454093 /* PreSurgeryWelcomeInterface2.xib in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,14 +514,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
+				9E17D3A81DB94EB70072CDC1 /* PreSurgeryWelcomeView.swift in Sources */,
+				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
+				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
 				9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
+				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
+				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +681,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ADEZZWZJT8;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -634,6 +696,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ADEZZWZJT8;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
