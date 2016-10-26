@@ -43,6 +43,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set text fields using data stored in ProfileManager singleton
+        fullNameField.text = ProfileManager.sharedInstance.name
+        emailField.text = ProfileManager.sharedInstance.email
+        phoneField.text = ProfileManager.sharedInstance.phone
     }
     
     override func viewWillAppear(_ animated: Bool) {
