@@ -51,6 +51,9 @@ class RootViewController: UINavigationController {
         self.viewControllers = [
             preSurgeryWelcomeVC
         ]
+        
+        // TESTING - clear passcode for testing
+        ORKPasscodeViewController.removePasscodeFromKeychain()
     }
     
     override func viewDidLoad() {
@@ -66,53 +69,72 @@ extension RootViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the consent view
         self.pushViewController(consentTVC, animated: true)
+        
+        // TESTING to skip consent for expediency
+        //self.pushViewController(profileVC, animated: true)
     }
 }
 
 extension RootViewController: ORKTaskViewControllerDelegate {
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        // Set the first and last name of the consent view in our ProfileManager singleton
-        if reason == .completed {
-            let result = taskViewController.result.results?[1] as! ORKStepResult
-            let signatureResult = result.results?[0] as! ORKConsentSignatureResult
-            let firstName = signatureResult.signature?.givenName
-            let lastName = signatureResult.signature?.familyName
+        // If Consent, set the first and last name in our ProfileManager singleton
+        if taskViewController.title?.localizedCompare("Consent").rawValue == 0 {
+            if reason == .completed {
+                let result = taskViewController.result.results?[1] as! ORKStepResult
+                let signatureResult = result.results?[0] as! ORKConsentSignatureResult
+                let firstName = signatureResult.signature?.givenName
+                let lastName = signatureResult.signature?.familyName
+                
+                // Set the values in the singleton
+                ProfileManager.sharedInstance.name = firstName! + " " + lastName!
+            }
             
-            // Set the values in the singleton
-            ProfileManager.sharedInstance.name = firstName! + " " + lastName!
+            // Navigate to the profile view
+            self.pushViewController(profileVC, animated: true)
         }
-        
-        // Navigate to the profile view
-        self.pushViewController(profileVC, animated: true)
+        // If Passcode, navigate to the transition view
+        else if taskViewController.title?.localizedCompare("Protect").rawValue == 0 {
+            let _self = self
+            // Dismiss the passcode
+            taskViewController.dismiss(animated: true, completion: {
+                // Navigate to the transition view
+                _self.pushViewController(_self.preSurgeryTransitionVC, animated: true)
+            })
+        }
     }
 }
 
 extension RootViewController: ProfileDelegate {
     func profileNextButtonPressed(sender: ProfileViewController) {
+        // Ignore passcode on simulator as it'll cause errors
+        var ignorePasscode = false
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            ignorePasscode = true
+        #endif
+        
         // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
         let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
-        if passcodeSet {
+        if ignorePasscode || passcodeSet {
             // Navigate to the transition view if the passcode is already set
             self.pushViewController(preSurgeryTransitionVC, animated: true)
         }
         else {
-            self.pushViewController(passcodeTVC, animated: true)
+            // Present passcode modally
+            self.present(passcodeTVC, animated: true, completion: nil)
         }
     }
 }
 
-extension RootViewController: ORKPasscodeDelegate {
+/*extension RootViewController: ORKPasscodeDelegate {
     func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
-        print("passcode finished")
-        
-        // Navigate to the transition view
-        self.pushViewController(preSurgeryTransitionVC, animated: true)
     }
     
     func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
-        print("passcode failed authentication")
     }
-}
+    
+    func passcodeViewControllerDidCancel(_ viewController: UIViewController) {
+    }
+}*/
 
 extension RootViewController: PreSurgeryTransitionDelegate {
     func setSurgeryButtonPressed(sender: PreSurgeryTransitionViewController) {
