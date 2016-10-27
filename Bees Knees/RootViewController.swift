@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import ResearchKit
 
 
 class RootViewController: UINavigationController {
     
     var preSurgeryWelcomeVC: PreSurgeryWelcomeViewController!
+    var consentTVC: ORKTaskViewController!
     var profileVC: ProfileViewController!
     var preSurgeryTransitionVC: PreSurgeryTransitionViewController!
     
@@ -23,6 +25,11 @@ class RootViewController: UINavigationController {
         preSurgeryWelcomeVC = PreSurgeryWelcomeViewController(nibName: "PreSurgeryWelcomeInterface", bundle: nil)
         preSurgeryWelcomeVC.title = NSLocalizedString("Welcome", comment: "")
         preSurgeryWelcomeVC.delegate = self
+        
+        // Create the Consent TVC
+        consentTVC = ORKTaskViewController(task: ConsentTask, taskRun: nil)
+        consentTVC.title = NSLocalizedString("Consent", comment: "")
+        consentTVC.delegate = self
         
         // Create the Profile VC
         profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
@@ -51,8 +58,32 @@ class RootViewController: UINavigationController {
 
 extension RootViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
+        // Navigate to the consent view
+        self.pushViewController(consentTVC, animated: true)
+    }
+}
+
+extension RootViewController: ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        // Set the first and last name of the consent view in our ProfileManager singleton
+        if reason == .completed {
+            /*print("default source: ", taskViewController.defaultResultSource)
+            print("current step: ", taskViewController.currentStepViewController)
+            print("given name: ", (taskViewController.currentStepViewController?.step as! ORKConsentReviewStep).signature?.givenName)
+            print("result: ", taskViewController.result)
+            print("sig: ", (((taskViewController.result.results?[1] as! ORKStepResult).results?[0]) as ORKConsentSignature).familyName)*/
+        }
+        
         // Navigate to the profile view
         self.pushViewController(profileVC, animated: true)
+    }
+    
+    func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillDisappear stepViewController: ORKStepViewController, navigationDirection direction: ORKStepViewControllerNavigationDirection) {
+        print(stepViewController.result)
+        
+        if stepViewController.step is ORKConsentReviewStep {
+            //print((stepViewController.step as! ORKConsentReviewStep).signature?.givenName)
+        }
     }
 }
 
