@@ -14,6 +14,10 @@
 		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
 		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
+		9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */; };
+		9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */; };
+		9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */; };
+		9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
@@ -116,6 +120,10 @@
 		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
 		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
+		9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryView.swift; path = views/DateOfSurgeryView.swift; sourceTree = "<group>"; };
+		9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateOfSurgeryInterface.xib; path = interfaces/DateOfSurgeryInterface.xib; sourceTree = "<group>"; };
+		9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryViewController.swift; path = controllers/DateOfSurgeryViewController.swift; sourceTree = "<group>"; };
+		9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+UIColor.swift"; path = "extensions/UIView+UIColor.swift"; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 				9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */,
 				9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */,
 				9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */,
+				9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 		9E17D3A61DB94E540072CDC1 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -212,8 +222,17 @@
 				9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */,
 				9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */,
 				9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */,
+				9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */,
 			);
 			name = interfaces;
+			sourceTree = "<group>";
+		};
+		9E429DC31DC29E240066FF20 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */,
+			);
+			name = extensions;
 			sourceTree = "<group>";
 		};
 		9EB5FC3F1DC110F600F9A53E /* shared */ = {
@@ -249,6 +268,7 @@
 		9EFDA0521D8370F400FD6763 /* Bees Knees */ = {
 			isa = PBXGroup;
 			children = (
+				9E429DC31DC29E240066FF20 /* extensions */,
 				9E17D3A91DBEB0D60072CDC1 /* interfaces */,
 				9E17D3A51DB942960072CDC1 /* controllers */,
 				9E17D3A61DB94E540072CDC1 /* views */,
@@ -492,6 +512,7 @@
 			files = (
 				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
+				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
@@ -521,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
+				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
@@ -530,7 +552,9 @@
 				9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
 				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
+				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
+				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
@@ -688,7 +712,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ADEZZWZJT8;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
@@ -696,6 +721,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -703,7 +729,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = ADEZZWZJT8;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
@@ -711,6 +738,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,6 +17,7 @@ class RootViewController: UINavigationController {
     var profileVC: ProfileViewController!
     var preSurgeryTransitionVC: PreSurgeryTransitionViewController!
     var passcodeTVC: ORKTaskViewController!
+    var dateOfSurgeryVC: DateOfSurgeryViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,7 +38,7 @@ class RootViewController: UINavigationController {
         profileVC.title = NSLocalizedString("Profile", comment: "")
         profileVC.delegate = self
         
-        // Create the passcode TVC
+        // Create the Passcode TVC
         passcodeTVC = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
         passcodeTVC.title = NSLocalizedString("Protect", comment: "")
         passcodeTVC.delegate = self
@@ -46,6 +47,10 @@ class RootViewController: UINavigationController {
         preSurgeryTransitionVC = PreSurgeryTransitionViewController(nibName: "PreSurgeryTransitionInterface", bundle: nil)
         preSurgeryTransitionVC.title = NSLocalizedString("Pre-Surgery", comment: "")
         preSurgeryTransitionVC.delegate = self
+        
+        // Create the DateOfSurgery VC
+        dateOfSurgeryVC = DateOfSurgeryViewController()
+        dateOfSurgeryVC.title = NSLocalizedString("Surgery", comment: "")
         
         // Set the view controllers
         self.viewControllers = [
@@ -62,6 +67,10 @@ class RootViewController: UINavigationController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 }
 
@@ -138,7 +147,8 @@ extension RootViewController: ProfileDelegate {
 
 extension RootViewController: PreSurgeryTransitionDelegate {
     func setSurgeryButtonPressed(sender: PreSurgeryTransitionViewController) {
-        print("set surgery button")
+        // Navigate to the date of surgery view
+        self.pushViewController(dateOfSurgeryVC, animated: true)
     }
     
     func goToCareCardButtonPressed(sender: PreSurgeryTransitionViewController) {

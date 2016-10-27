@@ -21,4 +21,7 @@ class ProfileManager {
     
     // Goal
     var goal: String = ""
+    
+    // Date of surgery
+    var surgeryDate: Date?
 }
