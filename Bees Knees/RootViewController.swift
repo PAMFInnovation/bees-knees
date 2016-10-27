@@ -16,6 +16,7 @@ class RootViewController: UINavigationController {
     var consentTVC: ORKTaskViewController!
     var profileVC: ProfileViewController!
     var preSurgeryTransitionVC: PreSurgeryTransitionViewController!
+    var passcodeTVC: ORKTaskViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +36,11 @@ class RootViewController: UINavigationController {
         profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
         profileVC.title = NSLocalizedString("Profile", comment: "")
         profileVC.delegate = self
+        
+        // Create the passcode TVC
+        passcodeTVC = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
+        passcodeTVC.title = NSLocalizedString("Protect", comment: "")
+        passcodeTVC.delegate = self
         
         // Create the PreSurgery Transition VC
         preSurgeryTransitionVC = PreSurgeryTransitionViewController(nibName: "PreSurgeryTransitionInterface", bundle: nil)
@@ -83,8 +89,28 @@ extension RootViewController: ORKTaskViewControllerDelegate {
 
 extension RootViewController: ProfileDelegate {
     func profileNextButtonPressed(sender: ProfileViewController) {
+        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
+        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
+        if passcodeSet {
+            // Navigate to the transition view if the passcode is already set
+            self.pushViewController(preSurgeryTransitionVC, animated: true)
+        }
+        else {
+            self.pushViewController(passcodeTVC, animated: true)
+        }
+    }
+}
+
+extension RootViewController: ORKPasscodeDelegate {
+    func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
+        print("passcode finished")
+        
         // Navigate to the transition view
         self.pushViewController(preSurgeryTransitionVC, animated: true)
+    }
+    
+    func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
+        print("passcode failed authentication")
     }
 }
 
