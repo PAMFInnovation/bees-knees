@@ -67,23 +67,17 @@ extension RootViewController: ORKTaskViewControllerDelegate {
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         // Set the first and last name of the consent view in our ProfileManager singleton
         if reason == .completed {
-            /*print("default source: ", taskViewController.defaultResultSource)
-            print("current step: ", taskViewController.currentStepViewController)
-            print("given name: ", (taskViewController.currentStepViewController?.step as! ORKConsentReviewStep).signature?.givenName)
-            print("result: ", taskViewController.result)
-            print("sig: ", (((taskViewController.result.results?[1] as! ORKStepResult).results?[0]) as ORKConsentSignature).familyName)*/
+            let result = taskViewController.result.results?[1] as! ORKStepResult
+            let signatureResult = result.results?[0] as! ORKConsentSignatureResult
+            let firstName = signatureResult.signature?.givenName
+            let lastName = signatureResult.signature?.familyName
+            
+            // Set the values in the singleton
+            ProfileManager.sharedInstance.name = firstName! + " " + lastName!
         }
         
         // Navigate to the profile view
         self.pushViewController(profileVC, animated: true)
-    }
-    
-    func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillDisappear stepViewController: ORKStepViewController, navigationDirection direction: ORKStepViewControllerNavigationDirection) {
-        print(stepViewController.result)
-        
-        if stepViewController.step is ORKConsentReviewStep {
-            //print((stepViewController.step as! ORKConsentReviewStep).signature?.givenName)
-        }
     }
 }
 
