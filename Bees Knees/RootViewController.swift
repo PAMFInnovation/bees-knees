@@ -10,55 +10,39 @@ import UIKit
 import ResearchKit
 
 
-class RootViewController: UINavigationController {
+enum FlowState {
+    case Launch
+    case PreSurgeryWelcome
+    case PreSurgeryRoutine
+    case Surgery
+    case PostSurgeryWelcome
+    case PostSurgeryRoutine
+}
+
+class RootViewController: UIViewController {
     
-    var preSurgeryWelcomeVC: PreSurgeryWelcomeViewController!
-    var consentTVC: ORKTaskViewController!
-    var profileVC: ProfileViewController!
-    var preSurgeryTransitionVC: PreSurgeryTransitionViewController!
-    var passcodeTVC: ORKTaskViewController!
-    var dateOfSurgeryVC: DateOfSurgeryViewController!
+    // Set the initial app's flow state
+    var flowState: FlowState = .Launch
+    
+    // View controllers
+    var preSurgeryWelcomeFlow: PreSurgeryWelcomeFlowViewController!
+    var preSurgeryRoutineFlow: PreSurgeryRoutineViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
+        // First-time call to CarePlanStoreManager
+        CarePlanStoreManager.sharedInstance
+        
+        // Superclass initialization
         super.init(coder: aDecoder)
         
-        // Create the PreSurgery Welcome VC and establish the delegate
-        preSurgeryWelcomeVC = PreSurgeryWelcomeViewController(nibName: "PreSurgeryWelcomeInterface", bundle: nil)
-        preSurgeryWelcomeVC.title = NSLocalizedString("Welcome", comment: "")
-        preSurgeryWelcomeVC.delegate = self
+        // Create the Pre-Surgery Welcome Flow VC
+        preSurgeryWelcomeFlow = PreSurgeryWelcomeFlowViewController(coder: aDecoder)
+        preSurgeryWelcomeFlow.classDelegate = self
         
-        // Create the Consent TVC
-        consentTVC = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-        consentTVC.title = NSLocalizedString("Consent", comment: "")
-        consentTVC.delegate = self
-        
-        // Create the Profile VC
-        profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
-        profileVC.title = NSLocalizedString("Profile", comment: "")
-        profileVC.delegate = self
-        
-        // Create the Passcode TVC
-        passcodeTVC = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
-        passcodeTVC.title = NSLocalizedString("Protect", comment: "")
-        passcodeTVC.delegate = self
-        
-        // Create the PreSurgery Transition VC
-        preSurgeryTransitionVC = PreSurgeryTransitionViewController(nibName: "PreSurgeryTransitionInterface", bundle: nil)
-        preSurgeryTransitionVC.title = NSLocalizedString("Pre-Surgery", comment: "")
-        preSurgeryTransitionVC.delegate = self
-        
-        // Create the DateOfSurgery VC
-        dateOfSurgeryVC = DateOfSurgeryViewController()
-        dateOfSurgeryVC.title = NSLocalizedString("Surgery", comment: "")
-        
-        // Set the view controllers
-        self.viewControllers = [
-            preSurgeryWelcomeVC
-        ]
-        
-        // TESTING - clear passcode for testing
-        ORKPasscodeViewController.removePasscodeFromKeychain()
+        // Create the Pre-Surgery Routine Flow VC
+        preSurgeryRoutineFlow = PreSurgeryRoutineViewController(coder: aDecoder)
+        self.addChildViewController(preSurgeryRoutineFlow)
     }
     
     override func viewDidLoad() {
@@ -69,89 +53,30 @@ class RootViewController: UINavigationController {
         super.viewWillAppear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // TODO: logic for determining if this user already has data and therefore
+        // should not repeat the welcome flow
+        //
+        
+        // Present the Pre-Surgery Welcome Flow
+        if flowState == .Launch {
+            self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
 }
 
-extension RootViewController: PreSurgeryWelcomeDelegate {
-    func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
-        // Navigate to the consent view
-        self.pushViewController(consentTVC, animated: true)
+extension RootViewController: PreSurgeryWelcomeFlowDelegate {
+    func didFinishFlow(sender: PreSurgeryWelcomeFlowViewController) {
+        flowState = .PreSurgeryRoutine
         
-        // TESTING to skip consent for expediency
-        //self.pushViewController(profileVC, animated: true)
-    }
-}
-
-extension RootViewController: ORKTaskViewControllerDelegate {
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        // If Consent, set the first and last name in our ProfileManager singleton
-        if taskViewController.title?.localizedCompare("Consent").rawValue == 0 {
-            if reason == .completed {
-                let result = taskViewController.result.results?[1] as! ORKStepResult
-                let signatureResult = result.results?[0] as! ORKConsentSignatureResult
-                let firstName = signatureResult.signature?.givenName
-                let lastName = signatureResult.signature?.familyName
-                
-                // Set the values in the singleton
-                ProfileManager.sharedInstance.name = firstName! + " " + lastName!
-            }
-            
-            // Navigate to the profile view
-            self.pushViewController(profileVC, animated: true)
-        }
-        // If Passcode, navigate to the transition view
-        else if taskViewController.title?.localizedCompare("Protect").rawValue == 0 {
-            let _self = self
-            // Dismiss the passcode
-            taskViewController.dismiss(animated: true, completion: {
-                // Navigate to the transition view
-                _self.pushViewController(_self.preSurgeryTransitionVC, animated: true)
-            })
-        }
-    }
-}
-
-extension RootViewController: ProfileDelegate {
-    func profileNextButtonPressed(sender: ProfileViewController) {
-        // Ignore passcode on simulator as it'll cause errors
-        var ignorePasscode = false
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-            ignorePasscode = true
-        #endif
-        
-        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
-        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
-        if ignorePasscode || passcodeSet {
-            // Navigate to the transition view if the passcode is already set
-            self.pushViewController(preSurgeryTransitionVC, animated: true)
-        }
-        else {
-            // Present passcode modally
-            self.present(passcodeTVC, animated: true, completion: nil)
-        }
-    }
-}
-
-/*extension RootViewController: ORKPasscodeDelegate {
-    func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
-    }
-    
-    func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
-    }
-    
-    func passcodeViewControllerDidCancel(_ viewController: UIViewController) {
-    }
-}*/
-
-extension RootViewController: PreSurgeryTransitionDelegate {
-    func setSurgeryButtonPressed(sender: PreSurgeryTransitionViewController) {
-        // Navigate to the date of surgery view
-        self.pushViewController(dateOfSurgeryVC, animated: true)
-    }
-    
-    func goToCareCardButtonPressed(sender: PreSurgeryTransitionViewController) {
-        print("go to care card")
+        // Dismiss the view and the Care Card will be waiting underneath
+        self.view.addSubview(preSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
     }
 }

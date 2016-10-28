@@ -144,8 +144,7 @@ class MainViewController: UITabBarController {
     }
     
     
-    // MARK: Helpers
-    
+    // MARK: - Helpers
     fileprivate func _clearStore() {
         let deleteGroup = DispatchGroup()
         let store = self.store
