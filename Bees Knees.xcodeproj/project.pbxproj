@@ -21,6 +21,8 @@
 		9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */; };
 		9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */; };
 		9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */; };
+		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
+		9E7CC24D1DC7BE5C00906BEA /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItem.swift */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
@@ -130,6 +132,8 @@
 		9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryViewController.swift; path = controllers/DateOfSurgeryViewController.swift; sourceTree = "<group>"; };
 		9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+UIColor.swift"; path = "extensions/UIView+UIColor.swift"; sourceTree = "<group>"; };
 		9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarePlanStoreManager.swift; path = shared/CarePlanStoreManager.swift; sourceTree = "<group>"; };
+		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
+		9E7CC24C1DC7BE5C00906BEA /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = shared/ChecklistItem.swift; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */,
 				9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */,
 				9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */,
+				9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -237,8 +242,8 @@
 		9E2E055E1DC3F84900E28651 /* flow */ = {
 			isa = PBXGroup;
 			children = (
-				9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */,
 				9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */,
+				9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */,
 			);
 			name = flow;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				9EB5FC401DC1111300F9A53E /* HighlightButton.swift */,
 				9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */,
 				9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */,
+				9E7CC24C1DC7BE5C00906BEA /* ChecklistItem.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -572,10 +578,12 @@
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
 				9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */,
 				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
+				9E7CC24D1DC7BE5C00906BEA /* ChecklistItem.swift in Sources */,
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
+				9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,

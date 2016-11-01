@@ -62,7 +62,8 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Set the view controllers
         self.viewControllers = [
-            preSurgeryWelcomeVC
+            //preSurgeryWelcomeVC
+            preSurgeryTransitionVC
         ]
         
         // TESTING - clear passcode for testing

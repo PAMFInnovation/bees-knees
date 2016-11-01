@@ -14,6 +14,7 @@ class PreSurgeryRoutineViewController: UITabBarController {
     
     // Navigation controllers
     private var careCardVC: OCKCareCardViewController!
+    private var checklistVC: PreSurgeryChecklistViewController!
     
     // Care Card activities
     let activities: [Activity] = [
@@ -41,9 +42,15 @@ class PreSurgeryRoutineViewController: UITabBarController {
         careCardVC.title = NSLocalizedString("Care Card", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard"), selectedImage: UIImage(named: "carecard-filled"))
         
+        // Create the Checklist VC
+        checklistVC = PreSurgeryChecklistViewController()
+        checklistVC.title = NSLocalizedString("Checklist", comment: "")
+        checklistVC.tabBarItem = UITabBarItem(title: checklistVC.title, image: UIImage(named: "TEMP-checklist-icon"), selectedImage: UIImage(named: "TEMP-checklist-icon"))
+        
         // Set the tab view controllers
         self.viewControllers = [
-            UINavigationController(rootViewController: careCardVC)
+            UINavigationController(rootViewController: careCardVC),
+            UINavigationController(rootViewController: checklistVC)
         ]
     }
 }
