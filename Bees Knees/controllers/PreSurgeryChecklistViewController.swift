@@ -11,6 +11,7 @@ import UIKit
 
 class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var countdownView: SurgeryCountdown!
     var tableView: UITableView!
     var tableViewData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", ""]
     
@@ -31,8 +32,12 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup the countdown view
+        self.countdownView = SurgeryCountdown(frame: CGRect(x: 0, y: 60, width: self.view.bounds.size.width, height: 80))
+        self.view.addSubview(countdownView)
+        
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), style: .plain)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 140, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 80), style: .plain)
         self.tableView.register(ChecklistItem.self, forCellReuseIdentifier: "myCell")
         self.tableView.separatorStyle = .singleLine
         self.tableView.delegate = self
