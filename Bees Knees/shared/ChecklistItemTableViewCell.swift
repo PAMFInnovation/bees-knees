@@ -9,22 +9,18 @@
 import UIKit
 
 
-protocol ChecklistItemDelegate: class {
-    func doneEditing(sender: ChecklistItem)
-    func deleteCell(sender: ChecklistItem)
+protocol ChecklistItemTableViewCellDelegate: class {
+    func doneEditing(sender: ChecklistItemTableViewCell, item: ChecklistItem)
 }
 
-class ChecklistItem: UITableViewCell, UITextFieldDelegate {
+class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
-    var index: Int! = -1
+    var checklistItem: ChecklistItem?
     
     var toggleButton = UIButton()
     var itemField = UITextField()
     
-    var delegate: ChecklistItemDelegate?
-    
-    var originalCenter = CGPoint()
-    var deleteOnDragRelease = false
+    var delegate: ChecklistItemTableViewCellDelegate?
     
     
     // MARK: - Initialization
@@ -47,20 +43,11 @@ class ChecklistItem: UITableViewCell, UITextFieldDelegate {
         toggleButton.setImage(selected, for: .selected)
         toggleButton.setImage(disabled, for: .disabled)
         toggleButton.titleLabel?.text = ""
-        toggleButton.addTarget(self, action: #selector(ChecklistItem.btnTouched), for: .touchUpInside)
-        
-        // Add a pan recognizer
-        var recognizer = UIPanGestureRecognizer(target: self, action: #selector(ChecklistItem.handlePan))
-        recognizer.delegate = self
-        addGestureRecognizer(recognizer)
+        toggleButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.btnTouched), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     override func layoutSubviews() {
@@ -92,29 +79,6 @@ class ChecklistItem: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    func handlePan(recognizer: UIPanGestureRecognizer) {
-        // When the gesture begins, record the current center location
-        if recognizer.state == .began {
-            originalCenter = center
-        }
-        // Check if the user has dragged the cell far enough to trigger
-        else if recognizer.state == .changed {
-            let translation = recognizer.translation(in: self)
-            center = CGPoint(x: originalCenter.x + translation.x, y: originalCenter.y)
-            deleteOnDragRelease = frame.origin.x < -frame.size.width / 2.0
-        }
-        // Check if the pan triggered an action
-        else if recognizer.state == .ended {
-            let originalFrame = CGRect(x: 0, y: self.frame.origin.y, width: self.bounds.size.width, height: self.bounds.size.height)
-            if !deleteOnDragRelease {
-                UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
-            }
-            else {
-                delegate?.deleteCell(sender: self)
-            }
-        }
-    }
-    
     func enable() {
         toggleButton.isEnabled = true
     }
@@ -128,20 +92,9 @@ class ChecklistItem: UITableViewCell, UITextFieldDelegate {
             enable()
         }
         
-        delegate?.doneEditing(sender: self)
-    }
-    
-    
-    // MARK: - UI Gesture Recognizer Delegate
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let translation = panGestureRecognizer.translation(in: superview!)
-            if fabs(translation.x) > fabs(translation.y) {
-                return true
-            }
-            return false
+        if delegate != nil && checklistItem != nil {
+            delegate?.doneEditing(sender: self, item: checklistItem!)
         }
-        return false
     }
     
     
