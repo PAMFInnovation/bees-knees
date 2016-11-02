@@ -25,6 +25,8 @@
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */; };
 		9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD01DCA617500811FFB /* ChecklistItem.swift */; };
+		9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */; };
+		9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD71DCA941100811FFB /* AppointmentViewController.swift */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
@@ -138,6 +140,8 @@
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SurgeryCountdown.swift; path = views/SurgeryCountdown.swift; sourceTree = "<group>"; };
 		9E960FD01DCA617500811FFB /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = shared/ChecklistItem.swift; sourceTree = "<group>"; };
+		9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WildernessGuideViewController.swift; path = controllers/shared/WildernessGuideViewController.swift; sourceTree = "<group>"; };
+		9E960FD71DCA941100811FFB /* AppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentViewController.swift; path = controllers/shared/AppointmentViewController.swift; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		9E17D3A51DB942960072CDC1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E960FD21DCA8A3A00811FFB /* shared */,
 				9E2E055E1DC3F84900E28651 /* flow */,
 				9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */,
 				9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */,
@@ -259,6 +264,15 @@
 				9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		9E960FD21DCA8A3A00811FFB /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */,
+				9E960FD71DCA941100811FFB /* AppointmentViewController.swift */,
+			);
+			name = shared;
 			sourceTree = "<group>";
 		};
 		9EB5FC3F1DC110F600F9A53E /* shared */ = {
@@ -576,6 +590,7 @@
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
 				9E2E05611DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift in Sources */,
+				9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */,
 				9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
@@ -595,6 +610,7 @@
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
+				9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
