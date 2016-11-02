@@ -10,6 +10,7 @@ import UIKit
 
 
 protocol ChecklistItemTableViewCellDelegate: class {
+    func beginEditing(element: UIControl)
     func doneEditing(sender: ChecklistItemTableViewCell, item: ChecklistItem)
 }
 
@@ -18,6 +19,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     var checklistItem: ChecklistItem?
     
     var toggleButton = UIButton()
+    var addButton = UIButton()
     var itemField = UITextField()
     
     var delegate: ChecklistItemTableViewCellDelegate?
@@ -41,9 +43,13 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         toggleButton = UIButton(type: .custom)
         toggleButton.setImage(normal, for: .normal)
         toggleButton.setImage(selected, for: .selected)
-        toggleButton.setImage(disabled, for: .disabled)
         toggleButton.titleLabel?.text = ""
         toggleButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.btnTouched), for: .touchUpInside)
+        
+        // Create the add button image
+        addButton = UIButton(type: .custom)
+        addButton.setImage(disabled, for: .normal)
+        addButton.titleLabel?.text = ""
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,9 +66,13 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         let textOffset: CGFloat = 12.0
         let textWidth = self.frame.width - textOffset - iconSize - iconLeftOffset
         
-        // Add the toggle image to the subview
+        // Add the toggle button to the subview
         toggleButton.frame = CGRect(x: iconLeftOffset, y: heightOffset, width: iconSize, height: iconSize)
         self.addSubview(toggleButton)
+        
+        // Add the add button to the subview in the same place as the toggle
+        addButton.frame = CGRect(x: iconLeftOffset, y: heightOffset, width: iconSize, height: iconSize)
+        self.addSubview(addButton)
         
         // Add the label to the subview
         itemField.frame = CGRect(x: iconSize + textOffset + iconLeftOffset, y: heightOffset, width: textWidth, height: iconSize)
@@ -72,7 +82,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: - Helper functions
     func btnTouched() {
-        if toggleButton.isEnabled {
+        if (checklistItem?.enabled)! {
             toggleButton.isSelected = !toggleButton.isSelected
             
             itemField.textColor = toggleButton.isSelected ? UIColor.lightGray : UIColor.black
@@ -80,15 +90,19 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func enable() {
-        toggleButton.isEnabled = true
+        checklistItem?.enabled = true
+        toggleButton.isHidden = false
+        addButton.isHidden = true
     }
     
     func disable() {
-        toggleButton.isEnabled = false
+        checklistItem?.enabled = false
+        toggleButton.isHidden = true
+        addButton.isHidden = false
     }
     
     func saveText(textField: UITextField) {
-        if !toggleButton.isEnabled && textField.text != "" {
+        if !(checklistItem?.enabled)! && textField.text != "" {
             enable()
         }
         
@@ -99,6 +113,12 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     
     // MARK: - Text Field Delegate
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        delegate?.beginEditing(element: textField)
+        
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveText(textField: textField)
         

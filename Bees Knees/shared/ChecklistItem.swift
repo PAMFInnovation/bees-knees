@@ -12,11 +12,13 @@ import Foundation
 class ChecklistItem: NSObject {
     
     var text: String
+    var enabled: Bool
     var completed: Bool
     
     
     init(text: String) {
         self.text = text
+        self.enabled = true
         self.completed = false
     }
 }

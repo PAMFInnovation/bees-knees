@@ -11,9 +11,19 @@ import UIKit
 
 class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // Subviews
+    var scrollView: UIScrollView!
     var countdownView: SurgeryCountdown!
     var tableView: UITableView!
+    
+    // Table data
     var tableViewData = [ChecklistItem]()
+    
+    // Keep track of the observed UI item in case we need to make it visible via scrolling
+    var activeElement: UIControl?
+    
+    // Keep default edge insets for when we need to reset scrolling
+    var defaultScrollInsets: UIEdgeInsets?
     
     
     // MARK: - Initialization
@@ -33,36 +43,57 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         
         // Add items to the table view data
-        tableViewData.append(ChecklistItem(text: "Item 1"))
-        tableViewData.append(ChecklistItem(text: "Item 2"))
-        tableViewData.append(ChecklistItem(text: "Item 3"))
-        tableViewData.append(ChecklistItem(text: "Item 4"))
-        tableViewData.append(ChecklistItem(text: "Item 5"))
+        tableViewData.append(ChecklistItem(text: "Contact daycare"))
+        tableViewData.append(ChecklistItem(text: "Prepare your kitchen"))
+        tableViewData.append(ChecklistItem(text: "Stock on food"))
+        tableViewData.append(ChecklistItem(text: "Prepare emergency kit"))
+        tableViewData.append(ChecklistItem(text: "Coordinate time off with work"))
         tableViewData.append(ChecklistItem(text: ""))
         
+        // Setup the scrollview
+        self.scrollView = UIScrollView(frame: self.view.frame)
+        self.view.addSubview(scrollView)
+        
         // Setup the countdown view
-        self.countdownView = SurgeryCountdown(frame: CGRect(x: 0, y: 60, width: self.view.bounds.size.width, height: 80))
-        self.view.addSubview(countdownView)
+        self.countdownView = SurgeryCountdown(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 80))
+        scrollView.addSubview(countdownView)
         
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 140, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 80), style: .plain)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 80, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200), style: .plain)
         self.tableView.register(ChecklistItemTableViewCell.self, forCellReuseIdentifier: "myCell")
         self.tableView.separatorStyle = .singleLine
+        self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
+        scrollView.addSubview(self.tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Listen to keyboard events so we can reposition scroll items
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(keyboardOnScreen), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Unregister from keyboard events
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        // Set default scroll insets
+        defaultScrollInsets = scrollView.contentInset
+        
+        // An interactively-dismissed keyboard will dismiss when the user scrolls
+        scrollView.keyboardDismissMode = .interactive
     }
     
     
@@ -85,6 +116,9 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         // Disable the final checklist item to give it a "+" icon
         if indexPath.row == tableViewData.count - 1 {
             cell.disable()
+        }
+        else {
+            cell.enable()
         }
         
         // Set the custom cell delegate
@@ -121,9 +155,50 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         // This block is required for cell swipe menu to appear
     }
+    
+    
+    // MARK: - Keyboard events
+    public func keyboardOnScreen(notification: NSNotification) {
+        // Get the keyboard rectangle so we can offset our scroll view by its size
+        let info: NSDictionary = notification.userInfo! as NSDictionary
+        let kbSize = (info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as? NSValue)?.cgRectValue.size
+        
+        // Set the content insets of the scroll view using the keyboard's height
+        var contentInsets:UIEdgeInsets = defaultScrollInsets!
+        contentInsets.bottom += kbSize!.height
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        //--- If the text area collides with the keyboard, we need to move it in view ---//
+        // Get the bounds of the view that we can see, excluding the space occupied by the keyboard
+        var aRect: CGRect = UIScreen.main.bounds
+        aRect.size.height -= (kbSize?.height)!
+        
+        // Convert the text view's center to the root view's coordinate system
+        // We need to do this because we are checking the absolute position of
+        // the text area against the screen bounds
+        let textAreaCenter: CGPoint = CGPoint(x: (self.activeElement?.frame.midX)!, y: (self.activeElement?.frame.midY)!)
+        let convertedPoint: CGPoint = (self.activeElement?.superview?.convert(textAreaCenter, to: self.view))!
+        
+        // If the visible space does not contain the converted point, we need to scroll it in view
+        if (!aRect.contains(convertedPoint)) {
+            let scrollPoint:CGPoint = CGPoint(x: 0.0, y: self.scrollView.contentOffset.y + convertedPoint.y - kbSize!.height)
+            self.scrollView.setContentOffset(scrollPoint, animated: true)
+        }
+    }
+    
+    public func keyboardOffScreen(notification: NSNotification) {
+        // Reset the scroll view insets
+        scrollView.contentInset = defaultScrollInsets!
+        scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
 }
 
 extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate {
+    func beginEditing(element: UIControl) {
+        activeElement = element
+    }
+    
     func doneEditing(sender: ChecklistItemTableViewCell, item: ChecklistItem) {
         // Get the index of the cell to edit
         let index = (tableViewData as NSArray).index(of: item)
@@ -141,5 +216,8 @@ extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate 
         
         // Reload the table data
         self.tableView.reloadData()
+        
+        // Close the keyboard
+        self.view.endEditing(true)
     }
 }
