@@ -1,5 +1,5 @@
 //
-//  ChecklistItem.swift
+//  ChecklistItemTableViewCell.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 10/31/16.

@@ -16,13 +16,18 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView: UITableView!
     
     // Table data
-    //
+    var tableViewData = [String]()
     
     // Keep track of the observed UI item in case we need to make it visible via scrolling
     var activeElement: UIControl?
     
     // Keep default edge insets for when we need to reset scrolling
     var defaultScrollInsets: UIEdgeInsets?
+    
+    // Track variables for expanding the cells
+    var cellExpanded: Bool = false
+    var expandedRowIndex = -1
+    var cellExpandedHeight: CGFloat = 44
     
     
     // MARK: - Initialization
@@ -56,7 +61,11 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         
         // Add items to the table view data
-        //
+        tableViewData.append("titleCell")
+        tableViewData.append("typeCell")
+        tableViewData.append("dateCell")
+        tableViewData.append("placeCell")
+        tableViewData.append("notesCell")
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
@@ -64,7 +73,11 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Setup the table view
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 120), style: .grouped)
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+        self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0])
+        self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1])
+        self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[2])
+        self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[3])
+        self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[4])
         self.tableView.separatorStyle = .singleLine
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
@@ -117,14 +130,53 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3//tableViewData.count
+        return tableViewData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Set text and index on the custom cell
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! UITableViewCell
+        // Dequeue the cell in order of identifier
+        let identifier = self.tableViewData[indexPath.row]
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) 
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the appointment cell
+        let cell: AppointmentTableViewCell = tableView.cellForRow(at: indexPath) as! AppointmentTableViewCell
+        
+        // Only proceed if this cell can expand
+        if !cell.canExpand {
+            return
+        }
+        
+        // Expand the cell
+        cell.isExpanded = !cell.isExpanded
+        cellExpandedHeight = cell.expandedHeight
+        
+        // Set local expand variables
+        if expandedRowIndex != indexPath.row {
+            cellExpanded = true
+            expandedRowIndex = indexPath.row
+        }
+        else {
+            cellExpanded = false
+            expandedRowIndex = -1
+        }
+        
+        // Perform table view updates
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // If the cell is expanded, set the height
+        if indexPath.row == expandedRowIndex && cellExpanded {
+            return cellExpandedHeight
+        }
+        
+        // Return default cell height
+        return 44
     }
     
     

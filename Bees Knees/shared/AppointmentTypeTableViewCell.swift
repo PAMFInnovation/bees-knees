@@ -9,11 +9,20 @@
 import UIKit
 
 
-class AppointmentTypeTableViewCell: ExpandingTableViewCell {
+class AppointmentTypeTableViewCell: AppointmentTableViewCell {
     
     // MARK: - Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        // No selection style
+        self.selectionStyle = .none
+        
+        // Set label text
+        labelText = "Type"
+        
+        // This cell can expand
+        canExpand = true
     }
     
     required init?(coder aDecoder: NSCoder) {

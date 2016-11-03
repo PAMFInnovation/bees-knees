@@ -27,7 +27,7 @@
 		9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD01DCA617500811FFB /* ChecklistItem.swift */; };
 		9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */; };
 		9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD71DCA941100811FFB /* AppointmentViewController.swift */; };
-		9E960FDA1DCAA53200811FFB /* ExpandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */; };
+		9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD91DCAA53200811FFB /* AppointmentTableViewCell.swift */; };
 		9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */; };
 		9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */; };
 		9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */; };
@@ -51,6 +51,8 @@
 		9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08E1D83718700FD6763 /* ConsentTask.swift */; };
 		9EFDA0911D83719500FD6763 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0901D83719500FD6763 /* Activity.swift */; };
 		9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0921D8371A000FD6763 /* Walk.swift */; };
+		D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */; };
+		D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +148,7 @@
 		9E960FD01DCA617500811FFB /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = shared/ChecklistItem.swift; sourceTree = "<group>"; };
 		9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WildernessGuideViewController.swift; path = controllers/shared/WildernessGuideViewController.swift; sourceTree = "<group>"; };
 		9E960FD71DCA941100811FFB /* AppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentViewController.swift; path = controllers/shared/AppointmentViewController.swift; sourceTree = "<group>"; };
-		9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingTableViewCell.swift; path = shared/ExpandingTableViewCell.swift; sourceTree = "<group>"; };
+		9E960FD91DCAA53200811FFB /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentTableViewCell.swift; path = shared/AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentTypeTableViewCell.swift; path = shared/AppointmentTypeTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = shared/DateTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceTableViewCell.swift; path = shared/PlaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,8 @@
 		9EFDA08E1D83718700FD6763 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		9EFDA0901D83719500FD6763 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		9EFDA0921D8371A000FD6763 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleTableViewCell.swift; path = shared/TitleTableViewCell.swift; sourceTree = "<group>"; };
+		D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesTableViewCell.swift; path = shared/NotesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,10 +295,12 @@
 				9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */,
 				9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */,
 				9E960FD01DCA617500811FFB /* ChecklistItem.swift */,
-				9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */,
+				9E960FD91DCAA53200811FFB /* AppointmentTableViewCell.swift */,
+				D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */,
 				9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */,
 				9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */,
 				9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */,
+				D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -598,9 +604,10 @@
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
+				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
-				9E960FDA1DCAA53200811FFB /* ExpandingTableViewCell.swift in Sources */,
+				9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
 				9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */,
 				9E2E05611DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift in Sources */,
@@ -621,6 +628,7 @@
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
+				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
 				9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
