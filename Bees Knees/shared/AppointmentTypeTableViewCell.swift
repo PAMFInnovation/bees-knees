@@ -19,10 +19,11 @@ class AppointmentTypeTableViewCell: AppointmentTableViewCell {
         self.selectionStyle = .none
         
         // Set label text
-        labelText = "Type"
+        self.label.text = "Type"
         
         // This cell can expand
         canExpand = true
+        expandedHeight = 144
     }
     
     required init?(coder aDecoder: NSCoder) {

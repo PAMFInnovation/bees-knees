@@ -26,7 +26,7 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
         titleField.delegate = self
         
         // Set label text
-        labelText = "Title"
+        self.label.text = "Title"
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -16,7 +16,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView: UITableView!
     
     // Table data
-    var tableViewData = [String]()
+    var tableViewData = [AppointmentCellData]()
     
     // Keep track of the observed UI item in case we need to make it visible via scrolling
     var activeElement: UIControl?
@@ -61,23 +61,23 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         
         // Add items to the table view data
-        tableViewData.append("titleCell")
-        tableViewData.append("typeCell")
-        tableViewData.append("dateCell")
-        tableViewData.append("placeCell")
-        tableViewData.append("notesCell")
+        tableViewData.append(AppointmentCellData(name: "titleCell"))
+        tableViewData.append(AppointmentCellData(name: "typeCell"))
+        tableViewData.append(AppointmentCellData(name: "dateCell"))
+        tableViewData.append(AppointmentCellData(name: "placeCell"))
+        tableViewData.append(AppointmentCellData(name: "notesCell"))
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
         self.view.addSubview(scrollView)
         
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 120), style: .grouped)
-        self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0])
-        self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1])
-        self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[2])
-        self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[3])
-        self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[4])
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), style: .grouped)
+        self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0].name)
+        self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
+        self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
+        self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[3].name)
+        self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[4].name)
         self.tableView.separatorStyle = .singleLine
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
@@ -135,9 +135,13 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the cell in order of identifier
-        let identifier = self.tableViewData[indexPath.row]
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) 
+        let identifier = self.tableViewData[indexPath.row].name
+        let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
         
+        // Set the default cell height for this row
+        self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
+        
+        // Return the cell
         return cell
     }
     
@@ -176,7 +180,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         // Return default cell height
-        return 44
+        return self.tableViewData[indexPath.row].defaultHeight
     }
     
     

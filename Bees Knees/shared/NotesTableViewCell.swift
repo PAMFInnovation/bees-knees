@@ -9,7 +9,11 @@
 import UIKit
 
 
-class NotesTableViewCell: AppointmentTableViewCell {
+class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
+    
+    var notesTextArea = UITextView()
+    let notesHeight: CGFloat = 150
+    
     
     // MARK: - Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -19,7 +23,13 @@ class NotesTableViewCell: AppointmentTableViewCell {
         self.selectionStyle = .none
         
         // Set label text
-        labelText = "Notes"
+        self.label.text = "Notes"
+        
+        // Set height values
+        defaultHeight += notesHeight
+        
+        // Update the cell's height to match the needed height for the text area
+        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,5 +38,24 @@ class NotesTableViewCell: AppointmentTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // Add a horizontal rule
+        let hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
+        self.addSubview(hRule)
+        
+        // Add the notes text area
+        notesTextArea.frame = CGRect(x: 0, y: label.frame.height + 1, width: self.frame.width, height: notesHeight)
+        notesTextArea.isEditable = true
+        notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        notesTextArea.font = UIFont(name: "ArialMT", size: 16)
+        notesTextArea.tintColor = UIColor.gray
+        notesTextArea.textColor = UIColor.gray
+        self.addSubview(notesTextArea)
+    }
+    
+    
+    // MARK: - Text View Delegate
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return true
     }
 }

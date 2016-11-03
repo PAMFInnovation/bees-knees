@@ -39,7 +39,7 @@ class DateOfSurgeryView: UIView {
         dateFormatter.timeStyle = DateFormatter.Style.none
         let dateString = dateFormatter.string(from: date)
         
-        // Format te time
+        // Format the time
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "EEEE, h:mm a"
         let timeString = timeFormatter.string(from: date)

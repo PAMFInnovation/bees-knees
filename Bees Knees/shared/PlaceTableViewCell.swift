@@ -19,10 +19,11 @@ class PlaceTableViewCell: AppointmentTableViewCell {
         self.selectionStyle = .none
         
         // Set label text
-        labelText = "Where"
+        self.label.text = "Where"
         
         // This cell can expand
         canExpand = true
+        expandedHeight = 144
     }
     
     required init?(coder aDecoder: NSCoder) {

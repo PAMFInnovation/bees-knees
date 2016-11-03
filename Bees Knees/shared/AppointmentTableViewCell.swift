@@ -13,7 +13,6 @@ class AppointmentTableViewCell: UITableViewCell {
     
     // Label
     var label = UILabel()
-    var labelText: String!
     var labelHeight: CGFloat! // label position should always be the same if expanded
     
     // State indicates if this cell can be expanded
@@ -22,8 +21,9 @@ class AppointmentTableViewCell: UITableViewCell {
     // State indicates if the cell is expanded
     var isExpanded: Bool = false
     
-    // Expanded height value
-    var expandedHeight: CGFloat = 144
+    // Height values
+    var defaultHeight: CGFloat = 44
+    var expandedHeight: CGFloat = 44
     
     
     // MARK: - Initialization
@@ -33,11 +33,19 @@ class AppointmentTableViewCell: UITableViewCell {
         // No selection style
         self.selectionStyle = .none
         
-        // Set default label text
-        labelText = ""
+        // Set content clipping
+        self.autoresizingMask = .flexibleHeight
+        self.clipsToBounds = true
         
-        // Set the label height
+        // Set the label height and offsets
         labelHeight = self.frame.height
+        let labelOffset: CGFloat = 15
+        let labelWidth: CGFloat = 60
+        
+        // Add the label
+        label.frame = CGRect(x: labelOffset, y: 0, width: labelWidth, height: labelHeight)
+        label.textColor = UIColor.red
+        self.addSubview(label)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,14 +54,5 @@ class AppointmentTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        let labelOffset: CGFloat = 15
-        let labelWidth: CGFloat = 60
-        
-        // Add the label
-        label.frame = CGRect(x: labelOffset, y: 0, width: labelWidth, height: labelHeight)
-        label.text = labelText
-        label.textColor = UIColor.red
-        self.addSubview(label)
     }
 }
