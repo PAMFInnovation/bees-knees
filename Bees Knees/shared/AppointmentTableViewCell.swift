@@ -9,6 +9,11 @@
 import UIKit
 
 
+protocol AppointmentTableViewCellDelegate: class {
+    func beginEditing(sender: UIView)
+    func toggleExpand(sender: AppointmentTableViewCell)
+}
+
 class AppointmentTableViewCell: UITableViewCell {
     
     // Label
@@ -24,6 +29,9 @@ class AppointmentTableViewCell: UITableViewCell {
     // Height values
     var defaultHeight: CGFloat = 44
     var expandedHeight: CGFloat = 44
+    
+    // Delegate
+    var delegate: AppointmentTableViewCellDelegate?
     
     
     // MARK: - Initialization

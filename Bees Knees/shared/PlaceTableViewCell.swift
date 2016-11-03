@@ -10,10 +10,6 @@ import UIKit
 import MapKit
 
 
-protocol PlaceTableViewCellDelegate: class {
-    func toggleExpand(sender: PlaceTableViewCell)
-}
-
 class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var hRule: HorizontalRule!
@@ -22,8 +18,6 @@ class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITable
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
-    
-    var delegate: PlaceTableViewCellDelegate?
     
     
     // MARK: - Initialization
@@ -88,8 +82,10 @@ class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITable
     
     
     // MARK: - Text Field Delegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        delegate?.beginEditing(sender: self.tableView)
         
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

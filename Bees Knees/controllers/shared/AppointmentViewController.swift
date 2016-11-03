@@ -15,11 +15,11 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     var scrollView: UIScrollView!
     var tableView: UITableView!
     
+    // Keep track of the observed UI item in case we need to make it visible via scrolling
+    var activeElement: UIView?
+    
     // Table data
     var tableViewData = [AppointmentCellData]()
-    
-    // Keep track of the observed UI item in case we need to make it visible via scrolling
-    var activeElement: UIControl?
     
     // Keep default edge insets for when we need to reset scrolling
     var defaultScrollInsets: UIEdgeInsets?
@@ -72,7 +72,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addSubview(scrollView)
         
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), style: .grouped)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height + 200), style: .grouped)
         self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0].name)
         self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
         self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
@@ -167,10 +167,8 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         let identifier = self.tableViewData[indexPath.row].name
         let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
         
-        // Set a delegate for PlaceTableViewCell
-        if cell is PlaceTableViewCell {
-            (cell as! PlaceTableViewCell).delegate = self
-        }
+        // Set a delegate for the cells
+        cell.delegate = self
         
         // Set the default cell height for this row
         self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
@@ -196,7 +194,9 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: - Keyboard events
     public func keyboardOnScreen(notification: NSNotification) {
-        return;
+        if activeElement == nil {
+            return
+        }
         
         // Get the keyboard rectangle so we can offset our scroll view by its size
         let info: NSDictionary = notification.userInfo! as NSDictionary
@@ -233,8 +233,12 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     }
 }
 
-extension AppointmentViewController: PlaceTableViewCellDelegate {
-    func toggleExpand(sender: PlaceTableViewCell) {
+extension AppointmentViewController: AppointmentTableViewCellDelegate {
+    func beginEditing(sender: UIView) {
+        activeElement = sender
+    }
+    
+    func toggleExpand(sender: AppointmentTableViewCell) {
         for (index, element) in self.tableViewData.enumerated() {
             if element.name == sender.reuseIdentifier! {
                 self.toggleRow(row: index)

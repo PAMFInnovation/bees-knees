@@ -40,6 +40,7 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         notesTextArea.frame = CGRect(x: 0, y: label.frame.height + 1, width: self.frame.width, height: notesHeight)
         notesTextArea.isEditable = true
         notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        notesTextArea.delegate = self
         notesTextArea.font = UIFont(name: "ArialMT", size: 16)
         notesTextArea.tintColor = UIColor.gray
         notesTextArea.textColor = UIColor.gray
@@ -61,6 +62,8 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
     // MARK: - Text View Delegate
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        delegate?.beginEditing(sender: textView)
+        
         return true
     }
 }
