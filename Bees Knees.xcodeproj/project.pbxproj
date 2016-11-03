@@ -27,6 +27,10 @@
 		9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD01DCA617500811FFB /* ChecklistItem.swift */; };
 		9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */; };
 		9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD71DCA941100811FFB /* AppointmentViewController.swift */; };
+		9E960FDA1DCAA53200811FFB /* ExpandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */; };
+		9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */; };
+		9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */; };
+		9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
@@ -142,6 +146,10 @@
 		9E960FD01DCA617500811FFB /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = shared/ChecklistItem.swift; sourceTree = "<group>"; };
 		9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WildernessGuideViewController.swift; path = controllers/shared/WildernessGuideViewController.swift; sourceTree = "<group>"; };
 		9E960FD71DCA941100811FFB /* AppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentViewController.swift; path = controllers/shared/AppointmentViewController.swift; sourceTree = "<group>"; };
+		9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpandingTableViewCell.swift; path = shared/ExpandingTableViewCell.swift; sourceTree = "<group>"; };
+		9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentTypeTableViewCell.swift; path = shared/AppointmentTypeTableViewCell.swift; sourceTree = "<group>"; };
+		9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = shared/DateTableViewCell.swift; sourceTree = "<group>"; };
+		9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceTableViewCell.swift; path = shared/PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
@@ -283,6 +291,10 @@
 				9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */,
 				9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */,
 				9E960FD01DCA617500811FFB /* ChecklistItem.swift */,
+				9E960FD91DCAA53200811FFB /* ExpandingTableViewCell.swift */,
+				9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */,
+				9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */,
+				9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -588,15 +600,19 @@
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
+				9E960FDA1DCAA53200811FFB /* ExpandingTableViewCell.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
+				9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */,
 				9E2E05611DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift in Sources */,
 				9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */,
 				9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
+				9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
 				9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */,
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
+				9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
 				9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */,
 				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
