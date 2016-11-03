@@ -27,6 +27,12 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
         
         // Set label text
         self.label.text = "Title"
+        
+        // Add the title text field
+        titleField.frame = CGRect(x: self.label.frame.maxX, y: 0, width: self.frame.width - self.label.frame.maxX, height: self.frame.height)
+        titleField.tintColor = UIColor.gray
+        titleField.textColor = UIColor.gray
+        self.addSubview(titleField)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,12 +41,6 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        // Add the title text field
-        titleField.frame = CGRect(x: self.label.frame.maxX, y: 0, width: self.frame.width - self.label.frame.maxX, height: self.frame.height)
-        titleField.tintColor = UIColor.gray
-        titleField.textColor = UIColor.gray
-        self.addSubview(titleField)
     }
     
     

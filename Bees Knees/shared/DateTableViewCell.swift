@@ -44,17 +44,6 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         dateLabel.isHidden = true
         dateLabel.frame = CGRect(x: self.label.frame.maxX, y: 0, width: self.frame.width - self.label.frame.maxX, height: self.frame.height)
         self.addSubview(dateLabel)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        print("layout")
-        
         
         // Add a horizontal rule
         let hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
@@ -64,6 +53,14 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         datePicker.frame = CGRect(x: 0, y: label.frame.height, width: self.frame.width, height: 200)
         datePicker.addTarget(self, action: #selector(DateTableViewCell.didChangeDate), for: .valueChanged)
         self.addSubview(datePicker)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     

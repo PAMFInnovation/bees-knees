@@ -30,14 +30,6 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         
         // Update the cell's height to match the needed height for the text area
         self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         
         // Add a horizontal rule
         let hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
@@ -51,6 +43,14 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         notesTextArea.tintColor = UIColor.gray
         notesTextArea.textColor = UIColor.gray
         self.addSubview(notesTextArea)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     
