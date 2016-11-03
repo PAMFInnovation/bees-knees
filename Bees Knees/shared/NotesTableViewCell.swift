@@ -11,6 +11,7 @@ import UIKit
 
 class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
+    var hRule: HorizontalRule!
     var notesTextArea = UITextView()
     let notesHeight: CGFloat = 150
     
@@ -32,7 +33,7 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
         
         // Add a horizontal rule
-        let hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
+        hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
         self.addSubview(hRule)
         
         // Add the notes text area
@@ -51,6 +52,10 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // Update the width of the views
+        hRule.frame = CGRect(x: hRule.frame.minX, y: hRule.frame.minY, width: self.frame.width, height: hRule.frame.height)
+        notesTextArea.frame = CGRect(x: notesTextArea.frame.minX, y: notesTextArea.frame.minY, width: self.frame.width, height: notesTextArea.frame.height)
     }
     
     

@@ -11,6 +11,7 @@ import UIKit
 
 class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
     
+    var hRule: HorizontalRule!
     var datePicker = UIDatePicker()
     var noDateLabel = UILabel()
     var dateLabel = UILabel()
@@ -46,7 +47,7 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         self.addSubview(dateLabel)
         
         // Add a horizontal rule
-        let hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
+        hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
         self.addSubview(hRule)
         
         // Add the date picker
@@ -61,6 +62,10 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // Update the width of the views
+        hRule.frame = CGRect(x: hRule.frame.minX, y: hRule.frame.minY, width: self.frame.width, height: hRule.frame.height)
+        datePicker.frame = CGRect(x: datePicker.frame.minX, y: datePicker.frame.minY, width: self.frame.width, height: datePicker.frame.height)
     }
     
     

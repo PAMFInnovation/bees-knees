@@ -123,30 +123,9 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    
-    // MARK: - Table View Delegate
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue the cell in order of identifier
-        let identifier = self.tableViewData[indexPath.row].name
-        let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
-        
-        // Set the default cell height for this row
-        self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
-        
-        // Return the cell
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func toggleRow(row: Int) {
         // Get the appointment cell
+        let indexPath = IndexPath(row: row, section: 0)
         let cell: AppointmentTableViewCell = tableView.cellForRow(at: indexPath) as! AppointmentTableViewCell
         
         // Only proceed if this cell can expand
@@ -171,6 +150,37 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Perform table view updates
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
+    }
+    
+    
+    // MARK: - Table View Delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue the cell in order of identifier
+        let identifier = self.tableViewData[indexPath.row].name
+        let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
+        
+        // Set a delegate for PlaceTableViewCell
+        if cell is PlaceTableViewCell {
+            (cell as! PlaceTableViewCell).delegate = self
+        }
+        
+        // Set the default cell height for this row
+        self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
+        
+        // Return the cell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toggleRow(row: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -220,5 +230,16 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Reset the scroll view insets
         scrollView.contentInset = defaultScrollInsets!
         scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
+}
+
+extension AppointmentViewController: PlaceTableViewCellDelegate {
+    func toggleExpand(sender: PlaceTableViewCell) {
+        for (index, element) in self.tableViewData.enumerated() {
+            if element.name == sender.reuseIdentifier! {
+                self.toggleRow(row: index)
+                return
+            }
+        }
     }
 }
