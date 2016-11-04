@@ -16,6 +16,7 @@ class PreSurgeryRoutineViewController: UITabBarController {
     private var guideVC: WildernessGuideViewController!
     private var careCardVC: OCKCareCardViewController!
     private var checklistVC: PreSurgeryChecklistViewController!
+    private var settingsVC: SettingsViewController!
     
     // Care Card activities
     let activities: [Activity] = [
@@ -40,7 +41,7 @@ class PreSurgeryRoutineViewController: UITabBarController {
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
-        guideVC.title = NSLocalizedString("Road to Recovery", comment: "")
+        guideVC.title = NSLocalizedString("Guide", comment: "")
         guideVC.tabBarItem = UITabBarItem(title: guideVC.title, image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
         
         // Create the CareCard VC
@@ -53,11 +54,17 @@ class PreSurgeryRoutineViewController: UITabBarController {
         checklistVC.title = NSLocalizedString("Checklist", comment: "")
         checklistVC.tabBarItem = UITabBarItem(title: checklistVC.title, image: UIImage(named: "checklist-icon"), selectedImage: UIImage(named: "checklist-icon"))
         
+        // Create the Settings VC
+        settingsVC = SettingsViewController()
+        settingsVC.title = NSLocalizedString("Settings", comment: "")
+        settingsVC.tabBarItem = UITabBarItem(title: settingsVC.title, image: UIImage(named: "settings-icon"), selectedImage: UIImage(named: "settings-icon"))
+        
         // Set the tab view controllers
         self.viewControllers = [
             UINavigationController(rootViewController: guideVC),
             UINavigationController(rootViewController: careCardVC),
-            UINavigationController(rootViewController: checklistVC)
+            UINavigationController(rootViewController: checklistVC),
+            UINavigationController(rootViewController: settingsVC)
         ]
     }
     

@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
+    @IBOutlet weak var nextButton: HighlightButton!
     
     // Next button delegate
     weak var delegate: ProfileDelegate?
@@ -40,7 +41,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     convenience init() {
-        self.init(nibName: nil, bundle: nil)
+        self.init(nibName: "ProfileInterface", bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -55,6 +56,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // TODO: is there a better way to handle this? Wrapper?
+        // Show the button if we have a delegate
+        if delegate != nil {
+            nextButton.isHidden = false
+        }
+        
         // Listen to keyboard events so we can reposition scroll items
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardOnScreen), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -63,6 +70,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Save the profile data
+        ProfileManager.sharedInstance.name = fullNameField.text!
+        ProfileManager.sharedInstance.email = emailField.text!
+        ProfileManager.sharedInstance.phone = phoneField.text!
         
         // Unregister from keyboard events
         let center = NotificationCenter.default
@@ -85,11 +97,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         // Close the keyboard for good measure
         self.view.endEditing(true)
-        
-        // Save the profile data
-        ProfileManager.sharedInstance.name = fullNameField.text!
-        ProfileManager.sharedInstance.email = emailField.text!
-        ProfileManager.sharedInstance.phone = phoneField.text!
         
         // Trigger the delegate
         delegate?.profileNextButtonPressed(sender: self)

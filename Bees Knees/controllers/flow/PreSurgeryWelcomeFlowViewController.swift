@@ -42,7 +42,7 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         consentTVC.delegate = self
         
         // Create the Profile VC
-        profileVC = ProfileViewController(nibName: "ProfileInterface", bundle: nil)
+        profileVC = ProfileViewController()
         profileVC.title = NSLocalizedString("Profile", comment: "")
         profileVC.delegate = self
         
@@ -63,7 +63,8 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         // Set the view controllers
         self.viewControllers = [
             //preSurgeryWelcomeVC
-            preSurgeryTransitionVC
+            profileVC
+            //preSurgeryTransitionVC
         ]
         
         // TESTING - clear passcode for testing

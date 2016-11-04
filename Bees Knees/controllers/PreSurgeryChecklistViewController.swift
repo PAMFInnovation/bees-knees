@@ -124,6 +124,7 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         // Set the custom cell delegate
         cell.delegate = self
         
+        // Return the cell
         return cell
     }
     
