@@ -95,7 +95,8 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get the class name
-        let className: String! = self.dataSource[indexPath.section][indexPath.row].className
+        let data = self.dataSource[indexPath.section][indexPath.row]
+        let className: String! = data.className
         
         // Combine the app and class names
         let appClassName = "Bees_Knees" + "." + className
@@ -103,6 +104,7 @@ class SettingsViewController: UITableViewController {
         // Get the class object
         let classObj = NSClassFromString(appClassName) as! UIViewController.Type
         let vc = classObj.init()
+        vc.title = NSLocalizedString(data.name, comment: "")
         
         // Push this view controller
         self.navigationController?.pushViewController(vc, animated: true)

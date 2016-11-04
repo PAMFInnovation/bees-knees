@@ -24,4 +24,7 @@ class ProfileManager {
     
     // Date of surgery
     var surgeryDate: Date?
+    
+    // Notes
+    var notes: String = ""
 }
