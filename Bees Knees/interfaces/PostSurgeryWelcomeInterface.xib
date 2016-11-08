@@ -9,9 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PreSurgeryWelcomeViewController" customModule="Bees_Knees" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostSurgeryWelcomeViewController" customModule="Bees_Knees" customModuleProvider="target">
             <connections>
-                <outlet property="goalTextField" destination="ti0-pf-6Pn" id="nvd-Ml-Na5"/>
                 <outlet property="scrollView" destination="2Ha-TN-1dT" id="Uhb-HC-ovB"/>
                 <outlet property="view" destination="q3m-o2-rEz" id="0jt-1s-Toh"/>
             </connections>
@@ -28,7 +27,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="335" height="872"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sax-9e-vNF">
-                                    <rect key="frame" x="15" y="0.0" width="320" height="20.5"/>
+                                    <rect key="frame" x="15" y="140" width="320" height="21"/>
                                     <attributedString key="attributedText">
                                         <fragment content="What to expect from this App">
                                             <attributes>
@@ -40,7 +39,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHI-e2-JOy">
-                                    <rect key="frame" x="10" y="28.5" width="315" height="152.5"/>
+                                    <rect key="frame" x="10" y="169" width="315" height="152.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -54,7 +53,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmB-Bj-Gyd">
-                                    <rect key="frame" x="15" y="201" width="320" height="20.5"/>
+                                    <rect key="frame" x="15" y="341.5" width="320" height="21"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Why this is important">
                                             <attributes>
@@ -66,7 +65,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60l-XQ-4Hf">
-                                    <rect key="frame" x="10" y="229.5" width="315" height="175.5"/>
+                                    <rect key="frame" x="10" y="370.5" width="315" height="175.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -80,7 +79,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFQ-dt-wv1">
-                                    <rect key="frame" x="15" y="425" width="320" height="20.5"/>
+                                    <rect key="frame" x="15" y="566" width="320" height="21"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Our Goal">
                                             <attributes>
@@ -92,7 +91,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14l-Pw-l3a">
-                                    <rect key="frame" x="10" y="453.5" width="315" height="106.5"/>
+                                    <rect key="frame" x="10" y="595" width="315" height="106.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -105,29 +104,8 @@
                                     </attributedString>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-DM-3cw">
-                                    <rect key="frame" x="15" y="590" width="320" height="20.5"/>
-                                    <attributedString key="attributedText">
-                                        <fragment content="What do you want to achieve?">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Arial-BoldMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter goal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti0-pf-6Pn">
-                                    <rect key="frame" x="10" y="618.5" width="315" height="30"/>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="2Xn-fE-SPe"/>
-                                    </connections>
-                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjb-2s-Jy6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
-                                    <rect key="frame" x="40" y="688.5" width="255" height="42"/>
+                                    <rect key="frame" x="40" y="744.5" width="255" height="42"/>
                                     <color key="backgroundColor" red="0.079919971525669098" green="0.46679401397705078" blue="0.9991869330406189" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="j7g-Kw-6DC"/>
@@ -140,48 +118,57 @@
                                             <integer key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="nextButtonPressed:" destination="-1" eventType="touchUpInside" id="LoJ-lg-iZk"/>
-                                    </connections>
                                 </button>
                                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wu3-WL-Nwz">
-                                    <rect key="frame" x="0.0" y="730.5" width="335" height="60"/>
+                                    <rect key="frame" x="0.0" y="786.5" width="335" height="60"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="gn9-ms-yGU"/>
                                     </constraints>
                                 </view>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2c-wd-Ofn">
+                                    <rect key="frame" x="57.5" y="20" width="220" height="83"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="220" id="ByG-Ri-dHA"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="We're here to help you achieve that goal. Here's how...">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="Arial-BoldMT"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="GHI-e2-JOy" secondAttribute="trailing" constant="10" id="2EE-FW-HkQ"/>
-                                <constraint firstItem="Wa3-DM-3cw" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="2pv-1Q-2bx"/>
-                                <constraint firstItem="ti0-pf-6Pn" firstAttribute="top" secondItem="Wa3-DM-3cw" secondAttribute="bottom" constant="8" id="BUo-RY-U3D"/>
+                                <constraint firstItem="Fjb-2s-Jy6" firstAttribute="centerX" secondItem="W2c-wd-Ofn" secondAttribute="centerX" id="6U5-DT-NAA"/>
                                 <constraint firstAttribute="trailing" secondItem="Wu3-WL-Nwz" secondAttribute="trailing" id="Hdo-TN-Jr1"/>
                                 <constraint firstItem="VFQ-dt-wv1" firstAttribute="top" secondItem="60l-XQ-4Hf" secondAttribute="bottom" constant="20" id="K83-0z-WKZ"/>
+                                <constraint firstItem="Fjb-2s-Jy6" firstAttribute="top" secondItem="14l-Pw-l3a" secondAttribute="bottom" constant="43" id="Msl-vw-2fZ"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="top" secondItem="lmB-Bj-Gyd" secondAttribute="bottom" constant="8" id="Pgg-yd-qzr"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="top" secondItem="lmB-Bj-Gyd" secondAttribute="bottom" constant="8" id="TaT-u1-t6d"/>
                                 <constraint firstAttribute="trailing" secondItem="VFQ-dt-wv1" secondAttribute="trailing" id="U5a-WS-wA6"/>
                                 <constraint firstItem="lmB-Bj-Gyd" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="VqO-B4-ATU"/>
                                 <constraint firstAttribute="trailing" secondItem="lmB-Bj-Gyd" secondAttribute="trailing" id="WA0-tb-l8f"/>
-                                <constraint firstAttribute="trailing" secondItem="Wa3-DM-3cw" secondAttribute="trailing" id="Wob-iy-nJD"/>
                                 <constraint firstAttribute="trailing" secondItem="14l-Pw-l3a" secondAttribute="trailing" constant="10" id="cOH-Tf-la9"/>
                                 <constraint firstItem="Wu3-WL-Nwz" firstAttribute="top" secondItem="Fjb-2s-Jy6" secondAttribute="bottom" id="d97-Zm-HWR"/>
-                                <constraint firstItem="ti0-pf-6Pn" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="f72-qK-ejk"/>
                                 <constraint firstItem="Wu3-WL-Nwz" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" id="iZM-7o-mGE"/>
                                 <constraint firstItem="14l-Pw-l3a" firstAttribute="top" secondItem="VFQ-dt-wv1" secondAttribute="bottom" constant="8" id="k3L-m6-bVf"/>
-                                <constraint firstItem="Sax-9e-vNF" firstAttribute="top" secondItem="clL-vI-RWi" secondAttribute="top" id="kH5-aC-1bO"/>
-                                <constraint firstAttribute="trailing" secondItem="ti0-pf-6Pn" secondAttribute="trailing" constant="10" id="kpq-Vc-jlQ"/>
+                                <constraint firstItem="Sax-9e-vNF" firstAttribute="top" secondItem="clL-vI-RWi" secondAttribute="top" constant="140" id="kH5-aC-1bO"/>
                                 <constraint firstAttribute="height" constant="872" id="lyP-mH-5pe"/>
                                 <constraint firstAttribute="trailing" secondItem="Fjb-2s-Jy6" secondAttribute="trailing" constant="40" id="p6M-de-rC5"/>
-                                <constraint firstItem="Wa3-DM-3cw" firstAttribute="top" secondItem="14l-Pw-l3a" secondAttribute="bottom" constant="30" id="pNT-pS-8mO"/>
                                 <constraint firstItem="Fjb-2s-Jy6" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="40" id="q0D-0B-xyf"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="qjA-Kx-2QR"/>
                                 <constraint firstItem="14l-Pw-l3a" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="r45-jr-1O3"/>
                                 <constraint firstItem="GHI-e2-JOy" firstAttribute="top" secondItem="Sax-9e-vNF" secondAttribute="bottom" constant="8" id="tyu-3V-jFH"/>
                                 <constraint firstItem="VFQ-dt-wv1" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="uwd-ik-kmL"/>
                                 <constraint firstItem="lmB-Bj-Gyd" firstAttribute="top" secondItem="GHI-e2-JOy" secondAttribute="bottom" constant="20" id="uzO-Am-l1I"/>
-                                <constraint firstItem="Fjb-2s-Jy6" firstAttribute="top" secondItem="ti0-pf-6Pn" secondAttribute="bottom" constant="40" id="vAW-GC-pLz"/>
                                 <constraint firstAttribute="trailing" secondItem="Sax-9e-vNF" secondAttribute="trailing" id="vDO-gD-iEj"/>
+                                <constraint firstItem="W2c-wd-Ofn" firstAttribute="top" secondItem="clL-vI-RWi" secondAttribute="top" constant="20" id="yBn-UK-Jqu"/>
                                 <constraint firstItem="Sax-9e-vNF" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="zDi-cr-j22"/>
                                 <constraint firstItem="GHI-e2-JOy" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="zQs-fu-Mh4"/>
                                 <constraint firstAttribute="trailing" secondItem="60l-XQ-4Hf" secondAttribute="trailing" constant="10" id="zf8-tv-LOh"/>

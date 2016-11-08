@@ -62,8 +62,8 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Set the view controllers
         self.viewControllers = [
-            //preSurgeryWelcomeVC
-            profileVC
+            preSurgeryWelcomeVC
+            //profileVC
             //preSurgeryTransitionVC
         ]
         

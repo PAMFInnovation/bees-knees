@@ -27,6 +27,7 @@ class RootViewController: UIViewController {
     // View controllers
     var preSurgeryWelcomeFlow: PreSurgeryWelcomeFlowViewController!
     var preSurgeryRoutineFlow: PreSurgeryRoutineViewController!
+    var postSurgeryWelcomeFlow: PostSurgeryWelcomeFlowViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,6 +44,10 @@ class RootViewController: UIViewController {
         // Create the Pre-Surgery Routine Flow VC
         preSurgeryRoutineFlow = PreSurgeryRoutineViewController(coder: aDecoder)
         self.addChildViewController(preSurgeryRoutineFlow)
+        
+        // Create the Post-Surgery Welcome Flow VC
+        postSurgeryWelcomeFlow = PostSurgeryWelcomeFlowViewController(coder: aDecoder)
+        //self.addChildViewController(postSurgeryWelcomeFlow)
     }
     
     override func viewDidLoad() {
@@ -62,7 +67,8 @@ class RootViewController: UIViewController {
         
         // Present the Pre-Surgery Welcome Flow
         if flowState == .Launch {
-            self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
+            self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
+            //self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
         }
     }
     

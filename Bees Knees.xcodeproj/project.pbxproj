@@ -15,6 +15,11 @@
 		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
 		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
+		9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */; };
+		9E1E44C51DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */; };
+		9E1E44C71DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */; };
+		9E1E44C91DD1443C00FF78A6 /* PostSurgeryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */; };
+		9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */; };
 		9E2E05611DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */; };
 		9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */; };
 		9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */; };
@@ -24,6 +29,8 @@
 		9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
+		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
+		9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81B0641DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift */; };
 		9E81DDCC1DCD05EE0065C928 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81DDCB1DCD05EE0065C928 /* SettingsItem.swift */; };
 		9E81DDD31DCD17770065C928 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81DDD21DCD17770065C928 /* NotesViewController.swift */; };
 		9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81DDD41DCD17860065C928 /* ResourcesViewController.swift */; };
@@ -145,6 +152,11 @@
 		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
 		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
+		9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryWelcomeFlowViewController.swift; path = controllers/flow/PostSurgeryWelcomeFlowViewController.swift; sourceTree = "<group>"; };
+		9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryCongratsInterface.xib; path = interfaces/PostSurgeryCongratsInterface.xib; sourceTree = "<group>"; };
+		9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryCongratsView.swift; path = views/PostSurgeryCongratsView.swift; sourceTree = "<group>"; };
+		9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryGoalView.swift; path = views/PostSurgeryGoalView.swift; sourceTree = "<group>"; };
+		9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryTransitionView.swift; path = views/PostSurgeryTransitionView.swift; sourceTree = "<group>"; };
 		9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryRoutineViewController.swift; path = controllers/flow/PreSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
 		9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeFlowViewController.swift; path = controllers/flow/PreSurgeryWelcomeFlowViewController.swift; sourceTree = "<group>"; };
 		9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryView.swift; path = views/DateOfSurgeryView.swift; sourceTree = "<group>"; };
@@ -154,6 +166,8 @@
 		9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarePlanStoreManager.swift; path = shared/CarePlanStoreManager.swift; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
+		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
+		9E81B0641DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryWelcomeViewController.swift; path = controllers/PostSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
 		9E81DDCB1DCD05EE0065C928 /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItem.swift; path = shared/SettingsItem.swift; sourceTree = "<group>"; };
 		9E81DDD21DCD17770065C928 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesViewController.swift; path = controllers/NotesViewController.swift; sourceTree = "<group>"; };
 		9E81DDD41DCD17860065C928 /* ResourcesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourcesViewController.swift; path = controllers/ResourcesViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +274,7 @@
 				9E81DDD61DCD17A00065C928 /* ExpectationsViewController.swift */,
 				9E81DDDA1DCD17CE0065C928 /* LegalViewController.swift */,
 				9E81DDDC1DCD17EB0065C928 /* FAQViewController.swift */,
+				9E81B0641DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -269,6 +284,9 @@
 			children = (
 				9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */,
 				9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */,
+				9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */,
+				9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */,
+				9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -280,6 +298,8 @@
 				9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */,
 				9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */,
 				9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */,
+				9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */,
+				9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */,
 			);
 			name = interfaces;
 			sourceTree = "<group>";
@@ -289,6 +309,7 @@
 			children = (
 				9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */,
 				9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */,
+				9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */,
 			);
 			name = flow;
 			sourceTree = "<group>";
@@ -602,9 +623,11 @@
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
+				9E1E44C51DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
+				9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
+				9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */,
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
@@ -653,13 +677,16 @@
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
 				9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
+				9E1E44C91DD1443C00FF78A6 /* PostSurgeryGoalView.swift in Sources */,
 				9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */,
 				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
 				9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */,
+				9E1E44C71DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift in Sources */,
 				9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */,
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
+				9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */,
 				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
@@ -670,6 +697,7 @@
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
 				9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */,
+				9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */,
 				9E14B7321DCCE18B00C7973A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
