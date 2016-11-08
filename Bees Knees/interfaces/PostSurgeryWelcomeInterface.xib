@@ -110,7 +110,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="j7g-Kw-6DC"/>
                                     </constraints>
-                                    <state key="normal" title="Next">
+                                    <state key="normal" title="Continue">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -118,6 +118,9 @@
                                             <integer key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="continuePressed:" destination="-1" eventType="touchUpInside" id="DaS-aC-Qmj"/>
+                                    </connections>
                                 </button>
                                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wu3-WL-Nwz">
                                     <rect key="frame" x="0.0" y="786.5" width="335" height="60"/>

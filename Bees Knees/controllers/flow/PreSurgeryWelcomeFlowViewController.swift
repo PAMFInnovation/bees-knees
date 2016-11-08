@@ -11,7 +11,7 @@ import ResearchKit
 
 
 protocol PreSurgeryWelcomeFlowDelegate: class {
-    func didFinishFlow(sender: PreSurgeryWelcomeFlowViewController)
+    func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController)
 }
 
 class PreSurgeryWelcomeFlowViewController: UINavigationController {
@@ -165,6 +165,6 @@ extension PreSurgeryWelcomeFlowViewController: PreSurgeryTransitionDelegate {
     
     func goToCareCardButtonPressed(sender: PreSurgeryTransitionViewController) {
         // We're finished with this flow
-        self.classDelegate?.didFinishFlow(sender: self)
+        self.classDelegate?.didFinishPreFlow(sender: self)
     }
 }

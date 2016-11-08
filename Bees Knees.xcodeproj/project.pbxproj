@@ -51,6 +51,8 @@
 		9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */; };
 		9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */; };
 		9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */; };
+		9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */; };
+		9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -188,6 +190,8 @@
 		9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryTransitionInterface.xib; path = interfaces/PreSurgeryTransitionInterface.xib; sourceTree = "<group>"; };
 		9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryTransitionViewController.swift; path = controllers/PreSurgeryTransitionViewController.swift; sourceTree = "<group>"; };
+		9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryConfirmationView.swift; path = views/PostSurgeryConfirmationView.swift; sourceTree = "<group>"; };
+		9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryRoutineViewController.swift; path = controllers/flow/PostSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			children = (
 				9E429DB91DC288860066FF20 /* DateOfSurgeryView.swift */,
 				9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */,
+				9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */,
 				9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */,
 				9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */,
 				9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */,
@@ -310,6 +315,7 @@
 				9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */,
 				9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */,
 				9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */,
+				9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */,
 			);
 			name = flow;
 			sourceTree = "<group>";
@@ -657,6 +663,7 @@
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
+				9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
@@ -668,6 +675,7 @@
 				D2A1B8D11DCBB85F00790F16 /* AppointmentCellData.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
+				9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */,
 				9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */,
 				9E81DDDB1DCD17CE0065C928 /* LegalViewController.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,

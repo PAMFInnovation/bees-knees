@@ -9,7 +9,14 @@
 import UIKit
 
 
+protocol PostSurgeryCongratsDelegate: class {
+    func completePostSurgeryCongrats(sender: PostSurgeryCongratsView)
+}
+
 class PostSurgeryCongratsView: UIView {
+    
+    var delegate: PostSurgeryCongratsDelegate!
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -18,6 +25,9 @@ class PostSurgeryCongratsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.white
+        
         
         // Add the checkmark
         var checkmarkImage: UIImage = UIImage(named: "checkmark")!
@@ -40,6 +50,7 @@ class PostSurgeryCongratsView: UIView {
         nextButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         nextButton.cornerRadius = 10
         nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.addTarget(self, action: #selector(PostSurgeryCongratsView.continuePressed), for: .touchUpInside)
         
         self.addSubview(nextButton)
         
@@ -61,5 +72,11 @@ class PostSurgeryCongratsView: UIView {
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40))
+    }
+    
+    
+    // MARK: - Helper functions
+    func continuePressed() {
+        self.delegate?.completePostSurgeryCongrats(sender: self)
     }
 }

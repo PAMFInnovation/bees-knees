@@ -9,7 +9,14 @@
 import UIKit
 
 
+protocol PostSurgeryGoalDelegate: class {
+    func completePostSurgeryGoal(sender: PostSurgeryGoalView)
+}
+
 class PostSurgeryGoalView: UIView {
+    
+    var delegate: PostSurgeryGoalDelegate?
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -18,6 +25,8 @@ class PostSurgeryGoalView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.white
         
         // Add the goal icon
         var goalImage: UIImage = UIImage(named: "goal-icon")!
@@ -40,6 +49,7 @@ class PostSurgeryGoalView: UIView {
         nextButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         nextButton.cornerRadius = 10
         nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.addTarget(self, action: #selector(PostSurgeryGoalView.continuePressed), for: .touchUpInside)
         
         self.addSubview(nextButton)
         
@@ -79,5 +89,11 @@ class PostSurgeryGoalView: UIView {
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+    }
+    
+    
+    // MARK: - Helper functions
+    func continuePressed() {
+        self.delegate?.completePostSurgeryGoal(sender: self)
     }
 }

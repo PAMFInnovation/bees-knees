@@ -28,6 +28,7 @@ class RootViewController: UIViewController {
     var preSurgeryWelcomeFlow: PreSurgeryWelcomeFlowViewController!
     var preSurgeryRoutineFlow: PreSurgeryRoutineViewController!
     var postSurgeryWelcomeFlow: PostSurgeryWelcomeFlowViewController!
+    var postSurgeryRoutineFlow: PostSurgeryRoutineViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +48,11 @@ class RootViewController: UIViewController {
         
         // Create the Post-Surgery Welcome Flow VC
         postSurgeryWelcomeFlow = PostSurgeryWelcomeFlowViewController(coder: aDecoder)
-        //self.addChildViewController(postSurgeryWelcomeFlow)
+        postSurgeryWelcomeFlow.classDelegate = self
+        
+        // Create the Post-Surgery Routine Flow VC
+        postSurgeryRoutineFlow = PostSurgeryRoutineViewController(coder: aDecoder)
+        self.addChildViewController(postSurgeryRoutineFlow)
     }
     
     override func viewDidLoad() {
@@ -61,14 +66,32 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // TESTING logic
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let someDate = dateFormatter.date(from: "11/08/2016")
+        ProfileManager.sharedInstance.surgeryDate = someDate
+        
+        // Check for transition to post-surgery by checking the surgery date against today's date
+        if flowState == .Launch || flowState == .PreSurgeryWelcome || flowState == .PreSurgeryRoutine {
+            if ProfileManager.sharedInstance.surgeryDate != nil {
+                // Get today's date
+                let today: NSDate = NSDate()
+                
+                // Do a comparison
+                if today as Date > ProfileManager.sharedInstance.surgeryDate! {
+                    flowState = .PostSurgeryWelcome
+                    self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
+                }
+            }
+        }
         // TODO: logic for determining if this user already has data and therefore
         // should not repeat the welcome flow
         //
-        
         // Present the Pre-Surgery Welcome Flow
-        if flowState == .Launch {
-            self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
-            //self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
+        else if flowState == .Launch {
+            flowState = .PreSurgeryWelcome
+            self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
         }
     }
     
@@ -78,11 +101,21 @@ class RootViewController: UIViewController {
 }
 
 extension RootViewController: PreSurgeryWelcomeFlowDelegate {
-    func didFinishFlow(sender: PreSurgeryWelcomeFlowViewController) {
+    func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController) {
         flowState = .PreSurgeryRoutine
         
         // Dismiss the view and the Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RootViewController: PostSurgeryWelcomeFlowDelegate {
+    func didFinishPostFlow(sender: PostSurgeryWelcomeFlowViewController) {
+        flowState = .PostSurgeryRoutine
+        
+        // Dismiss the view and the Care Card will be waiting underneath
+        self.view.addSubview(postSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
     }
 }

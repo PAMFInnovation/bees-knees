@@ -9,9 +9,16 @@
 import UIKit
 
 
+protocol PostSurgeryWelcomeDelegate: class {
+    func completePostSurgeryWelcome(sender: PostSurgeryWelcomeViewController)
+}
+
 class PostSurgeryWelcomeViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    // Delegate
+    var delegate: PostSurgeryWelcomeDelegate?
     
     // Keep track of the observed UI item in case we need to make it visible via scrolling
     var activeElement: UIControl?
@@ -113,5 +120,11 @@ class PostSurgeryWelcomeViewController: UIViewController {
         // Reset the scroll view insets
         scrollView.contentInset = defaultScrollInsets!
         scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
+    
+    
+    // MARK: - Button actions
+    @IBAction func continuePressed(_ sender: UIButton) {
+        self.delegate?.completePostSurgeryWelcome(sender: self)
     }
 }
