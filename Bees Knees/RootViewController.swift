@@ -66,14 +66,17 @@ class RootViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // TESTING logic
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let someDate = dateFormatter.date(from: "11/08/2016")
-        ProfileManager.sharedInstance.surgeryDate = someDate
-        
         // Check for transition to post-surgery by checking the surgery date against today's date
         if flowState == .Launch || flowState == .PreSurgeryWelcome || flowState == .PreSurgeryRoutine {
+            
+            // TESTING logic
+            if ProfileManager.sharedInstance.surgeryDate == nil {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                let someDate = dateFormatter.date(from: "11/08/2016")
+                ProfileManager.sharedInstance.surgeryDate = someDate
+            }
+            
             if ProfileManager.sharedInstance.surgeryDate != nil {
                 // Get today's date
                 let today: NSDate = NSDate()
@@ -104,7 +107,7 @@ extension RootViewController: PreSurgeryWelcomeFlowDelegate {
     func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController) {
         flowState = .PreSurgeryRoutine
         
-        // Dismiss the view and the Care Card will be waiting underneath
+        // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
     }
@@ -114,8 +117,16 @@ extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     func didFinishPostFlow(sender: PostSurgeryWelcomeFlowViewController) {
         flowState = .PostSurgeryRoutine
         
-        // Dismiss the view and the Care Card will be waiting underneath
+        // Dismiss the view and the Post Care Card will be waiting underneath
         self.view.addSubview(postSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func returnToPreFlow(sender: PostSurgeryWelcomeFlowViewController) {
+        flowState = .PreSurgeryRoutine
+        
+        // Dismiss the view and the Pre Care Card will be waiting underneath
+        self.view.addSubview(preSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
     }
 }

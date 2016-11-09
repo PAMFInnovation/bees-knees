@@ -53,6 +53,7 @@
 		9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */; };
 		9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */; };
 		9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */; };
+		9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -192,6 +193,7 @@
 		9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryTransitionViewController.swift; path = controllers/PreSurgeryTransitionViewController.swift; sourceTree = "<group>"; };
 		9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryConfirmationView.swift; path = views/PostSurgeryConfirmationView.swift; sourceTree = "<group>"; };
 		9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryRoutineViewController.swift; path = controllers/flow/PostSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
+		9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "extensions/UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */,
+				9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
+				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */,
