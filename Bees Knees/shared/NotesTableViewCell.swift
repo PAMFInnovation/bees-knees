@@ -11,6 +11,12 @@ import UIKit
 
 class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
+    override var appointment: Appointment? {
+        willSet(appt) {
+            notesTextArea.text = appt?.notes
+        }
+    }
+    
     var hRule: HorizontalRule!
     var notesTextArea = UITextView()
     let notesHeight: CGFloat = 150
@@ -65,5 +71,9 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         delegate?.beginEditing(sender: textView)
         
         return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        appointment?.notes = textView.text
     }
 }

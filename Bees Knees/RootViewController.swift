@@ -57,6 +57,13 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TESTING logic - add some appointments
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp, date: Util.getDateFromString("11/10/2016")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic, date: Util.getDateFromString("11/15/2016")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week, date: Util.getDateFromString("12/15/2016")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week, date: Util.getDateFromString("1/15/2017")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("2/28/2017")))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,29 +77,22 @@ class RootViewController: UIViewController {
         if flowState == .Launch || flowState == .PreSurgeryWelcome || flowState == .PreSurgeryRoutine {
             
             // TESTING logic
-            if ProfileManager.sharedInstance.surgeryDate == nil {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy"
-                let someDate = dateFormatter.date(from: "11/08/2016")
-                ProfileManager.sharedInstance.surgeryDate = someDate
+            if !ProfileManager.sharedInstance.isSurgerySet {
+                //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
+                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/30/2016"))
             }
             
-            if ProfileManager.sharedInstance.surgeryDate != nil {
-                // Get today's date
-                let today: NSDate = NSDate()
-                
-                // Do a comparison
-                if today as Date > ProfileManager.sharedInstance.surgeryDate! {
+            if ProfileManager.sharedInstance.isSurgerySet {
+                if Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) {
                     flowState = .PostSurgeryWelcome
                     self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
                 }
             }
         }
-        // TODO: logic for determining if this user already has data and therefore
-        // should not repeat the welcome flow
+        // TODO: logic for determining if this user already has data and therefore should not repeat the welcome flow
         //
         // Present the Pre-Surgery Welcome Flow
-        else if flowState == .Launch {
+        if flowState == .Launch {
             flowState = .PreSurgeryWelcome
             self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
         }

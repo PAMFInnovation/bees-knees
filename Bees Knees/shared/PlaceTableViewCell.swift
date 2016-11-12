@@ -12,6 +12,12 @@ import MapKit
 
 class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    override var appointment: Appointment? {
+        willSet(appt) {
+            addressField.text = appt?.place
+        }
+    }
+    
     var hRule: HorizontalRule!
     var addressField = UITextField()
     var tableView: UITableView!
@@ -122,6 +128,7 @@ class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITable
         
         // Set the address text
         addressField.text = searchResult.title + " " + searchResult.subtitle
+        appointment?.place = addressField.text
         
         // Close the keyboard and table
         self.endEditing(true)

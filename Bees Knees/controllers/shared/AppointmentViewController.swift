@@ -9,7 +9,14 @@
 import UIKit
 
 
+protocol AppointmentViewControllerDelegate: class {
+    func doneEditingAppointment(sender: AppointmentViewController)
+}
+
 class AppointmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // Appointment data
+    var appointment: Appointment!
     
     // Subviews
     var scrollView: UIScrollView!
@@ -29,6 +36,9 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     var expandedRowIndex = -1
     var cellExpandedHeight: CGFloat = 44
     
+    // Appointment VC delegate
+    var delegate: AppointmentViewControllerDelegate?
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +51,16 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     
     convenience init() {
         self.init(nibName: nil, bundle: nil)
+        
+        // Create a new appointment object
+        appointment = Appointment()
+    }
+    
+    convenience init(appt: Appointment) {
+        self.init(nibName: nil, bundle: nil)
+        
+        // Set an existing appointment object
+        self.appointment = appt
     }
     
     override func viewDidLoad() {
@@ -51,14 +71,6 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Set the title
         self.title = NSLocalizedString("Appointment", comment: "")
-        
-        // Add the done button in the navigation bar and color it
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(AppointmentViewController.cancel))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.red
-        
-        // Add the done button in the navigation bar and color it
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AppointmentViewController.done))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         
         // Add items to the table view data
         tableViewData.append(AppointmentCellData(name: "titleCell"))
@@ -120,13 +132,23 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func done() {
+        // Add the appointment to the appointments list
+        ProfileManager.sharedInstance.appointments.append(appointment)
         
+        // Trigger a completion
+        self.dismiss(animated: true, completion: nil)
+        self.delegate?.doneEditingAppointment(sender: self)
     }
     
     func toggleRow(row: Int) {
         // Get the appointment cell
         let indexPath = IndexPath(row: row, section: 0)
         let cell: AppointmentTableViewCell = tableView.cellForRow(at: indexPath) as! AppointmentTableViewCell
+        
+        // Don't allow surgery appointment type cell to expand
+        if cell is AppointmentTypeTableViewCell && cell.appointment?.type == AppointmentType.Surgery {
+            return
+        }
         
         // Only proceed if this cell can expand
         if !cell.canExpand {
@@ -166,6 +188,9 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Dequeue the cell in order of identifier
         let identifier = self.tableViewData[indexPath.row].name
         let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
+        
+        // Set the appointment reference
+        cell.appointment = appointment
         
         // Set a delegate for the cells
         cell.delegate = self

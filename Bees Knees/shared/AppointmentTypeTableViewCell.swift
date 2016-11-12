@@ -11,9 +11,17 @@ import UIKit
 
 class AppointmentTypeTableViewCell: AppointmentTableViewCell, UITableViewDelegate, UITableViewDataSource {
     
+    override var appointment: Appointment? {
+        willSet(appt) {
+            let iPath: IndexPath = IndexPath(row: self.tableViewData.index(of: appt!.type)!, section: 0)
+            selectionLabel.text = (self.tableViewData[iPath.row] as AppointmentType).description
+            selectedCell = iPath
+        }
+    }
+    
     var hRule: HorizontalRule!
     var tableView: UITableView!
-    var tableViewData: [String] = ["Check up", "Consultation", "6 week check-in", "12 week check-in"]
+    var tableViewData: [AppointmentType] = [.CheckUp, .Consultation, .PreOp, .Orthopedic, .FollowUp2Week, .FollowUp6Week, .FollowUp12Week, .Surgery]
     var selectedCell: IndexPath = IndexPath(row: 0, section: 0)
     var selectionLabel = UILabel()
     
@@ -30,10 +38,10 @@ class AppointmentTypeTableViewCell: AppointmentTableViewCell, UITableViewDelegat
         
         // This cell can expand
         canExpand = true
-        expandedHeight = CGFloat(44.0) * CGFloat(tableViewData.count + 1)
+        expandedHeight = CGFloat(44.0) * CGFloat(tableViewData.count)
         
         // Set the date label
-        selectionLabel.text = self.tableViewData[selectedCell.row]
+        selectionLabel.text = (self.tableViewData[selectedCell.row] as AppointmentType).description
         selectionLabel.textColor = UIColor.gray
         selectionLabel.frame = CGRect(x: self.label.frame.maxX, y: 0, width: self.frame.width - self.label.frame.maxX, height: self.frame.height)
         self.addSubview(selectionLabel)
@@ -75,7 +83,7 @@ class AppointmentTypeTableViewCell: AppointmentTableViewCell, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the cell
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        cell.textLabel?.text = self.tableViewData[indexPath.row]
+        cell.textLabel?.text = (self.tableViewData[indexPath.row] as AppointmentType).description
         cell.textLabel?.textColor = UIColor.lightGray
         cell.selectionStyle = .none
         
@@ -103,7 +111,20 @@ class AppointmentTypeTableViewCell: AppointmentTableViewCell, UITableViewDelegat
         let nextCell: UITableViewCell = tableView.cellForRow(at: selectedCell)!
         nextCell.accessoryType = .checkmark
         
+        // Get the appointment type
+        let type: AppointmentType = (self.tableViewData[selectedCell.row] as AppointmentType)
+        
         // Set the display text
-        selectionLabel.text = self.tableViewData[selectedCell.row]
+        selectionLabel.text = type.description
+        
+        // Update the appointment
+        appointment?.type = type
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.tableViewData[indexPath.row] == .Surgery {
+            return 0
+        }
+        return 44
     }
 }

@@ -51,7 +51,7 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         self.view.backgroundColor = UIColor.white
         
         // Set the current date of surgery
-        currentDateOfSurgery = ProfileManager.sharedInstance.surgeryDate
+        currentDateOfSurgery = ProfileManager.sharedInstance.getSurgeryDate()
         
         
         // Add the confirmation view
@@ -139,7 +139,7 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         let today: NSDate = NSDate()
         
         // Confirm with the user if the date was set in the past
-        if today as Date > ProfileManager.sharedInstance.surgeryDate! {
+        if today as Date > ProfileManager.sharedInstance.getSurgeryDate() {
             let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let confirm: UIAlertAction = UIAlertAction(title: "Yes", style: .default, handler: {(alert: UIAlertAction!) in
                     // Return to confirmation view

@@ -33,20 +33,9 @@ class DateOfSurgeryView: UIView {
     
     // MARK: - Helper functions
     private func setDate(date: Date) {
-        // Format the date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        dateFormatter.timeStyle = DateFormatter.Style.none
-        let dateString = dateFormatter.string(from: date)
-        
-        // Format the time
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "EEEE, h:mm a"
-        let timeString = timeFormatter.string(from: date)
-        
         // Update labels
-        dateLabel.text = dateString
-        timeLabel.text = timeString
+        dateLabel.text = Util.getFormattedDate(date, dateStyle: .long, timeStyle: .none)
+        timeLabel.text = Util.getFormattedDate(date, dateFormat: "EEEE, h:mm a")
         
         // Show date labels, hide default label
         dateLabel.isHidden = false
@@ -54,7 +43,7 @@ class DateOfSurgeryView: UIView {
         noDateLabel.isHidden = true
         
         // Set the date in ProfileManager
-        ProfileManager.sharedInstance.surgeryDate = date
+        ProfileManager.sharedInstance.setSurgeryDate(date)
     }
     
     

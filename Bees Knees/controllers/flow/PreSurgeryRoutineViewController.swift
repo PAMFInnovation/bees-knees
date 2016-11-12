@@ -20,7 +20,8 @@ class PreSurgeryRoutineViewController: UITabBarController {
     
     // Care Card activities
     let activities: [Activity] = [
-        Walk()
+        Walk(),
+        Mood()
     ]
     
     

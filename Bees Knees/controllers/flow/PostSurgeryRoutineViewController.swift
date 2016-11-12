@@ -8,18 +8,21 @@
 
 import UIKit
 import CareKit
+import ResearchKit
 
 
 class PostSurgeryRoutineViewController: UITabBarController {
     
     // Navigation controllers
-    private var guideVC: WildernessGuideViewController!
-    private var careCardVC: OCKCareCardViewController!
-    private var settingsVC: SettingsViewController!
+    fileprivate var guideVC: WildernessGuideViewController!
+    fileprivate var careCardVC: OCKCareCardViewController!
+    fileprivate var assessmentsVC: OCKSymptomTrackerViewController!
+    fileprivate var settingsVC: SettingsViewController!
     
     // Care Card activities
     let activities: [Activity] = [
-        Walk()
+        Walk(),
+        Mood()
     ]
     
     
@@ -48,6 +51,12 @@ class PostSurgeryRoutineViewController: UITabBarController {
         careCardVC.title = NSLocalizedString("Care Card", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         
+        // Create the Assessments VC
+        assessmentsVC = OCKSymptomTrackerViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
+        assessmentsVC.delegate = self
+        assessmentsVC.title = NSLocalizedString("Assessments", comment: "")
+        assessmentsVC.tabBarItem = UITabBarItem(title: assessmentsVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
+        
         // Create the Settings VC
         settingsVC = SettingsViewController()
         settingsVC.title = NSLocalizedString("Settings", comment: "")
@@ -57,6 +66,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
         self.viewControllers = [
             UINavigationController(rootViewController: guideVC),
             UINavigationController(rootViewController: careCardVC),
+            UINavigationController(rootViewController: assessmentsVC),
             UINavigationController(rootViewController: settingsVC)
         ]
     }
@@ -65,5 +75,66 @@ class PostSurgeryRoutineViewController: UITabBarController {
         // Set default tab
         self.selectedIndex = 0
     }
+    
+    func activityWithType(_ type: ActivityType) -> Activity? {
+        for activity in activities where activity.activityType == type {
+            return activity
+        }
+        return nil
+    }
 }
 
+extension PostSurgeryRoutineViewController: OCKSymptomTrackerViewControllerDelegate {
+    // Called when the user taps an assessment
+    func symptomTrackerViewController(_ viewController: OCKSymptomTrackerViewController, didSelectRowWithAssessmentEvent assessmentEvent: OCKCarePlanEvent) {
+        // Lookup the assessment from the row
+        guard let activityType = ActivityType(rawValue: assessmentEvent.activity.identifier) else { return }
+        guard let assessment = self.activityWithType(activityType) as? Assessment else { return }
+        
+        // Check if we should show a task for the selected assessment event
+        guard assessmentEvent.state == .initial ||
+            assessmentEvent.state == .notCompleted ||
+            (assessmentEvent.state == .completed && assessmentEvent.activity.resultResettable) else { return }
+        
+        // Show the assessment's task
+        let taskVC = ORKTaskViewController(task: assessment.task(), taskRun: nil)
+        taskVC.delegate = self
+        
+        // Present the task
+        self.present(taskVC, animated: true, completion: nil)
+    }
+}
+
+extension PostSurgeryRoutineViewController: ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        // Dismiss the task view controller
+        defer {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        // Ensure the reason this task view controller is finished is due to completion
+        guard reason == .completed else { return }
+        
+        // Determine the event that was completed and the assessment it represents
+        guard let event = self.assessmentsVC.lastSelectedAssessmentEvent,
+            let activityType = ActivityType(rawValue: event.activity.identifier),
+            let assessment = self.activityWithType(activityType) as? Assessment else { return }
+        
+        // Build an event result object that can be saved into the store
+        let carePlanResult = assessment.buildResultForCarePlanEvent(event, taskResult: taskViewController.result)
+        
+        // Check that the assessment can be associated with a HealthKit sample
+        //
+        
+        // Complete the event
+        completeEvent(event, inStore: CarePlanStoreManager.sharedInstance.store, withResult: carePlanResult)
+    }
+    
+    fileprivate func completeEvent(_ event: OCKCarePlanEvent, inStore store: OCKCarePlanStore, withResult result: OCKCarePlanEventResult) {
+        store.update(event, with: result, state: .completed, completion: { success, _, error in
+            if !success {
+                print(error?.localizedDescription)
+            }
+        })
+    }
+}

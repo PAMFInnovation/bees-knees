@@ -14,7 +14,23 @@ protocol AppointmentTableViewCellDelegate: class {
     func toggleExpand(sender: AppointmentTableViewCell)
 }
 
+enum EditDataType {
+    case Title
+    case AppointmentType
+    case When
+    case Place
+    case Notes
+}
+
+struct EditData {
+    let type: EditDataType!
+    //let data
+}
+
 class AppointmentTableViewCell: UITableViewCell {
+    
+    // Reference to the appointment object
+    var appointment: Appointment?
     
     // Label
     var label = UILabel()

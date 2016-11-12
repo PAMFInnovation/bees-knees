@@ -23,8 +23,22 @@ class ProfileManager {
     var goal: String = ""
     
     // Date of surgery
-    var surgeryDate: Date?
+    var surgeryAppointment: Appointment = Appointment(title: "Surgery", type: AppointmentType.Surgery)
+    var isSurgerySet: Bool = false
     
     // Notes
     var notes: String = ""
+    
+    // Appointments
+    var appointments: [Appointment] = [Appointment]()
+    
+    
+    func getSurgeryDate() -> Date {
+        return surgeryAppointment.date!
+    }
+    
+    func setSurgeryDate(_ date: Date) {
+        surgeryAppointment.date = date
+        isSurgerySet = true
+    }
 }

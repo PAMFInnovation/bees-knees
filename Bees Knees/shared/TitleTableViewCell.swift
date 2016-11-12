@@ -11,6 +11,12 @@ import UIKit
 
 class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
     
+    override var appointment: Appointment? {
+        willSet(appt) {
+            titleField.text = appt?.title
+        }
+    }
+    
     var titleField = UITextField()
     
     
@@ -32,6 +38,7 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
         titleField.frame = CGRect(x: self.label.frame.maxX, y: 0, width: self.frame.width - self.label.frame.maxX, height: self.frame.height)
         titleField.tintColor = UIColor.gray
         titleField.textColor = UIColor.gray
+        titleField.addTarget(self, action: #selector(TitleTableViewCell.textFieldDidChange), for: .editingChanged)
         self.addSubview(titleField)
     }
     
@@ -41,6 +48,12 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    
+    // MARK: - Helper functions
+    func textFieldDidChange() {
+        appointment?.title = titleField.text
     }
     
     

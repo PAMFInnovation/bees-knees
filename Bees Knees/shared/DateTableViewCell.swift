@@ -11,6 +11,15 @@ import UIKit
 
 class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
     
+    override var appointment: Appointment? {
+        willSet(appt) {
+            if appt?.date != nil {
+                datePicker.date = (appt?.date)!
+                self.didChangeDate(sender: datePicker)
+            }
+        }
+    }
+    
     var hRule: HorizontalRule!
     var datePicker = UIDatePicker()
     var noDateLabel = UILabel()
@@ -71,15 +80,12 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
     
     // MARK: - helper functions
     func didChangeDate(sender: UIDatePicker) {
-        // Format the date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        let dateString = dateFormatter.string(from: sender.date)
-        
         // Set the date label data
         noDateLabel.isHidden = true
         dateLabel.isHidden = false
-        dateLabel.text = dateString
+        dateLabel.text = Util.getFormattedDate(sender.date, dateStyle: .medium, timeStyle: .short)
+        
+        // Update the appointment
+        appointment?.date = sender.date
     }
 }

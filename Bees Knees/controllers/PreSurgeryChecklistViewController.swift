@@ -75,6 +75,9 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardOnScreen), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        // Update the surgery label
+        self.countdownView.updateSurgeryLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
