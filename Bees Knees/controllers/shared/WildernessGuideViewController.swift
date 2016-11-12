@@ -27,6 +27,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     var solidPathLength: CGFloat = 0
     var previousCellLength: CGFloat = 0
     var pathOffset: CGPoint = CGPoint(x: 43, y: 35)
+    var shouldRenderPath: Bool = true
     
     
     // MARK: - Initialization
@@ -61,12 +62,12 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         scrollView.addSubview(countdownView)
         
         // Add the line path
-        let pathView = UIView(frame: CGRect(x: 0, y: 40, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200))
+        let pathView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200))
         dottedPath = MyPath(frame: pathView.frame, isDashed: true)
         solidPath = MyPath(frame: pathView.frame, isDashed: false)
         pathView.addSubview(dottedPath)
         pathView.addSubview(solidPath)
-        scrollView.addSubview(pathView)
+        //scrollView.addSubview(pathView)
         
         // Setup the table view
         self.tableView = UITableView(frame: CGRect(x: 0, y: 80, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200), style: .plain)
@@ -78,15 +79,19 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.dataSource = self
         scrollView.addSubview(self.tableView)
         
-        //scrollView.addSubview(pathView)
+        self.tableView.insertSubview(pathView, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.reloadTable()
-        
         // Update the surgery label
         self.countdownView.updateSurgeryLabel()
+        
+        // Ensure we rerender the path
+        shouldRenderPath = true
+        
+        // Reload the table
+        self.reloadTable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -230,19 +235,24 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func redrawPaths() {
-        // The starting path for both lines will always be the offset
-        dottedPath.setStartPoint(pathOffset)
-        solidPath.setStartPoint(pathOffset)
-        
-        // The ending path for the dotted line will be based on the path length, calculated from the accumulated height of all cells
-        dottedPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + dashedPathLength))
-        
-        // The ending path for the solid line will be based on the solid path length, calculated from the accumulated height of all elapsed cells
-        solidPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + solidPathLength))
-        
-        // Trigger a draw on the next frame
-        dottedPath.setNeedsDisplay()
-        solidPath.setNeedsDisplay()
+        if shouldRenderPath {
+            // The starting path for both lines will always be the offset
+            dottedPath.setStartPoint(pathOffset)
+            solidPath.setStartPoint(pathOffset)
+            
+            // The ending path for the dotted line will be based on the path length, calculated from the accumulated height of all cells
+            dottedPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + dashedPathLength))
+            
+            // The ending path for the solid line will be based on the solid path length, calculated from the accumulated height of all elapsed cells
+            solidPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + solidPathLength))
+            
+            // Trigger a draw on the next frame
+            dottedPath.setNeedsDisplay()
+            solidPath.setNeedsDisplay()
+            
+            // Reset render state
+            shouldRenderPath = false
+        }
     }
 }
 
