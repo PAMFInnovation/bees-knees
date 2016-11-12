@@ -61,14 +61,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.countdownView = SurgeryCountdown(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 80))
         scrollView.addSubview(countdownView)
         
-        // Add the line path
-        let pathView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200))
-        dottedPath = MyPath(frame: pathView.frame, isDashed: true)
-        solidPath = MyPath(frame: pathView.frame, isDashed: false)
-        pathView.addSubview(dottedPath)
-        pathView.addSubview(solidPath)
-        //scrollView.addSubview(pathView)
-        
         // Setup the table view
         self.tableView = UITableView(frame: CGRect(x: 0, y: 80, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200), style: .plain)
         self.tableView.backgroundColor = UIColor.clear
@@ -79,6 +71,15 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.dataSource = self
         scrollView.addSubview(self.tableView)
         
+        // Add the line path
+        let pathView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200))
+        dottedPath = MyPath(frame: pathView.frame, isDashed: true)
+        solidPath = MyPath(frame: pathView.frame, isDashed: false)
+        pathView.addSubview(dottedPath)
+        pathView.addSubview(solidPath)
+        
+        // Insert the line path subview as the first view in the table view
+        // This ensures it renders underneath the cells themselves
         self.tableView.insertSubview(pathView, at: 0)
     }
     
