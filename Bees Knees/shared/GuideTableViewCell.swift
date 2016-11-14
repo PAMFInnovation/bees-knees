@@ -26,6 +26,11 @@ class GuideTableViewCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
         
+        // Set a custom background view with transparency
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = Colors.transTurquoise.color
+        self.selectedBackgroundView = bgColorView
+        
         // Set content clipping
         self.autoresizingMask = .flexibleHeight
         self.clipsToBounds = true

@@ -23,9 +23,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     // Paths
     var dottedPath: MyPath!
     var solidPath: MyPath!
-    var dashedPathLength: CGFloat = 0
-    var solidPathLength: CGFloat = 0
-    var previousCellLength: CGFloat = 0
     var pathOffset: CGPoint = CGPoint(x: 43, y: 35)
     var shouldRenderPath: Bool = true
     
@@ -71,16 +68,14 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.dataSource = self
         scrollView.addSubview(self.tableView)
         
-        // Add the line path
-        let pathView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 200))
-        dottedPath = MyPath(frame: pathView.frame, isDashed: true)
-        solidPath = MyPath(frame: pathView.frame, isDashed: false)
-        pathView.addSubview(dottedPath)
-        pathView.addSubview(solidPath)
+        // Add the line paths
+        dottedPath = MyPath(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), isDashed: true)
+        solidPath = MyPath(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), isDashed: false)
         
         // Insert the line path subview as the first view in the table view
         // This ensures it renders underneath the cells themselves
-        self.tableView.insertSubview(pathView, at: 0)
+        self.tableView.insertSubview(solidPath, at: 0)
+        self.tableView.insertSubview(dottedPath, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,39 +133,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let appt = self.tableViewData[indexPath.row] as Appointment
-        
-        // Get the height of the cell
-        var height: CGFloat = 66.0
-        if appt.type == AppointmentType.Surgery {
-            height = appt == nextAppointment ? 215 : 86
-        }
-        else if appt.type == AppointmentType.CheckUp || appt.type == AppointmentType.Consultation {
-            height = 66
-        }
-        else {
-            height = appt == nextAppointment ? 185 : 66
-        }
-        
-        // Use the aggregated heights of the cells to determine path drawing endpoints
-        // Only trigger a redraw of the path when we've hit the last cell
-        if indexPath.row == self.tableViewData.count - 1 {
-            // This is the last item, redraw the path
-            self.redrawPaths()
-        }
-        else {
-            // Accumulate dashed path length
-            dashedPathLength = dashedPathLength + height
-            
-            // Accumulate the solid path length only if this cell is elapsed
-            if appt.elapsed! {
-                solidPathLength = solidPathLength + previousCellLength
-            }
-        }
-        previousCellLength = height
-        
-        // Return the height
-        return height
+        return self.getHeightForCell(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -198,16 +161,14 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func reloadTable() {
-        // Reset the path lengths
-        dashedPathLength = 0
-        solidPathLength = 0
-        previousCellLength = 0
-        
         // Populate the table with appointments and surgery, then sort it
         self.populateTable()
         
         // Reload the table
         self.tableView.reloadData()
+        
+        // Redraw the dotted/solid paths
+        self.redrawPaths()
     }
     
     func populateTable() {
@@ -237,6 +198,34 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     
     func redrawPaths() {
         if shouldRenderPath {
+            // Find the path lengths
+            var dashedPathLength: CGFloat = 0
+            var solidPathLength: CGFloat = 0
+            var previousCellLength: CGFloat = 0
+            for (index, cell) in self.tableViewData.enumerated() {
+                // Get the cell height
+                let height = self.getHeightForCell(index: index)
+                
+                // Ignore the last cell's height
+                if index < self.tableViewData.count - 1 {
+                    // Always increment dashes path length
+                    dashedPathLength = dashedPathLength + height
+                    
+                    // Only increment solid path length if the cell is elapsed
+                    if (cell as Appointment).elapsed! {
+                        solidPathLength = solidPathLength + previousCellLength
+                    }
+                }
+                
+                // Set the previous cell length for solid paths
+                previousCellLength = height
+            }
+            
+            // Update the height of the path views to accommodate the accumulated height
+            // Add previous cell length since we left that out of the overall height
+            dottedPath.frame.size = CGSize(width: dottedPath.frame.size.width, height: dashedPathLength + previousCellLength)
+            solidPath.frame.size = CGSize(width: dottedPath.frame.size.width, height: dashedPathLength + previousCellLength)
+            
             // The starting path for both lines will always be the offset
             dottedPath.setStartPoint(pathOffset)
             solidPath.setStartPoint(pathOffset)
@@ -254,6 +243,24 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
             // Reset render state
             shouldRenderPath = false
         }
+    }
+    
+    private func getHeightForCell(index: Int) -> CGFloat {
+        let appt = self.tableViewData[index] as Appointment
+        
+        // Get the height of the cell
+        var height: CGFloat = 66.0
+        if appt.type == AppointmentType.Surgery {
+            height = appt == nextAppointment ? 215 : 86
+        }
+        else if appt.type == AppointmentType.CheckUp || appt.type == AppointmentType.Consultation {
+            height = 66
+        }
+        else {
+            height = appt == nextAppointment ? 185 : 66
+        }
+        
+        return height
     }
 }
 
