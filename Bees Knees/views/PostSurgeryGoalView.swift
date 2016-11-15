@@ -39,8 +39,8 @@ class PostSurgeryGoalView: UIView {
         
         self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 80))
         self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150))
-        self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150))
+        self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.4, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .height, relatedBy: .equal, toItem: goalView, attribute: .width, multiplier: 1.0, constant: 0))
         
         // Add the next button
         let nextButton: UIButton = UIButton(type: .roundedRect)
@@ -53,15 +53,15 @@ class PostSurgeryGoalView: UIView {
         
         self.addSubview(nextButton)
         
-        self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -60))
+        self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         
         // Add the static text
         let label: UITextView = UITextView()
-        label.text = "When you first started using this App, you set a goal:"
-        label.font = UIFont(name: "Arial-BoldMT", size: 18)
+        label.text = "Goals help us in focusing our energy toward concrete steps to a full and successful recovery. When you first started this journey with the app, you set a goal. What did you say you're looking forward to doing once you're back on your feet?"
+        label.font = UIFont(name: "ArialMT", size: 14)
         label.textAlignment = .center
         label.isEditable = false
         label.isSelectable = false
@@ -70,14 +70,20 @@ class PostSurgeryGoalView: UIView {
         self.addSubview(label)
         
         self.addConstraint(NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: goalView, attribute: .bottom, multiplier: 1.0, constant: 20))
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+        self.addConstraint(NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -20))
+        self.addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 20))
+        self.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 140))
+        
+        // Set the goal text to display
+        var goalTextRaw: String = ProfileManager.sharedInstance.goal
+        if goalTextRaw == "" {
+            goalTextRaw = "This is just a sample goal to display since the user has entered an empty goal."
+        }
         
         // Add the static text
         let goalText: UITextView = UITextView()
-        goalText.text = "\"" + ProfileManager.sharedInstance.goal + "\""
-        goalText.font = UIFont(name: "Arial-ItalicMT", size: 18)
+        goalText.text = "\"" + goalTextRaw + "\""
+        goalText.font = UIFont(name: "Arial-ItalicMT", size: 14)
         goalText.textAlignment = .left
         goalText.isEditable = false
         goalText.isSelectable = false
@@ -88,7 +94,7 @@ class PostSurgeryGoalView: UIView {
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .top, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1.0, constant: 30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
-        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
     }
     
     

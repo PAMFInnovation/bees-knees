@@ -65,7 +65,9 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Add the adjust surgery date view
         adjustSurgeryView = UIView(frame: self.view.frame)
-        adjustSurgeryView.addSubview(DateOfSurgeryView.instanceFromNib())
+        let dateOfSurgeryView = DateOfSurgeryView.instanceFromNib()
+        dateOfSurgeryView.frame = self.view.frame
+        adjustSurgeryView.addSubview(dateOfSurgeryView)
         
         // Add a confirm button to transition back
         let confirmButton: UIButton = UIButton(type: .roundedRect)
