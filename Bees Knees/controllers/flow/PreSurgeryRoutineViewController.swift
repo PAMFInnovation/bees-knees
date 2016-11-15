@@ -10,7 +10,7 @@ import UIKit
 import CareKit
 
 
-class PreSurgeryRoutineViewController: UITabBarController {
+class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDelegate {
     
     // Navigation controllers
     private var guideVC: WildernessGuideViewController!
@@ -70,6 +70,8 @@ class PreSurgeryRoutineViewController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Set default tab
         self.selectedIndex = 0
     }

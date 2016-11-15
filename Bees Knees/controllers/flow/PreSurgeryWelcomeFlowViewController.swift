@@ -53,7 +53,7 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Create the PreSurgery Transition VC
         preSurgeryTransitionVC = PreSurgeryTransitionViewController(nibName: "PreSurgeryTransitionInterface", bundle: nil)
-        preSurgeryTransitionVC.title = NSLocalizedString("Pre-Surgery", comment: "")
+        preSurgeryTransitionVC.title = NSLocalizedString("Let's get prepared", comment: "")
         preSurgeryTransitionVC.delegate = self
         
         // Create the DateOfSurgery VC
@@ -87,10 +87,10 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
 extension PreSurgeryWelcomeFlowViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the consent view
-        self.pushViewController(consentTVC, animated: true)
+        //self.pushViewController(consentTVC, animated: true)
         
         // TESTING to skip consent for expediency
-        //self.pushViewController(profileVC, animated: true)
+        self.pushViewController(profileVC, animated: true)
     }
 }
 

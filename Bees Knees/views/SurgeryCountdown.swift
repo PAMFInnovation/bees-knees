@@ -12,6 +12,7 @@ import UIKit
 
 class SurgeryCountdown: UIView {
     
+    var image: UIImage!
     var icon = UIImageView()
     var valueLabel = UILabel()
     var subtextLabel = UILabel()
@@ -29,7 +30,7 @@ class SurgeryCountdown: UIView {
         self.backgroundColor = Colors.turquoise.color
         
         // Set the icon
-        var image = UIImage(named: "clock-icon")
+        image = UIImage(named: "clock-icon")
         image = image?.withRenderingMode(.alwaysTemplate)
         icon = UIImageView(image: image)
         icon.tintColor = UIColor.white
@@ -47,6 +48,14 @@ class SurgeryCountdown: UIView {
         // Update the labels
         updateSurgeryLabel()
         
+        // Add the subviews
+        self.addSubview(icon)
+        self.addSubview(valueLabel)
+        self.addSubview(subtextLabel)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
         // Position the labels proportionally to frame
         let xDivide = self.frame.width * 0.4
@@ -55,14 +64,6 @@ class SurgeryCountdown: UIView {
         icon.frame = CGRect(x: 10, y: 5, width: (image?.size.width)!, height: (image?.size.height)!)
         valueLabel.frame = CGRect(x: 0, y: 0, width: xDivide - xPadding, height: self.frame.height)
         subtextLabel.frame = CGRect(x: xDivide + xPadding, y: 0, width: self.frame.width - xDivide - xPadding, height: self.frame.height)
-        
-        self.addSubview(icon)
-        self.addSubview(valueLabel)
-        self.addSubview(subtextLabel)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
     }
     
     func updateSurgeryLabel() {

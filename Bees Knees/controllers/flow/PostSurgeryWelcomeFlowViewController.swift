@@ -17,6 +17,7 @@ protocol PostSurgeryWelcomeFlowDelegate: class {
 class PostSurgeryWelcomeFlowViewController: UINavigationController {
     
     // View controllers
+    var adjustSurgeryView: UIView!
     var confirmationVC: UIViewController!
     var adjustDateVC: UIViewController!
     var congratsVC: UIViewController!
@@ -58,12 +59,12 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         let confirmationView = PostSurgeryConfirmationView(frame: self.view.frame)
         confirmationView.delegate = self
         confirmationVC = UIViewController()
-        confirmationVC.title = NSLocalizedString("Surgery", comment: "")
+        confirmationVC.title = NSLocalizedString("Surgery Completed?", comment: "")
         confirmationVC.view = confirmationView
         
         
         // Add the adjust surgery date view
-        let adjustSurgeryView = UIView(frame: self.view.frame)
+        adjustSurgeryView = UIView(frame: self.view.frame)
         adjustSurgeryView.addSubview(DateOfSurgeryView.instanceFromNib())
         
         // Add a confirm button to transition back
@@ -128,6 +129,8 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        adjustSurgeryView.frame = self.view.frame
     }
     
     

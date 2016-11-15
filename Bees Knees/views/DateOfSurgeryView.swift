@@ -30,6 +30,10 @@ class DateOfSurgeryView: UIView {
         super.init(frame: frame)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     
     // MARK: - Helper functions
     private func setDate(date: Date) {

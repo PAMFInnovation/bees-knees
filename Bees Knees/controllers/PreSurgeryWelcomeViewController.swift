@@ -81,6 +81,7 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
         }
         scrollView.contentSize = subviewRect.size
         defaultScrollInsets = scrollView.contentInset
+        print(subviewRect, defaultScrollInsets, scrollView.contentSize)
         
         // An interactively-dismissed keyboard will dismiss when the user scrolls
         scrollView.keyboardDismissMode = .interactive

@@ -13,16 +13,16 @@ public var PasscodeTask: ORKOrderedTask {
     
     let welcomeStep = ORKInstructionStep(identifier: "welcomeStep")
     welcomeStep.title = "Bees Knees"
-    welcomeStep.text = "Before we begin, we ask that you set a passcode for when you need to view sensitive data. This passcode will be tracked specifically for this app."
+    welcomeStep.text = "Please create a personal 4-digit passcode. This helps us keep your information secure. Every time you log into the app, you will be asked to enter your 4-digit passcode."
     steps += [welcomeStep]
     
     let passcodeStep = ORKPasscodeStep(identifier: "passcodeStep");
-    passcodeStep.passcodeType = ORKPasscodeType.type6Digit;
+    passcodeStep.passcodeType = ORKPasscodeType.type4Digit;
     steps += [passcodeStep];
     
     let summaryStep = ORKCompletionStep(identifier: "summaryStep")
     summaryStep.title = "Thank you!"
-    summaryStep.text = "Your passcode is now set so let's get started with your care. Remember, you can always change your passcode at any time."
+    summaryStep.text = "Your security passcode is set, and your account is secured. Let's get started on your care!\n\nRemember, you can always change your passcode at any time."
     steps += [summaryStep]
     
     return ORKOrderedTask(identifier: "PasscodeTask", steps: steps)

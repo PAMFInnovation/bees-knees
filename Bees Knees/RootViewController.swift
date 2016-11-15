@@ -79,7 +79,7 @@ class RootViewController: UIViewController {
             // TESTING logic
             if !ProfileManager.sharedInstance.isSurgerySet {
                 //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
-                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/30/2016"))
+                //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/30/2016"))
             }
             
             if ProfileManager.sharedInstance.isSurgerySet {

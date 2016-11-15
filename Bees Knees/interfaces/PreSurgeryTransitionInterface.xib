@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,47 +22,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pre-transition-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SfJ-W1-ff3">
+                    <rect key="frame" x="112.5" y="90" width="150" height="150"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="20C-We-kDg"/>
-                        <constraint firstAttribute="height" constant="150" id="JHj-r4-ReX"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="UiH-XI-psm"/>
-                        <constraint firstAttribute="width" constant="150" id="jom-z6-zkr"/>
+                        <constraint firstAttribute="width" secondItem="SfJ-W1-ff3" secondAttribute="height" multiplier="1:1" id="P59-5q-JlK"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpX-p7-XhJ">
-                    <attributedString key="attributedText">
-                        <fragment content="Pre-Surgery">
-                            <attributes>
-                                <font key="NSFont" size="28" name="Arial-BoldMT"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R23-a0-YQN">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="120" id="eyA-hL-MDu"/>
-                    </constraints>
-                    <attributedString key="attributedText">
-                        <fragment content="You have some activities awaiting your attention. Let's get started!  And don't forget to set your surgery date!">
-                            <attributes>
-                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-D7-9W6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
+                    <rect key="frame" x="60" y="585" width="255" height="42"/>
                     <color key="backgroundColor" red="0.079919971529999995" green="0.46679401399999998" blue="0.99918693300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="2Uv-cJ-JCj"/>
                         <constraint firstAttribute="height" constant="42" id="R7Q-Wz-Nzj"/>
                     </constraints>
-                    <state key="normal" title="Go to Care Card">
+                    <state key="normal" title="Go to Activities">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -70,12 +48,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCl-CS-gz6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
+                    <rect key="frame" x="60" y="523" width="255" height="42"/>
                     <color key="backgroundColor" red="0.079919971529999995" green="0.46679401399999998" blue="0.99918693300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="3xz-gg-w8f"/>
                         <constraint firstAttribute="height" constant="42" id="c9U-4c-6Qd"/>
                     </constraints>
-                    <state key="normal" title="Set Surgery Date">
+                    <state key="normal" title="Set surgery date">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -87,25 +66,38 @@
                         <action selector="setSurgeryDateButtonPressed:" destination="-1" eventType="touchUpInside" id="w89-AA-uRQ"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R23-a0-YQN">
+                    <rect key="frame" x="20" y="260" width="335" height="243"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Check out resources under "Settings" and get started with your stretches to build muscle and a routine to help with recovery after surgery.  But first, please set your surgery date, and we'll get you on your way!</string>
+                            <attributes>
+                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="yCl-CS-gz6" firstAttribute="top" secondItem="R23-a0-YQN" secondAttribute="bottom" constant="20" id="0qV-eo-Grh"/>
                 <constraint firstAttribute="trailing" secondItem="4Vb-D7-9W6" secondAttribute="trailing" constant="60" id="1c3-a7-Xjw"/>
+                <constraint firstItem="SfJ-W1-ff3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="1oR-BX-AwV"/>
                 <constraint firstItem="yCl-CS-gz6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="AeK-u5-tFX"/>
                 <constraint firstItem="SfJ-W1-ff3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="ORq-9l-HkF"/>
-                <constraint firstAttribute="trailing" secondItem="XpX-p7-XhJ" secondAttribute="trailing" id="R5V-Ze-KOk"/>
-                <constraint firstAttribute="trailing" secondItem="R23-a0-YQN" secondAttribute="trailing" constant="60" id="SCx-zA-SPZ"/>
+                <constraint firstItem="R23-a0-YQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="QYM-0d-b1Q"/>
+                <constraint firstAttribute="trailing" secondItem="R23-a0-YQN" secondAttribute="trailing" constant="20" id="SCD-3Q-59b"/>
                 <constraint firstAttribute="bottom" secondItem="4Vb-D7-9W6" secondAttribute="bottom" constant="40" id="XIq-M3-8DW"/>
-                <constraint firstItem="XpX-p7-XhJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eJC-jc-jYt"/>
-                <constraint firstItem="XpX-p7-XhJ" firstAttribute="top" secondItem="SfJ-W1-ff3" secondAttribute="bottom" constant="35" id="f00-Om-m5Y"/>
                 <constraint firstAttribute="trailing" secondItem="yCl-CS-gz6" secondAttribute="trailing" constant="60" id="hGK-TB-HdB"/>
-                <constraint firstItem="R23-a0-YQN" firstAttribute="top" secondItem="XpX-p7-XhJ" secondAttribute="bottom" constant="35" id="iZf-6h-dFk"/>
                 <constraint firstItem="4Vb-D7-9W6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="myf-cp-5YG"/>
+                <constraint firstItem="R23-a0-YQN" firstAttribute="top" secondItem="SfJ-W1-ff3" secondAttribute="bottom" constant="20" id="pw9-HZ-TaK"/>
                 <constraint firstItem="SfJ-W1-ff3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qEr-PJ-OZm"/>
-                <constraint firstItem="R23-a0-YQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="qK6-OS-Cxv"/>
                 <constraint firstItem="4Vb-D7-9W6" firstAttribute="top" secondItem="yCl-CS-gz6" secondAttribute="bottom" constant="20" id="tTc-Xf-TSO"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="32.5" y="53.5"/>
         </view>
     </objects>
     <resources>

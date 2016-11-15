@@ -80,6 +80,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         // Update the surgery label
         self.countdownView.updateSurgeryLabel()
         

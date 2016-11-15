@@ -47,7 +47,7 @@ class PostSurgeryConfirmationView: UIView {
         
         // Add the deny button
         let denyButton: UIButton = UIButton(type: .roundedRect)
-        denyButton.setTitle("Haven't Had Surgery Yet", for: .normal)
+        denyButton.setTitle("I haven't had surgery yet.", for: .normal)
         denyButton.borderWidth = 1
         denyButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         denyButton.cornerRadius = 10
@@ -81,7 +81,7 @@ class PostSurgeryConfirmationView: UIView {
         
         // Add the static text
         let label: UITextView = UITextView()
-        label.text = "Our data shows that your surgery was scheduled for an earlier date."
+        label.text = "According to the date that you entered in this app, you have completed your surgery. Let's check that -- how did it go?"
         label.font = UIFont(name: "ArialMT", size: 18)
         label.textAlignment = .center
         label.isEditable = false
@@ -93,11 +93,11 @@ class PostSurgeryConfirmationView: UIView {
         self.addConstraint(NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: goalView, attribute: .bottom, multiplier: 1.0, constant: 20))
         self.addConstraint(NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+        self.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100))
         
         
         // Add the static text
-        let goalText: UITextView = UITextView()
+        /*let goalText: UITextView = UITextView()
         goalText.text = "Was your surgery successful?"
         goalText.font = UIFont(name: "ArialMT", size: 18)
         goalText.textAlignment = .center
@@ -110,7 +110,7 @@ class PostSurgeryConfirmationView: UIView {
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .top, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1.0, constant: 30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
-        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))*/
     }
     
     
