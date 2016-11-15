@@ -31,6 +31,12 @@
 		9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */; };
 		9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */; };
 		9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */; };
+		9E43C4271DDBADA700EF986C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43C4261DDBADA700EF986C /* Resource.swift */; };
+		9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43C42C1DDBAEBF00EF986C /* ResourceTableViewCell.swift */; };
+		9E43C4321DDBB85700EF986C /* sample-video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 9E43C4311DDBB85700EF986C /* sample-video.m4v */; };
+		9E43C4341DDBB8C600EF986C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43C4331DDBB8C600EF986C /* VideoViewController.swift */; };
+		9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E43C4351DDBCA0500EF986C /* DocViewController.swift */; };
+		9E43C4381DDBCFC300EF986C /* sample-doc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E43C4371DDBCFC300EF986C /* sample-doc.pdf */; };
 		9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C8B1DD67F8100D0740F /* Copy.swift */; };
 		9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C911DD68B6D00D0740F /* LinePath.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
@@ -179,6 +185,12 @@
 		9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryViewController.swift; path = controllers/DateOfSurgeryViewController.swift; sourceTree = "<group>"; };
 		9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+UIColor.swift"; path = "extensions/UIView+UIColor.swift"; sourceTree = "<group>"; };
 		9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarePlanStoreManager.swift; path = shared/CarePlanStoreManager.swift; sourceTree = "<group>"; };
+		9E43C4261DDBADA700EF986C /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = shared/Resource.swift; sourceTree = "<group>"; };
+		9E43C42C1DDBAEBF00EF986C /* ResourceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceTableViewCell.swift; path = shared/ResourceTableViewCell.swift; sourceTree = "<group>"; };
+		9E43C4311DDBB85700EF986C /* sample-video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sample-video.m4v"; path = "content/sample-video.m4v"; sourceTree = "<group>"; };
+		9E43C4331DDBB8C600EF986C /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = shared/VideoViewController.swift; sourceTree = "<group>"; };
+		9E43C4351DDBCA0500EF986C /* DocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocViewController.swift; path = shared/DocViewController.swift; sourceTree = "<group>"; };
+		9E43C4371DDBCFC300EF986C /* sample-doc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "sample-doc.pdf"; path = "content/sample-doc.pdf"; sourceTree = "<group>"; };
 		9E6E8C8B1DD67F8100D0740F /* Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copy.swift; path = util/Copy.swift; sourceTree = "<group>"; };
 		9E6E8C911DD68B6D00D0740F /* LinePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinePath.swift; path = views/LinePath.swift; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +370,15 @@
 			name = extensions;
 			sourceTree = "<group>";
 		};
+		9E43C42E1DDBB80E00EF986C /* content */ = {
+			isa = PBXGroup;
+			children = (
+				9E43C4371DDBCFC300EF986C /* sample-doc.pdf */,
+				9E43C4311DDBB85700EF986C /* sample-video.m4v */,
+			);
+			name = content;
+			sourceTree = "<group>";
+		};
 		9E960FD21DCA8A3A00811FFB /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +408,10 @@
 				9E81DDCB1DCD05EE0065C928 /* SettingsItem.swift */,
 				9E3E6B5E1DD4F8B8000E92E1 /* GuideTableViewCell.swift */,
 				9E3E6B601DD4FAED000E92E1 /* Appointment.swift */,
+				9E43C4261DDBADA700EF986C /* Resource.swift */,
+				9E43C42C1DDBAEBF00EF986C /* ResourceTableViewCell.swift */,
+				9E43C4331DDBB8C600EF986C /* VideoViewController.swift */,
+				9E43C4351DDBCA0500EF986C /* DocViewController.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -436,6 +461,7 @@
 				9EFDA0851D83711A00FD6763 /* Activities */,
 				9EE1D3351DD2A90400EB3E54 /* Assessments */,
 				9E3E6B571DD4EF09000E92E1 /* util */,
+				9E43C42E1DDBB80E00EF986C /* content */,
 				9EFDA0531D8370F400FD6763 /* AppDelegate.swift */,
 				9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */,
 				9EFDA0551D8370F400FD6763 /* RootViewController.swift */,
@@ -670,7 +696,9 @@
 			files = (
 				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
+				9E43C4381DDBCFC300EF986C /* sample-doc.pdf in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
+				9E43C4321DDBB85700EF986C /* sample-video.m4v in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9E1E44C51DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
@@ -703,6 +731,7 @@
 			files = (
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
 				9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */,
+				9E43C4341DDBB8C600EF986C /* VideoViewController.swift in Sources */,
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
@@ -746,6 +775,7 @@
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
 				9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */,
+				9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */,
 				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
@@ -754,9 +784,11 @@
 				9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
+				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
 				9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */,
+				9E43C4271DDBADA700EF986C /* Resource.swift in Sources */,
 				9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */,
 				9E14B7321DCCE18B00C7973A /* SettingsViewController.swift in Sources */,
 			);

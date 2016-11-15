@@ -52,7 +52,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Create the Checklist VC
         checklistVC = PreSurgeryChecklistViewController()
-        checklistVC.title = NSLocalizedString("Checklist", comment: "")
+        checklistVC.title = NSLocalizedString("To-Do's Before Surgery", comment: "")
         checklistVC.tabBarItem = UITabBarItem(title: checklistVC.title, image: UIImage(named: "checklist-icon"), selectedImage: UIImage(named: "checklist-icon"))
         
         // Create the Settings VC

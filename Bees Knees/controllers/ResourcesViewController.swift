@@ -9,7 +9,11 @@
 import UIKit
 
 
-class ResourcesViewController: UIViewController {
+class ResourcesViewController: UITableViewController {
+    
+    // Data source
+    var dataSource = [Resource]()
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -22,12 +26,26 @@ class ResourcesViewController: UIViewController {
     
     convenience init() {
         self.init(nibName: nil, bundle: nil)
+        
+        // Add the resources
+        dataSource.append(Resource(type: .DOC, title: "Surgery overview.", fileName: "sample-doc", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Walkthrough of the procedure.", fileName: "sample-doc", fileType: "pdf"))
+        dataSource.append(Resource(type: .VIDEO, title: "Testimonials from the patients of Sutter.", fileName: "sample-video", fileType: "m4v"))
+        dataSource.append(Resource(type: .IMAGE, title: "Anatomical diagram.", fileName: "", fileType: ""))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.lightGray
+        
+        // Customize the table view
+        self.tableView.register(ResourceTableViewCell.self, forCellReuseIdentifier: "myCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        // Hide the footer
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,5 +58,46 @@ class ResourcesViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    
+    // MARK: - Table View Delegate
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get the data source
+        let data = dataSource[indexPath.row]
+        
+        // Get the cell
+        let cell: ResourceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! ResourceTableViewCell
+        cell.setResourceObject(data)
+        
+        // Return the cell
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the data source
+        let data = dataSource[indexPath.row]
+        
+        // Show the resource controller
+        switch data.type! {
+        case .DOC:
+            self.navigationController?.pushViewController(DocViewController(file: data.fileName, type: data.fileType), animated: true)
+        case .IMAGE:
+            self.navigationController?.pushViewController(VideoViewController(file: data.fileName, type: data.fileType), animated: true)
+        case .VIDEO:
+            self.navigationController?.pushViewController(VideoViewController(file: data.fileName, type: data.fileType), animated: true)
+        }
     }
 }
