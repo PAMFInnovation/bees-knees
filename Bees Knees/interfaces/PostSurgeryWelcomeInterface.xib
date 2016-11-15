@@ -24,12 +24,12 @@
                     <rect key="frame" x="20" y="20" width="335" height="1080"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clL-vI-RWi">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="1172"/>
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="1072"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sax-9e-vNF">
                                     <rect key="frame" x="15" y="140" width="320" height="21"/>
                                     <attributedString key="attributedText">
-                                        <fragment content="What to expect from this App">
+                                        <fragment content="Using this app">
                                             <attributes>
                                                 <font key="NSFont" size="18" name="Arial-BoldMT"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -39,23 +39,30 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHI-e2-JOy">
-                                    <rect key="frame" x="10" y="169" width="315" height="152.5"/>
+                                    <rect key="frame" x="10" y="169" width="315" height="326.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
-                                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</string>
+                                            <mutableString key="content">Now that you're in this next phase on the journey, the app will also support you to track your progress, looking at things like your activity and what pain you report. These factors can help let you know how you're doing so that you can feel confident in your progress and take any necessary action. You'll see your activities as well as a daily assessment where you can log the pain you're feeling, if any, and see how that score changes over time. You will also be able to take pictures and see the progression over time.</mutableString>
                                             <attributes>
+                                                <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                 <font key="NSFont" size="18" name="ArialMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                <real key="NSKern" value="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                <real key="NSStrokeWidth" value="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmB-Bj-Gyd">
-                                    <rect key="frame" x="15" y="341.5" width="320" height="21"/>
+                                    <rect key="frame" x="15" y="515.5" width="320" height="21"/>
                                     <attributedString key="attributedText">
-                                        <fragment content="Why this is important">
+                                        <fragment content="When to contact your doctor">
                                             <attributes>
                                                 <font key="NSFont" size="18" name="Arial-BoldMT"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -65,47 +72,28 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60l-XQ-4Hf">
-                                    <rect key="frame" x="10" y="370.5" width="315" height="175.5"/>
+                                    <rect key="frame" x="10" y="544.5" width="315" height="244"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
-                                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+                                            <string key="content">Remember that this app is meant to be your journal and navigational guide, both documenting your journey and helping you reach your destination. While this information will not be shared with your surgeon and care team, you may share the information in this app during any of your visits. If your condition or pain worsens, call your surgeon or 911 immediately.</string>
                                             <attributes>
+                                                <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                 <font key="NSFont" size="18" name="ArialMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFQ-dt-wv1">
-                                    <rect key="frame" x="15" y="566" width="320" height="21"/>
-                                    <attributedString key="attributedText">
-                                        <fragment content="Our Goal">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Arial-BoldMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14l-Pw-l3a">
-                                    <rect key="frame" x="10" y="595" width="315" height="106.5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <attributedString key="attributedText">
-                                        <fragment>
-                                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="ArialMT"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                <real key="NSKern" value="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                <real key="NSStrokeWidth" value="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjb-2s-Jy6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
-                                    <rect key="frame" x="40" y="744.5" width="255" height="42"/>
+                                    <rect key="frame" x="40" y="828.5" width="255" height="42"/>
                                     <color key="backgroundColor" red="0.079919971525669098" green="0.46679401397705078" blue="0.9991869330406189" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="42" id="j7g-Kw-6DC"/>
@@ -123,20 +111,20 @@
                                     </connections>
                                 </button>
                                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wu3-WL-Nwz">
-                                    <rect key="frame" x="0.0" y="786.5" width="335" height="60"/>
+                                    <rect key="frame" x="0.0" y="870.5" width="335" height="60"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="gn9-ms-yGU"/>
                                     </constraints>
                                 </view>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2c-wd-Ofn">
-                                    <rect key="frame" x="57.5" y="20" width="220" height="83"/>
+                                    <rect key="frame" x="37.5" y="20" width="260" height="83"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="220" id="ByG-Ri-dHA"/>
+                                        <constraint firstAttribute="width" constant="260" id="ByG-Ri-dHA"/>
                                     </constraints>
                                     <attributedString key="attributedText">
-                                        <fragment content="We're here to help you achieve that goal. Here's how...">
+                                        <fragment content="We're here to support you in reaching that goal. Here's what you can expect:">
                                             <attributes>
                                                 <font key="NSFont" size="18" name="Arial-BoldMT"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
@@ -149,26 +137,20 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="GHI-e2-JOy" secondAttribute="trailing" constant="10" id="2EE-FW-HkQ"/>
                                 <constraint firstItem="Fjb-2s-Jy6" firstAttribute="centerX" secondItem="W2c-wd-Ofn" secondAttribute="centerX" id="6U5-DT-NAA"/>
+                                <constraint firstItem="Sax-9e-vNF" firstAttribute="top" secondItem="W2c-wd-Ofn" secondAttribute="bottom" constant="37" id="Gho-nJ-N9i"/>
                                 <constraint firstAttribute="trailing" secondItem="Wu3-WL-Nwz" secondAttribute="trailing" id="Hdo-TN-Jr1"/>
-                                <constraint firstItem="VFQ-dt-wv1" firstAttribute="top" secondItem="60l-XQ-4Hf" secondAttribute="bottom" constant="20" id="K83-0z-WKZ"/>
-                                <constraint firstItem="Fjb-2s-Jy6" firstAttribute="top" secondItem="14l-Pw-l3a" secondAttribute="bottom" constant="43" id="Msl-vw-2fZ"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="top" secondItem="lmB-Bj-Gyd" secondAttribute="bottom" constant="8" id="Pgg-yd-qzr"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="top" secondItem="lmB-Bj-Gyd" secondAttribute="bottom" constant="8" id="TaT-u1-t6d"/>
-                                <constraint firstAttribute="trailing" secondItem="VFQ-dt-wv1" secondAttribute="trailing" id="U5a-WS-wA6"/>
                                 <constraint firstItem="lmB-Bj-Gyd" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="VqO-B4-ATU"/>
                                 <constraint firstAttribute="trailing" secondItem="lmB-Bj-Gyd" secondAttribute="trailing" id="WA0-tb-l8f"/>
-                                <constraint firstAttribute="trailing" secondItem="14l-Pw-l3a" secondAttribute="trailing" constant="10" id="cOH-Tf-la9"/>
+                                <constraint firstItem="Fjb-2s-Jy6" firstAttribute="top" secondItem="60l-XQ-4Hf" secondAttribute="bottom" constant="40" id="aXW-Hk-VLd"/>
                                 <constraint firstItem="Wu3-WL-Nwz" firstAttribute="top" secondItem="Fjb-2s-Jy6" secondAttribute="bottom" id="d97-Zm-HWR"/>
                                 <constraint firstItem="Wu3-WL-Nwz" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" id="iZM-7o-mGE"/>
-                                <constraint firstItem="14l-Pw-l3a" firstAttribute="top" secondItem="VFQ-dt-wv1" secondAttribute="bottom" constant="8" id="k3L-m6-bVf"/>
-                                <constraint firstItem="Sax-9e-vNF" firstAttribute="top" secondItem="clL-vI-RWi" secondAttribute="top" constant="140" id="kH5-aC-1bO"/>
-                                <constraint firstAttribute="height" constant="1172" id="lyP-mH-5pe"/>
+                                <constraint firstAttribute="height" constant="1072" id="lyP-mH-5pe"/>
                                 <constraint firstAttribute="trailing" secondItem="Fjb-2s-Jy6" secondAttribute="trailing" constant="40" id="p6M-de-rC5"/>
                                 <constraint firstItem="Fjb-2s-Jy6" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="40" id="q0D-0B-xyf"/>
                                 <constraint firstItem="60l-XQ-4Hf" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="qjA-Kx-2QR"/>
-                                <constraint firstItem="14l-Pw-l3a" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="10" id="r45-jr-1O3"/>
                                 <constraint firstItem="GHI-e2-JOy" firstAttribute="top" secondItem="Sax-9e-vNF" secondAttribute="bottom" constant="8" id="tyu-3V-jFH"/>
-                                <constraint firstItem="VFQ-dt-wv1" firstAttribute="leading" secondItem="clL-vI-RWi" secondAttribute="leading" constant="15" id="uwd-ik-kmL"/>
                                 <constraint firstItem="lmB-Bj-Gyd" firstAttribute="top" secondItem="GHI-e2-JOy" secondAttribute="bottom" constant="20" id="uzO-Am-l1I"/>
                                 <constraint firstAttribute="trailing" secondItem="Sax-9e-vNF" secondAttribute="trailing" id="vDO-gD-iEj"/>
                                 <constraint firstItem="W2c-wd-Ofn" firstAttribute="top" secondItem="clL-vI-RWi" secondAttribute="top" constant="20" id="yBn-UK-Jqu"/>

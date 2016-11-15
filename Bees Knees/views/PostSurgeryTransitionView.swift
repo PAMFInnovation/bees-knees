@@ -44,7 +44,7 @@ class PostSurgeryTransitionView: UIView {
         
         // Add the next button
         let nextButton: UIButton = UIButton(type: .roundedRect)
-        nextButton.setTitle("Go", for: .normal)
+        nextButton.setTitle("Ok", for: .normal)
         nextButton.borderWidth = 1
         nextButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         nextButton.cornerRadius = 10
@@ -59,7 +59,7 @@ class PostSurgeryTransitionView: UIView {
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         
         // Add the header
-        let headerLabel: UILabel = UILabel()
+        /*let headerLabel: UILabel = UILabel()
         headerLabel.text = "Post-Surgery"
         headerLabel.font = UIFont(name: "Arial-BoldMT", size: 24)
         headerLabel.textAlignment = .center
@@ -70,11 +70,11 @@ class PostSurgeryTransitionView: UIView {
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1.0, constant: 20))
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40))
+        self.addConstraint(NSLayoutConstraint(item: headerLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40))*/
         
         // Add the static text
         let goalText: UITextView = UITextView()
-        goalText.text = "You have some activities and assessments awaiting your attention. Let's get started!"
+        goalText.text = "You have some strengthening exercises awaiting you and progress to record. Let's get started!"
         goalText.font = UIFont(name: "Arial-ItalicMT", size: 18)
         goalText.textAlignment = .center
         goalText.isEditable = false
@@ -83,10 +83,10 @@ class PostSurgeryTransitionView: UIView {
         
         self.addSubview(goalText)
         
-        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .top, relatedBy: .equal, toItem: headerLabel, attribute: .bottom, multiplier: 1.0, constant: 30))
+        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1.0, constant: 30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 30))
-        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80))
+        self.addConstraint(NSLayoutConstraint(item: goalText, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 120))
     }
     
     
