@@ -55,7 +55,7 @@ class ResourceTableViewCell: UITableViewCell {
         let labelXOffset = iconOffset.x + iconSize + 10
         
         self.icon.frame = CGRect(x: iconOffset.x, y: iconOffset.y, width: iconSize, height: iconSize)
-        self.title.frame = CGRect(x: labelXOffset, y: iconOffset.y, width: self.frame.width - labelXOffset, height: iconSize)
+        self.title.frame = CGRect(x: labelXOffset, y: iconOffset.y, width: self.frame.width - labelXOffset - 10, height: iconSize)
     }
     
     

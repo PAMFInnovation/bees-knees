@@ -56,7 +56,9 @@ class VideoViewController: UIViewController {
         player = AVPlayer(url: URL(fileURLWithPath: path))
         let playerController = AVPlayerViewController()
         playerController.player = player
-        playerController.view.frame =  self.view.frame
+        // Offset the frame by the height of the nav bar (60) and the height of the tab bar (49)
+        let videoFrame = CGRect(x: 0, y: 60, width: self.view.frame.width, height: self.view.frame.height - 109)
+        playerController.view.frame =  videoFrame
         playerController.showsPlaybackControls = true
         
         // Add the AV controller as a subview
