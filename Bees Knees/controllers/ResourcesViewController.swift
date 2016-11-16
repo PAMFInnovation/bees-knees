@@ -31,7 +31,10 @@ class ResourcesViewController: UITableViewController {
         dataSource.append(Resource(type: .DOC, title: "Surgery overview.", fileName: "sample-doc", fileType: "pdf"))
         dataSource.append(Resource(type: .DOC, title: "Walkthrough of the procedure.", fileName: "sample-doc", fileType: "pdf"))
         dataSource.append(Resource(type: .VIDEO, title: "Testimonials from the patients of Sutter.", fileName: "sample-video", fileType: "m4v"))
-        dataSource.append(Resource(type: .IMAGE, title: "Anatomical diagram.", fileName: "", fileType: ""))
+        dataSource.append(Resource(type: .IMAGE, title: "Banner", fileName: "sample-banner-image", fileType: "jpg"))
+        dataSource.append(Resource(type: .IMAGE, title: "GIF", fileName: "sample-gif", fileType: "gif"))
+        dataSource.append(Resource(type: .IMAGE, title: "PNG", fileName: "sample-png", fileType: "png"))
+        dataSource.append(Resource(type: .IMAGE, title: "Portrait", fileName: "sample-portrait-image", fileType: "jpg"))
     }
     
     override func viewDidLoad() {
@@ -95,7 +98,7 @@ class ResourcesViewController: UITableViewController {
         case .DOC:
             self.navigationController?.pushViewController(DocViewController(file: data.fileName, type: data.fileType), animated: true)
         case .IMAGE:
-            self.navigationController?.pushViewController(VideoViewController(file: data.fileName, type: data.fileType), animated: true)
+            self.navigationController?.pushViewController(ImageViewController(file: data.fileName, type: data.fileType), animated: true)
         case .VIDEO:
             self.navigationController?.pushViewController(VideoViewController(file: data.fileName, type: data.fileType), animated: true)
         }
