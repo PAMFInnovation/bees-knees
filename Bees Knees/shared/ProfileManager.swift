@@ -32,6 +32,9 @@ class ProfileManager {
     // Appointments
     var appointments: [Appointment] = [Appointment]()
     
+    // Consent document
+    var consent = ConsentDocument.copy()
+    
     
     func getSurgeryDate() -> Date {
         return surgeryAppointment.date!

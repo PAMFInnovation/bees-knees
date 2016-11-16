@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CareKit
+import ResearchKit
 
 
 class LegalViewController: UIViewController {
+    
+    var webView: UIWebView!
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +33,13 @@ class LegalViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
+        
+        webView = UIWebView(frame: self.view.frame)
+        self.view.addSubview(webView)
+        
+        (ProfileManager.sharedInstance.consent as! ORKConsentDocument).makePDF(completionHandler:{ (data: Data?, error: Error?) in
+            self.webView.load(data!, mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -31,7 +31,13 @@ public var ConsentDocument: ORKConsentDocument {
     }
     consentDocument.sections = consentSections
     
-    consentDocument.addSignature(ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "ConsentDocumentParticipantSignature"))
+    // Get today's date
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = DateFormatter.Style.short
+    let convertedDate = dateFormatter.string(from: NSDate() as Date)
+    
+    // Add a signature to the document
+    consentDocument.addSignature(ORKConsentSignature(forPersonWithTitle: "Consent", dateFormatString: convertedDate, identifier: "ConsentDocumentParticipantSignature"))
     
     return consentDocument
 }

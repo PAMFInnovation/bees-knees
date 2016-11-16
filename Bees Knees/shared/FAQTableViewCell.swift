@@ -73,6 +73,7 @@ class FAQTableViewCell: UITableViewCell {
         let labelXOffset = iconOffset.x + iconSize + 10
         
         self.icon.frame = CGRect(x: iconOffset.x, y: iconOffset.y, width: iconSize, height: iconSize)
+
         self.question.frame = CGRect(x: labelXOffset, y: iconOffset.y, width: self.frame.width - labelXOffset - 35, height: iconSize)
         self.caret.frame = CGRect(x: self.question.frame.minX + self.question.frame.width + 5, y: iconOffset.y, width: 15, height: iconSize)
         

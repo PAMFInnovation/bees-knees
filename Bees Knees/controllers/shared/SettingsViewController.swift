@@ -44,7 +44,7 @@ class SettingsViewController: UITableViewController {
         dataSource[2].append(SettingsItem(name: "Post-Surgery Expectations", icon: "expectations-icon", className: "ExpectationsViewController"))
         
         dataSource.append([SettingsItem]())
-        //dataSource[3].append(SettingsItem(name: "Legal / Consent", icon: "legal-icon", className: "LegalViewController"))
+        dataSource[3].append(SettingsItem(name: "Legal / Consent", icon: "legal-icon", className: "LegalViewController"))
         dataSource[3].append(SettingsItem(name: "FAQ", icon: "faq-icon", className: "FAQViewController"))
     }
     
