@@ -93,6 +93,8 @@
 		D2BE64F21DDCBDF700EAEB7C /* sample-png.png in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64EE1DDCBDF700EAEB7C /* sample-png.png */; };
 		D2BE64F31DDCBDF700EAEB7C /* sample-portrait-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64EF1DDCBDF700EAEB7C /* sample-portrait-image.jpg */; };
 		D2BE64F51DDCC75A00EAEB7C /* sample-animated-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64F41DDCC75A00EAEB7C /* sample-animated-gif.gif */; };
+		D2BE64F71DDCCDFD00EAEB7C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64F61DDCCDFD00EAEB7C /* FAQItem.swift */; };
+		D2BE64F91DDCD2D500EAEB7C /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64F81DDCD2D500EAEB7C /* FAQTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +262,8 @@
 		D2BE64EE1DDCBDF700EAEB7C /* sample-png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-png.png"; path = "content/sample-png.png"; sourceTree = "<group>"; };
 		D2BE64EF1DDCBDF700EAEB7C /* sample-portrait-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sample-portrait-image.jpg"; path = "content/sample-portrait-image.jpg"; sourceTree = "<group>"; };
 		D2BE64F41DDCC75A00EAEB7C /* sample-animated-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "sample-animated-gif.gif"; path = "content/sample-animated-gif.gif"; sourceTree = "<group>"; };
+		D2BE64F61DDCCDFD00EAEB7C /* FAQItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQItem.swift; path = shared/FAQItem.swift; sourceTree = "<group>"; };
+		D2BE64F81DDCD2D500EAEB7C /* FAQTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQTableViewCell.swift; path = shared/FAQTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +437,8 @@
 				9E43C4331DDBB8C600EF986C /* VideoViewController.swift */,
 				9E43C4351DDBCA0500EF986C /* DocViewController.swift */,
 				D2BE64EA1DDCBCFB00EAEB7C /* ImageViewController.swift */,
+				D2BE64F61DDCCDFD00EAEB7C /* FAQItem.swift */,
+				D2BE64F81DDCD2D500EAEB7C /* FAQTableViewCell.swift */,
 			);
 			name = shared;
 			sourceTree = "<group>";
@@ -805,6 +811,8 @@
 				9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */,
 				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */,
+				D2BE64F91DDCD2D500EAEB7C /* FAQTableViewCell.swift in Sources */,
+				D2BE64F71DDCCDFD00EAEB7C /* FAQItem.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
 				9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */,
 				9E81DDCC1DCD05EE0065C928 /* SettingsItem.swift in Sources */,
