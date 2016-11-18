@@ -11,15 +11,44 @@ import UIKit
 
 class HighlightButton: UIButton {
     
-    var downColor: UIColor = UIColor(red: 0.69, green: 0.82, blue: 0.98, alpha: 1.0)
-    var upColor: UIColor = UIColor(red: 0.23, green: 0.54, blue: 0.94, alpha: 1.0)
-    
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? Colors.appleBlue.color : UIColor.white
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        customize()
+    }
+    
+    required override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        customize()
+    }
+    
+    convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 160, height: 42))
+    }
+    
+    
+    func customize() {
+        // Make this button a rounded rect
+        self.borderWidth = 1
+        self.borderColor = Colors.appleBlue.color
+        self.cornerRadius = 5
+        
         // Set initial color, overriding what is set in the builder
         up()
+        
+        // Set additional color states
+        self.setTitleColor(Colors.appleBlue.color, for: .normal)
+        self.setTitleColor(UIColor.white, for: .highlighted)
+        
+        // Set font size
+        self.titleLabel?.font = UIFont(name: "ArialMT", size: 16)
         
         // Add selectors for button up and down
         self.addTarget(self, action: #selector(HighlightButton.down), for: .touchDown)
@@ -29,10 +58,10 @@ class HighlightButton: UIButton {
     
     
     func down() {
-        self.backgroundColor = downColor
+        //self.backgroundColor = Colors.appleBlue.color
     }
     
     func up() {
-        self.backgroundColor = upColor
+        //self.backgroundColor = UIColor.white
     }
 }

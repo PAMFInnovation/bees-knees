@@ -25,6 +25,7 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
     var activeElement: UIControl?
     
     // Keep default edge insets for when we need to reset scrolling
+    var contentSize: CGSize?
     var defaultScrollInsets: UIEdgeInsets?
     
     
@@ -54,17 +55,8 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
         center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Unregister from keyboard events
-        let center = NotificationCenter.default
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         // Set the initial scroll view size and insets
         // Here, we need to set the content size of the scroll view
@@ -76,15 +68,25 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
         // element. This last point is important because without doing
         // that, the button at the bottom was not interactive.
         var subviewRect = CGRect.zero
-        for view in scrollView.subviews[0].subviews {
-            subviewRect = subviewRect.union(view.frame)
+        for _view in scrollView.subviews[0].subviews {
+            subviewRect = subviewRect.union(_view.frame)
         }
-        scrollView.contentSize = subviewRect.size
+        contentSize = subviewRect.size
         defaultScrollInsets = scrollView.contentInset
-        print(subviewRect, defaultScrollInsets, scrollView.contentSize)
         
-        // An interactively-dismissed keyboard will dismiss when the user scrolls
-        scrollView.keyboardDismissMode = .interactive
+        // Update the scroll view's content boundaries
+        scrollView.contentSize = contentSize!
+        scrollView.contentInset = defaultScrollInsets!
+        scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Unregister from keyboard events
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     
@@ -132,7 +134,8 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     public func keyboardOffScreen(notification: NSNotification) {
-        // Reset the scroll view insets
+        // Reset the scroll view insets and content size
+        scrollView.contentSize = contentSize!
         scrollView.contentInset = defaultScrollInsets!
         scrollView.scrollIndicatorInsets = defaultScrollInsets!
     }

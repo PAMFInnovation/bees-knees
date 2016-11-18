@@ -70,12 +70,9 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         adjustSurgeryView.addSubview(dateOfSurgeryView)
         
         // Add a confirm button to transition back
-        let confirmButton: UIButton = UIButton(type: .roundedRect)
+        let confirmButton: HighlightButton = HighlightButton()
         confirmButton.setTitle("Confirm", for: .normal)
-        confirmButton.borderWidth = 1
-        confirmButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
-        confirmButton.cornerRadius = 10
-        let buttonSize: CGSize = CGSize(width: 250, height: 42)
+        let buttonSize: CGSize = CGSize(width: 160, height: 42)
         let buttonX = (self.view.frame.width / 2) - (buttonSize.width / 2)
         confirmButton.frame = CGRect(x: buttonX, y: self.view.frame.height - buttonSize.height - 40, width: buttonSize.width, height: buttonSize.height)
         confirmButton.addTarget(self, action: #selector(PostSurgeryWelcomeFlowViewController.surgeryDateAdjusted), for: .touchUpInside)

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,39 +29,37 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-D7-9W6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
-                    <rect key="frame" x="60" y="585" width="255" height="42"/>
-                    <color key="backgroundColor" red="0.079919971529999995" green="0.46679401399999998" blue="0.99918693300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="107.5" y="585" width="160" height="42"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="2Uv-cJ-JCj"/>
+                        <constraint firstAttribute="width" constant="160" id="9sr-1N-ZqG"/>
                         <constraint firstAttribute="height" constant="42" id="R7Q-Wz-Nzj"/>
                     </constraints>
+                    <color key="tintColor" red="0.20000000000000001" green="0.45098039220000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Go to Activities">
+                        <color key="titleColor" red="0.20000000000000001" green="0.45098039220000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="goToCareCardButtonPressed:" destination="-1" eventType="touchUpInside" id="1o0-Uh-g9d"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCl-CS-gz6" customClass="HighlightButton" customModule="Bees_Knees" customModuleProvider="target">
-                    <rect key="frame" x="60" y="523" width="255" height="42"/>
-                    <color key="backgroundColor" red="0.079919971529999995" green="0.46679401399999998" blue="0.99918693300000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="107.5" y="523" width="160" height="42"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="3xz-gg-w8f"/>
                         <constraint firstAttribute="height" constant="42" id="c9U-4c-6Qd"/>
+                        <constraint firstAttribute="width" constant="160" id="cmY-be-XOY"/>
                     </constraints>
+                    <color key="tintColor" red="0.20000000000000001" green="0.45098039220000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Set surgery date">
+                        <color key="titleColor" red="0.20000000000000001" green="0.45098039220000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="setSurgeryDateButtonPressed:" destination="-1" eventType="touchUpInside" id="w89-AA-uRQ"/>
                     </connections>
@@ -84,15 +82,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="yCl-CS-gz6" firstAttribute="top" secondItem="R23-a0-YQN" secondAttribute="bottom" constant="20" id="0qV-eo-Grh"/>
-                <constraint firstAttribute="trailing" secondItem="4Vb-D7-9W6" secondAttribute="trailing" constant="60" id="1c3-a7-Xjw"/>
                 <constraint firstItem="SfJ-W1-ff3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="1oR-BX-AwV"/>
-                <constraint firstItem="yCl-CS-gz6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="AeK-u5-tFX"/>
+                <constraint firstItem="4Vb-D7-9W6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5IC-ig-tQr"/>
+                <constraint firstItem="yCl-CS-gz6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ing-Td-Z9i"/>
                 <constraint firstItem="SfJ-W1-ff3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="90" id="ORq-9l-HkF"/>
                 <constraint firstItem="R23-a0-YQN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="QYM-0d-b1Q"/>
                 <constraint firstAttribute="trailing" secondItem="R23-a0-YQN" secondAttribute="trailing" constant="20" id="SCD-3Q-59b"/>
                 <constraint firstAttribute="bottom" secondItem="4Vb-D7-9W6" secondAttribute="bottom" constant="40" id="XIq-M3-8DW"/>
-                <constraint firstAttribute="trailing" secondItem="yCl-CS-gz6" secondAttribute="trailing" constant="60" id="hGK-TB-HdB"/>
-                <constraint firstItem="4Vb-D7-9W6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="myf-cp-5YG"/>
                 <constraint firstItem="R23-a0-YQN" firstAttribute="top" secondItem="SfJ-W1-ff3" secondAttribute="bottom" constant="20" id="pw9-HZ-TaK"/>
                 <constraint firstItem="SfJ-W1-ff3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qEr-PJ-OZm"/>
                 <constraint firstItem="4Vb-D7-9W6" firstAttribute="top" secondItem="yCl-CS-gz6" secondAttribute="bottom" constant="20" id="tTc-Xf-TSO"/>

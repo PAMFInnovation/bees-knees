@@ -43,11 +43,8 @@ class PostSurgeryGoalView: UIView {
         self.addConstraint(NSLayoutConstraint(item: goalView, attribute: .height, relatedBy: .equal, toItem: goalView, attribute: .width, multiplier: 1.0, constant: 0))
         
         // Add the next button
-        let nextButton: UIButton = UIButton(type: .roundedRect)
+        let nextButton: HighlightButton = HighlightButton()
         nextButton.setTitle("Continue", for: .normal)
-        nextButton.borderWidth = 1
-        nextButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
-        nextButton.cornerRadius = 10
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.addTarget(self, action: #selector(PostSurgeryGoalView.continuePressed), for: .touchUpInside)
         
@@ -55,7 +52,7 @@ class PostSurgeryGoalView: UIView {
         
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -30))
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
+        self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
         self.addConstraint(NSLayoutConstraint(item: nextButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         
         // Add the static text

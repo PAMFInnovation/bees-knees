@@ -16,7 +16,6 @@
 		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
 		9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */; };
-		9E1E44C51DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */; };
 		9E1E44C71DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */; };
 		9E1E44C91DD1443C00FF78A6 /* PostSurgeryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */; };
 		9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */; };
@@ -95,6 +94,7 @@
 		D2BE64F51DDCC75A00EAEB7C /* sample-animated-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64F41DDCC75A00EAEB7C /* sample-animated-gif.gif */; };
 		D2BE64F71DDCCDFD00EAEB7C /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64F61DDCCDFD00EAEB7C /* FAQItem.swift */; };
 		D2BE64F91DDCD2D500EAEB7C /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64F81DDCD2D500EAEB7C /* FAQTableViewCell.swift */; };
+		D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2E777F61DDF7294003176B0 /* PostSurgeryCongratsInterface.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,7 +179,6 @@
 		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
 		9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryWelcomeFlowViewController.swift; path = controllers/flow/PostSurgeryWelcomeFlowViewController.swift; sourceTree = "<group>"; };
-		9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryCongratsInterface.xib; path = interfaces/PostSurgeryCongratsInterface.xib; sourceTree = "<group>"; };
 		9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryCongratsView.swift; path = views/PostSurgeryCongratsView.swift; sourceTree = "<group>"; };
 		9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryGoalView.swift; path = views/PostSurgeryGoalView.swift; sourceTree = "<group>"; };
 		9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryTransitionView.swift; path = views/PostSurgeryTransitionView.swift; sourceTree = "<group>"; };
@@ -264,6 +263,7 @@
 		D2BE64F41DDCC75A00EAEB7C /* sample-animated-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "sample-animated-gif.gif"; path = "content/sample-animated-gif.gif"; sourceTree = "<group>"; };
 		D2BE64F61DDCCDFD00EAEB7C /* FAQItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQItem.swift; path = shared/FAQItem.swift; sourceTree = "<group>"; };
 		D2BE64F81DDCD2D500EAEB7C /* FAQTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQTableViewCell.swift; path = shared/FAQTableViewCell.swift; sourceTree = "<group>"; };
+		D2E777F61DDF7294003176B0 /* PostSurgeryCongratsInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryCongratsInterface.xib; path = interfaces/PostSurgeryCongratsInterface.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,7 +352,7 @@
 				9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */,
 				9EB5FC481DC1646700F9A53E /* PreSurgeryTransitionInterface.xib */,
 				9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */,
-				9E1E44C41DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib */,
+				D2E777F61DDF7294003176B0 /* PostSurgeryCongratsInterface.xib */,
 				9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */,
 			);
 			name = interfaces;
@@ -640,7 +640,7 @@
 				TargetAttributes = {
 					9EFDA04F1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ADEZZWZJT8;
+						DevelopmentTeam = 88Z4DRB7UN;
 						LastSwiftMigration = 0800;
 					};
 					9EFDA0631D8370F400FD6763 = {
@@ -725,11 +725,11 @@
 				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9E43C4381DDBCFC300EF986C /* sample-doc.pdf in Resources */,
+				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9E43C4321DDBB85700EF986C /* sample-video.m4v in Resources */,
 				D2BE64F21DDCBDF700EAEB7C /* sample-png.png in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
-				9E1E44C51DD0F47500FF78A6 /* PostSurgeryCongratsInterface.xib in Resources */,
 				D2BE64F31DDCBDF700EAEB7C /* sample-portrait-image.jpg in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
@@ -982,11 +982,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = 88Z4DRB7UN;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -999,11 +999,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = 88Z4DRB7UN;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

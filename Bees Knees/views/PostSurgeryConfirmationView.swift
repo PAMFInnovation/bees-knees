@@ -46,11 +46,8 @@ class PostSurgeryConfirmationView: UIView {
         
         
         // Add the deny button
-        let denyButton: UIButton = UIButton(type: .roundedRect)
+        let denyButton: HighlightButton = HighlightButton()
         denyButton.setTitle("I haven't had surgery yet.", for: .normal)
-        denyButton.borderWidth = 1
-        denyButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
-        denyButton.cornerRadius = 10
         denyButton.translatesAutoresizingMaskIntoConstraints = false
         denyButton.addTarget(self, action: #selector(PostSurgeryConfirmationView.adjustSurgeryDate), for: .touchUpInside)
         
@@ -58,16 +55,13 @@ class PostSurgeryConfirmationView: UIView {
         
         self.addConstraint(NSLayoutConstraint(item: denyButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.addConstraint(NSLayoutConstraint(item: denyButton, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: denyButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
+        self.addConstraint(NSLayoutConstraint(item: denyButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
         self.addConstraint(NSLayoutConstraint(item: denyButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         
         
         // Add the confirm button
-        let confirmButton: UIButton = UIButton(type: .roundedRect)
+        let confirmButton: HighlightButton = HighlightButton()
         confirmButton.setTitle("Yes!", for: .normal)
-        confirmButton.borderWidth = 1
-        confirmButton.borderColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
-        confirmButton.cornerRadius = 10
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.addTarget(self, action: #selector(PostSurgeryConfirmationView.confirmSurgery), for: .touchUpInside)
         
@@ -75,7 +69,7 @@ class PostSurgeryConfirmationView: UIView {
         
         self.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .bottom, relatedBy: .equal, toItem: denyButton, attribute: .top, multiplier: 1.0, constant: -20))
         self.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
+        self.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
         self.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 42))
         
         
