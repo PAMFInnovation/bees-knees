@@ -129,7 +129,7 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         let cell: ChecklistItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! ChecklistItemTableViewCell
         let item: ChecklistItem = self.tableViewData[indexPath.row]
         cell.itemField.text = item.text
-        cell.checklistItem = item
+        cell.setChecklistItem(item: item)
         
         // Disable the final checklist item to give it a "+" icon
         if indexPath.row == tableViewData.count - 1 {
@@ -238,5 +238,19 @@ extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate 
         
         // Close the keyboard
         self.view.endEditing(true)
+    }
+    
+    func toggleCompleted(sender: ChecklistItemTableViewCell, item: ChecklistItem) {
+        // Get the index of the cell to mark
+        let index = (tableViewData as NSArray).index(of: item)
+        if index == NSNotFound {
+            return
+        }
+        
+        // Update the cell's completed state
+        self.tableViewData[index].completed = !self.tableViewData[index].completed
+        
+        // Reload the table data
+        self.tableView.reloadData()
     }
 }

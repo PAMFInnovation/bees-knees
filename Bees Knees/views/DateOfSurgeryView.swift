@@ -19,6 +19,7 @@ class DateOfSurgeryView: UIView {
     @IBOutlet weak var noDateLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var calendarIcon: UIImageView!
     
     
     // MARK: - Initialization
@@ -32,6 +33,10 @@ class DateOfSurgeryView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // Set the color of the calendar icon
+        calendarIcon.image = calendarIcon.image?.withRenderingMode(.alwaysTemplate)
+        calendarIcon.tintColor = Colors.appleBlue.color
     }
     
     

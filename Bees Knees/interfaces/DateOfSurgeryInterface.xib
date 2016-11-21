@@ -18,9 +18,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zoU-A4-Ocm">
                     <rect key="frame" x="0.0" y="60" width="320" height="110"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TEMP_calendar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="X1W-kc-PAu">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="X1W-kc-PAu">
                             <rect key="frame" x="20" y="15" width="80" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mze-ri-gbE">
                             <rect key="frame" x="120" y="45" width="247" height="21"/>
@@ -42,7 +43,7 @@
                             <attributedString key="attributedText">
                                 <fragment content="October 18, 2016">
                                     <attributes>
-                                        <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="NSColor" red="0.20000000000000001" green="0.45098039215686275" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="17" name="ArialMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
@@ -56,7 +57,7 @@
                             <attributedString key="attributedText">
                                 <fragment content="Tuesday, 10:00 am">
                                     <attributes>
-                                        <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="NSColor" red="0.20000000000000001" green="0.45098039215686275" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="17" name="ArialMT"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                     </attributes>
@@ -123,6 +124,7 @@
                 <constraint firstItem="hHL-3G-jJP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="170" id="ycX-GS-JnS"/>
             </constraints>
             <connections>
+                <outlet property="calendarIcon" destination="X1W-kc-PAu" id="WUN-F4-0oZ"/>
                 <outlet property="dateLabel" destination="ugJ-RW-rLY" id="z9u-Ae-HXA"/>
                 <outlet property="noDateLabel" destination="mze-ri-gbE" id="C5M-ES-yZI"/>
                 <outlet property="timeLabel" destination="4e9-Ni-VjL" id="dwf-nc-sU3"/>
@@ -131,6 +133,6 @@
         </view>
     </objects>
     <resources>
-        <image name="TEMP_calendar_icon" width="128" height="128"/>
+        <image name="calendar-icon" width="80" height="80"/>
     </resources>
 </document>

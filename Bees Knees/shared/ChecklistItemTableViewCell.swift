@@ -12,6 +12,7 @@ import UIKit
 protocol ChecklistItemTableViewCellDelegate: class {
     func beginEditing(element: UIControl)
     func doneEditing(sender: ChecklistItemTableViewCell, item: ChecklistItem)
+    func toggleCompleted(sender: ChecklistItemTableViewCell, item: ChecklistItem)
 }
 
 class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -81,12 +82,21 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     
     // MARK: - Helper functions
+    func setChecklistItem(item: ChecklistItem) {
+        self.checklistItem = item
+        
+        // Toggle the button if it is completed
+        self.setChecked((self.checklistItem?.completed)!)
+    }
+    
     func btnTouched() {
-        if (checklistItem?.enabled)! {
-            toggleButton.isSelected = !toggleButton.isSelected
-            
-            itemField.textColor = toggleButton.isSelected ? UIColor.lightGray : UIColor.black
-        }
+        delegate?.toggleCompleted(sender: self, item: checklistItem!)
+    }
+    
+    func setChecked(_ state: Bool) {
+        // Toggle the button if it is completed
+        toggleButton.isSelected = state
+        itemField.textColor = toggleButton.isSelected ? UIColor.lightGray : UIColor.black
     }
     
     func enable() {

@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var nextButton: HighlightButton!
+    @IBOutlet weak var profileIcon: UIImageView!
     
     // Next button delegate
     weak var delegate: ProfileDelegate?
@@ -52,6 +53,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         fullNameField.text = ProfileManager.sharedInstance.name
         emailField.text = ProfileManager.sharedInstance.email
         phoneField.text = ProfileManager.sharedInstance.phone
+        
+        // Set the color of the icon
+        profileIcon.image = profileIcon
+            .image?.withRenderingMode(.alwaysTemplate)
+        profileIcon.tintColor = Colors.appleBlue.color
     }
     
     override func viewWillAppear(_ animated: Bool) {

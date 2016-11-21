@@ -19,6 +19,10 @@ class PreSurgeryTransitionViewController: UIViewController {
     // Button delegates
     var delegate: PreSurgeryTransitionDelegate?
     
+    // Reference to the icon so we can change its color
+    @IBOutlet weak var icon: UIImageView!
+    
+    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +51,11 @@ class PreSurgeryTransitionViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        // Set the color of the icon
+        icon.image = icon
+            .image?.withRenderingMode(.alwaysTemplate)
+        icon.tintColor = Colors.appleBlue.color
     }
     
     

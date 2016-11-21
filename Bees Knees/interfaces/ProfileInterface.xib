@@ -15,6 +15,7 @@
                 <outlet property="fullNameField" destination="fP1-cj-Fpo" id="1R6-E7-ZCO"/>
                 <outlet property="nextButton" destination="JyR-Ft-S5l" id="jyG-zl-hy8"/>
                 <outlet property="phoneField" destination="R1n-1C-hB8" id="BtA-CY-QUI"/>
+                <outlet property="profileIcon" destination="NGi-wk-so9" id="AUA-Z1-jTe"/>
                 <outlet property="scrollView" destination="f0Q-KF-aYe" id="xQG-r0-wj8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="XLb-Pp-gIb"/>
             </connections>
@@ -30,7 +31,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWr-hP-DYl">
                             <rect key="frame" x="40" y="0.0" width="295" height="647"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="NGi-wk-so9">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-avatar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="NGi-wk-so9">
                                     <rect key="frame" x="72.5" y="30" width="150" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="Jz4-L8-6M2"/>
@@ -125,6 +126,6 @@
         </view>
     </objects>
     <resources>
-        <image name="profile-avatar-default" width="750" height="750"/>
+        <image name="profile-avatar-icon" width="150" height="150"/>
     </resources>
 </document>
