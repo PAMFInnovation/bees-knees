@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     var activeElement: UIControl?
     
     // Keep default edge insets for when we need to reset scrolling
+    var contentSize: CGSize?
     var defaultScrollInsets: UIEdgeInsets?
     
     
@@ -68,6 +69,31 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         center.addObserver(self, selector: #selector(keyboardOffScreen), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Set the initial scroll view size and insets
+        // Here, we need to set the content size of the scroll view
+        // to be the aggregate of ALL bounds in the subviews.
+        // There is only one subview in the scrollview, but we need
+        // that scroll view's combined bounds.
+        // Other observations: need to resize the height of the subview
+        // in order to retain the hit box such that we can tap on every
+        // element. This last point is important because without doing
+        // that, the button at the bottom was not interactive.
+        var subviewRect = CGRect.zero
+        for _view in scrollView.subviews[0].subviews {
+            subviewRect = subviewRect.union(_view.frame)
+        }
+        contentSize = subviewRect.size
+        defaultScrollInsets = scrollView.contentInset
+        
+        // Update the scroll view's content boundaries
+        scrollView.contentSize = contentSize!
+        scrollView.contentInset = defaultScrollInsets!
+        scrollView.scrollIndicatorInsets = defaultScrollInsets!
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -80,16 +106,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let center = NotificationCenter.default
         center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        // Set default scroll insets
-        defaultScrollInsets = scrollView.contentInset
-        
-        // An interactively-dismissed keyboard will dismiss when the user scrolls
-        scrollView.keyboardDismissMode = .interactive
     }
     
     
@@ -134,7 +150,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     public func keyboardOffScreen(notification: NSNotification) {
-        // Reset the scroll view insets
+        // Reset the scroll view insets and content size
+        scrollView.contentSize = contentSize!
         scrollView.contentInset = defaultScrollInsets!
         scrollView.scrollIndicatorInsets = defaultScrollInsets!
     }
