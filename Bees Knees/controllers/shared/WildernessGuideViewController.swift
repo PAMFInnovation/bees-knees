@@ -56,6 +56,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Setup the countdown view
         self.countdownView = SurgeryCountdown(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 80))
+        self.countdownView.delegate = self
         scrollView.addSubview(countdownView)
         
         // Setup the table view
@@ -268,5 +269,16 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
 extension WildernessGuideViewController: AppointmentViewControllerDelegate {
     func doneEditingAppointment(sender: AppointmentViewController) {
         self.reloadTable()
+    }
+}
+
+extension WildernessGuideViewController: SurgeryCountdownDelegate {
+    func tapEditSurgeryDate(sender: SurgeryCountdown) {
+        let adjustDateVC = UIViewController()
+        adjustDateVC.title = NSLocalizedString("Adjust Date", comment: "")
+        let dateOfSurgeryView = DateOfSurgeryView.instanceFromNib()
+        dateOfSurgeryView.frame = self.view.frame
+        adjustDateVC.view = dateOfSurgeryView
+        self.navigationController?.pushViewController(adjustDateVC, animated: true)
     }
 }
