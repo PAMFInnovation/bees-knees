@@ -117,10 +117,10 @@ class SurgeryCountdown: UIView {
     }
     
     func tap(tap: UITapGestureRecognizer) {
-        // Ignore this completely if the surgery date is already set
+        /*// Ignore this completely if the surgery date is already set
         if ProfileManager.sharedInstance.isSurgerySet {
             return
-        }
+        }*/
         
         // Check for tap within the view's rect
         if tap.state == .ended {

@@ -258,11 +258,8 @@ extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate 
 
 extension PreSurgeryChecklistViewController: SurgeryCountdownDelegate {
     func tapEditSurgeryDate(sender: SurgeryCountdown) {
-        let adjustDateVC = UIViewController()
-        adjustDateVC.title = NSLocalizedString("Adjust Date", comment: "")
-        let dateOfSurgeryView = DateOfSurgeryView.instanceFromNib()
-        dateOfSurgeryView.frame = self.view.frame
-        adjustDateVC.view = dateOfSurgeryView
-        self.navigationController?.pushViewController(adjustDateVC, animated: true)
+        let dateOfSurgeryVC = DateOfSurgeryViewController()
+        dateOfSurgeryVC.title = NSLocalizedString("Adjust Date", comment: "")
+        self.navigationController?.pushViewController(dateOfSurgeryVC, animated: true)
     }
 }
