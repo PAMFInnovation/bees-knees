@@ -20,6 +20,7 @@ class DateOfSurgeryView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var calendarIcon: UIImageView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     
     // MARK: - Initialization
@@ -41,6 +42,7 @@ class DateOfSurgeryView: UIView {
         // Set the date if it already exists
         if ProfileManager.sharedInstance.isSurgerySet {
             self.setDate(date: ProfileManager.sharedInstance.getSurgeryDate())
+            self.datePicker.setDate(ProfileManager.sharedInstance.getSurgeryDate(), animated: false)
         }
     }
     
