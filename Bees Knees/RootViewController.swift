@@ -117,6 +117,10 @@ extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     func didFinishPostFlow(sender: PostSurgeryWelcomeFlowViewController) {
         flowState = .PostSurgeryRoutine
         
+        // Remove the Pre-Surgery Routine Flow
+        preSurgeryRoutineFlow.view.removeFromSuperview()
+        preSurgeryRoutineFlow.removeFromParentViewController()
+        
         // Dismiss the view and the Post Care Card will be waiting underneath
         self.view.addSubview(postSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
