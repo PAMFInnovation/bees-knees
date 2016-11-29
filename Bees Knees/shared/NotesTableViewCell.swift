@@ -14,11 +14,14 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     override var appointment: Appointment? {
         willSet(appt) {
             notesTextArea.text = appt?.notes
+            
+            // Show or hide the placeholder label
+            placeholderLabel.isHidden = notesTextArea.text == "" ? false : true
         }
     }
     
-    var hRule: HorizontalRule!
     var notesTextArea = UITextView()
+    var placeholderLabel = UILabel()
     let notesHeight: CGFloat = 150
     
     
@@ -29,21 +32,14 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         // No selection style
         self.selectionStyle = .none
         
-        // Set label text
-        self.label.text = "Notes"
-        
         // Set height values
         defaultHeight += notesHeight
         
         // Update the cell's height to match the needed height for the text area
         self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
         
-        // Add a horizontal rule
-        hRule = HorizontalRule(x: 15, y: label.frame.height, width: self.frame.width)
-        self.addSubview(hRule)
-        
         // Add the notes text area
-        notesTextArea.frame = CGRect(x: 0, y: label.frame.height + 1, width: self.frame.width, height: notesHeight)
+        notesTextArea.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: notesHeight)
         notesTextArea.isEditable = true
         notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         notesTextArea.delegate = self
@@ -51,6 +47,13 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         notesTextArea.tintColor = UIColor.gray
         notesTextArea.textColor = UIColor.gray
         self.addSubview(notesTextArea)
+        
+        // Add the placeholder label
+        placeholderLabel.frame = CGRect(x: 15, y: 0, width: self.frame.width, height: 40)
+        placeholderLabel.text = "Tap here to edit notes..."
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.font = UIFont(name: "Arial-ItalicMT", size: 16)
+        self.addSubview(placeholderLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,8 +64,8 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         super.layoutSubviews()
         
         // Update the width of the views
-        hRule.frame = CGRect(x: hRule.frame.minX, y: hRule.frame.minY, width: self.frame.width, height: hRule.frame.height)
         notesTextArea.frame = CGRect(x: notesTextArea.frame.minX, y: notesTextArea.frame.minY, width: self.frame.width, height: notesTextArea.frame.height)
+        placeholderLabel.frame = CGRect(x: placeholderLabel.frame.minX, y: placeholderLabel.frame.minY, width: self.frame.width, height: placeholderLabel.frame.height)
     }
     
     
@@ -75,5 +78,8 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         appointment?.notes = textView.text
+        
+        // Show or hide the placeholder label
+        placeholderLabel.isHidden = notesTextArea.text == "" ? false : true
     }
 }
