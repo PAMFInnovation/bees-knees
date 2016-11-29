@@ -17,12 +17,14 @@ class PostSurgeryRoutineViewController: UITabBarController {
     fileprivate var guideVC: WildernessGuideViewController!
     fileprivate var careCardVC: OCKCareCardViewController!
     fileprivate var assessmentsVC: OCKSymptomTrackerViewController!
+    fileprivate var insightsVC: OCKInsightsViewController!
     fileprivate var settingsVC: SettingsViewController!
     
     // Care Card activities
     let activities: [Activity] = [
         Walk(),
-        Mood()
+        Mood(),
+        LegPain()
     ]
     
     
@@ -55,7 +57,13 @@ class PostSurgeryRoutineViewController: UITabBarController {
         assessmentsVC = OCKSymptomTrackerViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
         assessmentsVC.delegate = self
         assessmentsVC.title = NSLocalizedString("Assessments", comment: "")
-        assessmentsVC.tabBarItem = UITabBarItem(title: assessmentsVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
+        assessmentsVC.tabBarItem = UITabBarItem(title: assessmentsVC.title, image: UIImage(named: "notes-icon"), selectedImage: UIImage(named: "notes-icon"))
+        
+        // Create the Insight VC
+        CarePlanStoreManager.sharedInstance.delegate = self
+        insightsVC = OCKInsightsViewController(insightItems: CarePlanStoreManager.sharedInstance.insights, headerTitle: NSLocalizedString("Weekly Charts", comment: ""), headerSubtitle: "")
+        insightsVC.title = NSLocalizedString("Insights", comment: "")
+        insightsVC.tabBarItem = UITabBarItem(title: insightsVC.title, image: UIImage(named: "insights-icon"), selectedImage: UIImage(named: "insights-icon"))
         
         // Create the Settings VC
         settingsVC = SettingsViewController()
@@ -67,6 +75,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
             UINavigationController(rootViewController: guideVC),
             UINavigationController(rootViewController: careCardVC),
             UINavigationController(rootViewController: assessmentsVC),
+            UINavigationController(rootViewController: insightsVC),
             UINavigationController(rootViewController: settingsVC)
         ]
     }
@@ -138,5 +147,11 @@ extension PostSurgeryRoutineViewController: ORKTaskViewControllerDelegate {
                 print(error?.localizedDescription)
             }
         })
+    }
+}
+
+extension PostSurgeryRoutineViewController: CarePlanStoreManagerDelegate {
+    func carePlanStoreManager(_ manager: CarePlanStoreManager, didUpdateInsights insights: [OCKInsightItem]) {
+        insightsVC.items = insights
     }
 }

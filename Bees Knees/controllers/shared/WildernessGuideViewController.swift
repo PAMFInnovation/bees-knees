@@ -48,7 +48,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Add the + button in the navigation bar and color it
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(WildernessGuideViewController.newAppointment))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
@@ -109,11 +108,9 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Add the cancel button in the navigation bar and color it
         apptVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: apptVC, action: #selector(AppointmentViewController.cancel))
-        apptVC.navigationItem.leftBarButtonItem?.tintColor = UIColor.red
         
         // Add the done button in the navigation bar and color it
         apptVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: apptVC, action: #selector(AppointmentViewController.done))
-        apptVC.navigationItem.rightBarButtonItem?.tintColor = UIColor.red
         
         // Present this modal view controller
         let navVC = UINavigationController(rootViewController: apptVC)

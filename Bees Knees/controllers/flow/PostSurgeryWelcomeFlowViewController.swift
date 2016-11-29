@@ -110,12 +110,13 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         let transitionView = PostSurgeryTransitionView(frame: self.view.frame)
         transitionView.delegate = self
         transitionVC = UIViewController()
-        transitionVC.title = NSLocalizedString("Post-Surgery", comment: "")
+        transitionVC.title = NSLocalizedString("Let's Go!", comment: "")
         transitionVC.view = transitionView
         
         
         // Push the first view
         self.pushViewController(confirmationVC, animated: true)
+        //self.pushViewController(transitionVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,10 +164,20 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
 
 extension PostSurgeryWelcomeFlowViewController: PostSurgeryConfirmationDelegate {
     func confirmConfirmation(sender: PostSurgeryConfirmationView) {
+        // Replace back button with "Back" instead of long title it inherits
+        let backItem = UIBarButtonItem()
+        backItem.title = "Confirm"
+        confirmationVC.navigationItem.backBarButtonItem = backItem
+        
         self.pushViewController(congratsVC, animated: true)
     }
     
     func adjustSurgeryDate(sender: PostSurgeryConfirmationView) {
+        // Replace back button with "Back" instead of long title it inherits
+        let backItem = UIBarButtonItem()
+        backItem.title = "Confirm"
+        confirmationVC.navigationItem.backBarButtonItem = backItem
+        
         self.pushViewController(adjustDateVC, animated: true)
     }
 }
