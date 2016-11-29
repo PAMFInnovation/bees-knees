@@ -81,6 +81,12 @@
 		9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08E1D83718700FD6763 /* ConsentTask.swift */; };
 		9EFDA0911D83719500FD6763 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0901D83719500FD6763 /* Activity.swift */; };
 		9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0921D8371A000FD6763 /* Walk.swift */; };
+		D224BA7D1DECD15E00A77108 /* LegPain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA7C1DECD15E00A77108 /* LegPain.swift */; };
+		D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */; };
+		D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */; };
+		D24439661DECBB0600D00C0F /* InsightsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439651DECBB0600D00C0F /* InsightsBuilder.swift */; };
+		D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */; };
+		D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */; };
 		D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24AD4DE1DCBBE8700984EED /* HorizontalRule.swift */; };
 		D2A1B8D11DCBB85F00790F16 /* AppointmentCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A1B8D01DCBB85F00790F16 /* AppointmentCellData.swift */; };
 		D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */; };
@@ -250,6 +256,12 @@
 		9EFDA08E1D83718700FD6763 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		9EFDA0901D83719500FD6763 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		9EFDA0921D8371A000FD6763 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		D224BA7C1DECD15E00A77108 /* LegPain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegPain.swift; sourceTree = "<group>"; };
+		D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryActivityEventsOperation.swift; sourceTree = "<group>"; };
+		D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildInsightsOperation.swift; sourceTree = "<group>"; };
+		D24439651DECBB0600D00C0F /* InsightsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsBuilder.swift; sourceTree = "<group>"; };
+		D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OCKInsightItem+EmptyMessage.swift"; path = "extensions/OCKInsightItem+EmptyMessage.swift"; sourceTree = "<group>"; };
+		D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calendar+Dates.swift"; path = "extensions/Calendar+Dates.swift"; sourceTree = "<group>"; };
 		D24AD4DE1DCBBE8700984EED /* HorizontalRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalRule.swift; path = shared/HorizontalRule.swift; sourceTree = "<group>"; };
 		D2A1B8D01DCBB85F00790F16 /* AppointmentCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentCellData.swift; path = shared/AppointmentCellData.swift; sourceTree = "<group>"; };
 		D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleTableViewCell.swift; path = shared/TitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -384,6 +396,8 @@
 			children = (
 				9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */,
 				9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */,
+				D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */,
+				D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -448,6 +462,7 @@
 			children = (
 				9EE1D3361DD2A94100EB3E54 /* Assessment.swift */,
 				9EE1D3381DD2AA4E00EB3E54 /* Mood.swift */,
+				D224BA7C1DECD15E00A77108 /* LegPain.swift */,
 			);
 			name = Assessments;
 			sourceTree = "<group>";
@@ -487,6 +502,7 @@
 				9EFDA0841D83711600FD6763 /* Consent */,
 				9EFDA0851D83711A00FD6763 /* Activities */,
 				9EE1D3351DD2A90400EB3E54 /* Assessments */,
+				D24439601DECBAE500D00C0F /* Insights */,
 				9E3E6B571DD4EF09000E92E1 /* util */,
 				9E43C42E1DDBB80E00EF986C /* content */,
 				9EFDA0531D8370F400FD6763 /* AppDelegate.swift */,
@@ -567,6 +583,16 @@
 				9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */,
 			);
 			name = "Linked frameworks";
+			sourceTree = "<group>";
+		};
+		D24439601DECBAE500D00C0F /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				D24439651DECBB0600D00C0F /* InsightsBuilder.swift */,
+				D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */,
+				D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */,
+			);
+			name = Insights;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -780,7 +806,9 @@
 				9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */,
 				9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */,
 				9E3E6B5D1DD4EF20000E92E1 /* Colors.swift in Sources */,
+				D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */,
 				D2A1B8D11DCBB85F00790F16 /* AppointmentCellData.swift in Sources */,
+				D224BA7D1DECD15E00A77108 /* LegPain.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				D2BE64EB1DDCBCFB00EAEB7C /* ImageViewController.swift in Sources */,
@@ -792,10 +820,13 @@
 				9E3E6B611DD4FAED000E92E1 /* Appointment.swift in Sources */,
 				9E81DDD71DCD17A00065C928 /* ExpectationsViewController.swift in Sources */,
 				9EE1D3371DD2A94100EB3E54 /* Assessment.swift in Sources */,
+				D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */,
 				9E3E6B5F1DD4F8B8000E92E1 /* GuideTableViewCell.swift in Sources */,
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
+				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
 				9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */,
+				D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
 				9E1E44C91DD1443C00FF78A6 /* PostSurgeryGoalView.swift in Sources */,
 				9E429DF81DC2CA620066FF20 /* CarePlanStoreManager.swift in Sources */,
@@ -811,6 +842,7 @@
 				9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */,
 				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */,
+				D24439661DECBB0600D00C0F /* InsightsBuilder.swift in Sources */,
 				D2BE64F91DDCD2D500EAEB7C /* FAQTableViewCell.swift in Sources */,
 				D2BE64F71DDCCDFD00EAEB7C /* FAQItem.swift in Sources */,
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,

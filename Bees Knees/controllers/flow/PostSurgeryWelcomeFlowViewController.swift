@@ -116,6 +116,7 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Push the first view
         self.pushViewController(confirmationVC, animated: true)
+        //self.pushViewController(transitionVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

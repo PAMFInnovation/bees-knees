@@ -10,13 +10,27 @@ import Foundation
 import CareKit
 
 
-class CarePlanStoreManager {
+protocol CarePlanStoreManagerDelegate: class {
+    func carePlanStoreManager(_ manager: CarePlanStoreManager, didUpdateInsights insights: [OCKInsightItem])
+}
+
+class CarePlanStoreManager : NSObject {
+    // Reference to the delegate
+    weak var delegate: CarePlanStoreManagerDelegate?
+    
     // Care Plan Store constant
     let store: OCKCarePlanStore
     
+    // Insights
+    var insights: [OCKInsightItem] {
+        return insightsBuilder.insights
+    }
+    private let insightsBuilder: InsightsBuilder
+    
+    
     // Singleton
     static let sharedInstance = CarePlanStoreManager()
-    private init() {
+    fileprivate override init() {
         // Set the directory URL where we'll store the care plan store
         let searchPaths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         let applicationSupportPath = searchPaths[0]
@@ -29,8 +43,24 @@ class CarePlanStoreManager {
         // Create the care plan store
         store = OCKCarePlanStore(persistenceDirectoryURL: persistentDirectoryURL)
         
+        // Create the 'InsightsBuilder' to build insights based on the data in the store.
+        insightsBuilder = InsightsBuilder(carePlanStore: store)
+        
+        super.init()
+        
+        // Register this object as the store's delegate to be notified of changes.
+        store.delegate = self
+        
         // TEMP: clear the store each time the app is run
         self._clearStore()
+    }
+    
+    func updateInsights() {
+        insightsBuilder.updateInsights { [weak self] completed, newInsights in
+            // If new insights have been created, notifiy the delegate.
+            guard let storeManager = self, let newInsights = newInsights, completed else { return }
+            storeManager.delegate?.carePlanStoreManager(storeManager, didUpdateInsights: newInsights)
+        }
     }
     
     
@@ -60,5 +90,15 @@ class CarePlanStoreManager {
         
         // Wait until all the asynchronous calls are done
         deleteGroup.wait(timeout: DispatchTime.distantFuture)
+    }
+}
+
+extension CarePlanStoreManager: OCKCarePlanStoreDelegate {
+    func carePlanStoreActivityListDidChange(_ store: OCKCarePlanStore) {
+        updateInsights()
+    }
+    
+    func carePlanStore(_ store: OCKCarePlanStore, didReceiveUpdateOf event: OCKCarePlanEvent) {
+        updateInsights()
     }
 }

@@ -17,4 +17,5 @@ protocol Activity {
 enum ActivityType: String {
     case Walk
     case Mood
+    case LegPain
 }
