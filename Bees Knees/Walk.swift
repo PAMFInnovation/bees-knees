@@ -28,7 +28,7 @@ struct Walk: Activity {
             groupIdentifier: nil,
             title: title,
             text: summary,
-            tintColor: UIColor.blue,
+            tintColor: Colors.turquoise.color,
             instructions: instructions,
             imageURL: nil,
             schedule: schedule,

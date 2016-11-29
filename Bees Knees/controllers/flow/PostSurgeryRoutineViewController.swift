@@ -52,6 +52,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
         careCardVC.title = NSLocalizedString("Care Card", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
+        careCardVC.maskImageTintColor = Colors.turquoise.color
         
         // Create the Assessments VC
         assessmentsVC = OCKSymptomTrackerViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
