@@ -50,8 +50,8 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         careCardVC.title = NSLocalizedString("Care Card", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
-        careCardVC.maskImage = UIImage(named: "carecard-icon")
-        careCardVC.smallMaskImage = UIImage(named: "carecard-icon")
+        careCardVC.maskImage = UIImage(named: "carecard-heart-large")
+        careCardVC.smallMaskImage = UIImage(named: "carecard-heart-small")
         
         // Create the Checklist VC
         checklistVC = PreSurgeryChecklistViewController()
