@@ -33,7 +33,6 @@ class PostSurgeryCongratsView: UIView {
         var checkmarkImage: UIImage = UIImage(named: "checkmark")!
         checkmarkImage = checkmarkImage.withRenderingMode(.alwaysTemplate)
         let checkmarkView: UIImageView = UIImageView(image: checkmarkImage)
-        checkmarkView.tintColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         checkmarkView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(checkmarkView)

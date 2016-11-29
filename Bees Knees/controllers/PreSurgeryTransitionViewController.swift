@@ -53,14 +53,17 @@ class PreSurgeryTransitionViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         // Set the color of the icon
-        icon.image = icon
-            .image?.withRenderingMode(.alwaysTemplate)
-        icon.tintColor = Colors.appleBlue.color
+        icon.image = icon.image?.withRenderingMode(.alwaysTemplate)
     }
     
     
     // MARK: - UI buttons
     @IBAction func setSurgeryDateButtonPressed(_ sender: UIButton) {
+        // Replace back button with "Back" instead of long title it inherits
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        self.navigationItem.backBarButtonItem = backItem
+        
         delegate?.setSurgeryButtonPressed(sender: self)
     }
     

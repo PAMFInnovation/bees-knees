@@ -55,9 +55,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         phoneField.text = ProfileManager.sharedInstance.phone
         
         // Set the color of the icon
-        profileIcon.image = profileIcon
-            .image?.withRenderingMode(.alwaysTemplate)
-        profileIcon.tintColor = Colors.appleBlue.color
+        profileIcon.image = profileIcon.image?.withRenderingMode(.alwaysTemplate)
     }
     
     override func viewWillAppear(_ animated: Bool) {

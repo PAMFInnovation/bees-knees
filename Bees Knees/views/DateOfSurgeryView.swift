@@ -37,7 +37,10 @@ class DateOfSurgeryView: UIView {
         
         // Set the color of the calendar icon
         calendarIcon.image = calendarIcon.image?.withRenderingMode(.alwaysTemplate)
-        calendarIcon.tintColor = Colors.appleBlue.color
+        
+        // Set the color of the text
+        dateLabel.textColor = Colors.turquoise.color
+        timeLabel.textColor = Colors.turquoise.color
         
         // Set the date if it already exists
         if ProfileManager.sharedInstance.isSurgerySet {

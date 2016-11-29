@@ -97,9 +97,7 @@ class GuideTableViewCell: UITableViewCell {
     
     private func setIconImage(_ name: String) {
         var image: UIImage = UIImage(named: name)!
-        //image = image.withRenderingMode(.alwaysTemplate)
         self.icon.image = image
-        //self.icon.tintColor = Colors.turquoise.color
         
         var blankImage: UIImage = UIImage(named: "blank-icon")!
         blankImage = blankImage.withRenderingMode(.alwaysTemplate)

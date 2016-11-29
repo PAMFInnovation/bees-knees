@@ -68,7 +68,7 @@ class AppointmentTableViewCell: UITableViewCell {
         
         // Add the label
         label.frame = CGRect(x: labelOffset, y: 0, width: labelWidth, height: labelHeight)
-        label.textColor = UIColor.red
+        label.textColor = Colors.turquoise.color
         self.addSubview(label)
     }
     

@@ -32,7 +32,6 @@ class PostSurgeryGoalView: UIView {
         var goalImage: UIImage = UIImage(named: "goal-icon")!
         goalImage = goalImage.withRenderingMode(.alwaysTemplate)
         let goalView: UIImageView = UIImageView(image: goalImage)
-        goalView.tintColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         goalView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(goalView)

@@ -32,7 +32,6 @@ class PostSurgeryTransitionView: UIView {
         var image: UIImage = UIImage(named: "clipboard")!
         image = image.withRenderingMode(.alwaysTemplate)
         let imageView: UIImageView = UIImageView(image: image)
-        imageView.tintColor = UIColor(colorLiteralRed: 0, green: 0.5, blue: 1, alpha: 1)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(imageView)

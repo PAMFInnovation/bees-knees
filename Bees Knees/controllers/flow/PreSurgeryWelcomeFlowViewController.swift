@@ -87,10 +87,10 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
 extension PreSurgeryWelcomeFlowViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the consent view
-        self.pushViewController(consentTVC, animated: true)
+        //self.pushViewController(consentTVC, animated: true)
         
         // TESTING to skip consent for expediency
-        //self.pushViewController(profileVC, animated: true)
+        self.pushViewController(profileVC, animated: true)
     }
 }
 

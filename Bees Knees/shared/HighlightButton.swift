@@ -13,7 +13,7 @@ class HighlightButton: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? Colors.appleBlue.color : UIColor.white
+            backgroundColor = isHighlighted ? Colors.turquoise.color : UIColor.white
         }
     }
     
@@ -37,14 +37,14 @@ class HighlightButton: UIButton {
     func customize() {
         // Make this button a rounded rect
         self.borderWidth = 1
-        self.borderColor = Colors.appleBlue.color
+        self.borderColor = Colors.turquoise.color
         self.cornerRadius = 5
         
         // Set initial color, overriding what is set in the builder
         up()
         
         // Set additional color states
-        self.setTitleColor(Colors.appleBlue.color, for: .normal)
+        self.setTitleColor(Colors.turquoise.color, for: .normal)
         self.setTitleColor(UIColor.white, for: .highlighted)
         
         // Set font size
