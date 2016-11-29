@@ -63,7 +63,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
         CarePlanStoreManager.sharedInstance.delegate = self
         insightsVC = OCKInsightsViewController(insightItems: CarePlanStoreManager.sharedInstance.insights, headerTitle: NSLocalizedString("Weekly Charts", comment: ""), headerSubtitle: "")
         insightsVC.title = NSLocalizedString("Insights", comment: "")
-        insightsVC.tabBarItem = UITabBarItem(title: insightsVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
+        insightsVC.tabBarItem = UITabBarItem(title: insightsVC.title, image: UIImage(named: "insights-icon"), selectedImage: UIImage(named: "insights-icon"))
         
         // Create the Settings VC
         settingsVC = SettingsViewController()
