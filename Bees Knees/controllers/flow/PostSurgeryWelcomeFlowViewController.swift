@@ -156,6 +156,9 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
             let confirm: UIAlertAction = UIAlertAction(title: "Yes", style: .default, handler: {(alert: UIAlertAction!) in
                 // Return to Pre-Routine
                 _self.classDelegate?.returnToPreFlow(sender: _self)
+                
+                // Return to confirmation view
+                _self.popViewController(animated: true)
             })
             self.alert(message: "With this new date, your surgery has yet to happen. Proceed back to your Pre-Surgery Routine?", title: "", cancelAction: cancel, confirmAction: confirm)
         }
