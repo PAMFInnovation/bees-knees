@@ -21,9 +21,6 @@ enum FlowState {
 
 class RootViewController: UIViewController {
     
-    // Set the initial app's flow state
-    var flowState: FlowState = .Launch
-    
     // View controllers
     var preSurgeryWelcomeFlow: PreSurgeryWelcomeFlowViewController!
     var preSurgeryRoutineFlow: PreSurgeryRoutineViewController!
@@ -74,7 +71,7 @@ class RootViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Check for transition to post-surgery by checking the surgery date against today's date
-        if flowState == .Launch || flowState == .PreSurgeryWelcome || flowState == .PreSurgeryRoutine {
+        if ProfileManager.sharedInstance.flowState == .Launch || ProfileManager.sharedInstance.flowState == .PreSurgeryWelcome || ProfileManager.sharedInstance.flowState == .PreSurgeryRoutine {
             
             // TESTING logic
             if !ProfileManager.sharedInstance.isSurgerySet {
@@ -84,16 +81,15 @@ class RootViewController: UIViewController {
             
             if ProfileManager.sharedInstance.isSurgerySet {
                 if Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) {
-                    flowState = .PostSurgeryWelcome
-                    self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
+                    self.transitionToPostSurgeryWelcomeFlow()
                 }
             }
         }
         // TODO: logic for determining if this user already has data and therefore should not repeat the welcome flow
         //
         // Present the Pre-Surgery Welcome Flow
-        if flowState == .Launch {
-            flowState = .PreSurgeryWelcome
+        if ProfileManager.sharedInstance.flowState == .Launch {
+            ProfileManager.sharedInstance.flowState = .PreSurgeryWelcome
             self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
         }
     }
@@ -101,11 +97,16 @@ class RootViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
+    
+    func transitionToPostSurgeryWelcomeFlow() {
+        ProfileManager.sharedInstance.flowState = .PostSurgeryWelcome
+        self.present(postSurgeryWelcomeFlow, animated: true, completion: nil)
+    }
 }
 
 extension RootViewController: PreSurgeryWelcomeFlowDelegate {
     func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController) {
-        flowState = .PreSurgeryRoutine
+        ProfileManager.sharedInstance.flowState = .PreSurgeryRoutine
         
         // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)
@@ -115,7 +116,7 @@ extension RootViewController: PreSurgeryWelcomeFlowDelegate {
 
 extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     func didFinishPostFlow(sender: PostSurgeryWelcomeFlowViewController) {
-        flowState = .PostSurgeryRoutine
+        ProfileManager.sharedInstance.flowState = .PostSurgeryRoutine
         
         // Remove the Pre-Surgery Routine Flow
         preSurgeryRoutineFlow.view.removeFromSuperview()
@@ -127,7 +128,7 @@ extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     }
     
     func returnToPreFlow(sender: PostSurgeryWelcomeFlowViewController) {
-        flowState = .PreSurgeryRoutine
+        ProfileManager.sharedInstance.flowState = .PreSurgeryRoutine
         
         // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)

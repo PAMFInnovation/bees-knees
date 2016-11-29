@@ -12,6 +12,7 @@ import UIKit
 
 protocol SurgeryCountdownDelegate: class {
     func tapEditSurgeryDate(sender: SurgeryCountdown)
+    //func transitionToPostSurgery(sender: SurgeryCountdown)
 }
 
 class SurgeryCountdown: UIView {
@@ -23,6 +24,8 @@ class SurgeryCountdown: UIView {
     var notSetLabel = UILabel()
     
     var delegate: SurgeryCountdownDelegate?
+    
+    var manuallyTransitionToPostSurgery: Bool = false
     
     
     // MARK: - Initialization
@@ -104,15 +107,27 @@ class SurgeryCountdown: UIView {
             // Set the number of days between dates
             days = components.day!
             
-            // Update labels
-            subtextLabel.text = days < 0 ? "days since surgery" : "days until surgery"
-            valueLabel.text = abs(days).description
-            notSetLabel.text = ""
+            // Check if the patient has already had surgery and in the Pre-Surgery routine
+            // Here we'll prompt them to visit Post-Surgery
+            if days < 0 && ProfileManager.sharedInstance.flowState == .PreSurgeryRoutine {
+                subtextLabel.text = ""
+                valueLabel.text = ""
+                notSetLabel.text = "Already had surgery? Tap to change or transition to your Post-Surgery routine"
+                manuallyTransitionToPostSurgery = true
+            }
+            // Else display the counter normally
+            else {
+                subtextLabel.text = days < 0 ? "days since surgery" : "days until surgery"
+                valueLabel.text = abs(days).description
+                notSetLabel.text = ""
+                manuallyTransitionToPostSurgery = false
+            }
         }
         else {
             subtextLabel.text = ""
             valueLabel.text = ""
             notSetLabel.text = "Tap to enter your surgery date and start your roadmap"
+            manuallyTransitionToPostSurgery = false
         }
     }
     
@@ -128,7 +143,13 @@ class SurgeryCountdown: UIView {
             if self.frame.contains(point) {
                 // Trigger the delegate function if it's set
                 if delegate != nil {
-                    delegate?.tapEditSurgeryDate(sender: self)
+                    if manuallyTransitionToPostSurgery == true {
+                        //delegate?.transitionToPostSurgery(sender: self)
+                        (self.window!.rootViewController as! RootViewController).transitionToPostSurgeryWelcomeFlow()
+                    }
+                    else {
+                        delegate?.tapEditSurgeryDate(sender: self)
+                    }
                 }
             }
         }

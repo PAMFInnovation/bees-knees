@@ -14,6 +14,9 @@ class ProfileManager {
     static let sharedInstance = ProfileManager()
     private init() {}
     
+    // Set the initial app's flow state
+    var flowState: FlowState = .Launch
+    
     // Personal data
     var name: String = ""
     var email: String = ""
