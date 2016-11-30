@@ -71,7 +71,7 @@ class PostSurgeryTransitionView: UIView {
         // Add the static text
         let goalText: UITextView = UITextView()
         goalText.text = "You have some strengthening exercises awaiting you and progress to record. Let's get started!"
-        goalText.font = UIFont(name: "Arial-ItalicMT", size: 18)
+        goalText.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         goalText.textAlignment = .center
         goalText.isEditable = false
         goalText.isSelectable = false

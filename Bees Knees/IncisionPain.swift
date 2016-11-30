@@ -1,8 +1,8 @@
 //
-//  LegPain.swift
+//  IncisionPain.swift
 //  Bees Knees
 //
-//  Created by Ben Dapkiewicz on 11/28/16.
+//  Created by Ben Dapkiewicz on 11/30/16.
 //  Copyright © 2016 Sutter Health. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import CareKit
 import ResearchKit
 
 
-struct LegPain: Assessment {
+struct IncisionPain: Assessment {
     
-    let activityType: ActivityType = .LegPain
+    let activityType: ActivityType = .IncisionPain
     
     
     func carePlanActivity() -> OCKCarePlanActivity {
@@ -21,7 +21,7 @@ struct LegPain: Assessment {
         let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [1, 1, 1, 1, 1, 1, 1])
         
         // Get the localized strings to use for the assessment.
-        let title = NSLocalizedString("Leg Pain", comment: "")
+        let title = NSLocalizedString("Incision Pain", comment: "")
         
         let activity = OCKCarePlanActivity.assessment(withIdentifier: activityType.rawValue, groupIdentifier: nil, title: title, text: nil, tintColor: UIColor(red: 0x8D / 255.0, green: 0xC6 / 255.0, blue: 0x3F / 255.0, alpha: 1.0), resultResettable: false, schedule: schedule, userInfo: nil)
         
@@ -31,7 +31,7 @@ struct LegPain: Assessment {
     
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
-        let question = NSLocalizedString("On a scale from 1 to 10, how would you rate your leg pain today?", comment: "")
+        let question = NSLocalizedString("On a scale from 1 to 10, how would you rate pain with your incision site today?", comment: "")
         let maximumValueDescription = NSLocalizedString("Good", comment: "")
         let minimumValueDescription = NSLocalizedString("Bad", comment: "")
         

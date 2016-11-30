@@ -57,7 +57,7 @@ class PostSurgeryGoalView: UIView {
         // Add the static text
         let label: UITextView = UITextView()
         label.text = "Goals help us in focusing our energy toward concrete steps to a full and successful recovery. When you first started this journey with the app, you set a goal. What did you say you're looking forward to doing once you're back on your feet?"
-        label.font = UIFont(name: "ArialMT", size: 14)
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightRegular)
         label.textAlignment = .center
         label.isEditable = false
         label.isSelectable = false
@@ -79,7 +79,7 @@ class PostSurgeryGoalView: UIView {
         // Add the static text
         let goalText: UITextView = UITextView()
         goalText.text = "\"" + goalTextRaw + "\""
-        goalText.font = UIFont(name: "Arial-ItalicMT", size: 14)
+        goalText.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightThin)
         goalText.textAlignment = .left
         goalText.isEditable = false
         goalText.isSelectable = false

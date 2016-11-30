@@ -16,6 +16,17 @@ protocol Activity {
 
 enum ActivityType: String {
     case Walk
+    case QuadSets
+    case AnklePumps
+    case GluteSets
+    case HeelSlides
+    case StraightLegRaises
+    case SeatedHeelSlides
+    case HamstringSets
+    case ChairPressUps
+    case AbdominalBracing
+    case PhotoLog
+    case KneePain
     case Mood
-    case LegPain
+    case IncisionPain
 }

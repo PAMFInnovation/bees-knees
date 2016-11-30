@@ -23,8 +23,19 @@ class PostSurgeryRoutineViewController: UITabBarController {
     // Care Card activities
     let activities: [Activity] = [
         Walk(),
+        QuadSets(),
+        AnklePumps(),
+        GluteSets(),
+        HeelSlides(),
+        StraightLegRaises(),
+        SeatedHeelSlides(),
+        HamstringSets(),
+        ChairPressUps(),
+        AbdominalBracing(),
+        PhotoLog(),
+        KneePain(),
         Mood(),
-        LegPain()
+        IncisionPain()
     ]
     
     
@@ -45,12 +56,12 @@ class PostSurgeryRoutineViewController: UITabBarController {
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
-        guideVC.title = NSLocalizedString("Guide", comment: "")
-        guideVC.tabBarItem = UITabBarItem(title: guideVC.title, image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
+        guideVC.title = NSLocalizedString("My Roadmap to Recovery", comment: "")
+        guideVC.tabBarItem = UITabBarItem(title: "My Roadmap", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
-        careCardVC.title = NSLocalizedString("Care Card", comment: "")
+        careCardVC.title = NSLocalizedString("Activities", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
         careCardVC.maskImage = UIImage(named: "carecard-heart-large")
@@ -59,13 +70,13 @@ class PostSurgeryRoutineViewController: UITabBarController {
         // Create the Assessments VC
         assessmentsVC = OCKSymptomTrackerViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
         assessmentsVC.delegate = self
-        assessmentsVC.title = NSLocalizedString("Assessments", comment: "")
+        assessmentsVC.title = NSLocalizedString("Progress Tracker", comment: "")
         assessmentsVC.tabBarItem = UITabBarItem(title: assessmentsVC.title, image: UIImage(named: "notes-icon"), selectedImage: UIImage(named: "notes-icon"))
         
         // Create the Insight VC
         CarePlanStoreManager.sharedInstance.delegate = self
-        insightsVC = OCKInsightsViewController(insightItems: CarePlanStoreManager.sharedInstance.insights, headerTitle: NSLocalizedString("Weekly Charts", comment: ""), headerSubtitle: "")
-        insightsVC.title = NSLocalizedString("Insights", comment: "")
+        insightsVC = OCKInsightsViewController(insightItems: CarePlanStoreManager.sharedInstance.insights, headerTitle: NSLocalizedString("Progress History", comment: ""), headerSubtitle: "")
+        insightsVC.title = NSLocalizedString("Progress History", comment: "")
         insightsVC.tabBarItem = UITabBarItem(title: insightsVC.title, image: UIImage(named: "insights-icon"), selectedImage: UIImage(named: "insights-icon"))
         
         // Create the Settings VC

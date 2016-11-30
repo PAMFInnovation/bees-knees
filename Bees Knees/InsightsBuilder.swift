@@ -56,7 +56,7 @@ class InsightsBuilder {
         let queryDateRange = calculateQueryDateRange()
         
         // Create an operation to query for events for the previous week's 'LegPain' activity
-        let legPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.LegPain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
+        let legPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.KneePain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
         
         // Create a 'BuildInsightsOperation' to create insights from the data collected by query operations.
         let buildInsightsOperation = BuildInsightsOperation()

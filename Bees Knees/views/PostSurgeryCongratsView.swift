@@ -58,7 +58,7 @@ class PostSurgeryCongratsView: UIView {
         // Add the header
         let headerLabel: UILabel = UILabel()
         headerLabel.text = "Congratulations!"
-        headerLabel.font = UIFont(name: "Arial-BoldMT", size: 24)
+        headerLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFontWeightBold)
         headerLabel.textAlignment = .center
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         

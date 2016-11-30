@@ -46,7 +46,7 @@ class PostSurgeryConfirmationView: UIView {
         
         // Add the deny button
         let denyButton: HighlightButton = HighlightButton()
-        denyButton.setTitle("I haven't had surgery yet.", for: .normal)
+        denyButton.setTitle("Haven't had surgery", for: .normal)
         denyButton.translatesAutoresizingMaskIntoConstraints = false
         denyButton.addTarget(self, action: #selector(PostSurgeryConfirmationView.adjustSurgeryDate), for: .touchUpInside)
         
@@ -60,7 +60,7 @@ class PostSurgeryConfirmationView: UIView {
         
         // Add the confirm button
         let confirmButton: HighlightButton = HighlightButton()
-        confirmButton.setTitle("Yes!", for: .normal)
+        confirmButton.setTitle("Continue", for: .normal)
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.addTarget(self, action: #selector(PostSurgeryConfirmationView.confirmSurgery), for: .touchUpInside)
         
@@ -75,7 +75,7 @@ class PostSurgeryConfirmationView: UIView {
         // Add the static text
         let label: UITextView = UITextView()
         label.text = "According to the date that you entered in this app, you have completed your surgery. Let's check that -- how did it go?"
-        label.font = UIFont(name: "ArialMT", size: 18)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         label.textAlignment = .center
         label.isEditable = false
         label.isSelectable = false

@@ -81,7 +81,7 @@
 		9EFDA08F1D83718700FD6763 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA08E1D83718700FD6763 /* ConsentTask.swift */; };
 		9EFDA0911D83719500FD6763 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0901D83719500FD6763 /* Activity.swift */; };
 		9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0921D8371A000FD6763 /* Walk.swift */; };
-		D224BA7D1DECD15E00A77108 /* LegPain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA7C1DECD15E00A77108 /* LegPain.swift */; };
+		D224BA7D1DECD15E00A77108 /* KneePain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA7C1DECD15E00A77108 /* KneePain.swift */; };
 		D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */; };
 		D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */; };
 		D24439661DECBB0600D00C0F /* InsightsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439651DECBB0600D00C0F /* InsightsBuilder.swift */; };
@@ -92,6 +92,17 @@
 		D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */; };
 		D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */; };
 		D2B488621DEDFA3F000333D6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488611DEDFA3F000333D6 /* Theme.swift */; };
+		D2B4886D1DEF4B4B000333D6 /* AbdominalBracing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488631DEF4B4B000333D6 /* AbdominalBracing.swift */; };
+		D2B4886E1DEF4B4B000333D6 /* AnklePumps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488641DEF4B4B000333D6 /* AnklePumps.swift */; };
+		D2B4886F1DEF4B4B000333D6 /* ChairPressUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488651DEF4B4B000333D6 /* ChairPressUps.swift */; };
+		D2B488701DEF4B4B000333D6 /* GluteSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488661DEF4B4B000333D6 /* GluteSets.swift */; };
+		D2B488711DEF4B4B000333D6 /* HamstringSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488671DEF4B4B000333D6 /* HamstringSets.swift */; };
+		D2B488721DEF4B4B000333D6 /* HeelSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488681DEF4B4B000333D6 /* HeelSlides.swift */; };
+		D2B488731DEF4B4B000333D6 /* PhotoLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488691DEF4B4B000333D6 /* PhotoLog.swift */; };
+		D2B488741DEF4B4B000333D6 /* QuadSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4886A1DEF4B4B000333D6 /* QuadSets.swift */; };
+		D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4886B1DEF4B4B000333D6 /* SeatedHeelSlides.swift */; };
+		D2B488761DEF4B4B000333D6 /* StraightLegRaises.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4886C1DEF4B4B000333D6 /* StraightLegRaises.swift */; };
+		D2B488781DEF5135000333D6 /* IncisionPain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488771DEF5135000333D6 /* IncisionPain.swift */; };
 		D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64E41DDCBC9500EAEB7C /* ImageScrollView.swift */; };
 		D2BE64EB1DDCBCFB00EAEB7C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64EA1DDCBCFB00EAEB7C /* ImageViewController.swift */; };
 		D2BE64F01DDCBDF700EAEB7C /* sample-banner-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64EC1DDCBDF700EAEB7C /* sample-banner-image.jpg */; };
@@ -257,7 +268,7 @@
 		9EFDA08E1D83718700FD6763 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		9EFDA0901D83719500FD6763 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		9EFDA0921D8371A000FD6763 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
-		D224BA7C1DECD15E00A77108 /* LegPain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegPain.swift; sourceTree = "<group>"; };
+		D224BA7C1DECD15E00A77108 /* KneePain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KneePain.swift; sourceTree = "<group>"; };
 		D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryActivityEventsOperation.swift; sourceTree = "<group>"; };
 		D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildInsightsOperation.swift; sourceTree = "<group>"; };
 		D24439651DECBB0600D00C0F /* InsightsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsBuilder.swift; sourceTree = "<group>"; };
@@ -268,6 +279,17 @@
 		D2A69C291DCB989C00A0F568 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleTableViewCell.swift; path = shared/TitleTableViewCell.swift; sourceTree = "<group>"; };
 		D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesTableViewCell.swift; path = shared/NotesTableViewCell.swift; sourceTree = "<group>"; };
 		D2B488611DEDFA3F000333D6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = util/Theme.swift; sourceTree = "<group>"; };
+		D2B488631DEF4B4B000333D6 /* AbdominalBracing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbdominalBracing.swift; sourceTree = "<group>"; };
+		D2B488641DEF4B4B000333D6 /* AnklePumps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnklePumps.swift; sourceTree = "<group>"; };
+		D2B488651DEF4B4B000333D6 /* ChairPressUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChairPressUps.swift; sourceTree = "<group>"; };
+		D2B488661DEF4B4B000333D6 /* GluteSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GluteSets.swift; sourceTree = "<group>"; };
+		D2B488671DEF4B4B000333D6 /* HamstringSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamstringSets.swift; sourceTree = "<group>"; };
+		D2B488681DEF4B4B000333D6 /* HeelSlides.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeelSlides.swift; sourceTree = "<group>"; };
+		D2B488691DEF4B4B000333D6 /* PhotoLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLog.swift; sourceTree = "<group>"; };
+		D2B4886A1DEF4B4B000333D6 /* QuadSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadSets.swift; sourceTree = "<group>"; };
+		D2B4886B1DEF4B4B000333D6 /* SeatedHeelSlides.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatedHeelSlides.swift; sourceTree = "<group>"; };
+		D2B4886C1DEF4B4B000333D6 /* StraightLegRaises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StraightLegRaises.swift; sourceTree = "<group>"; };
+		D2B488771DEF5135000333D6 /* IncisionPain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncisionPain.swift; sourceTree = "<group>"; };
 		D2BE64E41DDCBC9500EAEB7C /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageScrollView.swift; path = shared/ImageScrollView.swift; sourceTree = "<group>"; };
 		D2BE64EA1DDCBCFB00EAEB7C /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = shared/ImageViewController.swift; sourceTree = "<group>"; };
 		D2BE64EC1DDCBDF700EAEB7C /* sample-banner-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sample-banner-image.jpg"; path = "content/sample-banner-image.jpg"; sourceTree = "<group>"; };
@@ -465,7 +487,8 @@
 			children = (
 				9EE1D3361DD2A94100EB3E54 /* Assessment.swift */,
 				9EE1D3381DD2AA4E00EB3E54 /* Mood.swift */,
-				D224BA7C1DECD15E00A77108 /* LegPain.swift */,
+				D224BA7C1DECD15E00A77108 /* KneePain.swift */,
+				D2B488771DEF5135000333D6 /* IncisionPain.swift */,
 			);
 			name = Assessments;
 			sourceTree = "<group>";
@@ -573,6 +596,16 @@
 		9EFDA0851D83711A00FD6763 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				D2B488631DEF4B4B000333D6 /* AbdominalBracing.swift */,
+				D2B488641DEF4B4B000333D6 /* AnklePumps.swift */,
+				D2B488651DEF4B4B000333D6 /* ChairPressUps.swift */,
+				D2B488661DEF4B4B000333D6 /* GluteSets.swift */,
+				D2B488671DEF4B4B000333D6 /* HamstringSets.swift */,
+				D2B488681DEF4B4B000333D6 /* HeelSlides.swift */,
+				D2B488691DEF4B4B000333D6 /* PhotoLog.swift */,
+				D2B4886A1DEF4B4B000333D6 /* QuadSets.swift */,
+				D2B4886B1DEF4B4B000333D6 /* SeatedHeelSlides.swift */,
+				D2B4886C1DEF4B4B000333D6 /* StraightLegRaises.swift */,
 				9EFDA0901D83719500FD6763 /* Activity.swift */,
 				9EFDA0921D8371A000FD6763 /* Walk.swift */,
 			);
@@ -669,7 +702,7 @@
 				TargetAttributes = {
 					9EFDA04F1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ADEZZWZJT8;
+						DevelopmentTeam = 88Z4DRB7UN;
 						LastSwiftMigration = 0800;
 					};
 					9EFDA0631D8370F400FD6763 = {
@@ -795,6 +828,8 @@
 				9E43C4341DDBB8C600EF986C /* VideoViewController.swift in Sources */,
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
+				D2B488731DEF4B4B000333D6 /* PhotoLog.swift in Sources */,
+				D2B488701DEF4B4B000333D6 /* GluteSets.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
@@ -809,13 +844,17 @@
 				9E960FD81DCA941100811FFB /* AppointmentViewController.swift in Sources */,
 				9EB5FC4B1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift in Sources */,
 				9E3E6B5D1DD4EF20000E92E1 /* Colors.swift in Sources */,
+				D2B488781DEF5135000333D6 /* IncisionPain.swift in Sources */,
 				D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */,
 				D2A1B8D11DCBB85F00790F16 /* AppointmentCellData.swift in Sources */,
-				D224BA7D1DECD15E00A77108 /* LegPain.swift in Sources */,
+				D224BA7D1DECD15E00A77108 /* KneePain.swift in Sources */,
+				D2B4886F1DEF4B4B000333D6 /* ChairPressUps.swift in Sources */,
+				D2B4886D1DEF4B4B000333D6 /* AbdominalBracing.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				D2BE64EB1DDCBCFB00EAEB7C /* ImageViewController.swift in Sources */,
 				D2B488621DEDFA3F000333D6 /* Theme.swift in Sources */,
+				D2B488761DEF4B4B000333D6 /* StraightLegRaises.swift in Sources */,
 				9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */,
 				9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */,
 				9E81DDDB1DCD17CE0065C928 /* LegalViewController.swift in Sources */,
@@ -825,6 +864,7 @@
 				9E81DDD71DCD17A00065C928 /* ExpectationsViewController.swift in Sources */,
 				9EE1D3371DD2A94100EB3E54 /* Assessment.swift in Sources */,
 				D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */,
+				D2B488741DEF4B4B000333D6 /* QuadSets.swift in Sources */,
 				9E3E6B5F1DD4F8B8000E92E1 /* GuideTableViewCell.swift in Sources */,
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
 				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
@@ -841,6 +881,7 @@
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
+				D2B488711DEF4B4B000333D6 /* HamstringSets.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
 				9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */,
 				9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */,
@@ -852,13 +893,16 @@
 				9EFDA0911D83719500FD6763 /* Activity.swift in Sources */,
 				9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */,
 				9E81DDCC1DCD05EE0065C928 /* SettingsItem.swift in Sources */,
+				D2B488721DEF4B4B000333D6 /* HeelSlides.swift in Sources */,
 				9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
+				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
+				D2B4886E1DEF4B4B000333D6 /* AnklePumps.swift in Sources */,
 				9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */,
 				9E43C4271DDBADA700EF986C /* Resource.swift in Sources */,
 				9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */,
@@ -1018,11 +1062,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = 88Z4DRB7UN;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1035,11 +1079,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = 88Z4DRB7UN;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

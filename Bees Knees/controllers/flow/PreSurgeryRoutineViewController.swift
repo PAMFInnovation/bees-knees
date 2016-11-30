@@ -21,7 +21,16 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
     // Care Card activities
     let activities: [Activity] = [
         Walk(),
-        Mood()
+        QuadSets(),
+        AnklePumps(),
+        GluteSets(),
+        HeelSlides(),
+        StraightLegRaises(),
+        SeatedHeelSlides(),
+        HamstringSets(),
+        ChairPressUps(),
+        AbdominalBracing(),
+        PhotoLog()
     ]
     
     
@@ -42,13 +51,13 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
-        guideVC.title = NSLocalizedString("Guide", comment: "")
-        guideVC.tabBarItem = UITabBarItem(title: guideVC.title, image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
+        guideVC.title = NSLocalizedString("My Roadmap to Recovery", comment: "")
+        guideVC.tabBarItem = UITabBarItem(title: "My Roadmap", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
-        careCardVC.title = NSLocalizedString("Care Card", comment: "")
-        careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
+        careCardVC.title = NSLocalizedString("Physical Preparation Activities", comment: "")
+        careCardVC.tabBarItem = UITabBarItem(title: "Activities", image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
         careCardVC.maskImage = UIImage(named: "carecard-heart-large")
         careCardVC.smallMaskImage = UIImage(named: "carecard-heart-small")
@@ -56,7 +65,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         // Create the Checklist VC
         checklistVC = PreSurgeryChecklistViewController()
         checklistVC.title = NSLocalizedString("To-Do's Before Surgery", comment: "")
-        checklistVC.tabBarItem = UITabBarItem(title: checklistVC.title, image: UIImage(named: "checklist-icon"), selectedImage: UIImage(named: "checklist-icon"))
+        checklistVC.tabBarItem = UITabBarItem(title: "To-Do's", image: UIImage(named: "checklist-icon"), selectedImage: UIImage(named: "checklist-icon"))
         
         // Create the Settings VC
         settingsVC = SettingsViewController()

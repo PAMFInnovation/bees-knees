@@ -65,18 +65,11 @@
                         <action selector="setSurgeryDateButtonPressed:" destination="-1" eventType="touchUpInside" id="w89-AA-uRQ"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R23-a0-YQN">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R23-a0-YQN">
                     <rect key="frame" x="20" y="260" width="335" height="243"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <attributedString key="attributedText">
-                        <fragment>
-                            <string key="content">Check out resources under "Settings" and get started with your stretches to build muscle and a routine to help with recovery after surgery.  But first, please set your surgery date, and we'll get you on your way!</string>
-                            <attributes>
-                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
+                    <string key="text">Check out resources under "Settings" and get started with your stretches to build muscle and a routine to help with recovery after surgery.  But first, please set your surgery date, and we'll get you on your way!</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
