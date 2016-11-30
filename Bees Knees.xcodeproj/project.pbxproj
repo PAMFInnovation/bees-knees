@@ -103,6 +103,15 @@
 		D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4886B1DEF4B4B000333D6 /* SeatedHeelSlides.swift */; };
 		D2B488761DEF4B4B000333D6 /* StraightLegRaises.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B4886C1DEF4B4B000333D6 /* StraightLegRaises.swift */; };
 		D2B488781DEF5135000333D6 /* IncisionPain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B488771DEF5135000333D6 /* IncisionPain.swift */; };
+		D2B488821DEF85FB000333D6 /* ref_abdominalbracing.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B488791DEF85FB000333D6 /* ref_abdominalbracing.png */; };
+		D2B488831DEF85FB000333D6 /* ref_anklepumps.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887A1DEF85FB000333D6 /* ref_anklepumps.png */; };
+		D2B488841DEF85FB000333D6 /* ref_chairpressups.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887B1DEF85FB000333D6 /* ref_chairpressups.png */; };
+		D2B488851DEF85FB000333D6 /* ref_glutesets.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887C1DEF85FB000333D6 /* ref_glutesets.png */; };
+		D2B488861DEF85FB000333D6 /* ref_hamstringsets.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887D1DEF85FB000333D6 /* ref_hamstringsets.png */; };
+		D2B488871DEF85FB000333D6 /* ref_heelslides.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887E1DEF85FB000333D6 /* ref_heelslides.png */; };
+		D2B488881DEF85FB000333D6 /* ref_quadsets.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B4887F1DEF85FB000333D6 /* ref_quadsets.png */; };
+		D2B488891DEF85FB000333D6 /* ref_seatedheelslides.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B488801DEF85FB000333D6 /* ref_seatedheelslides.png */; };
+		D2B4888A1DEF85FB000333D6 /* ref_straightlegraises.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B488811DEF85FB000333D6 /* ref_straightlegraises.png */; };
 		D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64E41DDCBC9500EAEB7C /* ImageScrollView.swift */; };
 		D2BE64EB1DDCBCFB00EAEB7C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE64EA1DDCBCFB00EAEB7C /* ImageViewController.swift */; };
 		D2BE64F01DDCBDF700EAEB7C /* sample-banner-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2BE64EC1DDCBDF700EAEB7C /* sample-banner-image.jpg */; };
@@ -290,6 +299,15 @@
 		D2B4886B1DEF4B4B000333D6 /* SeatedHeelSlides.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatedHeelSlides.swift; sourceTree = "<group>"; };
 		D2B4886C1DEF4B4B000333D6 /* StraightLegRaises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StraightLegRaises.swift; sourceTree = "<group>"; };
 		D2B488771DEF5135000333D6 /* IncisionPain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncisionPain.swift; sourceTree = "<group>"; };
+		D2B488791DEF85FB000333D6 /* ref_abdominalbracing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_abdominalbracing.png; sourceTree = "<group>"; };
+		D2B4887A1DEF85FB000333D6 /* ref_anklepumps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_anklepumps.png; sourceTree = "<group>"; };
+		D2B4887B1DEF85FB000333D6 /* ref_chairpressups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_chairpressups.png; sourceTree = "<group>"; };
+		D2B4887C1DEF85FB000333D6 /* ref_glutesets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_glutesets.png; sourceTree = "<group>"; };
+		D2B4887D1DEF85FB000333D6 /* ref_hamstringsets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_hamstringsets.png; sourceTree = "<group>"; };
+		D2B4887E1DEF85FB000333D6 /* ref_heelslides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_heelslides.png; sourceTree = "<group>"; };
+		D2B4887F1DEF85FB000333D6 /* ref_quadsets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_quadsets.png; sourceTree = "<group>"; };
+		D2B488801DEF85FB000333D6 /* ref_seatedheelslides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_seatedheelslides.png; sourceTree = "<group>"; };
+		D2B488811DEF85FB000333D6 /* ref_straightlegraises.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ref_straightlegraises.png; sourceTree = "<group>"; };
 		D2BE64E41DDCBC9500EAEB7C /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageScrollView.swift; path = shared/ImageScrollView.swift; sourceTree = "<group>"; };
 		D2BE64EA1DDCBCFB00EAEB7C /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = shared/ImageViewController.swift; sourceTree = "<group>"; };
 		D2BE64EC1DDCBDF700EAEB7C /* sample-banner-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sample-banner-image.jpg"; path = "content/sample-banner-image.jpg"; sourceTree = "<group>"; };
@@ -430,6 +448,15 @@
 		9E43C42E1DDBB80E00EF986C /* content */ = {
 			isa = PBXGroup;
 			children = (
+				D2B488791DEF85FB000333D6 /* ref_abdominalbracing.png */,
+				D2B4887A1DEF85FB000333D6 /* ref_anklepumps.png */,
+				D2B4887B1DEF85FB000333D6 /* ref_chairpressups.png */,
+				D2B4887C1DEF85FB000333D6 /* ref_glutesets.png */,
+				D2B4887D1DEF85FB000333D6 /* ref_hamstringsets.png */,
+				D2B4887E1DEF85FB000333D6 /* ref_heelslides.png */,
+				D2B4887F1DEF85FB000333D6 /* ref_quadsets.png */,
+				D2B488801DEF85FB000333D6 /* ref_seatedheelslides.png */,
+				D2B488811DEF85FB000333D6 /* ref_straightlegraises.png */,
 				D2BE64F41DDCC75A00EAEB7C /* sample-animated-gif.gif */,
 				D2BE64EC1DDCBDF700EAEB7C /* sample-banner-image.jpg */,
 				D2BE64ED1DDCBDF700EAEB7C /* sample-gif.gif */,
@@ -783,12 +810,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B488851DEF85FB000333D6 /* ref_glutesets.png in Resources */,
+				D2B4888A1DEF85FB000333D6 /* ref_straightlegraises.png in Resources */,
 				D2BE64F51DDCC75A00EAEB7C /* sample-animated-gif.gif in Resources */,
 				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9E43C4381DDBCFC300EF986C /* sample-doc.pdf in Resources */,
+				D2B488871DEF85FB000333D6 /* ref_heelslides.png in Resources */,
+				D2B488881DEF85FB000333D6 /* ref_quadsets.png in Resources */,
 				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
+				D2B488831DEF85FB000333D6 /* ref_anklepumps.png in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
+				D2B488861DEF85FB000333D6 /* ref_hamstringsets.png in Resources */,
 				9E43C4321DDBB85700EF986C /* sample-video.m4v in Resources */,
 				D2BE64F21DDCBDF700EAEB7C /* sample-png.png in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
@@ -796,9 +829,12 @@
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
+				D2B488841DEF85FB000333D6 /* ref_chairpressups.png in Resources */,
 				9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */,
 				D2BE64F11DDCBDF700EAEB7C /* sample-gif.gif in Resources */,
+				D2B488821DEF85FB000333D6 /* ref_abdominalbracing.png in Resources */,
 				D2BE64F01DDCBDF700EAEB7C /* sample-banner-image.jpg in Resources */,
+				D2B488891DEF85FB000333D6 /* ref_seatedheelslides.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

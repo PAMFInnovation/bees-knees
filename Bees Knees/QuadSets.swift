@@ -30,7 +30,7 @@ struct QuadSets: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: nil,
+            imageURL: Util.getURLForResource(resource: "ref_quadsets", type: "png") as URL,
             schedule: schedule,
             userInfo: nil
         )

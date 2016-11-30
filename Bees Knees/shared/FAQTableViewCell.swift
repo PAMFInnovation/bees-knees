@@ -36,7 +36,7 @@ class FAQTableViewCell: UITableViewCell {
         image = image.withRenderingMode(.alwaysTemplate)
         self.icon.image = image
         
-        self.question.font = UIFont(name: "ArialMT", size: 14)
+        self.question.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
         self.question.numberOfLines = 0
         self.question.lineBreakMode = .byWordWrapping
         //self.question.backgroundColor = UIColor.yellow
@@ -47,7 +47,7 @@ class FAQTableViewCell: UITableViewCell {
         self.deselect()
         //self.caret.backgroundColor = UIColor.red
         
-        self.answer.font = UIFont(name: "ArialMT", size: 12)
+        self.answer.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
         self.answer.textAlignment = .justified
         self.answer.isEditable = false
         self.answer.isSelectable = false

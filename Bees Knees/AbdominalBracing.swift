@@ -30,7 +30,7 @@ struct AbdominalBracing: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: nil,
+            imageURL: Util.getURLForResource(resource: "ref_abdominalbracing", type: "png") as URL,
             schedule: schedule,
             userInfo: nil
         )

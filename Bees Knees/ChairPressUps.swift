@@ -30,7 +30,7 @@ struct ChairPressUps: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: nil,
+            imageURL: Util.getURLForResource(resource: "ref_chairpressups", type: "png") as URL,
             schedule: schedule,
             userInfo: nil
         )

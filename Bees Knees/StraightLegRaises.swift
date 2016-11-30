@@ -30,7 +30,7 @@ struct StraightLegRaises: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: nil,
+            imageURL: Util.getURLForResource(resource: "ref_straightlegraises", type: "png") as URL,
             schedule: schedule,
             userInfo: nil
         )

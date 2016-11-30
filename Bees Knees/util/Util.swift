@@ -43,4 +43,14 @@ class Util {
         }
         return false
     }
+    
+    static func getURLForResource(resource: String, type: String) -> NSURL {
+        guard let path = Bundle.main.path(forResource: resource, ofType: type) else {
+            print("Resource not found!")
+            return NSURL()
+        }
+        
+        let url: NSURL = NSURL(fileURLWithPath: path)
+        return url
+    }
 }
