@@ -17,6 +17,12 @@ class HighlightButton: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            borderColor = isEnabled ? Colors.turquoise.color : UIColor.lightGray
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -46,6 +52,7 @@ class HighlightButton: UIButton {
         // Set additional color states
         self.setTitleColor(Colors.turquoise.color, for: .normal)
         self.setTitleColor(UIColor.white, for: .highlighted)
+        self.setTitleColor(UIColor.lightGray, for: .disabled)
         
         // Set font size
         self.titleLabel?.font = UIFont(name: "ArialMT", size: 16)
