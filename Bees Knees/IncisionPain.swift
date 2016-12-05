@@ -32,8 +32,8 @@ struct IncisionPain: Assessment {
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
         let question = NSLocalizedString("On a scale from 1 to 10, how would you rate pain with your incision site today?", comment: "")
-        let maximumValueDescription = NSLocalizedString("Good", comment: "")
-        let minimumValueDescription = NSLocalizedString("Bad", comment: "")
+        let maximumValueDescription = NSLocalizedString("            Good", comment: "")
+        let minimumValueDescription = NSLocalizedString("Bad            ", comment: "")
         
         // Create a question and answer format.
         let answerFormat = ORKScaleAnswerFormat(maximumValue: 10, minimumValue: 1, defaultValue: -1, step: 1, vertical: false, maximumValueDescription: maximumValueDescription, minimumValueDescription: minimumValueDescription)
