@@ -35,9 +35,12 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Properties
     
-    var legPainEvents: DailyEvents?
+    var kneePainEvents: DailyEvents?
+    var moodEvents: DailyEvents?
+    var incisionPainEvents: DailyEvents?
     
     fileprivate(set) var insights = [OCKInsightItem.emptyInsightsMessage()]
+    
     
     // MARK: - Operation
     
@@ -48,53 +51,98 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
-        //if let insight = create
+        if let insight = createPrimaryInsight() {
+            newInsights.append(insight)
+        }
+        
+        // Store any new insights that we created.
+        if !newInsights.isEmpty {
+            insights = newInsights
+        }
     }
+    
     
     // MARK: - Convenience
     
-    func createLegPainInsight() -> OCKInsightItem? {
-        // Make sure there are events to parse.
-        guard let legPainEvents = legPainEvents else { return nil }
+    func createPrimaryInsight() -> OCKInsightItem? {
+        // Make sure there are events to parse
+        guard let kneePainEvents = kneePainEvents, let moodEvents = moodEvents, let incisionPainEvents = incisionPainEvents else { return nil }
         
-        // Determine the start date for the previous week.
+        // Determine the start date for the previous week
         let calendar = Calendar.current
         let now = Date()
-        
         var components = DateComponents()
         components.day = -7
         let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
         
-        var totalEventCount = 0
-        var completedEventCount = 0
+        // Create the formatters for the barchart data
+        let dayOfWeekFormatter = DateFormatter()
+        dayOfWeekFormatter.dateFormat = "E"
+        let shortDateFormatter = DateFormatter()
+        shortDateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "Md", options: 0, locale: shortDateFormatter.locale)
+        
+        // Loop through the week, collecting pain and mood scores
+        var kneePainValues = [Int]()
+        var moodValues = [Int]()
+        var incisionPainValues = [Int]()
+        
+        // Labels
+        var kneePainLabels = [String]()
+        var moodLabels = [String]()
+        var incisionPainLabels = [String]()
+        var axisTitles = [String]()
+        var axisSubtitles = [String]()
         
         for offset in 0..<7 {
+            // Determine the day components.
             components.day = offset
             let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
             let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
-            let eventsForDay = legPainEvents[dayComponents as DateComponents]
             
-            totalEventCount += eventsForDay.count
-            
-            for event in eventsForDay {
-                if event.state == .completed {
-                    completedEventCount += 1
-                }
+            // Store the knee pain result for the current day.
+            if let result = kneePainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+                kneePainValues.append(score)
+                kneePainLabels.append(result.valueString)
             }
+            else {
+                kneePainValues.append(0)
+                kneePainLabels.append(NSLocalizedString("N/A", comment: ""))
+            }
+            
+            // Store the mood result for the current day.
+            if let result = moodEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+                moodValues.append(score)
+                moodLabels.append(result.valueString)
+            }
+            else {
+                moodValues.append(0)
+                moodLabels.append(NSLocalizedString("N/A", comment: ""))
+            }
+            
+            // Store the incision pain result for the current day.
+            if let result = incisionPainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+                incisionPainValues.append(score)
+                incisionPainLabels.append(result.valueString)
+            }
+            else {
+                incisionPainValues.append(0)
+                incisionPainLabels.append(NSLocalizedString("N/A", comment: ""))
+            }
+            
+            // Set the axis labels
+            axisTitles.append(dayOfWeekFormatter.string(from: dayDate))
+            axisSubtitles.append(shortDateFormatter.string(from: dayDate))
         }
         
-        guard totalEventCount > 0 else { return nil }
+        // Create a 'OCKBarSeries' for each set of data.
+        let kneePainBarSeries = OCKBarSeries(title: "Knee Pain", values: kneePainValues as [NSNumber], valueLabels: kneePainLabels, tintColor: Colors.turquoiseLight1.color)
+        let incisionPainBarSeries = OCKBarSeries(title: "Incision Pain", values: incisionPainValues as [NSNumber], valueLabels: incisionPainLabels, tintColor: Colors.turquoiseLight2.color)
+        let moodBarSeries = OCKBarSeries(title: "Mood", values: moodValues as [NSNumber], valueLabels: moodLabels, tintColor: Colors.turquoiseLight3.color)
         
-        // Calculate the percentage of completed events.
-        let legPainAdherence = Float(completedEventCount) / Float(totalEventCount)
+        // Add the series to a chart
+        let chart = OCKBarChart(title: "Pain and Mood", text: nil, tintColor: Colors.turquoise.color, axisTitles: axisTitles, axisSubtitles: axisSubtitles, dataSeries: [kneePainBarSeries, incisionPainBarSeries, moodBarSeries], minimumScaleRangeValue: 0, maximumScaleRangeValue: 10)
         
-        // Create an 'OCKMessageItem' describing adherence.
-        let percentageFormatter = NumberFormatter()
-        percentageFormatter.numberStyle = .percent
-        let formattedAdherence = percentageFormatter.string(from: NSNumber(value: legPainAdherence))!
-        
-        let insight = OCKMessageItem(title: "Leg Pain Adherence", text: "Your leg pain adherence was \(formattedAdherence) last week.", tintColor: UIColor.purple, messageType: .tip)
-        
-        return insight
+        // Return the final chart.
+        return chart
     }
 }

@@ -47,6 +47,7 @@ class InsightsBuilder {
         self.carePlanStore = carePlanStore
     }
     
+    //knee pain, mood, incision pain
     
     func updateInsights(completion: ((Bool, [OCKInsightItem]?) -> Void)?) {
         // Cancel any in-progress operations.
@@ -55,8 +56,14 @@ class InsightsBuilder {
         // Get the dates for the current and previous weeks.
         let queryDateRange = calculateQueryDateRange()
         
-        // Create an operation to query for events for the previous week's 'LegPain' activity
-        let legPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.KneePain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
+        // Create an operation to query for events for the previous week's 'KneePain' activity
+        let kneePainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.KneePain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
+        
+        // Create an operation to query for events for the previous week's 'IncisionPain' activity
+        let incisionPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.IncisionPain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
+        
+        // Create an operation to query for events for the previous week's 'Mood' activity
+        let moodEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.Mood.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
         
         // Create a 'BuildInsightsOperation' to create insights from the data collected by query operations.
         let buildInsightsOperation = BuildInsightsOperation()
@@ -64,7 +71,9 @@ class InsightsBuilder {
         // Create an operation to aggregate the data from query operations into the 'BuildInsightsOperation'
         let aggregateDateOperations = BlockOperation {
             // Copy the queried data from the query operations to the 'BuildInsightsOperation'.
-            buildInsightsOperation.legPainEvents = legPainEventsOperation.dailyEvents
+            buildInsightsOperation.kneePainEvents = kneePainEventsOperation.dailyEvents
+            buildInsightsOperation.incisionPainEvents = incisionPainEventsOperation.dailyEvents
+            buildInsightsOperation.moodEvents = moodEventsOperation.dailyEvents
         }
         
         // Use the completion block of the 'BuildInsightsOperation' to store the new insights and call the completion block passed to this method.
@@ -84,14 +93,18 @@ class InsightsBuilder {
         }
         
         // The aggregate operation is dependent on the query operations.
-        aggregateDateOperations.addDependency(legPainEventsOperation)
+        aggregateDateOperations.addDependency(kneePainEventsOperation)
+        aggregateDateOperations.addDependency(incisionPainEventsOperation)
+        aggregateDateOperations.addDependency(moodEventsOperation)
         
         // The 'BuildInsightsOperation' is dependent on the aggregate operation.
         buildInsightsOperation.addDependency(aggregateDateOperations)
         
         // Add all the operations to the operation queue.
         updateOperationQueue.addOperations([
-            legPainEventsOperation,
+            kneePainEventsOperation,
+            incisionPainEventsOperation,
+            moodEventsOperation,
             aggregateDateOperations,
             buildInsightsOperation
         ], waitUntilFinished: false)
