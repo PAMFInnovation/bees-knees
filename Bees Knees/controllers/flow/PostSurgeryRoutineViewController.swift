@@ -96,9 +96,6 @@ class PostSurgeryRoutineViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Set default tab
-        self.selectedIndex = 0
     }
     
     func activityWithType(_ type: ActivityType) -> Activity? {
