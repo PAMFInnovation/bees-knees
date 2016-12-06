@@ -104,11 +104,19 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
                 let firstName = signatureResult.signature?.givenName
                 let lastName = signatureResult.signature?.familyName
                 
-                // Set the values in the singleton
-                ProfileManager.sharedInstance.name = firstName! + " " + lastName!
-                
-                // Sign the consent document
-                signatureResult.apply(to: ProfileManager.sharedInstance.consent as! ORKConsentDocument)
+                // If the user is choosing not to consent, we should intervene
+                if !signatureResult.consented {
+                    let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    self.alert(message: "We cannot allow users to proceed with the app without agreeing to the consent form. If you do not agree, we suggest you close this app down and delete it.", title: "", cancelAction: cancel, confirmAction: confirm)
+                }
+                else {
+                    // Set the values in the singleton
+                    ProfileManager.sharedInstance.name = firstName! + " " + lastName!
+                    
+                    // Sign the consent document
+                    signatureResult.apply(to: ProfileManager.sharedInstance.consent as! ORKConsentDocument)
+                }
             }
             
             // Navigate to the profile view
