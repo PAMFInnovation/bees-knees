@@ -106,9 +106,8 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
                 
                 // If the user is choosing not to consent, we should intervene
                 if !signatureResult.consented {
-                    let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                     let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    self.alert(message: "We cannot allow users to proceed with the app without agreeing to the consent form. If you do not agree, we suggest you close this app down and delete it.", title: "", cancelAction: cancel, confirmAction: confirm)
+                    self.alert(message: "Users must accept the Terms of Use in order to continue using the app.", title: "", cancelAction: nil, confirmAction: confirm)
                 }
                 else {
                     // Set the values in the singleton

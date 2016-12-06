@@ -10,14 +10,14 @@ import UIKit
 
 
 extension UIViewController {
-    func alert(message: String, title: String, cancelAction: UIAlertAction, confirmAction: UIAlertAction) {
+    func alert(message: String, title: String, cancelAction: UIAlertAction?, confirmAction: UIAlertAction?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         if cancelAction != nil {
-            alertController.addAction(cancelAction)
+            alertController.addAction(cancelAction!)
         }
         if confirmAction != nil {
-            alertController.addAction(confirmAction)
+            alertController.addAction(confirmAction!)
         }
         
         self.present(alertController, animated: true, completion: nil)
