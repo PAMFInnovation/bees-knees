@@ -80,4 +80,11 @@ class Appointment: NSObject {
     override var description: String {
         return "\(title) - \(type.description) - \(date) - \(place) - \(notes)"
     }
+    
+    func hasRequiredInfo() -> Bool {
+        if title != "" && date != nil {
+            return true
+        }
+        return false
+    }
 }

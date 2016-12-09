@@ -132,12 +132,19 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func done() {
-        // Add the appointment to the appointments list
-        ProfileManager.sharedInstance.appointments.append(appointment)
-        
-        // Trigger a completion
-        self.dismiss(animated: true, completion: nil)
-        self.delegate?.doneEditingAppointment(sender: self)
+        // Ensure we have the required data in the appointment
+        if appointment.hasRequiredInfo() {
+            // Add the appointment to the appointments list
+            ProfileManager.sharedInstance.appointments.append(appointment)
+            
+            // Trigger a completion
+            self.dismiss(animated: true, completion: nil)
+            self.delegate?.doneEditingAppointment(sender: self)
+        }
+        else {
+            let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            self.alert(message: "This appointment cannot be saved without setting both Title and Date.", title: "", cancelAction: nil, confirmAction: confirm)
+        }
     }
     
     func toggleRow(row: Int) {

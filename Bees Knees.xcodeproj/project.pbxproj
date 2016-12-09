@@ -84,6 +84,7 @@
 		D224BA7D1DECD15E00A77108 /* KneePain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA7C1DECD15E00A77108 /* KneePain.swift */; };
 		D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */; };
 		D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */; };
+		D23DC5CD1DFB640200663595 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */; };
 		D24439661DECBB0600D00C0F /* InsightsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439651DECBB0600D00C0F /* InsightsBuilder.swift */; };
 		D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */; };
 		D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */; };
@@ -280,6 +281,7 @@
 		D224BA7C1DECD15E00A77108 /* KneePain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KneePain.swift; sourceTree = "<group>"; };
 		D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryActivityEventsOperation.swift; sourceTree = "<group>"; };
 		D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildInsightsOperation.swift; sourceTree = "<group>"; };
+		D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+TopViewController.swift"; path = "extensions/UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 		D24439651DECBB0600D00C0F /* InsightsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsBuilder.swift; sourceTree = "<group>"; };
 		D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OCKInsightItem+EmptyMessage.swift"; path = "extensions/OCKInsightItem+EmptyMessage.swift"; sourceTree = "<group>"; };
 		D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calendar+Dates.swift"; path = "extensions/Calendar+Dates.swift"; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */,
 				D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */,
 				D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */,
+				D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				D224BA831DECD2F400A77108 /* QueryActivityEventsOperation.swift in Sources */,
 				D2A1B8D11DCBB85F00790F16 /* AppointmentCellData.swift in Sources */,
 				D224BA7D1DECD15E00A77108 /* KneePain.swift in Sources */,
+				D23DC5CD1DFB640200663595 /* UIApplication+TopViewController.swift in Sources */,
 				D2B4886F1DEF4B4B000333D6 /* ChairPressUps.swift in Sources */,
 				D2B4886D1DEF4B4B000333D6 /* AbdominalBracing.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
