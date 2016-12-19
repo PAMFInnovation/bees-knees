@@ -60,11 +60,20 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         dateOfSurgeryVC = DateOfSurgeryViewController()
         dateOfSurgeryVC.title = NSLocalizedString("Surgery", comment: "")
         
+        // Add a continue button to the DateOfSurgery VC
+        let continueButton: HighlightButton = HighlightButton()
+        continueButton.setTitle("Continue to Activities", for: .normal)
+        let buttonSize: CGSize = CGSize(width: 160, height: 42)
+        let buttonX = (self.view.frame.width / 2) - (buttonSize.width / 2)
+        continueButton.frame = CGRect(x: buttonX, y: self.view.frame.height - buttonSize.height - 40, width: buttonSize.width, height: buttonSize.height)
+        continueButton.addTarget(self, action: #selector(PreSurgeryWelcomeFlowViewController.continueToActivities), for: .touchUpInside)
+        dateOfSurgeryVC.view.addSubview(continueButton)
+        
         // Set the view controllers
         self.viewControllers = [
-            preSurgeryWelcomeVC
+            //preSurgeryWelcomeVC
             //profileVC
-            //preSurgeryTransitionVC
+            preSurgeryTransitionVC
         ]
         
         // TESTING - clear passcode for testing
@@ -81,6 +90,13 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    
+    // MARK: - Helper functions
+    func continueToActivities() {
+        // We're finished with this flow
+        self.classDelegate?.didFinishPreFlow(sender: self)
     }
 }
 
@@ -174,7 +190,6 @@ extension PreSurgeryWelcomeFlowViewController: PreSurgeryTransitionDelegate {
     }
     
     func goToCareCardButtonPressed(sender: PreSurgeryTransitionViewController) {
-        // We're finished with this flow
-        self.classDelegate?.didFinishPreFlow(sender: self)
+        self.continueToActivities()
     }
 }

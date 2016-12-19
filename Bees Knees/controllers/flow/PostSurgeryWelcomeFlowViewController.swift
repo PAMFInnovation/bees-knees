@@ -17,9 +17,8 @@ protocol PostSurgeryWelcomeFlowDelegate: class {
 class PostSurgeryWelcomeFlowViewController: UINavigationController {
     
     // View controllers
-    var adjustSurgeryView: UIView!
     var confirmationVC: UIViewController!
-    var adjustDateVC: UIViewController!
+    var dateOfSurgeryVC: DateOfSurgeryViewController!
     var congratsVC: UIViewController!
     var goalVC: UIViewController!
     var welcomeVC: PostSurgeryWelcomeViewController!
@@ -62,12 +61,9 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         confirmationVC.title = NSLocalizedString("Surgery Completed?", comment: "")
         confirmationVC.view = confirmationView
         
-        
-        // Add the adjust surgery date view
-        adjustSurgeryView = UIView(frame: self.view.frame)
-        let dateOfSurgeryView = DateOfSurgeryView.instanceFromNib()
-        dateOfSurgeryView.frame = self.view.frame
-        adjustSurgeryView.addSubview(dateOfSurgeryView)
+        // Create the DateOfSurgery VC
+        dateOfSurgeryVC = DateOfSurgeryViewController()
+        dateOfSurgeryVC.title = NSLocalizedString("Adjust Date", comment: "")
         
         // Add a confirm button to transition back
         let confirmButton: HighlightButton = HighlightButton()
@@ -76,12 +72,7 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
         let buttonX = (self.view.frame.width / 2) - (buttonSize.width / 2)
         confirmButton.frame = CGRect(x: buttonX, y: self.view.frame.height - buttonSize.height - 40, width: buttonSize.width, height: buttonSize.height)
         confirmButton.addTarget(self, action: #selector(PostSurgeryWelcomeFlowViewController.surgeryDateAdjusted), for: .touchUpInside)
-        adjustSurgeryView.addSubview(confirmButton)
-        
-        // Set the view controller for the adjust date view
-        adjustDateVC = UIViewController()
-        adjustDateVC.title = NSLocalizedString("Adjust Date", comment: "")
-        adjustDateVC.view = adjustSurgeryView
+        dateOfSurgeryVC.view.addSubview(confirmButton)
         
         
         // Add the congrats view
@@ -129,8 +120,6 @@ class PostSurgeryWelcomeFlowViewController: UINavigationController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        adjustSurgeryView.frame = self.view.frame
     }
     
     
@@ -181,7 +170,7 @@ extension PostSurgeryWelcomeFlowViewController: PostSurgeryConfirmationDelegate 
         backItem.title = "Confirm"
         confirmationVC.navigationItem.backBarButtonItem = backItem
         
-        self.pushViewController(adjustDateVC, animated: true)
+        self.pushViewController(dateOfSurgeryVC, animated: true)
     }
 }
 
