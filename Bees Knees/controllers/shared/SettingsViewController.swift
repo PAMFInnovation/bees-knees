@@ -37,7 +37,7 @@ class SettingsViewController: UITableViewController {
         
         dataSource.append([SettingsItem]())
         dataSource[1].append(SettingsItem(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
-        dataSource[1].append(SettingsItem(name: "Resource Library", header: "Resource Library", icon: "resources-icon", className: "ResourcesViewController"))
+        dataSource[1].append(SettingsItem(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
         
         dataSource.append([SettingsItem]())
         dataSource[2].append(SettingsItem(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))

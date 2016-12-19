@@ -28,13 +28,24 @@ class ResourcesViewController: UITableViewController {
         self.init(nibName: nil, bundle: nil)
         
         // Add the resources
-        dataSource.append(Resource(type: .DOC, title: "Surgery overview.", fileName: "sample-doc", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Introduction", fileName: "binder_sec0_introduction", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Frequently Asked Questions", fileName: "binder_sec1_faq", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Understanding Knee Replacement", fileName: "binder_sec2_understandingkneereplacement", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Before Your Surgery", fileName: "binder_sec3_beforeyoursurgery", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Your Surgery and Hospital Stay", fileName: "binder_sec4_yoursurgeryandhospitalstay", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Rehabilitation and Home Recovery", fileName: "binder_sec5_rehabilitationandhomerecovery", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Exercises", fileName: "binder_sec6_exercises", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Life With Your New Knee", fileName: "binder_sec7_lifewithyournewknee", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Resources", fileName: "binder_sec8_resources", fileType: "pdf"))
+        dataSource.append(Resource(type: .DOC, title: "Alta Bates Summit Map", fileName: "binder_sec9_altabatessummitmap", fileType: "pdf"))
+        
+        /*dataSource.append(Resource(type: .DOC, title: "Surgery overview.", fileName: "sample-doc", fileType: "pdf"))
         dataSource.append(Resource(type: .DOC, title: "Walkthrough of the procedure.", fileName: "sample-doc", fileType: "pdf"))
         dataSource.append(Resource(type: .VIDEO, title: "Testimonials from the patients of Sutter.", fileName: "sample-video", fileType: "m4v"))
         dataSource.append(Resource(type: .IMAGE, title: "Banner", fileName: "sample-banner-image", fileType: "jpg"))
         dataSource.append(Resource(type: .IMAGE, title: "GIF", fileName: "sample-gif", fileType: "gif"))
         dataSource.append(Resource(type: .IMAGE, title: "PNG", fileName: "sample-png", fileType: "png"))
-        dataSource.append(Resource(type: .IMAGE, title: "Portrait", fileName: "sample-portrait-image", fileType: "jpg"))
+        dataSource.append(Resource(type: .IMAGE, title: "Portrait", fileName: "sample-portrait-image", fileType: "jpg"))*/
     }
     
     override func viewDidLoad() {
