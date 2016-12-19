@@ -35,6 +35,13 @@ class Util {
         return date!
     }
     
+    static func getDateFromString(_ string: String, format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: string)
+        return date!
+    }
+    
     static func isDateInPast(_ date: Date) -> Bool {
         let today: NSDate = NSDate()
         
