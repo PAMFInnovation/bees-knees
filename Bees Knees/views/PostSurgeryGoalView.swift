@@ -73,7 +73,7 @@ class PostSurgeryGoalView: UIView {
         // Set the goal text to display
         var goalTextRaw: String = ProfileManager.sharedInstance.goal
         if goalTextRaw == "" {
-            goalTextRaw = "This is just a sample goal to display since the user has entered an empty goal."
+            goalTextRaw = "My goal is to walk again comfortably."
         }
         
         // Add the static text

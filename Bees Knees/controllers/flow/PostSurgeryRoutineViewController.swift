@@ -43,7 +43,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        // Add activities to the store
+        /*// Add activities to the store
         for activity in activities {
             let carePlanActivity = activity.carePlanActivity()
             
@@ -52,7 +52,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
                     print("Error adding activity to the store: ", error?.localizedDescription)
                 }
             }
-        }
+        }*/
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
@@ -153,6 +153,9 @@ extension PostSurgeryRoutineViewController: ORKTaskViewControllerDelegate {
     }
     
     fileprivate func completeEvent(_ event: OCKCarePlanEvent, inStore store: OCKCarePlanStore, withResult result: OCKCarePlanEventResult) {
+        print("success with completing activity")
+        print(event.activity.description, event.date, event.numberOfDaysSinceStart, event.occurrenceIndexOfDay, event.result, event.state)
+        print(result)
         store.update(event, with: result, state: .completed, completion: { success, _, error in
             if !success {
                 print(error?.localizedDescription)

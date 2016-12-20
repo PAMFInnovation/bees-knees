@@ -39,7 +39,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         super.init(coder: aDecoder)
         
         // Add activities to the store
-        for activity in activities {
+        /*for activity in activities {
             let carePlanActivity = activity.carePlanActivity()
             
             CarePlanStoreManager.sharedInstance.store.add(carePlanActivity) { success, error in
@@ -47,7 +47,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
                     print("Error adding activity to the store: ", error?.localizedDescription)
                 }
             }
-        }
+        }*/
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()

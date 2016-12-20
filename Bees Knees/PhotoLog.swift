@@ -14,7 +14,7 @@ struct PhotoLog: Activity {
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
-        let startDate = NSDateComponents(year: 2016, month: 8, day: 11)
+        let startDate = DateComponents(year: 2016, month: 11, day: 01)
         let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [1, 0, 0, 0, 0, 0, 0])
         
         // Set localized strings to be used in the activity

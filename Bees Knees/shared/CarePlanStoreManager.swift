@@ -10,11 +10,51 @@ import Foundation
 import CareKit
 
 
+struct SampleAssessmentData {
+    let date: DateComponents
+    let data: [String]
+    
+    init(date: DateComponents, data: [String]) {
+        self.date = date
+        self.data = data
+    }
+}
+
+struct SampleInterventionData {
+    let date: DateComponents
+    let data: [Int]
+    
+    init(date: DateComponents, data: [Int]) {
+        self.date = date
+        self.data = data
+    }
+}
+
+
 protocol CarePlanStoreManagerDelegate: class {
     func carePlanStoreManager(_ manager: CarePlanStoreManager, didUpdateInsights insights: [OCKInsightItem])
 }
 
 class CarePlanStoreManager : NSObject {
+    
+    // Care Card activities
+    let activities: [Activity] = [
+        Walk(),
+        QuadSets(),
+        AnklePumps(),
+        GluteSets(),
+        HeelSlides(),
+        StraightLegRaises(),
+        SeatedHeelSlides(),
+        HamstringSets(),
+        ChairPressUps(),
+        AbdominalBracing(),
+        PhotoLog(),
+        KneePain(),
+        Mood(),
+        IncisionPain()
+    ]
+    
     // Reference to the delegate
     weak var delegate: CarePlanStoreManagerDelegate?
     
@@ -53,6 +93,21 @@ class CarePlanStoreManager : NSObject {
         
         // TEMP: clear the store each time the app is run
         self._clearStore()
+        
+        // Add activities to the store
+        for activity in activities {
+            let carePlanActivity = activity.carePlanActivity()
+            
+            self.store.add(carePlanActivity) { success, error in
+                if !success {
+                    print("Error adding activity to the store: ", error?.localizedDescription)
+                }
+            }
+        }
+        
+        // TEMP: add sample data
+        self._addSampleInterventionData()
+        self._addSampleAssessmentData()
     }
     
     func updateInsights() {
@@ -90,6 +145,111 @@ class CarePlanStoreManager : NSObject {
         
         // Wait until all the asynchronous calls are done
         deleteGroup.wait(timeout: DispatchTime.distantFuture)
+    }
+    
+    fileprivate func _addSampleInterventionData() {
+        
+        // Sample data
+        var sampleData: [SampleInterventionData] = []
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 11),
+            data: [1, 3, 3, 3, 3, 3, 3, 3, 3, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 12),
+            data: [1, 3, 2, 2, 2, 3, 2, 3, 2, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 13),
+            data: [0, 1, 1, 2, 1, 1, 0, 0, 0, 0]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 14),
+            data: [1, 2, 2, 2, 2, 3, 3, 2, 2, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 15),
+            data: [1, 3, 3, 2, 2, 3, 3, 3, 3, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 16),
+            data: [1, 3, 3, 3, 2, 2, 1, 3, 3, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 17),
+            data: [1, 3, 3, 2, 2, 2, 2, 3, 3, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 18),
+            data: [1, 3, 3, 3, 2, 2, 3, 3, 3, 1]))
+        sampleData.append(SampleInterventionData(
+            date: DateComponents(year: 2016, month: 12, day: 19),
+            data: [1, 3, 3, 3, 3, 2, 2, 2, 3, 1]))
+        
+ 
+        // Add the sample data
+        for sample in sampleData {
+            self.store.events(onDate: sample.date, type: .intervention, completion: { events, error in
+                for (index, result) in sample.data.enumerated() {
+                    for i in 0..<result {
+                        let _index = index
+                        let _i = i
+                        let result: OCKCarePlanEventResult = OCKCarePlanEventResult(valueString: "10", unitString: "out of 10", userInfo: nil)
+                        DispatchQueue.main.async {
+                            self.store.update(events[_index][_i], with: result, state: .completed, completion: { success, event, error in
+                            })
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    fileprivate func _addSampleAssessmentData() {
+        
+        // Sample data
+        var sampleData: [SampleAssessmentData] = []
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 11),
+            data: ["6", "7", "5"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 12),
+            data: ["5", "9", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 13),
+            data: ["9", "5", "8"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 14),
+            data: ["3", "6", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 15),
+            data: ["2", "7", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 16),
+            data: ["3", "8", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 17),
+            data: ["3", "10", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 18),
+            data: ["3", "8", "4"]))
+        sampleData.append(SampleAssessmentData(
+            date: DateComponents(year: 2016, month: 12, day: 19),
+            data: ["3", "10", "4"]))
+        
+        // Add the sample data
+        for sample in sampleData {
+            self.store.events(onDate: sample.date, type: .assessment, completion: { events, error in
+                for (index, result) in sample.data.enumerated() {
+                    let _index = index
+                    let result: OCKCarePlanEventResult = OCKCarePlanEventResult(valueString: result, unitString: "out of 10", userInfo: nil)
+                    DispatchQueue.main.async {
+                        self.store.update(events[_index].first!, with: result, state: .completed, completion: { success, event, error in
+                        })
+                    }
+                }
+            })
+        }
+    }
+    
+    fileprivate func activityWithType(_ type: ActivityType) -> Activity? {
+        for activity in activities where activity.activityType == type {
+            return activity
+        }
+        return nil
     }
 }
 
