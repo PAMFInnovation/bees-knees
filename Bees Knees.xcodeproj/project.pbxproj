@@ -762,8 +762,9 @@
 				TargetAttributes = {
 					9EFDA04F1D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ADEZZWZJT8;
+						DevelopmentTeam = K65HQ235M5;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					9EFDA0631D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1142,12 +1143,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0071cfdb-9a1a-49d5-94b6-b503ee70f75d";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1159,12 +1162,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ADEZZWZJT8;
+				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.sutterhealth.Bees-Knees";
+				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0071cfdb-9a1a-49d5-94b6-b503ee70f75d";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
