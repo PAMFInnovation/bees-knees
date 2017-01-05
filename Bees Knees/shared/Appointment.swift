@@ -42,6 +42,7 @@ class Appointment: NSObject {
     var place: String!
     var notes: String!
     var elapsed: Bool!
+    var scheduled: Bool!
     
     override init() {
         title = ""
@@ -49,14 +50,17 @@ class Appointment: NSObject {
         place = ""
         notes = ""
         elapsed = false
+        scheduled = false
     }
     
     init(title: String, type: AppointmentType) {
         self.title = title
         self.type = type
+        self.date = Date()
         self.place = ""
         self.notes = ""
         self.elapsed = false
+        self.scheduled = false
     }
     
     init(title: String, type: AppointmentType, date: Date) {
@@ -66,6 +70,7 @@ class Appointment: NSObject {
         self.place = ""
         self.notes = ""
         self.elapsed = Util.isDateInPast(date)
+        self.scheduled = true
     }
     
     init(title: String, type: AppointmentType, date: Date, place: String, notes: String) {
@@ -75,6 +80,7 @@ class Appointment: NSObject {
         self.place = place
         self.notes = notes
         self.elapsed = Util.isDateInPast(date)
+        self.scheduled = true
     }
     
     override var description: String {

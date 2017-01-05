@@ -56,11 +56,11 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         
         // TESTING logic - add some appointments
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp, date: Util.getDateFromString("12/22/2016 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic, date: Util.getDateFromString("12/26/2016 1:00 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week, date: Util.getDateFromString("1/31/2017 1:30 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week, date: Util.getDateFromString("2/27/2017 11:00 am", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/12/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Follow up", type: .FollowUp2Week))
+        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
+        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +76,7 @@ class RootViewController: UIViewController {
             // TESTING logic
             if !ProfileManager.sharedInstance.isSurgerySet {
                 //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
-                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/16/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
+                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/24/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
             }
             
             if ProfileManager.sharedInstance.isSurgerySet {
@@ -91,6 +91,16 @@ class RootViewController: UIViewController {
         if ProfileManager.sharedInstance.flowState == .Launch {
             ProfileManager.sharedInstance.flowState = .PreSurgeryWelcome
             self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
+            
+            // Dismiss the view and the Pre Care Card will be waiting underneath
+            //ProfileManager.sharedInstance.flowState = .PreSurgeryRoutine
+            //self.view.addSubview(preSurgeryRoutineFlow.view)
+            
+            // Add the tutorial view
+            /*let tut = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+            self.addChildViewController(tut)
+            self.view.addSubview(tut.view)
+            tut.didMove(toParentViewController: self)*/
         }
     }
     

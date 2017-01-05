@@ -30,6 +30,8 @@
 
 
 import CareKit
+import ResearchKit
+
 
 class BuildInsightsOperation: Operation {
     
@@ -142,7 +144,12 @@ class BuildInsightsOperation: Operation {
         // Add the series to a chart
         let chart = OCKBarChart(title: "Pain and Mood", text: nil, tintColor: Colors.turquoise.color, axisTitles: axisTitles, axisSubtitles: axisSubtitles, dataSeries: [kneePainBarSeries, incisionPainBarSeries, moodBarSeries], minimumScaleRangeValue: 0, maximumScaleRangeValue: 10)
         
+        
+        // Create a custom line graph to display instead
+        let lineGraph = LineGraphChart.init()
+        return lineGraph
+        
         // Return the final chart.
-        return chart
+        //return chart
     }
 }

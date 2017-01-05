@@ -71,9 +71,9 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         
         // Set the view controllers
         self.viewControllers = [
-            //preSurgeryWelcomeVC
+            preSurgeryWelcomeVC
             //profileVC
-            preSurgeryTransitionVC
+            //preSurgeryTransitionVC
         ]
         
         // TESTING - clear passcode for testing
@@ -103,10 +103,10 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
 extension PreSurgeryWelcomeFlowViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the consent view
-        self.pushViewController(consentTVC, animated: true)
+        //self.pushViewController(consentTVC, animated: true)
         
         // TESTING to skip consent for expediency
-        //self.pushViewController(profileVC, animated: true)
+        self.pushViewController(profileVC, animated: true)
     }
 }
 

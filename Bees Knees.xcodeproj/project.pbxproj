@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E018F881E0B0750008250FA /* LineGraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F871E0B0750008250FA /* LineGraphDataSource.swift */; };
+		9E018F8A1E0B09C9008250FA /* LineGraphChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F891E0B09C9008250FA /* LineGraphChart.swift */; };
+		9E018F8E1E15DDEE008250FA /* UIView+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */; };
+		9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */; };
+		9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */; };
+		9E018F9F1E1B0752008250FA /* TutorialTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */; };
 		9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; };
 		9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
@@ -210,6 +216,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E018F871E0B0750008250FA /* LineGraphDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphDataSource.swift; sourceTree = "<group>"; };
+		9E018F891E0B09C9008250FA /* LineGraphChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphChart.swift; sourceTree = "<group>"; };
+		9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Mask.swift"; path = "extensions/UIView+Mask.swift"; sourceTree = "<group>"; };
+		9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = controllers/tutorial/TutorialViewController.swift; sourceTree = "<group>"; };
+		9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewController.swift; path = controllers/tutorial/TutorialPageViewController.swift; sourceTree = "<group>"; };
+		9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTextViewController.swift; path = controllers/tutorial/TutorialTextViewController.swift; sourceTree = "<group>"; };
 		9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = controllers/shared/SettingsViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +381,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E018F991E1B0271008250FA /* tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */,
+				9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */,
+				9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */,
+			);
+			name = tutorial;
+			sourceTree = "<group>";
+		};
 		9E0C959D1DA5536300DD9254 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +412,7 @@
 		9E17D3A51DB942960072CDC1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E018F991E1B0271008250FA /* tutorial */,
 				9E960FD21DCA8A3A00811FFB /* shared */,
 				9E2E055E1DC3F84900E28651 /* flow */,
 				9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */,
@@ -464,6 +487,7 @@
 				D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */,
 				D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */,
 				D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */,
+				9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -687,6 +711,8 @@
 				D24439651DECBB0600D00C0F /* InsightsBuilder.swift */,
 				D224BA821DECD2F400A77108 /* QueryActivityEventsOperation.swift */,
 				D224BA841DECD73100A77108 /* BuildInsightsOperation.swift */,
+				9E018F871E0B0750008250FA /* LineGraphDataSource.swift */,
+				9E018F891E0B09C9008250FA /* LineGraphChart.swift */,
 			);
 			name = Insights;
 			sourceTree = "<group>";
@@ -915,6 +941,7 @@
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
 				9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
+				9E018F8E1E15DDEE008250FA /* UIView+Mask.swift in Sources */,
 				9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
 				9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */,
@@ -950,6 +977,8 @@
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
 				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
+				9E018F881E0B0750008250FA /* LineGraphDataSource.swift in Sources */,
+				9E018F8A1E0B09C9008250FA /* LineGraphChart.swift in Sources */,
 				9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */,
 				D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */,
 				9EFDA08B1D83716900FD6763 /* SurveyTask.swift in Sources */,
@@ -961,6 +990,7 @@
 				9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */,
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
+				9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
 				D2B488711DEF4B4B000333D6 /* HamstringSets.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
@@ -976,11 +1006,13 @@
 				9E81DDCC1DCD05EE0065C928 /* SettingsItem.swift in Sources */,
 				D2B488721DEF4B4B000333D6 /* HeelSlides.swift in Sources */,
 				9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */,
+				9E018F9F1E1B0752008250FA /* TutorialTextViewController.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
+				9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
 				D2B4886E1DEF4B4B000333D6 /* AnklePumps.swift in Sources */,
@@ -1162,14 +1194,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0071cfdb-9a1a-49d5-94b6-b503ee70f75d";
-				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
+				PROVISIONING_PROFILE = "037abc7d-52f7-497a-8e6f-72ac538e8843";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up App Store";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

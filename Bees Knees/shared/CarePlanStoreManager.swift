@@ -152,31 +152,31 @@ class CarePlanStoreManager : NSObject {
         // Sample data
         var sampleData: [SampleInterventionData] = []
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 11),
+            date: DateComponents(year: 2016, month: 12, day: 18),
             data: [1, 3, 3, 3, 3, 3, 3, 3, 3, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 12),
+            date: DateComponents(year: 2016, month: 12, day: 19),
             data: [1, 3, 2, 2, 2, 3, 2, 3, 2, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 13),
+            date: DateComponents(year: 2016, month: 12, day: 20),
             data: [0, 1, 1, 2, 1, 1, 0, 0, 0, 0]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 14),
+            date: DateComponents(year: 2016, month: 12, day: 21),
             data: [1, 2, 2, 2, 2, 3, 3, 2, 2, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 15),
+            date: DateComponents(year: 2016, month: 12, day: 22),
             data: [1, 3, 3, 2, 2, 3, 3, 3, 3, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 16),
+            date: DateComponents(year: 2016, month: 12, day: 23),
             data: [1, 3, 3, 3, 2, 2, 1, 3, 3, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 17),
+            date: DateComponents(year: 2016, month: 12, day: 24),
             data: [1, 3, 3, 2, 2, 2, 2, 3, 3, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 18),
+            date: DateComponents(year: 2016, month: 12, day: 25),
             data: [1, 3, 3, 3, 2, 2, 3, 3, 3, 1]))
         sampleData.append(SampleInterventionData(
-            date: DateComponents(year: 2016, month: 12, day: 19),
+            date: DateComponents(year: 2016, month: 12, day: 26),
             data: [1, 3, 3, 3, 3, 2, 2, 2, 3, 1]))
         
  
@@ -203,31 +203,31 @@ class CarePlanStoreManager : NSObject {
         // Sample data
         var sampleData: [SampleAssessmentData] = []
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 11),
+            date: DateComponents(year: 2016, month: 12, day: 18),
             data: ["6", "7", "5"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 12),
+            date: DateComponents(year: 2016, month: 12, day: 19),
             data: ["5", "9", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 13),
+            date: DateComponents(year: 2016, month: 12, day: 20),
             data: ["9", "5", "8"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 14),
+            date: DateComponents(year: 2016, month: 12, day: 21),
             data: ["3", "6", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 15),
+            date: DateComponents(year: 2016, month: 12, day: 22),
             data: ["2", "7", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 16),
+            date: DateComponents(year: 2016, month: 12, day: 23),
             data: ["3", "8", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 17),
+            date: DateComponents(year: 2016, month: 12, day: 24),
             data: ["3", "10", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 18),
+            date: DateComponents(year: 2016, month: 12, day: 25),
             data: ["3", "8", "4"]))
         sampleData.append(SampleAssessmentData(
-            date: DateComponents(year: 2016, month: 12, day: 19),
+            date: DateComponents(year: 2016, month: 12, day: 26),
             data: ["3", "10", "4"]))
         
         // Add the sample data

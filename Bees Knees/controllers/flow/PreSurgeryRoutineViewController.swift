@@ -33,7 +33,6 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         PhotoLog()
     ]
     
-    
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

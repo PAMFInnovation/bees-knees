@@ -11,7 +11,7 @@ import UIKit
 
 enum Colors {
     
-    case turquoise, transTurquoise, realSutter, appleBlue, turquoiseLight1, turquoiseLight2, turquoiseLight3
+    case turquoise, transTurquoise, realSutter, appleBlue, turquoiseLight1, turquoiseLight2, turquoiseLight3, healthRed
     
     var color: UIColor {
         switch self {
@@ -35,6 +35,9 @@ enum Colors {
             
         case .appleBlue:
             return UIColor(red: 0.2, green: 0.451, blue: 0.99, alpha: 1)
+            
+        case .healthRed:
+            return UIColor(red: 255.0 / 255.0, green: 71.0 / 255.0, blue: 71.0 / 255.0, alpha: 1)
         }
     }
 }

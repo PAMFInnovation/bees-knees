@@ -74,8 +74,8 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Insert the line path subview as the first view in the table view
         // This ensures it renders underneath the cells themselves
-        self.tableView.insertSubview(solidPath, at: 0)
-        self.tableView.insertSubview(dottedPath, at: 0)
+        //self.tableView.insertSubview(solidPath, at: 0)
+        //self.tableView.insertSubview(dottedPath, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,7 +145,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Set the appointment on the cell
         let appt: Appointment = self.tableViewData[indexPath.row] as Appointment
-        cell.setAppointment(appointment: appt)
+        cell.setAppointment(appointment: appt, isNextAppointment: appt == nextAppointment)
         
         // Set the disclosure
         cell.accessoryType = .disclosureIndicator
@@ -172,7 +172,13 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     
     func populateTable() {
         // Add the appointments
-        self.tableViewData = ProfileManager.sharedInstance.appointments
+        var appts: [Appointment] = []
+        for appt in ProfileManager.sharedInstance.appointments {
+            if appt.scheduled == true {
+                appts.append(appt)
+            }
+        }
+        self.tableViewData = appts //ProfileManager.sharedInstance.appointments
         
         // Add the surgery date to the table
         if ProfileManager.sharedInstance.isSurgerySet {
@@ -186,11 +192,13 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         nextAppointment = nil
         var found: Bool = false
         for appt in self.tableViewData {
-            appt.elapsed = Util.isDateInPast(appt.date!)
-            
-            if !found && !appt.elapsed {
-                nextAppointment = appt
-                found = true
+            if appt.scheduled == true {
+                appt.elapsed = Util.isDateInPast(appt.date!)
+                
+                if !found && !appt.elapsed {
+                    nextAppointment = appt
+                    found = true
+                }
             }
         }
     }
@@ -248,15 +256,16 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         let appt = self.tableViewData[index] as Appointment
         
         // Get the height of the cell
-        var height: CGFloat = 66.0
+        var height: CGFloat = 50.0
         if appt.type == AppointmentType.Surgery {
-            height = appt == nextAppointment ? 215 : 86
+            //height = appt == nextAppointment ? 215 : 86
+            height = appt == nextAppointment ? 175 : height
         }
         else if appt.type == AppointmentType.CheckUp || appt.type == AppointmentType.Consultation {
-            height = 66
+            //height = height
         }
         else {
-            height = appt == nextAppointment ? 185 : 66
+            height = appt == nextAppointment ? 175 : height
         }
         
         return height
