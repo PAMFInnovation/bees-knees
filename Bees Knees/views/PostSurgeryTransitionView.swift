@@ -29,7 +29,8 @@ class PostSurgeryTransitionView: UIView {
         self.backgroundColor = UIColor.white
         
         // Add the goal icon
-        var image: UIImage = UIImage(named: "clipboard")!
+        //var image: UIImage = UIImage(named: "clipboard")!
+        var image: UIImage = UIImage(named: "checkmark")!
         image = image.withRenderingMode(.alwaysTemplate)
         let imageView: UIImageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +71,8 @@ class PostSurgeryTransitionView: UIView {
         
         // Add the static text
         let goalText: UITextView = UITextView()
-        goalText.text = "You have some strengthening exercises awaiting you and progress to record. Let's get started!"
+        goalText.text = "Congratulations!\n\nYou're on your way! Now you have some strengthening exercises awaiting you and progress to record. Let's get started!"
+        //goalText.text = "You have some strengthening exercises awaiting you and progress to record. Let's get started!"
         goalText.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
         goalText.textAlignment = .center
         goalText.isEditable = false

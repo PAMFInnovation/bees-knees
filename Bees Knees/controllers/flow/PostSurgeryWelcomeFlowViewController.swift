@@ -161,7 +161,8 @@ extension PostSurgeryWelcomeFlowViewController: PostSurgeryConfirmationDelegate 
         backItem.title = "Confirm"
         confirmationVC.navigationItem.backBarButtonItem = backItem
         
-        self.pushViewController(congratsVC, animated: true)
+        //self.pushViewController(congratsVC, animated: true)
+        self.pushViewController(transitionVC, animated: true)
     }
     
     func adjustSurgeryDate(sender: PostSurgeryConfirmationView) {
