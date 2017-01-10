@@ -65,6 +65,8 @@ class GuideTableViewCell: UITableViewCell {
         // Setup the date text view
         self.dateText.text = ""
         self.dateText.font = subtitleNormalFont
+        self.dateText.isEditable = false
+        self.dateText.isSelectable = false
         self.dateText.textAlignment = .center
         self.dateText.textColor = UIColor.lightGray
         

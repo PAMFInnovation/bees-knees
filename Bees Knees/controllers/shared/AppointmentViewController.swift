@@ -78,6 +78,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         tableViewData.append(AppointmentCellData(name: "dateCell"))
         tableViewData.append(AppointmentCellData(name: "placeCell"))
         tableViewData.append(AppointmentCellData(name: "notesCell"))
+        tableViewData.append(AppointmentCellData(name: "plannerCell"))
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
@@ -90,6 +91,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
         self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
         self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[3].name)
+        self.tableView.register(TextTableViewCell.self, forCellReuseIdentifier: tableViewData[4].name)
         self.tableView.separatorStyle = .singleLine
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
@@ -135,6 +137,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Ensure we have the required data in the appointment
         if appointment.hasRequiredInfo() {
             // Add the appointment to the appointments list
+            appointment.scheduled = true
             ProfileManager.sharedInstance.appointments.append(appointment)
             
             // Trigger a completion
@@ -203,7 +206,14 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         cell.delegate = self
         
         // Set the default cell height for this row
-        self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
+        if identifier == "plannerCell" &&
+            (cell.appointment?.type == AppointmentType.CheckUp ||
+            cell.appointment?.type == AppointmentType.Consultation) {
+            self.tableViewData[indexPath.row].defaultHeight = 0
+        }
+        else {
+            self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
+        }
         
         // Return the cell
         return cell
