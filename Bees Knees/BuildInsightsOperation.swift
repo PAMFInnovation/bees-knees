@@ -53,6 +53,9 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
+        let messageInsight = OCKMessageItem(title: "PLEASE NOTE", text: "This module is not functioning properly right now. Please ignore during your testing.", tintColor: Colors.turquoise.color, messageType: .tip)
+        newInsights.append(messageInsight)
+        
         if let insight = createPrimaryInsight() {
             newInsights.append(insight)
         }
