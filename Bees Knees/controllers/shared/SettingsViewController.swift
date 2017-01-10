@@ -32,20 +32,20 @@ class SettingsViewController: UITableViewController {
         self.init(style: UITableViewStyle.grouped)
         
         // Add data to the data source
-        dataSource.append([SettingsItem]())
-        dataSource[0].append(SettingsItem(name: "My Profile", header: "My Profile", icon: "profile-icon", className: "ProfileViewController"))
+        //dataSource.append([SettingsItem]())
+        //dataSource[0].append(SettingsItem(name: "My Profile", header: "My Profile", icon: "profile-icon", className: "ProfileViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[1].append(SettingsItem(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
-        dataSource[1].append(SettingsItem(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
+        dataSource[0].append(SettingsItem(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
+        dataSource[0].append(SettingsItem(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[2].append(SettingsItem(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
-        dataSource[2].append(SettingsItem(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
+        dataSource[1].append(SettingsItem(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
+        dataSource[1].append(SettingsItem(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[3].append(SettingsItem(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
-        dataSource[3].append(SettingsItem(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
+        dataSource[2].append(SettingsItem(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
+        dataSource[2].append(SettingsItem(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
     }
     
     override func viewDidLoad() {

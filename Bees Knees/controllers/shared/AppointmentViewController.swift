@@ -74,7 +74,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Add items to the table view data
         tableViewData.append(AppointmentCellData(name: "titleCell"))
-        //tableViewData.append(AppointmentCellData(name: "typeCell"))
+        tableViewData.append(AppointmentCellData(name: "typeCell"))
         tableViewData.append(AppointmentCellData(name: "dateCell"))
         tableViewData.append(AppointmentCellData(name: "placeCell"))
         tableViewData.append(AppointmentCellData(name: "notesCell"))
@@ -86,10 +86,10 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Setup the table view
         self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height + 200), style: .grouped)
         self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0].name)
-        //self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
-        self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
-        self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
-        self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[3].name)
+        self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
+        self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
+        self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[3].name)
+        self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[4].name)
         self.tableView.separatorStyle = .singleLine
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self

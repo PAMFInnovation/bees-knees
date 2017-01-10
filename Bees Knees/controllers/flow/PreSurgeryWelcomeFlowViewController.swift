@@ -98,15 +98,36 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         // We're finished with this flow
         self.classDelegate?.didFinishPreFlow(sender: self)
     }
+    
+    func shouldPresentPasscode() -> Bool {
+        // Ignore passcode on simulator as it'll cause errors
+        var ignorePasscode = false
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            ignorePasscode = true
+        #endif
+        
+        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
+        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
+        if ignorePasscode || passcodeSet {
+            return false
+            // Navigate to the transition view if the passcode is already set
+            self.pushViewController(preSurgeryTransitionVC, animated: true)
+        }
+        else {
+            return true
+            // Present passcode modally
+            self.present(passcodeTVC, animated: true, completion: nil)
+        }
+    }
 }
 
 extension PreSurgeryWelcomeFlowViewController: PreSurgeryWelcomeDelegate {
     func preSurgeryNextButtonPressed(sender: PreSurgeryWelcomeViewController) {
         // Navigate to the consent view
-        //self.pushViewController(consentTVC, animated: true)
+        self.pushViewController(consentTVC, animated: true)
         
         // TESTING to skip consent for expediency
-        self.pushViewController(profileVC, animated: true)
+        //self.pushViewController(profileVC, animated: true)
     }
 }
 
@@ -115,7 +136,7 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
         // If Consent, set the first and last name in our ProfileManager singleton
         if taskViewController.title?.localizedCompare("Consent").rawValue == 0 {
             if reason == .completed {
-                let result = taskViewController.result.results?[1] as! ORKStepResult
+                let result = taskViewController.result.results?[0] as! ORKStepResult
                 let signatureResult = result.results?[0] as! ORKConsentSignatureResult
                 let firstName = signatureResult.signature?.givenName
                 let lastName = signatureResult.signature?.familyName
@@ -135,7 +156,17 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
             }
             
             // Navigate to the profile view
-            self.pushViewController(profileVC, animated: true)
+            //self.pushViewController(profileVC, animated: true)
+            
+            // TESTING: removed profile
+            if shouldPresentPasscode() {
+                // Present passcode modally
+                self.present(passcodeTVC, animated: true, completion: nil)
+            }
+            else {
+                // Navigate to the transition view if the passcode is already set
+                self.pushViewController(preSurgeryTransitionVC, animated: true)
+            }
         }
             // If Passcode, navigate to the transition view
         else if taskViewController.title?.localizedCompare("Protect").rawValue == 0 {
@@ -150,22 +181,15 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
 }
 
 extension PreSurgeryWelcomeFlowViewController: ProfileDelegate {
+    
     func profileNextButtonPressed(sender: ProfileViewController) {
-        // Ignore passcode on simulator as it'll cause errors
-        var ignorePasscode = false
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-            ignorePasscode = true
-        #endif
-        
-        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
-        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
-        if ignorePasscode || passcodeSet {
-            // Navigate to the transition view if the passcode is already set
-            self.pushViewController(preSurgeryTransitionVC, animated: true)
-        }
-        else {
+        if shouldPresentPasscode() {
             // Present passcode modally
             self.present(passcodeTVC, animated: true, completion: nil)
+        }
+        else {
+            // Navigate to the transition view if the passcode is already set
+            self.pushViewController(preSurgeryTransitionVC, animated: true)
         }
     }
 }

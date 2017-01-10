@@ -21,9 +21,17 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>This app may share health usage information.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>This app may update health usage information.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs access to the microphone.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
