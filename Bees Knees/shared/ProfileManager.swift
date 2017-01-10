@@ -45,6 +45,7 @@ class ProfileManager {
     
     func setSurgeryDate(_ date: Date) {
         surgeryAppointment.date = date
+        surgeryAppointment.scheduled = true
         isSurgerySet = true
     }
 }
