@@ -85,7 +85,15 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         dateLabel.isHidden = false
         dateLabel.text = Util.getFormattedDate(sender.date, dateStyle: .medium, timeStyle: .short)
         
-        // Update the appointment
-        appointment?.date = sender.date
+        // If this is the surgery date, set it appropriately
+        if appointment?.type == AppointmentType.Surgery {
+            ProfileManager.sharedInstance.setSurgeryDate(sender.date)
+        }
+        // Else set all other appointments normally
+        else {
+            // Update the appointment
+            appointment?.date = sender.date
+            appointment?.scheduled = true
+        }
     }
 }

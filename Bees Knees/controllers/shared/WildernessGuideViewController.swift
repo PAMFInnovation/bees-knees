@@ -171,13 +171,40 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func populateTable() {
+        // Reset the appointments list
+        self.tableViewData = []
+        
+        // Check for specific appointments
+        var preOpAppt: Appointment? = nil
+        var orthoAppt: Appointment? = nil
+        var followUp2Appt: Appointment? = nil
+        var followUp6Appt: Appointment? = nil
+        
         // Add the appointments
         var appts: [Appointment] = []
         for appt in ProfileManager.sharedInstance.appointments {
             if appt.scheduled == true {
                 appts.append(appt)
             }
+            
+            if appt.type == AppointmentType.PreOp {
+                preOpAppt = appt
+            }
+            if appt.type == AppointmentType.Orthopedic {
+                orthoAppt = appt
+            }
+            if appt.type == AppointmentType.FollowUp2Week {
+                followUp2Appt = appt
+            }
+            if appt.type == AppointmentType.FollowUp6Week {
+                followUp6Appt = appt
+            }
         }
+        
+        // Add the scheduled appointments
+        /*for appt in appts {
+            self.tableViewData.append(appt)
+        }*/
         self.tableViewData = appts //ProfileManager.sharedInstance.appointments
         
         // Add the surgery date to the table
@@ -187,6 +214,37 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Sort the table
         self.tableViewData.sort(by: { $0.date! < $1.date! })
+        
+        
+        // Add the Follow Up slots  if it hasn't been scheduled and surgery has elapsed
+        if ProfileManager.sharedInstance.isSurgerySet == true &&
+            Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) == true {
+            
+            if followUp6Appt != nil && followUp6Appt?.scheduled == false {
+                self.tableViewData.insert(followUp6Appt!, at: 0)
+            }
+            if followUp2Appt != nil && followUp2Appt?.scheduled == false {
+                self.tableViewData.insert(followUp2Appt!, at: 0)
+            }
+        }
+        
+        // Add the surgery slot if it hasn't been scheduled
+        if ProfileManager.sharedInstance.isSurgerySet == false {
+            self.tableViewData.insert(ProfileManager.sharedInstance.surgeryAppointment, at: 0)
+        }
+            
+        // Only add Pre-Op and Ortho slots if they haven't been scheduled and the surgery date hasn't elapsed
+        if ProfileManager.sharedInstance.isSurgerySet &&
+            Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) == false {
+            
+            if orthoAppt != nil && orthoAppt?.scheduled == false {
+                self.tableViewData.insert(orthoAppt!, at: 0)
+            }
+            if preOpAppt != nil && preOpAppt?.scheduled == false {
+                self.tableViewData.insert(preOpAppt!, at: 0)
+            }
+        }
+        
         
         // Track the next appointment
         nextAppointment = nil
@@ -256,8 +314,11 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         let appt = self.tableViewData[index] as Appointment
         
         // Get the height of the cell
-        var height: CGFloat = 50.0
-        if appt.type == AppointmentType.Surgery {
+        var height: CGFloat = 66.0
+        if appt.scheduled == false {
+            height = 66.0
+        }
+        else if appt.type == AppointmentType.Surgery {
             //height = appt == nextAppointment ? 215 : 86
             height = appt == nextAppointment ? 175 : height
         }

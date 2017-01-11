@@ -56,11 +56,14 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         
         // TESTING logic - add some appointments
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp, date: Util.getDateFromString("12/29/2016 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic, date: Util.getDateFromString("1/2/2017 1:00 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week, date: Util.getDateFromString("2/7/2017 1:30 pm", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week, date: Util.getDateFromString("3/6/2017 11:00 am", format: "MM/dd/yyyy h:mm a")))
-        ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week))
+        ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
+        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        
+        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "Past", type: .CheckUp, date: Util.getDateFromString("1/10/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "Future", type: .CheckUp, date: Util.getDateFromString("1/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +79,7 @@ class RootViewController: UIViewController {
             // TESTING logic
             if !ProfileManager.sharedInstance.isSurgerySet {
                 //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
-                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/24/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
+                //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/24/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
             }
             
             if ProfileManager.sharedInstance.isSurgerySet {

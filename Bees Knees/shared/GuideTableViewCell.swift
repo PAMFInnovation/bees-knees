@@ -27,6 +27,10 @@ class GuideTableViewCell: UITableViewCell {
     let subtitleNormalFont = UIFont(name: "ArialMT", size: 12)
     let titleItalicFont = UIFont(name: "Arial-ItalicMT", size: 16)
     let subtitleItalicFont = UIFont(name: "Arial-ItalicMT", size: 12)
+    let subtitleBoldFont = UIFont(name: "Arial-BoldMT", size: 12)
+    
+    // Info icon
+    let infoIcon: UIImage = UIImage(named: "info-icon")!
     
     
     // MARK: - Initialization
@@ -72,12 +76,12 @@ class GuideTableViewCell: UITableViewCell {
         
         
         // Add custom subviews
-        //self.addSubview(icon)
         self.addSubview(title)
-        //self.addSubview(subtitle)
+        self.addSubview(subtitle)
         self.addSubview(detail)
         self.addSubview(dateText)
         self.addSubview(nextApptLabel)
+        self.addSubview(icon)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,63 +97,102 @@ class GuideTableViewCell: UITableViewCell {
     func setAppointment(appointment: Appointment, isNextAppointment: Bool) {
         self.appointment = appointment
         
-        // Change UI if the date is in the past
-        let inPast: Bool = (self.appointment?.elapsed)!
-        
-        // Set text
-        self.title.text = self.appointment?.title
-        self.subtitle.text = Util.getFormattedDate((self.appointment?.date!)!, dateFormat: "EEE, MMM d yyyy - h:mma")
-        self.detail.text = inPast ? "" : Copy.getWildernessGuideCopy(type: appointment.type)
-        self.dateText.text = Util.getFormattedDate((self.appointment?.date!)!, dateFormat: "MMM d\nh:mm a")
-        
-        // For dates that have passed, italicize the text
-        if inPast {
-            self.title.font = titleItalicFont
-            self.title.textColor = UIColor.lightGray
-            self.subtitle.font = subtitleItalicFont
-            self.subtitle.textColor = UIColor.lightGray
-            self.dateText.font = subtitleItalicFont
-            self.dateText.textColor = UIColor.lightGray
-        }
-        else {
-            self.title.font = titleNormalFont
-            self.title.textColor = UIColor.black
-            self.subtitle.font = subtitleNormalFont
-            self.subtitle.textColor = UIColor.black
-            self.dateText.font = subtitleNormalFont
-            self.dateText.textColor = UIColor.black
-        }
-        
-        // Show/hide the "next appointment" label
-        self.nextApptLabel.isHidden = !isNextAppointment
-        
-        let size: CGPoint = CGPoint(x: 70, y: 70.0) // 70.0
+        // Frame sizing variables
+        let size: CGPoint = CGPoint(x: 70.0, y: 70.0)
         let gap: CGFloat = 10.0
         let xOffset: CGFloat = 8.0
-        var yOffset: CGFloat = 0.0
+        let yOffset: CGFloat = 0.0
+        let textWidth = self.frame.width - xOffset - size.x - gap - 20
         
-        switch appointment.type! {
-        case .Surgery:
-            //self.setIconImage("target-icon")
-            let iconName: String = inPast ? "appointment-icon-filled" : "appointment-icon"
-            self.setIconImage(iconName)
-            /*yOffset = 8.0
-            self.title.textColor = Colors.healthRed.color
-            self.subtitle.textColor = Colors.healthRed.color
-            self.detail.textColor = Colors.healthRed.color*/
-        
-        default:
-            let iconName: String = inPast ? "appointment-icon-filled" : "appointment-icon"
-            self.setIconImage(iconName)
+        // Appointments that are already scheduled should display normal information
+        if appointment.scheduled == true {
+            // Change UI if the date is in the past
+            let inPast: Bool = (self.appointment?.elapsed)!
+            
+            // Set text
+            self.title.text = self.appointment?.title
+            self.subtitle.text = Util.getFormattedDate((self.appointment?.date!)!, dateFormat: "EEE, MMM d yyyy - h:mma")
+            self.detail.text = isNextAppointment ? Copy.getWildernessGuideCopy(type: appointment.type) : ""
+            self.dateText.text = Util.getFormattedDate((self.appointment?.date!)!, dateFormat: "MMM d\nh:mm a")
+            
+            // For dates that have passed, italicize the text
+            if inPast {
+                self.title.font = titleNormalFont
+                self.title.textColor = UIColor.lightGray
+                self.subtitle.font = subtitleNormalFont
+                self.subtitle.textColor = UIColor.lightGray
+                self.dateText.font = subtitleItalicFont
+                self.dateText.textColor = UIColor.lightGray
+            }
+            else {
+                self.title.font = titleNormalFont
+                self.title.textColor = UIColor.black
+                self.subtitle.font = subtitleNormalFont
+                self.subtitle.textColor = UIColor.black
+                self.dateText.font = subtitleNormalFont
+                self.dateText.textColor = UIColor.black
+            }
+            
+            // Show/hide the "next appointment" label
+            self.nextApptLabel.isHidden = !isNextAppointment
+            
+            // Hide the subtitle
+            self.subtitle.isHidden = true
+            
+            // Hide the icon
+            self.icon.isHidden = true
+            
+            // Set title frame
+            self.title.frame = CGRect(x: xOffset + size.x + gap, y: yOffset, width: textWidth, height: size.y)
+            
+            /*switch appointment.type! {
+            case .Surgery:
+                let iconName: String = inPast ? "appointment-icon-filled" : "appointment-icon"
+                self.setIconImage(iconName)
+                
+            default:
+                let iconName: String = inPast ? "appointment-icon-filled" : "appointment-icon"
+                self.setIconImage(iconName)
+            }*/
+        }
+        // Display "add" buttons for appointments that exist but are not yet scheduled
+        else {
+            // Set text
+            self.title.text = self.appointment?.title
+            self.subtitle.text = "Tap to schedule"
+            self.detail.text = ""
+            self.dateText.text = ""
+            
+            // Set text font and color
+            self.title.font = titleItalicFont
+            self.title.textColor = UIColor.black
+            self.dateText.font = subtitleBoldFont
+            self.dateText.textColor = UIColor.black
+            
+            // Hide the "next appointment" label
+            self.nextApptLabel.isHidden = true
+            
+            // Show the subtitle
+            self.subtitle.isHidden = false
+            
+            // Show the icon
+            self.icon.isHidden = false
+            self.icon.image = infoIcon
+            
+            // Update the icon frame
+            let iconSize: CGFloat = 30
+            let iconOffsetX: CGFloat = 10 + ((70 - iconSize) / 2)
+            let iconOffsetY: CGFloat = (self.frame.height - iconSize) / 2
+            self.icon.frame = CGRect(x: iconOffsetX, y: iconOffsetY, width: iconSize, height: iconSize)
+            
+            // Set the title frame
+            self.title.frame = CGRect(x: xOffset + size.x + gap, y: yOffset - 10, width: textWidth, height: size.y)
         }
         
         // Update subview rects
-        let textWidth = self.frame.width - xOffset - size.x - gap - 20
-        self.icon.frame = CGRect(x: xOffset, y: yOffset, width: size.x, height: size.y)
-        self.title.frame = CGRect(x: xOffset + size.x + gap, y: yOffset - 10, width: textWidth, height: size.y)
         self.subtitle.frame = CGRect(x: xOffset + size.x + gap, y: yOffset + 10, width: textWidth, height: size.y)
-        self.detail.frame = CGRect(x: xOffset + size.x + gap - 2, y: yOffset + size.y - 20, width: textWidth, height: 110)
-        self.dateText.frame = CGRect(x: xOffset, y: 4, width: 70, height: 50)
+        self.detail.frame = CGRect(x: xOffset + size.x + gap - 2, y: yOffset + size.y - 10, width: textWidth, height: 120)
+        self.dateText.frame = CGRect(x: xOffset, y: 12, width: 70, height: 66.0)
         self.nextApptLabel.frame = CGRect(x: self.frame.width - 110, y: 0/*self.frame.height - 20*/, width: 110, height: 20)
     }
     
