@@ -36,16 +36,21 @@ class SettingsViewController: UITableViewController {
         //dataSource[0].append(SettingsItem(name: "My Profile", header: "My Profile", icon: "profile-icon", className: "ProfileViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[0].append(SettingsItem(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
-        dataSource[0].append(SettingsItem(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
+        dataSource[0].append(SettingsItemNavigation(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
+        dataSource[0].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[1].append(SettingsItem(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
-        dataSource[1].append(SettingsItem(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[2].append(SettingsItem(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
-        dataSource[2].append(SettingsItem(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
+        dataSource[2].append(SettingsItemNavigation(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
+        dataSource[2].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
+        
+        dataSource.append([SettingsItem]())
+        dataSource[3].append(SettingsItemButton(name: "Reset App Data", action: {
+            self.resetData()
+        }))
     }
     
     override func viewDidLoad() {
@@ -70,6 +75,28 @@ class SettingsViewController: UITableViewController {
     }
     
     
+    // MARK: - Helper functions
+    func resetData() {
+        // Cancel and confirm action
+        let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let confirm: UIAlertAction = UIAlertAction(title: "Reset", style: .destructive, handler: {(alert: UIAlertAction!) in
+            // Get the current flow state so we know which view controller to pop
+            let flowState = ProfileManager.sharedInstance.getFlowState()
+            
+            // Reset the player data
+            ProfileManager.sharedInstance.resetData()
+            
+            let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
+                (UIApplication.shared.keyWindow?.rootViewController as! RootViewController).transitionToLaunch(from: flowState)
+            })
+            self.alert(message: "Your data is now reset. You will be returned to the welcome page.", title: "", cancelAction: nil, confirmAction: okAction)
+        })
+        
+        // Display the confirmation alert
+        self.alert(message: "\nThis will reset all saved data and tracked exercises.", title: "ARE YOU SURE?", cancelAction: cancel, confirmAction: confirm)
+    }
+    
+    
     // MARK: - Table View Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataSource.count
@@ -80,33 +107,53 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Get the data source
-        let data = self.dataSource[indexPath.section][indexPath.row]
-        
-        // Set the cell
+        // Get the data source and cell
+        var data = self.dataSource[indexPath.section][indexPath.row]
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        cell.textLabel?.text = data.name
-        cell.accessoryType = .disclosureIndicator
-        cell.imageView?.image = UIImage(named: data.icon!)
+        
+        // Set the cell for navigation types
+        if data.type == .Navigation {
+            data = (data as! SettingsItemNavigation)
+            cell.textLabel?.text = data.name
+            cell.accessoryType = .disclosureIndicator
+            cell.imageView?.image = UIImage(named: (data as! SettingsItemNavigation).icon)
+        }
+        // Set the cell for button types
+        else if data.type == .Button {
+            data = (data as! SettingsItemButton)
+            cell.textLabel?.text = data.name
+            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.textAlignment = .center
+        }
         
         // Return the cell
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Get the class name
-        let data = self.dataSource[indexPath.section][indexPath.row]
-        let className: String! = data.className
+        // Get the data
+        var data = self.dataSource[indexPath.section][indexPath.row]
         
-        // Combine the app and class names
-        let appClassName = "Bees_Knees" + "." + className
-        
-        // Get the class object
-        let classObj = NSClassFromString(appClassName) as! UIViewController.Type
-        let vc = classObj.init()
-        vc.title = NSLocalizedString(data.header, comment: "")
-        
-        // Push this view controller
-        self.navigationController?.pushViewController(vc, animated: true)
+        // Navigational items
+        if data.type == .Navigation {
+            // Get the class source
+            let className: String! = (data as! SettingsItemNavigation).className
+            
+            // Combine the app and class names
+            let appClassName = "Bees_Knees" + "." + className
+            
+            // Get the class object
+            let classObj = NSClassFromString(appClassName) as! UIViewController.Type
+            let vc = classObj.init()
+            vc.title = NSLocalizedString((data as! SettingsItemNavigation).header, comment: "")
+            
+            // Push this view controller
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        // Button items
+        else if data.type == .Button {
+            // Trigger the action
+            (data as! SettingsItemButton).action()
+        }
     }
 }

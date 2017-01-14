@@ -9,23 +9,23 @@
 import Foundation
 
 
+enum SettingsItemType: Int {
+    case Default
+    case Navigation
+    case Button
+}
+
 class SettingsItem: NSObject {
     
+    // Type of the cell
+    var type: SettingsItemType = .Default
+    
     // Name of the cell
-    var name: String!
-    var header: String!
-    
-    // Icon for the cell
-    var icon: String!
-    
-    // Class name
-    var className: String!
+    var name: String = ""
     
     
-    init(name: String, header: String, icon: String, className: String) {
+    init(name: String, type: SettingsItemType = .Default) {
         self.name = name
-        self.header = header
-        self.icon = icon
-        self.className = className
+        self.type = type
     }
 }

@@ -109,7 +109,7 @@ class SurgeryCountdown: UIView {
             
             // Check if the patient has already had surgery and in the Pre-Surgery routine
             // Here we'll prompt them to visit Post-Surgery
-            if days < 0 && ProfileManager.sharedInstance.flowState == .PreSurgeryRoutine {
+            if days < 0 && ProfileManager.sharedInstance.user.flowState == .PreSurgeryRoutine {
                 subtextLabel.text = ""
                 valueLabel.text = ""
                 notSetLabel.text = "Already had surgery? Tap to change or transition to your Post-Surgery routine"

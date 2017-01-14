@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-enum AppointmentType {
+@objc enum AppointmentType: Int {
     case CheckUp
     case Consultation
     case PreOp
@@ -34,26 +35,29 @@ enum AppointmentType {
 }
 
 
-class Appointment: NSObject {
+final class Appointment: Object {
     
-    var title: String!
-    var type: AppointmentType!
-    var date: Date?
-    var place: String!
-    var notes: String!
-    var elapsed: Bool!
-    var scheduled: Bool!
+    dynamic var title: String = ""
+    dynamic var type: AppointmentType = .CheckUp
+    dynamic var date: Date = Date()
+    dynamic var place: String = ""
+    dynamic var notes: String = ""
+    dynamic var elapsed: Bool = false
+    dynamic var scheduled: Bool = false
     
-    override init() {
+    
+    /*convenience init() {
         title = ""
         type = AppointmentType.CheckUp
         place = ""
         notes = ""
         elapsed = false
         scheduled = false
-    }
+    }*/
     
-    init(title: String, type: AppointmentType) {
+    convenience init(title: String, type: AppointmentType) {
+        self.init()
+        
         self.title = title
         self.type = type
         self.date = Date()
@@ -63,7 +67,9 @@ class Appointment: NSObject {
         self.scheduled = false
     }
     
-    init(title: String, type: AppointmentType, date: Date) {
+    convenience init(title: String, type: AppointmentType, date: Date) {
+        self.init()
+        
         self.title = title
         self.type = type
         self.date = date
@@ -73,7 +79,9 @@ class Appointment: NSObject {
         self.scheduled = true
     }
     
-    init(title: String, type: AppointmentType, date: Date, place: String, notes: String) {
+    convenience init(title: String, type: AppointmentType, date: Date, place: String, notes: String) {
+        self.init()
+        
         self.title = title
         self.type = type
         self.date = date
@@ -88,7 +96,7 @@ class Appointment: NSObject {
     }
     
     func hasRequiredInfo() -> Bool {
-        if title != "" && date != nil {
+        if title != "" && scheduled == true {
             return true
         }
         return false

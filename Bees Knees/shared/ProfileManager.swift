@@ -7,20 +7,54 @@
 //
 
 import Foundation
+import RealmSwift
+
+
+final class User: Object {
+    
+    // Primary key
+    dynamic var id = 0
+    
+    // Current state of the App
+    dynamic var flowState: FlowState = .Launch
+    
+    // Personal data
+    dynamic var name: String = ""
+    dynamic var email: String = ""
+    dynamic var phone: String = ""
+    
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
 
 
 class ProfileManager {
     // Singleton
     static let sharedInstance = ProfileManager()
-    private init() {}
+    private init() {
+        // Get the default realm
+        realm = try! Realm()
+        
+        // Get the user object from realm. If it doesn't exist, create a new user.
+        guard let userObject = realm.object(ofType: User.self, forPrimaryKey: 0) else {
+            createNewUser()
+            
+            // Exit
+            return
+        }
+        
+        // Set the user
+        user = userObject
+        print("user", user.description)
+    }
     
-    // Set the initial app's flow state
-    var flowState: FlowState = .Launch
+    // Realm object
+    let realm: Realm
     
-    // Personal data
-    var name: String = ""
-    var email: String = ""
-    var phone: String = ""
+    // User object
+    var user: User = User()
     
     // Goal
     var goal: String = ""
@@ -40,12 +74,62 @@ class ProfileManager {
     
     
     func getSurgeryDate() -> Date {
-        return surgeryAppointment.date!
+        return surgeryAppointment.date
     }
     
     func setSurgeryDate(_ date: Date) {
         surgeryAppointment.date = date
         surgeryAppointment.scheduled = true
         isSurgerySet = true
+    }
+    
+    func getFlowState() -> FlowState {
+        return user.flowState
+    }
+    
+    func checkFlowState(_ flowState: FlowState) -> Bool {
+        if user.flowState == flowState {
+            return true
+        }
+        return false
+    }
+    
+    func updateFlowState(_ flowState: FlowState) {
+        try! realm.write {
+            user.flowState = flowState
+        }
+    }
+    
+    func updateUserInfo(name: String?, email: String?, phone: String?) {
+        realm.beginWrite()
+        
+        if let _name = name {
+            user.name = _name
+        }
+        if let _email = email {
+            user.email = _email
+        }
+        if let _phone = phone {
+            user.phone = _phone
+        }
+        
+        try! realm.commitWrite()
+    }
+    
+    func createNewUser() {
+        user = User()
+        
+        // Save the user object
+        try! realm.write {
+            realm.add(user)
+        }
+    }
+    
+    func resetData() {
+        try! realm.write {
+            realm.deleteAll()
+        }
+        
+        self.createNewUser()
     }
 }

@@ -213,7 +213,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         // Sort the table
-        self.tableViewData.sort(by: { $0.date! < $1.date! })
+        self.tableViewData.sort(by: { $0.date < $1.date })
         
         
         // Add the Follow Up slots  if it hasn't been scheduled and surgery has elapsed
@@ -251,7 +251,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         var found: Bool = false
         for appt in self.tableViewData {
             if appt.scheduled == true {
-                appt.elapsed = Util.isDateInPast(appt.date!)
+                appt.elapsed = Util.isDateInPast(appt.date)
                 
                 if !found && !appt.elapsed {
                     nextAppointment = appt
@@ -277,7 +277,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
                     dashedPathLength = dashedPathLength + height
                     
                     // Only increment solid path length if the cell is elapsed
-                    if (cell as Appointment).elapsed! {
+                    if (cell as Appointment).elapsed {
                         solidPathLength = solidPathLength + previousCellLength
                     }
                 }

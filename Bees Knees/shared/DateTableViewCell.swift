@@ -13,7 +13,7 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
     
     override var appointment: Appointment? {
         willSet(appt) {
-            if appt?.date != nil {
+            if appt?.scheduled == true {
                 datePicker.date = (appt?.date)!
                 self.didChangeDate(sender: datePicker)
             }

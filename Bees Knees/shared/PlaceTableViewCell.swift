@@ -128,7 +128,7 @@ class PlaceTableViewCell: AppointmentTableViewCell, UITextFieldDelegate, UITable
         
         // Set the address text
         addressField.text = searchResult.title + " " + searchResult.subtitle
-        appointment?.place = addressField.text
+        appointment?.place = addressField.text!
         
         // Close the keyboard and table
         self.endEditing(true)

@@ -61,6 +61,8 @@
 		9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583D1E085891008953E2 /* ref_quadsets.png */; };
 		9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583E1E085891008953E2 /* ref_seatedheelslides.png */; };
 		9E4D58521E085891008953E2 /* ref_straightlegraises.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583F1E085891008953E2 /* ref_straightlegraises.png */; };
+		9E66BD931E284FBE00B588FC /* SettingsItemNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BD921E284FBE00B588FC /* SettingsItemNavigation.swift */; };
+		9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */; };
 		9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C8B1DD67F8100D0740F /* Copy.swift */; };
 		9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C911DD68B6D00D0740F /* LinePath.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
@@ -74,6 +76,10 @@
 		9E81DDDB1DCD17CE0065C928 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81DDDA1DCD17CE0065C928 /* LegalViewController.swift */; };
 		9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E81DDDC1DCD17EB0065C928 /* FAQViewController.swift */; };
 		9E8A05F01E25831A00A36B72 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A05EF1E25831A00A36B72 /* TextTableViewCell.swift */; };
+		9E8A05F31E27011F00A36B72 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A05F11E27011F00A36B72 /* Realm.framework */; };
+		9E8A05F41E27011F00A36B72 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A05F11E27011F00A36B72 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E8A05F51E27012000A36B72 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A05F21E27011F00A36B72 /* RealmSwift.framework */; };
+		9E8A05F61E27012000A36B72 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A05F21E27011F00A36B72 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */; };
 		9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD01DCA617500811FFB /* ChecklistItem.swift */; };
 		9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */; };
@@ -208,7 +214,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9E8A05F41E27011F00A36B72 /* Realm.framework in Embed Frameworks */,
 				9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */,
+				9E8A05F61E27012000A36B72 /* RealmSwift.framework in Embed Frameworks */,
 				9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -269,6 +277,8 @@
 		9E4D583D1E085891008953E2 /* ref_quadsets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_quadsets.png; path = content/ref_quadsets.png; sourceTree = "<group>"; };
 		9E4D583E1E085891008953E2 /* ref_seatedheelslides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_seatedheelslides.png; path = content/ref_seatedheelslides.png; sourceTree = "<group>"; };
 		9E4D583F1E085891008953E2 /* ref_straightlegraises.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_straightlegraises.png; path = content/ref_straightlegraises.png; sourceTree = "<group>"; };
+		9E66BD921E284FBE00B588FC /* SettingsItemNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItemNavigation.swift; path = shared/SettingsItemNavigation.swift; sourceTree = "<group>"; };
+		9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItemButton.swift; path = shared/SettingsItemButton.swift; sourceTree = "<group>"; };
 		9E6E8C8B1DD67F8100D0740F /* Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copy.swift; path = util/Copy.swift; sourceTree = "<group>"; };
 		9E6E8C911DD68B6D00D0740F /* LinePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinePath.swift; path = views/LinePath.swift; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +292,8 @@
 		9E81DDDA1DCD17CE0065C928 /* LegalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalViewController.swift; path = controllers/LegalViewController.swift; sourceTree = "<group>"; };
 		9E81DDDC1DCD17EB0065C928 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQViewController.swift; path = controllers/FAQViewController.swift; sourceTree = "<group>"; };
 		9E8A05EF1E25831A00A36B72 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextTableViewCell.swift; path = shared/TextTableViewCell.swift; sourceTree = "<group>"; };
+		9E8A05F11E27011F00A36B72 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		9E8A05F21E27011F00A36B72 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		9E960FCA1DC94BAD00811FFB /* SurgeryCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SurgeryCountdown.swift; path = views/SurgeryCountdown.swift; sourceTree = "<group>"; };
 		9E960FD01DCA617500811FFB /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = shared/ChecklistItem.swift; sourceTree = "<group>"; };
 		9E960FD51DCA8A8100811FFB /* WildernessGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WildernessGuideViewController.swift; path = controllers/shared/WildernessGuideViewController.swift; sourceTree = "<group>"; };
@@ -361,7 +373,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8A05F31E27011F00A36B72 /* Realm.framework in Frameworks */,
 				9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */,
+				9E8A05F51E27012000A36B72 /* RealmSwift.framework in Frameworks */,
 				9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +570,8 @@
 				D2A69C2B1DCB991100A0F568 /* NotesTableViewCell.swift */,
 				9E8A05EF1E25831A00A36B72 /* TextTableViewCell.swift */,
 				9E81DDCB1DCD05EE0065C928 /* SettingsItem.swift */,
+				9E66BD921E284FBE00B588FC /* SettingsItemNavigation.swift */,
+				9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */,
 				9E3E6B5E1DD4F8B8000E92E1 /* GuideTableViewCell.swift */,
 				9E3E6B601DD4FAED000E92E1 /* Appointment.swift */,
 				9E43C4261DDBADA700EF986C /* Resource.swift */,
@@ -583,6 +599,8 @@
 		9EFDA0471D8370F400FD6763 = {
 			isa = PBXGroup;
 			children = (
+				9E8A05F11E27011F00A36B72 /* Realm.framework */,
+				9E8A05F21E27011F00A36B72 /* RealmSwift.framework */,
 				9EFDA0521D8370F400FD6763 /* Bees Knees */,
 				9EFDA0671D8370F400FD6763 /* Bees KneesTests */,
 				9EFDA0721D8370F400FD6763 /* Bees KneesUITests */,
@@ -731,6 +749,7 @@
 				9EFDA04D1D8370F400FD6763 /* Frameworks */,
 				9EFDA04E1D8370F400FD6763 /* Resources */,
 				9EFDA0F31D83731800FD6763 /* Embed Frameworks */,
+				9E8A05F71E27019700A36B72 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -793,7 +812,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K65HQ235M5;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					9EFDA0631D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -927,6 +946,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E8A05F71E27019700A36B72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9EFDA04C1D8370F400FD6763 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -940,12 +975,14 @@
 				D2B488731DEF4B4B000333D6 /* PhotoLog.swift in Sources */,
 				D2B488701DEF4B4B000333D6 /* GluteSets.swift in Sources */,
 				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
+				9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */,
 				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
 				9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
 				9E018F8E1E15DDEE008250FA /* UIView+Mask.swift in Sources */,
 				9E960FDA1DCAA53200811FFB /* AppointmentTableViewCell.swift in Sources */,
+				9E66BD931E284FBE00B588FC /* SettingsItemNavigation.swift in Sources */,
 				9EFDA0931D8371A000FD6763 /* Walk.swift in Sources */,
 				9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */,
 				9E3E6B631DD50FC0000E92E1 /* Util.swift in Sources */,
@@ -1180,15 +1217,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = K65HQ235M5;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1bc0d0f6-3f58-4ea4-b9e0-3d720dc42cc2";
-				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1200,16 +1241,20 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = K65HQ235M5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "037abc7d-52f7-497a-8e6f-72ac538e8843";
-				PROVISIONING_PROFILE_SPECIFIER = "Leg Up App Store";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

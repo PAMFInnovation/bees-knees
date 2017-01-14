@@ -53,7 +53,7 @@ class TitleTableViewCell: AppointmentTableViewCell, UITextFieldDelegate {
     
     // MARK: - Helper functions
     func textFieldDidChange() {
-        appointment?.title = titleField.text
+        appointment?.title = titleField.text!
     }
     
     

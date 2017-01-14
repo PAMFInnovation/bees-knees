@@ -27,9 +27,17 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
     weak var classDelegate: PreSurgeryWelcomeFlowDelegate?
     
     
+    // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
-        // Superclass initialization
         super.init(coder: aDecoder)
+    }
+    
+    required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
         
         // Create the PreSurgery Welcome VC and establish the delegate
         preSurgeryWelcomeVC = PreSurgeryWelcomeViewController(nibName: "PreSurgeryWelcomeInterface", bundle: nil)
@@ -148,7 +156,8 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
                 }
                 else {
                     // Set the values in the singleton
-                    ProfileManager.sharedInstance.name = firstName! + " " + lastName!
+                    let name: String = firstName! + " " + lastName!
+                    ProfileManager.sharedInstance.updateUserInfo(name: name, email: nil, phone: nil)
                     
                     // Sign the consent document
                     signatureResult.apply(to: ProfileManager.sharedInstance.consent as! ORKConsentDocument)

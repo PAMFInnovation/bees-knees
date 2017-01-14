@@ -50,9 +50,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // Set text fields using data stored in ProfileManager singleton
-        fullNameField.text = ProfileManager.sharedInstance.name
-        emailField.text = ProfileManager.sharedInstance.email
-        phoneField.text = ProfileManager.sharedInstance.phone
+        fullNameField.text = ProfileManager.sharedInstance.user.name
+        emailField.text = ProfileManager.sharedInstance.user.email
+        phoneField.text = ProfileManager.sharedInstance.user.phone
         
         // Set the color of the icon
         profileIcon.image = profileIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -102,9 +102,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewWillDisappear(animated)
         
         // Save the profile data
-        ProfileManager.sharedInstance.name = fullNameField.text!
-        ProfileManager.sharedInstance.email = emailField.text!
-        ProfileManager.sharedInstance.phone = phoneField.text!
+        ProfileManager.sharedInstance.user.name = fullNameField.text!
+        ProfileManager.sharedInstance.user.email = emailField.text!
+        ProfileManager.sharedInstance.user.phone = phoneField.text!
         
         // Unregister from keyboard events
         let center = NotificationCenter.default

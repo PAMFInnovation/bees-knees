@@ -42,17 +42,25 @@ class PostSurgeryRoutineViewController: UITabBarController {
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init() {
+        self.init(nibName: nil, bundle: nil)
         
         /*// Add activities to the store
-        for activity in activities {
-            let carePlanActivity = activity.carePlanActivity()
-            
-            CarePlanStoreManager.sharedInstance.store.add(carePlanActivity) { success, error in
-                if !success {
-                    print("Error adding activity to the store: ", error?.localizedDescription)
-                }
-            }
-        }*/
+         for activity in activities {
+         let carePlanActivity = activity.carePlanActivity()
+         
+         CarePlanStoreManager.sharedInstance.store.add(carePlanActivity) { success, error in
+         if !success {
+         print("Error adding activity to the store: ", error?.localizedDescription)
+         }
+         }
+         }*/
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
