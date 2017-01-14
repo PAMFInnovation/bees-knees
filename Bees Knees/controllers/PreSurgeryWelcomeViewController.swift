@@ -96,7 +96,7 @@ class PreSurgeryWelcomeViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         
         // Save the goal text
-        ProfileManager.sharedInstance.goal = goalTextField.text!
+        ProfileManager.sharedInstance.updateUserGoal(goal: goalTextField.text!)
         
         // Trigger the delegate
         delegate?.preSurgeryNextButtonPressed(sender: self)

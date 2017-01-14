@@ -71,7 +71,7 @@ class PostSurgeryGoalView: UIView {
         self.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 140))
         
         // Set the goal text to display
-        var goalTextRaw: String = ProfileManager.sharedInstance.goal
+        var goalTextRaw: String = ProfileManager.sharedInstance.user.goal
         if goalTextRaw == "" {
             goalTextRaw = "My goal is to walk again comfortably."
         }

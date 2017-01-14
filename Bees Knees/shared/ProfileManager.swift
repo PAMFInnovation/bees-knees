@@ -22,6 +22,10 @@ final class User: Object {
     dynamic var name: String = ""
     dynamic var email: String = ""
     dynamic var phone: String = ""
+    dynamic var goal: String = ""
+    
+    // Notes
+    var notes: String = ""
     
     
     override static func primaryKey() -> String? {
@@ -56,15 +60,10 @@ class ProfileManager {
     // User object
     var user: User = User()
     
-    // Goal
-    var goal: String = ""
     
     // Date of surgery
     var surgeryAppointment: Appointment = Appointment(title: "Surgery", type: AppointmentType.Surgery)
     var isSurgerySet: Bool = false
-    
-    // Notes
-    var notes: String = ""
     
     // Appointments
     var appointments: [Appointment] = [Appointment]()
@@ -114,6 +113,22 @@ class ProfileManager {
         }
         
         try! realm.commitWrite()
+    }
+    
+    func updateUserGoal(goal: String) {
+        try! realm.write {
+            user.goal = goal
+        }
+    }
+    
+    func getUserNotes() -> String {
+        return user.notes
+    }
+    
+    func updateUserNotes(notes: String) {
+        try! realm.write {
+            user.notes = notes
+        }
     }
     
     func createNewUser() {

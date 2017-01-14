@@ -48,7 +48,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         self.view.addSubview(textArea)
         
         // Load the notes
-        textArea.text = ProfileManager.sharedInstance.notes
+        textArea.text = ProfileManager.sharedInstance.getUserNotes()
         
         // Add the placeholder label
         label.frame = CGRect(x: 10, y: 60, width: self.view.frame.width, height: 50)
@@ -81,7 +81,7 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // Save the notes
-        ProfileManager.sharedInstance.notes = textArea.text
+        ProfileManager.sharedInstance.updateUserNotes(notes: textArea.text)
     }
     
     override func viewDidLayoutSubviews() {
