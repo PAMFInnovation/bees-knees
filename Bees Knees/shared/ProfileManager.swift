@@ -35,7 +35,8 @@ final class User: Object {
 
 
 class ProfileManager {
-    // Singleton
+    
+    // MARK: - Singleton
     static let sharedInstance = ProfileManager()
     private init() {
         // Get the default realm
@@ -54,11 +55,10 @@ class ProfileManager {
         print("user", user.description)
     }
     
-    // Realm object
-    let realm: Realm
     
-    // User object
-    var user: User = User()
+    // MARK: - Members
+    let realm: Realm        // Realm object
+    var user: User = User() // User object
     
     
     // Date of surgery
@@ -71,6 +71,8 @@ class ProfileManager {
     // Consent document
     var consent = ConsentDocument.copy()
     
+    
+    // MARK: - Helper functions
     
     func getSurgeryDate() -> Date {
         return surgeryAppointment.date
