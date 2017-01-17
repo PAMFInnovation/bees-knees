@@ -118,7 +118,7 @@ class AppointmentTypeTableViewCell: AppointmentTableViewCell, UITableViewDelegat
         selectionLabel.text = type.description
         
         // Update the appointment
-        appointment?.type = type
+        appointment?.updateType(type: type)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

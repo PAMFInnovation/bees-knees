@@ -77,7 +77,7 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        appointment?.notes = textView.text
+        appointment?.updateNotes(notes: textView.text)
         
         // Show or hide the placeholder label
         placeholderLabel.isHidden = notesTextArea.text == "" ? false : true

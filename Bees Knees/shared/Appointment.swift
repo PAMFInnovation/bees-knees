@@ -101,4 +101,47 @@ final class Appointment: Object {
         }
         return false
     }
+    
+    func updateTitle(title: String) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.title = title
+        }
+    }
+    
+    func updateType(type: AppointmentType) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.type = type
+        }
+    }
+    
+    func updateDate(date: Date) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.date = date
+            self.scheduled = true
+        }
+    }
+    
+    func updatePlace(place: String) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.place = place
+        }
+    }
+    
+    func updateNotes(notes: String) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.notes = notes
+        }
+    }
+    
+    func updateElapsed() {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.elapsed = Util.isDateInPast(date)
+        }
+    }
+    
+    func updateScheduled(scheduled: Bool) {
+        try! ProfileManager.sharedInstance.realm.write {
+            self.scheduled = scheduled
+        }
+    }
 }

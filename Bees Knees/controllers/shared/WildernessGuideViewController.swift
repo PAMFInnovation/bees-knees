@@ -182,7 +182,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Add the appointments
         var appts: [Appointment] = []
-        for appt in ProfileManager.sharedInstance.appointments {
+        for appt in ProfileManager.sharedInstance.getAppointments() {
             if appt.scheduled == true {
                 appts.append(appt)
             }
@@ -205,11 +205,11 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         /*for appt in appts {
             self.tableViewData.append(appt)
         }*/
-        self.tableViewData = appts //ProfileManager.sharedInstance.appointments
+        self.tableViewData = appts
         
         // Add the surgery date to the table
-        if ProfileManager.sharedInstance.isSurgerySet {
-            self.tableViewData.append(ProfileManager.sharedInstance.surgeryAppointment)
+        if ProfileManager.sharedInstance.isSurgerySet() {
+            self.tableViewData.append(ProfileManager.sharedInstance.getSurgeryAppointment())
         }
         
         // Sort the table
@@ -217,7 +217,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         
         // Add the Follow Up slots  if it hasn't been scheduled and surgery has elapsed
-        if ProfileManager.sharedInstance.isSurgerySet == true &&
+        if ProfileManager.sharedInstance.isSurgerySet() == true &&
             Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) == true {
             
             if followUp6Appt != nil && followUp6Appt?.scheduled == false {
@@ -229,12 +229,12 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         // Add the surgery slot if it hasn't been scheduled
-        if ProfileManager.sharedInstance.isSurgerySet == false {
-            self.tableViewData.insert(ProfileManager.sharedInstance.surgeryAppointment, at: 0)
+        if ProfileManager.sharedInstance.isSurgerySet() == false {
+            self.tableViewData.insert(ProfileManager.sharedInstance.getSurgeryAppointment(), at: 0)
         }
             
         // Only add Pre-Op and Ortho slots if they haven't been scheduled and the surgery date hasn't elapsed
-        if ProfileManager.sharedInstance.isSurgerySet &&
+        if ProfileManager.sharedInstance.isSurgerySet() &&
             Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) == false {
             
             if orthoAppt != nil && orthoAppt?.scheduled == false {
@@ -251,7 +251,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         var found: Bool = false
         for appt in self.tableViewData {
             if appt.scheduled == true {
-                appt.elapsed = Util.isDateInPast(appt.date)
+                appt.updateElapsed()
                 
                 if !found && !appt.elapsed {
                     nextAppointment = appt

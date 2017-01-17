@@ -43,7 +43,7 @@ class DateOfSurgeryView: UIView {
         timeLabel.textColor = Colors.turquoise.color
         
         // Set the date if it already exists
-        if ProfileManager.sharedInstance.isSurgerySet {
+        if ProfileManager.sharedInstance.isSurgerySet() {
             self.setDate(date: ProfileManager.sharedInstance.getSurgeryDate())
             self.datePicker.setDate(ProfileManager.sharedInstance.getSurgeryDate(), animated: false)
         }

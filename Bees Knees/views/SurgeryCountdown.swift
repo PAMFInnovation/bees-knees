@@ -94,7 +94,7 @@ class SurgeryCountdown: UIView {
     func updateSurgeryLabel() {
         // Get the days until surgery
         var days: Int = 0
-        if ProfileManager.sharedInstance.isSurgerySet {
+        if ProfileManager.sharedInstance.isSurgerySet() {
             let calendar = Calendar.current
             
             // Replace the hour (time) of surgery date and current date with 00:00
@@ -132,11 +132,6 @@ class SurgeryCountdown: UIView {
     }
     
     func tap(tap: UITapGestureRecognizer) {
-        /*// Ignore this completely if the surgery date is already set
-        if ProfileManager.sharedInstance.isSurgerySet {
-            return
-        }*/
-        
         // Check for tap within the view's rect
         if tap.state == .ended {
             let point = tap.location(in: self)

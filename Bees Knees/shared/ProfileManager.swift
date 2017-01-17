@@ -25,7 +25,17 @@ final class User: Object {
     dynamic var goal: String = ""
     
     // Notes
-    var notes: String = ""
+    dynamic var notes: String = ""
+    
+    // Signed consent data
+    dynamic var consentData: Data = Data()
+    
+    // Appointments
+    let appointments = List<Appointment>()
+    
+    // Surgery appointment
+    dynamic var surgeryAppointment: Appointment? = Appointment(title: "Surgery", type: AppointmentType.Surgery)
+    dynamic var isSurgerySet: Bool = false
     
     
     override static func primaryKey() -> String? {
@@ -39,6 +49,9 @@ class ProfileManager {
     // MARK: - Singleton
     static let sharedInstance = ProfileManager()
     private init() {
+        // Delete the realm file
+        //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        
         // Get the default realm
         realm = try! Realm()
         
@@ -61,27 +74,25 @@ class ProfileManager {
     var user: User = User() // User object
     
     
-    // Date of surgery
-    var surgeryAppointment: Appointment = Appointment(title: "Surgery", type: AppointmentType.Surgery)
-    var isSurgerySet: Bool = false
-    
-    // Appointments
-    var appointments: [Appointment] = [Appointment]()
-    
-    // Consent document
-    var consent = ConsentDocument.copy()
-    
-    
     // MARK: - Helper functions
+    func isSurgerySet() -> Bool {
+        return user.isSurgerySet
+    }
+    
+    func getSurgeryAppointment() -> Appointment {
+        return user.surgeryAppointment!
+    }
     
     func getSurgeryDate() -> Date {
-        return surgeryAppointment.date
+        return user.surgeryAppointment!.date
     }
     
     func setSurgeryDate(_ date: Date) {
-        surgeryAppointment.date = date
-        surgeryAppointment.scheduled = true
-        isSurgerySet = true
+        try! realm.write {
+            user.surgeryAppointment!.date = date
+            user.surgeryAppointment!.scheduled = true
+            user.isSurgerySet = true
+        }
     }
     
     func getFlowState() -> FlowState {
@@ -133,8 +144,40 @@ class ProfileManager {
         }
     }
     
+    func getSignedConsentDocument() -> Data {
+        return user.consentData
+    }
+    
+    func updateSignedConsentDocument(data: Data) {
+        try! realm.write {
+            user.consentData = data
+        }
+    }
+    
+    func getAppointments() -> List<Appointment> {
+        return user.appointments
+    }
+    
+    func addAppointment(appt: Appointment) {
+        try! realm.write {
+            user.appointments.append(appt)
+        }
+    }
+    
     func createNewUser() {
         user = User()
+        
+        // Add placeholder appointments
+        user.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
+        user.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
+        user.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week))
+        user.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
+        
+        /*
+        user.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        user.appointments.append(Appointment(title: "Past", type: .CheckUp, date: Util.getDateFromString("1/10/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        user.appointments.append(Appointment(title: "Future", type: .CheckUp, date: Util.getDateFromString("1/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
+        */
         
         // Save the user object
         try! realm.write {

@@ -160,7 +160,11 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
                     ProfileManager.sharedInstance.updateUserInfo(name: name, email: nil, phone: nil)
                     
                     // Sign the consent document
-                    signatureResult.apply(to: ProfileManager.sharedInstance.consent as! ORKConsentDocument)
+                    let signedConsent = ConsentDocument.copy()
+                    signatureResult.apply(to: signedConsent as! ORKConsentDocument)
+                    (signedConsent as! ORKConsentDocument).makePDF(completionHandler: { (data: Data?, error: Error?) in
+                        ProfileManager.sharedInstance.updateSignedConsentDocument(data: data!)
+                    })
                 }
             }
             

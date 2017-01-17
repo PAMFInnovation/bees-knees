@@ -138,7 +138,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         if appointment.hasRequiredInfo() {
             // Add the appointment to the appointments list
             appointment.scheduled = true
-            ProfileManager.sharedInstance.appointments.append(appointment)
+            ProfileManager.sharedInstance.addAppointment(appt: appointment)
             
             // Trigger a completion
             self.dismiss(animated: true, completion: nil)

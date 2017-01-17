@@ -47,19 +47,6 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // For first-time users, add initial appointments as reminders to set
-        if ProfileManager.sharedInstance.checkFlowState(.Launch) {
-            ProfileManager.sharedInstance.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
-            ProfileManager.sharedInstance.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
-            ProfileManager.sharedInstance.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week))
-            ProfileManager.sharedInstance.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
-        }
-        
-        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        
-        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "Past", type: .CheckUp, date: Util.getDateFromString("1/10/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        //ProfileManager.sharedInstance.appointments.append(Appointment(title: "Future", type: .CheckUp, date: Util.getDateFromString("1/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,13 +62,13 @@ class RootViewController: UIViewController {
             ProfileManager.sharedInstance.user.flowState == .PreSurgeryRoutine {
             
             // TESTING logic - add surgery date
-            /*if !ProfileManager.sharedInstance.isSurgerySet {
+            /*if !ProfileManager.sharedInstance.isSurgerySet() {
                 //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
                 ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/24/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
             }*/
             
             // If the surgery date has passed, transition to post-surgery welcome
-            if ProfileManager.sharedInstance.isSurgerySet &&
+            if ProfileManager.sharedInstance.isSurgerySet() &&
                 Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) {
                 self.transitionToPostSurgeryWelcomeFlow()
             }

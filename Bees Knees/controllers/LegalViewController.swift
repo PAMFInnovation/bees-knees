@@ -37,9 +37,7 @@ class LegalViewController: UIViewController {
         webView = UIWebView(frame: self.view.frame)
         self.view.addSubview(webView)
         
-        (ProfileManager.sharedInstance.consent as! ORKConsentDocument).makePDF(completionHandler:{ (data: Data?, error: Error?) in
-            self.webView.load(data!, mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
-        })
+        self.webView.load(ProfileManager.sharedInstance.getSignedConsentDocument(), mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

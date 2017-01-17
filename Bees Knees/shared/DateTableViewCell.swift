@@ -92,8 +92,7 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         // Else set all other appointments normally
         else {
             // Update the appointment
-            appointment?.date = sender.date
-            appointment?.scheduled = true
+            appointment?.updateDate(date: sender.date)
         }
     }
 }
