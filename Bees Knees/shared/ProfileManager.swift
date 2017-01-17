@@ -232,6 +232,8 @@ class ProfileManager {
             realm.deleteAll()
         }
         
+        CarePlanStoreManager.sharedInstance.resetStore()
+        
         self.createNewUser()
     }
 }

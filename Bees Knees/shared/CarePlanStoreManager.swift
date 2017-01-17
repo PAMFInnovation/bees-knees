@@ -92,7 +92,7 @@ class CarePlanStoreManager : NSObject {
         store.delegate = self
         
         // TEMP: clear the store each time the app is run
-        self._clearStore()
+        //self._clearStore()
         
         // Add activities to the store
         for activity in activities {
@@ -106,8 +106,8 @@ class CarePlanStoreManager : NSObject {
         }
         
         // TEMP: add sample data
-        self._addSampleInterventionData()
-        self._addSampleAssessmentData()
+        //self._addSampleInterventionData()
+        //self._addSampleAssessmentData()
     }
     
     func updateInsights() {
@@ -120,6 +120,22 @@ class CarePlanStoreManager : NSObject {
     
     
     // MARK: - Helpers
+    func resetStore() {
+        // Clear the store
+        self._clearStore()
+        
+        // Add activities to the store
+        for activity in activities {
+            let carePlanActivity = activity.carePlanActivity()
+            
+            self.store.add(carePlanActivity) { success, error in
+                if !success {
+                    print("Error adding activity to the store: ", error?.localizedDescription)
+                }
+            }
+        }
+    }
+    
     fileprivate func _clearStore() {
         let deleteGroup = DispatchGroup()
         let store = self.store

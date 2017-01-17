@@ -49,7 +49,7 @@ final class Appointment: Object {
     /*convenience init() {
         title = ""
         type = AppointmentType.CheckUp
-        place = ""
+        place = ""tt tttt
         notes = ""
         elapsed = false
         scheduled = false

@@ -19,7 +19,6 @@
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E14B7321DCCE18B00C7973A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */; };
 		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
-		9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
 		9E1E44BD1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */; };
 		9E1E44C71DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */; };
@@ -235,7 +234,6 @@
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = controllers/shared/SettingsViewController.swift; sourceTree = "<group>"; };
 		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
-		9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
 		9E1E44BC1DD0EE1100FF78A6 /* PostSurgeryWelcomeFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryWelcomeFlowViewController.swift; path = controllers/flow/PostSurgeryWelcomeFlowViewController.swift; sourceTree = "<group>"; };
 		9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryCongratsView.swift; path = views/PostSurgeryCongratsView.swift; sourceTree = "<group>"; };
@@ -637,7 +635,6 @@
 				9E3E6B571DD4EF09000E92E1 /* util */,
 				9E43C42E1DDBB80E00EF986C /* content */,
 				9EFDA0531D8370F400FD6763 /* AppDelegate.swift */,
-				9E17D3A31DB93DE60072CDC1 /* MainViewController.swift */,
 				9EFDA0551D8370F400FD6763 /* RootViewController.swift */,
 				9EFDA0571D8370F400FD6763 /* Main.storyboard */,
 				9EFDA05A1D8370F400FD6763 /* Assets.xcassets */,
@@ -812,7 +809,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K65HQ235M5;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					9EFDA0631D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -974,7 +971,6 @@
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				D2B488731DEF4B4B000333D6 /* PhotoLog.swift in Sources */,
 				D2B488701DEF4B4B000333D6 /* GluteSets.swift in Sources */,
-				9E17D3A41DB93DE60072CDC1 /* MainViewController.swift in Sources */,
 				9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */,
 				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
@@ -1217,7 +1213,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1228,8 +1224,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1bc0d0f6-3f58-4ea4-b9e0-3d720dc42cc2";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1241,8 +1237,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1253,8 +1249,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "037abc7d-52f7-497a-8e6f-72ac538e8843";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up App Store";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
