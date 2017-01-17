@@ -100,13 +100,17 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func enable() {
-        checklistItem?.enabled = true
+        try! ProfileManager.sharedInstance.realm.write {
+            checklistItem?.enabled = true
+        }
         toggleButton.isHidden = false
         addButton.isHidden = true
     }
     
     func disable() {
-        checklistItem?.enabled = false
+        try! ProfileManager.sharedInstance.realm.write {
+            checklistItem?.enabled = false
+        }
         toggleButton.isHidden = true
         addButton.isHidden = false
     }

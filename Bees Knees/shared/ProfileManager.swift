@@ -37,6 +37,9 @@ final class User: Object {
     dynamic var surgeryAppointment: Appointment? = Appointment(title: "Surgery", type: AppointmentType.Surgery)
     dynamic var isSurgerySet: Bool = false
     
+    // Checklist
+    let checklist = List<ChecklistItem>()
+    
     
     override static func primaryKey() -> String? {
         return "id"
@@ -164,6 +167,22 @@ class ProfileManager {
         }
     }
     
+    func getChecklist() -> List<ChecklistItem> {
+        return user.checklist
+    }
+    
+    func addItemToChecklist(item: ChecklistItem) {
+        try! realm.write {
+            user.checklist.append(item)
+        }
+    }
+    
+    func removeItemFromChecklist(index: Int) {
+        try! realm.write {
+            user.checklist.remove(objectAtIndex: index)
+        }
+    }
+    
     func createNewUser() {
         user = User()
         
@@ -178,6 +197,29 @@ class ProfileManager {
         user.appointments.append(Appointment(title: "Past", type: .CheckUp, date: Util.getDateFromString("1/10/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
         user.appointments.append(Appointment(title: "Future", type: .CheckUp, date: Util.getDateFromString("1/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
         */
+        
+        // Add the checklist
+        user.checklist.append(ChecklistItem(text: "Choose a coach"))
+        user.checklist.append(ChecklistItem(text: "Check that surgeon's office has up-to-date insurance"))
+        user.checklist.append(ChecklistItem(text: "Check if pre-operative history and physical with PCP is needed"))
+        user.checklist.append(ChecklistItem(text: "Schedule appointments"))
+        user.checklist.append(ChecklistItem(text: "Complete dental work if needed within the next three months"))
+        user.checklist.append(ChecklistItem(text: "Secure helpers who will help with housework, laundry, meal prep, and pet care"))
+        user.checklist.append(ChecklistItem(text: "Prepare the house"))
+        user.checklist.append(ChecklistItem(text: "Arrange for help with errands (grocery shopping, doctor's appointments, etc.)"))
+        user.checklist.append(ChecklistItem(text: "Stop smoking"))
+        user.checklist.append(ChecklistItem(text: "Complete application for DMV handicapped permit"))
+        user.checklist.append(ChecklistItem(text: "Pack your bag"))
+        user.checklist.append(ChecklistItem(text: "Fill out medication list"))
+        user.checklist.append(ChecklistItem(text: "Fill out Anesthesia Questionnaire"))
+        user.checklist.append(ChecklistItem(text: "Plans for discharge questionnaire"))
+        user.checklist.append(ChecklistItem(text: "Prepare advanced directive, if available"))
+        user.checklist.append(ChecklistItem(text: "Complete Sleep Apnea questionnaire"))
+        user.checklist.append(ChecklistItem(text: "Arrange time off for work"))
+        user.checklist.append(ChecklistItem(text: "Arrange daycare needs"))
+        user.checklist.append(ChecklistItem(text: "Stock up on prepared food"))
+        user.checklist.append(ChecklistItem(text: "Arrange for lawn care"))
+        user.checklist.append(ChecklistItem(text: ""))
         
         // Save the user object
         try! realm.write {

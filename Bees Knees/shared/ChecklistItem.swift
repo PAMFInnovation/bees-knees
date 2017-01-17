@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-class ChecklistItem: NSObject {
+final class ChecklistItem: Object {
     
-    var text: String
-    var enabled: Bool
-    var completed: Bool
+    dynamic var text: String = ""
+    dynamic var enabled: Bool = true
+    dynamic var completed: Bool = false
     
     
-    init(text: String) {
+    convenience init(text: String) {
+        self.init()
+        
         self.text = text
         self.enabled = true
         self.completed = false

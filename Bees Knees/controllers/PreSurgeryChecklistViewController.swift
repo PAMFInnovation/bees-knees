@@ -42,28 +42,8 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add items to the table view data
-        tableViewData.append(ChecklistItem(text: "Choose a coach"))
-        tableViewData.append(ChecklistItem(text: "Check that surgeon's office has up-to-date insurance"))
-        tableViewData.append(ChecklistItem(text: "Check if pre-operative history and physical with PCP is needed"))
-        tableViewData.append(ChecklistItem(text: "Schedule appointments"))
-        tableViewData.append(ChecklistItem(text: "Complete dental work if needed within the next three months"))
-        tableViewData.append(ChecklistItem(text: "Secure helpers who will help with housework, laundry, meal prep, and pet care"))
-        tableViewData.append(ChecklistItem(text: "Prepare the house"))
-        tableViewData.append(ChecklistItem(text: "Arrange for help with errands (grocery shopping, doctor's appointments, etc.)"))
-        tableViewData.append(ChecklistItem(text: "Stop smoking"))
-        tableViewData.append(ChecklistItem(text: "Complete application for DMV handicapped permit"))
-        tableViewData.append(ChecklistItem(text: "Pack your bag"))
-        tableViewData.append(ChecklistItem(text: "Fill out medication list"))
-        tableViewData.append(ChecklistItem(text: "Fill out Anesthesia Questionnaire"))
-        tableViewData.append(ChecklistItem(text: "Plans for discharge questionnaire"))
-        tableViewData.append(ChecklistItem(text: "Prepare advanced directive, if available"))
-        tableViewData.append(ChecklistItem(text: "Complete Sleep Apnea questionnaire"))
-        tableViewData.append(ChecklistItem(text: "Arrange time off for work"))
-        tableViewData.append(ChecklistItem(text: "Arrange daycare needs"))
-        tableViewData.append(ChecklistItem(text: "Stock up on prepared food"))
-        tableViewData.append(ChecklistItem(text: "Arrange for lawn care"))
-        tableViewData.append(ChecklistItem(text: ""))
+        // Get the checklist
+        tableViewData = Array(ProfileManager.sharedInstance.getChecklist())
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
@@ -151,6 +131,7 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         let _self = self
         let delete = UITableViewRowAction(style: .normal, title: "Delete", handler: {_,_ in 
             // Remove the cell from the table view's data
+            ProfileManager.sharedInstance.removeItemFromChecklist(index: indexPath.row)
             _self.tableViewData.remove(at: indexPath.row)
             
             // Remove the cell from the table view's data
@@ -227,11 +208,15 @@ extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate 
         }
         
         // Update the text for the cell at sender's index
-        self.tableViewData[index].text = sender.itemField.text!
+        try! ProfileManager.sharedInstance.realm.write {
+            self.tableViewData[index].text = sender.itemField.text!
+        }
         
         // If we modified the last item, create a new one with empty string
         if index == tableViewData.count - 1 && sender.itemField.text != "" {
-            tableViewData.append(ChecklistItem(text: ""))
+            let newItem: ChecklistItem = ChecklistItem(text: "")
+            ProfileManager.sharedInstance.addItemToChecklist(item: newItem)
+            tableViewData.append(newItem)
         }
         
         // Reload the table data
@@ -249,7 +234,10 @@ extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate 
         }
         
         // Update the cell's completed state
-        self.tableViewData[index].completed = !self.tableViewData[index].completed
+        let newState = !self.tableViewData[index].completed
+        try! ProfileManager.sharedInstance.realm.write {
+            self.tableViewData[index].completed = newState
+        }
         
         // Reload the table data
         self.tableView.reloadData()
