@@ -8,6 +8,7 @@
 
 import Foundation
 import CareKit
+import ResearchKit
 
 
 struct SampleAssessmentData {
@@ -67,6 +68,8 @@ class CarePlanStoreManager : NSObject {
     }
     private let insightsBuilder: InsightsBuilder
     
+    var insightsData: [String: LineGraphDataSource] = [String: LineGraphDataSource]()
+    
     
     // Singleton
     static let sharedInstance = CarePlanStoreManager()
@@ -108,6 +111,9 @@ class CarePlanStoreManager : NSObject {
         // TEMP: add sample data
         //self._addSampleInterventionData()
         //self._addSampleAssessmentData()
+        
+        // Update insights on launch
+        updateInsights()
     }
     
     func updateInsights() {

@@ -37,15 +37,17 @@ class SettingsViewController: UITableViewController {
         
         dataSource.append([SettingsItem]())
         dataSource[0].append(SettingsItemNavigation(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
-        dataSource[0].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
         
         dataSource.append([SettingsItem]())
+        dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
+        
+        /*dataSource.append([SettingsItem]())
         dataSource[1].append(SettingsItemNavigation(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
-        dataSource[1].append(SettingsItemNavigation(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))*/
         
         dataSource.append([SettingsItem]())
         dataSource[2].append(SettingsItemNavigation(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
-        dataSource[2].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
         
         dataSource.append([SettingsItem]())
         dataSource[3].append(SettingsItemButton(name: "Reset App Data", action: {

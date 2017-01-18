@@ -47,7 +47,8 @@ class InsightsBuilder {
         self.carePlanStore = carePlanStore
     }
     
-    //knee pain, mood, incision pain
+    
+    // knee pain, mood, incision pain
     
     func updateInsights(completion: ((Bool, [OCKInsightItem]?) -> Void)?) {
         // Cancel any in-progress operations.

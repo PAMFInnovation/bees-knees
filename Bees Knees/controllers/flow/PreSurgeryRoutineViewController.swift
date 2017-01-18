@@ -77,7 +77,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Create the Settings VC
         settingsVC = SettingsViewController()
-        settingsVC.title = NSLocalizedString("Settings", comment: "")
+        settingsVC.title = NSLocalizedString("More", comment: "")
         settingsVC.tabBarItem = UITabBarItem(title: settingsVC.title, image: UIImage(named: "settings-icon"), selectedImage: UIImage(named: "settings-icon"))
         
         // Set the tab view controllers

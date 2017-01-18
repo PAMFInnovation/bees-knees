@@ -13,10 +13,10 @@
 		9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */; };
 		9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */; };
 		9E018F9F1E1B0752008250FA /* TutorialTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */; };
-		9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; };
-		9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95A31DA5536300DD9254 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E130AFB1E2EB05B0032AC96 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E130AF81E2EB0520032AC96 /* ResearchKit.framework */; };
+		9E130AFC1E2EB05B0032AC96 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E130AF81E2EB0520032AC96 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E14B7321DCCE18B00C7973A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */; };
 		9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */; };
 		9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */; };
@@ -148,20 +148,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9E0C95A21DA5536300DD9254 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B183A5951A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		9E0C95A41DA5536300DD9254 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
-		};
 		9E0C95AC1DA5536C00DD9254 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
@@ -176,19 +162,33 @@
 			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
 			remoteInfo = CareKitTests;
 		};
-		9E0C95B21DA5538A00DD9254 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B183A4731A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
 		9E0C95B61DA5539200DD9254 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
 			remoteInfo = CareKit;
+		};
+		9E130AF71E2EB0520032AC96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		9E130AF91E2EB0520032AC96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		9E130AFD1E2EB05B0032AC96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
 		};
 		9EFDA0651D8370F400FD6763 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -215,8 +215,8 @@
 			files = (
 				9E8A05F41E27011F00A36B72 /* Realm.framework in Embed Frameworks */,
 				9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */,
+				9E130AFC1E2EB05B0032AC96 /* ResearchKit.framework in Embed Frameworks */,
 				9E8A05F61E27012000A36B72 /* RealmSwift.framework in Embed Frameworks */,
-				9E0C95B11DA5538A00DD9254 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,8 +230,8 @@
 		9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = controllers/tutorial/TutorialViewController.swift; sourceTree = "<group>"; };
 		9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewController.swift; path = controllers/tutorial/TutorialPageViewController.swift; sourceTree = "<group>"; };
 		9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTextViewController.swift; path = controllers/tutorial/TutorialTextViewController.swift; sourceTree = "<group>"; };
-		9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
+		9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = controllers/shared/SettingsViewController.swift; sourceTree = "<group>"; };
 		9E17D3A11DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeViewController.swift; path = controllers/PreSurgeryWelcomeViewController.swift; sourceTree = "<group>"; };
 		9E17D3AA1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreSurgeryWelcomeInterface.xib; path = interfaces/PreSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -373,8 +373,8 @@
 			files = (
 				9E8A05F31E27011F00A36B72 /* Realm.framework in Frameworks */,
 				9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */,
+				9E130AFB1E2EB05B0032AC96 /* ResearchKit.framework in Frameworks */,
 				9E8A05F51E27012000A36B72 /* RealmSwift.framework in Frameworks */,
-				9E0C95B01DA5538A00DD9254 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,20 +405,20 @@
 			name = tutorial;
 			sourceTree = "<group>";
 		};
-		9E0C959D1DA5536300DD9254 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9E0C95A31DA5536300DD9254 /* ResearchKit.framework */,
-				9E0C95A51DA5536300DD9254 /* ResearchKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		9E0C95A71DA5536C00DD9254 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				9E0C95AD1DA5536C00DD9254 /* CareKit.framework */,
 				9E0C95AF1DA5536C00DD9254 /* CareKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E130AF21E2EB0520032AC96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E130AF81E2EB0520032AC96 /* ResearchKit.framework */,
+				9E130AFA1E2EB0520032AC96 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -717,7 +717,7 @@
 		9EFDA0941D8371CE00FD6763 /* Linked frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */,
+				9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */,
 				9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */,
 			);
 			name = "Linked frameworks";
@@ -751,8 +751,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				9E0C95B31DA5538A00DD9254 /* PBXTargetDependency */,
 				9E0C95B71DA5539200DD9254 /* PBXTargetDependency */,
+				9E130AFE1E2EB05B0032AC96 /* PBXTargetDependency */,
 			);
 			name = "Bees Knees";
 			productName = "Bees Knees";
@@ -840,8 +840,8 @@
 					ProjectRef = 9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 9E0C959D1DA5536300DD9254 /* Products */;
-					ProjectRef = 9E0C959C1DA5536300DD9254 /* ResearchKit.xcodeproj */;
+					ProductGroup = 9E130AF21E2EB0520032AC96 /* Products */;
+					ProjectRef = 9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -854,20 +854,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9E0C95A31DA5536300DD9254 /* ResearchKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKit.framework;
-			remoteRef = 9E0C95A21DA5536300DD9254 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9E0C95A51DA5536300DD9254 /* ResearchKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ResearchKitTests.xctest;
-			remoteRef = 9E0C95A41DA5536300DD9254 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9E0C95AD1DA5536C00DD9254 /* CareKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -880,6 +866,20 @@
 			fileType = wrapper.cfbundle;
 			path = CareKitTests.xctest;
 			remoteRef = 9E0C95AE1DA5536C00DD9254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E130AF81E2EB0520032AC96 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 9E130AF71E2EB0520032AC96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E130AFA1E2EB0520032AC96 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 9E130AF91E2EB0520032AC96 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1079,15 +1079,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9E0C95B31DA5538A00DD9254 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ResearchKit;
-			targetProxy = 9E0C95B21DA5538A00DD9254 /* PBXContainerItemProxy */;
-		};
 		9E0C95B71DA5539200DD9254 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CareKit;
 			targetProxy = 9E0C95B61DA5539200DD9254 /* PBXContainerItemProxy */;
+		};
+		9E130AFE1E2EB05B0032AC96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = 9E130AFD1E2EB05B0032AC96 /* PBXContainerItemProxy */;
 		};
 		9EFDA0661D8370F400FD6763 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1220,7 +1220,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1245,7 +1245,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";

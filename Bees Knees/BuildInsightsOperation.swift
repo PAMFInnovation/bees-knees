@@ -53,10 +53,15 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
-        let messageInsight = OCKMessageItem(title: "PLEASE NOTE", text: "This module is not functioning properly right now. Please ignore during your testing.", tintColor: Colors.turquoise.color, messageType: .tip)
-        newInsights.append(messageInsight)
+        if let insight = createKneePainInsight() {
+            newInsights.append(insight)
+        }
         
-        if let insight = createPrimaryInsight() {
+        if let insight = createMoodInsight() {
+            newInsights.append(insight)
+        }
+        
+        if let insight = createIncisionPainInsight() {
             newInsights.append(insight)
         }
         
@@ -69,9 +74,10 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Convenience
     
-    func createPrimaryInsight() -> OCKInsightItem? {
+    func createKneePainInsight() -> OCKInsightItem? {
+        
         // Make sure there are events to parse
-        guard let kneePainEvents = kneePainEvents, let moodEvents = moodEvents, let incisionPainEvents = incisionPainEvents else { return nil }
+        guard let kneePainEvents = kneePainEvents else { return nil }
         
         // Determine the start date for the previous week
         let calendar = Calendar.current
@@ -80,23 +86,10 @@ class BuildInsightsOperation: Operation {
         components.day = -7
         let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
         
-        // Create the formatters for the barchart data
-        let dayOfWeekFormatter = DateFormatter()
-        dayOfWeekFormatter.dateFormat = "E"
-        let shortDateFormatter = DateFormatter()
-        shortDateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "Md", options: 0, locale: shortDateFormatter.locale)
-        
-        // Loop through the week, collecting pain and mood scores
-        var kneePainValues = [Int]()
-        var moodValues = [Int]()
-        var incisionPainValues = [Int]()
-        
-        // Labels
-        var kneePainLabels = [String]()
-        var moodLabels = [String]()
-        var incisionPainLabels = [String]()
-        var axisTitles = [String]()
-        var axisSubtitles = [String]()
+        // Construct the plot points
+        // Knee Pain, Mood, Incision Pain
+        var plotPoints: [ORKValueRange] = []
+        var labels: [String] = []
         
         for offset in 0..<7 {
             // Determine the day components.
@@ -104,55 +97,103 @@ class BuildInsightsOperation: Operation {
             let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
             let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
             
+            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
+            
             // Store the knee pain result for the current day.
             if let result = kneePainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
-                kneePainValues.append(score)
-                kneePainLabels.append(result.valueString)
+                plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
-                kneePainValues.append(0)
-                kneePainLabels.append(NSLocalizedString("N/A", comment: ""))
+                plotPoints.append(ORKValueRange())
             }
+        }
+        
+        // Create the line graph and set the data
+        let lineGraph = LineGraphChart.init()
+        lineGraph.title = "Knee Pain"
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
+        return lineGraph
+    }
+    
+    func createMoodInsight() -> OCKInsightItem? {
+        
+        // Make sure there are events to parse
+        guard let moodEvents = moodEvents else { return nil }
+        
+        // Determine the start date for the previous week
+        let calendar = Calendar.current
+        let now = Date()
+        var components = DateComponents()
+        components.day = -7
+        let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        
+        // Construct the plot points
+        // Knee Pain, Mood, Incision Pain
+        var plotPoints: [ORKValueRange] = []
+        var labels: [String] = []
+        
+        for offset in 0..<7 {
+            // Determine the day components.
+            components.day = offset
+            let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
+            let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
+            
+            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
             
             // Store the mood result for the current day.
             if let result = moodEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
-                moodValues.append(score)
-                moodLabels.append(result.valueString)
+                plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
-                moodValues.append(0)
-                moodLabels.append(NSLocalizedString("N/A", comment: ""))
+                plotPoints.append(ORKValueRange())
             }
+        }
+        
+        // Create the line graph and set the data
+        let lineGraph = LineGraphChart.init()
+        lineGraph.title = "Mood"
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
+        return lineGraph
+    }
+
+    func createIncisionPainInsight() -> OCKInsightItem? {
+        
+        // Make sure there are events to parse
+        guard let incisionPainEvents = incisionPainEvents else { return nil }
+        
+        // Determine the start date for the previous week
+        let calendar = Calendar.current
+        let now = Date()
+        var components = DateComponents()
+        components.day = -7
+        let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        
+        // Construct the plot points
+        // Knee Pain, Mood, Incision Pain
+        var plotPoints: [ORKValueRange] = []
+        var labels: [String] = []
+        
+        for offset in 0..<7 {
+            // Determine the day components.
+            components.day = offset
+            let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
+            let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
+            
+            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
             
             // Store the incision pain result for the current day.
             if let result = incisionPainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
-                incisionPainValues.append(score)
-                incisionPainLabels.append(result.valueString)
+                plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
-                incisionPainValues.append(0)
-                incisionPainLabels.append(NSLocalizedString("N/A", comment: ""))
+                plotPoints.append(ORKValueRange())
             }
-            
-            // Set the axis labels
-            axisTitles.append(dayOfWeekFormatter.string(from: dayDate))
-            axisSubtitles.append(shortDateFormatter.string(from: dayDate))
         }
         
-        // Create a 'OCKBarSeries' for each set of data.
-        let kneePainBarSeries = OCKBarSeries(title: "Knee Pain", values: kneePainValues as [NSNumber], valueLabels: kneePainLabels, tintColor: Colors.turquoiseLight1.color)
-        let incisionPainBarSeries = OCKBarSeries(title: "Incision Pain", values: incisionPainValues as [NSNumber], valueLabels: incisionPainLabels, tintColor: Colors.turquoiseLight2.color)
-        let moodBarSeries = OCKBarSeries(title: "Mood", values: moodValues as [NSNumber], valueLabels: moodLabels, tintColor: Colors.turquoiseLight3.color)
-        
-        // Add the series to a chart
-        let chart = OCKBarChart(title: "Pain and Mood", text: nil, tintColor: Colors.turquoise.color, axisTitles: axisTitles, axisSubtitles: axisSubtitles, dataSeries: [kneePainBarSeries, incisionPainBarSeries, moodBarSeries], minimumScaleRangeValue: 0, maximumScaleRangeValue: 10)
-        
-        
-        // Create a custom line graph to display instead
+        // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
+        lineGraph.title = "Incision Pain"
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
         return lineGraph
-        
-        // Return the final chart.
-        //return chart
     }
 }

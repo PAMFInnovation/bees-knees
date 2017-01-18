@@ -12,27 +12,35 @@ import ResearchKit
 
 class LineGraphChart: OCKChart {
     
+    // Data source
+    var dataSource: LineGraphDataSource?
+    
+    
     override func chartView() -> UIView {
-        
         // Create the line graph chart view
-        let view: ORKLineGraphChartView = ORKLineGraphChartView()
+        let chartView: ORKLineGraphChartView = ORKLineGraphChartView()
         
         // Attach a data source
-        let dataSource: LineGraphDataSource = LineGraphDataSource()
-        view.dataSource = dataSource
-        view.noDataText = "fck you"
+        chartView.dataSource = CarePlanStoreManager.sharedInstance.insightsData[self.title!]
         
         // Configure it
-        view.showsVerticalReferenceLines = true
-        view.showsHorizontalReferenceLines = true
-        view.axisColor = UIColor.white
-        view.verticalAxisTitleColor = UIColor.orange
-        //view.scrubberLineColor = UIColor.red
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        chartView.showsVerticalReferenceLines = true
+        chartView.showsHorizontalReferenceLines = true
+        chartView.axisColor = UIColor.lightGray
+        chartView.verticalAxisTitleColor = Colors.turquoise.color
+        chartView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Return the view
-        return view
+        // Constraints
+        chartView.widthAnchor.constraint(equalToConstant: 375).isActive = true
+        chartView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        /*let label: UILabel = UILabel(frame: CGRect(x: 0, y: 300, width: 300, height: 50))
+        label.text = "fdsafdsa"
+        label.backgroundColor = UIColor.yellow
+        chartView.addSubview(label)*/
+        
+        // Return the container view
+        return chartView
     }
     
     override init() {
