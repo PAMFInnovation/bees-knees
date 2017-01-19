@@ -22,6 +22,7 @@ import UIKit
             }
         }
     }
+    
     @IBInspectable var borderWidth:CGFloat {
         set {
             layer.borderWidth = newValue
@@ -30,13 +31,40 @@ import UIKit
             return layer.borderWidth
         }
     }
+    
+    @IBInspectable var shadow: Bool {
+        get {
+            return layer.shadowOpacity > 0.0
+        }
+        set {
+            if newValue == true {
+                self.addShadow()
+            }
+        }
+    }
+    
     @IBInspectable var cornerRadius:CGFloat {
         set {
             layer.cornerRadius = newValue
-            clipsToBounds = newValue > 0
+            //clipsToBounds = newValue > 0
+            
+            // Don't touch the masksToBound property if a shadow is needed in addition to the cornerRadius
+            if shadow == false {
+                self.layer.masksToBounds = true
+            }
         }
         get {
             return layer.cornerRadius
         }
+    }
+    
+    func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
+                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+                   shadowOpacity: Float = 0.4,
+                   shadowRadius: CGFloat = 3.0) {
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
     }
 }
