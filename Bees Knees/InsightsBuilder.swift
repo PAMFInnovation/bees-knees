@@ -115,10 +115,11 @@ class InsightsBuilder {
         let calendar = Calendar.current
         let now = Date()
         
-        let currentWeekRange = calendar.weekDatesForDate(now)
-        let previousWeekRange = calendar.weekDatesForDate(currentWeekRange.start.addingTimeInterval(-1))
+        var components = DateComponents()
+        components.day = -6
+        let startDate = calendar.date(byAdding: components, to: now)!
         
-        let queryRangeStart = NSDateComponents(date: previousWeekRange.start, calendar: calendar)
+        let queryRangeStart = NSDateComponents(date: startDate, calendar: calendar)
         let queryRangeEnd = NSDateComponents(date: now, calendar: calendar)
         
         return (start: queryRangeStart as DateComponents, end: queryRangeEnd as DateComponents)

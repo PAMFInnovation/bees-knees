@@ -83,8 +83,9 @@ class BuildInsightsOperation: Operation {
         let calendar = Calendar.current
         let now = Date()
         var components = DateComponents()
-        components.day = -7
-        let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        components.day = -6
+        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
         // Knee Pain, Mood, Incision Pain
@@ -124,8 +125,9 @@ class BuildInsightsOperation: Operation {
         let calendar = Calendar.current
         let now = Date()
         var components = DateComponents()
-        components.day = -7
-        let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        components.day = -6
+        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
         // Knee Pain, Mood, Incision Pain
@@ -165,8 +167,9 @@ class BuildInsightsOperation: Operation {
         let calendar = Calendar.current
         let now = Date()
         var components = DateComponents()
-        components.day = -7
-        let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        components.day = -6
+        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+        let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
         // Knee Pain, Mood, Incision Pain
