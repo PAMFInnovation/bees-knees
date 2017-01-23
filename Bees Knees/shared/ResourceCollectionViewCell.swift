@@ -17,10 +17,15 @@ class ResourceCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     var textView: UITextView = UITextView()
+    var htmlFile: String?
     var delegate: ResourceCollectionViewCellDelegate?
     
     
     // MARK: - Initialization
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,7 +33,7 @@ class ResourceCollectionViewCell: UICollectionViewCell {
         let roundView: UIView = UIView(frame: frame)
         roundView.frame.origin = CGPoint.zero
         roundView.backgroundColor = UIColor("#00AAA6")
-        roundView.shadow = true
+        //roundView.shadow = true
         roundView.cornerRadius = 20.0
         roundView.isUserInteractionEnabled = false
         self.addSubview(roundView)
@@ -41,7 +46,7 @@ class ResourceCollectionViewCell: UICollectionViewCell {
         textView.textColor = UIColor.white
         textView.isEditable = false
         textView.isSelectable = false
-        textView.font = UIFont.systemFont(ofSize: 20)
+        textView.font = UIFont.systemFont(ofSize: 16)
         textView.isUserInteractionEnabled = false
         textView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
         self.addSubview(textView)
@@ -51,10 +56,6 @@ class ResourceCollectionViewCell: UICollectionViewCell {
         // cell selection is consumed by the text view.
         let tap = UITapGestureRecognizer(target: self, action: #selector(ResourceCollectionViewCell.selectCell(_:)))
         self.addGestureRecognizer(tap)
-    }
-        
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     

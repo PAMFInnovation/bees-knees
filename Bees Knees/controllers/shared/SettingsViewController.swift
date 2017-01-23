@@ -39,7 +39,8 @@ class SettingsViewController: UITableViewController {
         dataSource[0].append(SettingsItemNavigation(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
+        //dataSource[1].append(SettingsItemNavigation(name: "Old Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
         dataSource[1].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
         
         /*dataSource.append([SettingsItem]())

@@ -14,9 +14,20 @@ class ResourceViewController: UIViewController {
     // MARK: - Properties
     var scrollView: UIScrollView!
     var defaultScrollInsets: UIEdgeInsets?  // keep default edge insets for when we need to reset scrolling
+    let htmlFile: String
     
     
     // MARK: - Initialization
+    required init?(coder aDecoder: NSCoder) {
+        self.htmlFile = ""
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(htmlFile: String) {
+        self.htmlFile = htmlFile
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +36,7 @@ class ResourceViewController: UIViewController {
         
         // Setup the scrollview
         self.scrollView = UIScrollView(frame: self.view.frame)
-        self.view.addSubview(scrollView)
+        //self.view.addSubview(scrollView)
         
         // Setup the title
         let title = UILabel(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: 60))
@@ -33,9 +44,37 @@ class ResourceViewController: UIViewController {
         title.textAlignment = .center
         title.font = UIFont.systemFont(ofSize: 24)
         title.textColor = UIColor.black
-        self.scrollView.addSubview(title)
+        //self.view.addSubview(title)
         
-        // Setup the text view
+        // Setup the webview
+        let webView = UIWebView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height - 60))
+        webView.backgroundColor = UIColor.white
+        webView.scalesPageToFit = true
+        self.view.addSubview(webView)
+        
+        // Load the html file
+        let file = Bundle.main.path(forResource: self.htmlFile, ofType: "html")
+        let html = try? String(contentsOfFile: file!, encoding: String.Encoding.utf8)
+        
+        // Construct base HTML with standard styling
+        var finalHtml = "<html><head><style>body {font-family: Arial, Helvetica, sans-serif;font-size: 40px;margin: 60px 60px;}</style></head>"
+        
+        // If the HTML file does not exist, display an error message
+        if html == nil || self.htmlFile == "" {
+            finalHtml.append("<body><h2>Content Not Found</h2><p>Attempted to load Binder content that was not found.</p></body>")
+        }
+        // Else, append the loaded HTML
+        else {
+            finalHtml.append(html!)
+        }
+        
+        // Close the HTMl with the final tag
+        finalHtml.append("</html>")
+        
+        // Load the HTML into the webview
+        webView.loadHTMLString(finalHtml, baseURL: Bundle.main.bundleURL)
+        
+        /*// Setup the text view
         let textView = UITextView(frame: CGRect(x: self.view.frame.origin.x + 20, y: self.view.frame.origin.y + 60, width: self.view.frame.width - 40, height: self.view.frame.height - 60))
         //textView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
         textView.textAlignment = .left
@@ -51,13 +90,13 @@ class ResourceViewController: UIViewController {
             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
             documentAttributes: nil)
         attrStr.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: 0, length: attrStr.length))
-        textView.attributedText = attrStr
+        textView.attributedText = attrStr*/
     }
     
-    override func viewDidLayoutSubviews() {
+    /*override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         // Set default scroll insets
         defaultScrollInsets = scrollView.contentInset
-    }
+    }*/
 }
