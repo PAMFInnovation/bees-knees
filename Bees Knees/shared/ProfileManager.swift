@@ -189,8 +189,8 @@ class ProfileManager {
         // Add placeholder appointments
         user.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
         user.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
-        user.appointments.append(Appointment(title: "2-week follow up", type: .FollowUp2Week))
-        user.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
+        user.appointments.append(Appointment(title: "Follow up", type: .FollowUp2Week))
+        //user.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
         
         /*
         user.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
