@@ -153,6 +153,10 @@ class RootViewController: UIViewController {
             postSurgeryRoutineFlow.removeFromParentViewController()
         }
         
+        // Recreate the routine view controllers
+        preSurgeryRoutineFlow = PreSurgeryRoutineViewController()
+        postSurgeryRoutineFlow = PostSurgeryRoutineViewController()
+        
         // Transition to the pre-surgery welcome
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
         let vc = PreSurgeryWelcomeFlowViewController()
