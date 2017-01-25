@@ -104,6 +104,8 @@
 		9ED187FD1E37C034009E5126 /* pre-operative-appointments.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F21E37C034009E5126 /* pre-operative-appointments.html */; };
 		9ED187FE1E37C034009E5126 /* select-your-coach.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F31E37C034009E5126 /* select-your-coach.html */; };
 		9ED187FF1E37C034009E5126 /* surgical-clearance.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F41E37C034009E5126 /* surgical-clearance.html */; };
+		9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */; };
+		9ED188051E387C77009E5126 /* down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ED188041E387C77009E5126 /* down-arrow.png */; };
 		9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */; };
 		9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */; };
 		9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */; };
@@ -323,6 +325,8 @@
 		9ED187F21E37C034009E5126 /* pre-operative-appointments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "pre-operative-appointments.html"; sourceTree = "<group>"; };
 		9ED187F31E37C034009E5126 /* select-your-coach.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "select-your-coach.html"; sourceTree = "<group>"; };
 		9ED187F41E37C034009E5126 /* surgical-clearance.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "surgical-clearance.html"; sourceTree = "<group>"; };
+		9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RoundCorners.swift"; path = "extensions/UIView+RoundCorners.swift"; sourceTree = "<group>"; };
+		9ED188041E387C77009E5126 /* down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-arrow.png"; sourceTree = "<group>"; };
 		9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryConfirmationView.swift; path = views/PostSurgeryConfirmationView.swift; sourceTree = "<group>"; };
 		9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryRoutineViewController.swift; path = controllers/flow/PostSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
 		9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "extensions/UIViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 				D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */,
 				9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */,
 				9EC4F6991E31219C008E8DB6 /* UIColorExtension.swift */,
+				9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 		9ED187EE1E37C034009E5126 /* binder */ = {
 			isa = PBXGroup;
 			children = (
+				9ED188041E387C77009E5126 /* down-arrow.png */,
 				9ED187EF1E37C034009E5126 /* 1-before-surgery */,
 				9ED187F51E37C034009E5126 /* 2-your-surgery-and-hospital-stay */,
 				9ED187F61E37C034009E5126 /* 3-rehabilitation-and-home-recovery */,
@@ -987,6 +993,7 @@
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
+				9ED188051E387C77009E5126 /* down-arrow.png in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9ED187FD1E37C034009E5126 /* pre-operative-appointments.html in Resources */,
 				9E4D58421E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf in Resources */,
@@ -1149,6 +1156,7 @@
 				9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
+				9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */,
 				D2B4886E1DEF4B4B000333D6 /* AnklePumps.swift in Sources */,
 				9E960FD61DCA8A8100811FFB /* WildernessGuideViewController.swift in Sources */,
 				9E43C4271DDBADA700EF986C /* Resource.swift in Sources */,

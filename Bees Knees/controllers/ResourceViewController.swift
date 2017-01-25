@@ -12,9 +12,10 @@ import UIKit
 class ResourceViewController: UIViewController {
     
     // MARK: - Properties
-    var scrollView: UIScrollView!
-    var defaultScrollInsets: UIEdgeInsets?  // keep default edge insets for when we need to reset scrolling
     let htmlFile: String
+    var webView: UIWebView = UIWebView()
+    var webViewCenter: CGPoint = CGPoint.zero
+    var isTrackingPanLocation: Bool = false
     
     
     // MARK: - Initialization
@@ -34,20 +35,12 @@ class ResourceViewController: UIViewController {
         // White background color
         self.view.backgroundColor = UIColor.white
         
-        // Setup the scrollview
-        self.scrollView = UIScrollView(frame: self.view.frame)
-        //self.view.addSubview(scrollView)
-        
-        // Setup the title
-        let title = UILabel(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: 60))
-        title.text = "My Title"
-        title.textAlignment = .center
-        title.font = UIFont.systemFont(ofSize: 24)
-        title.textColor = UIColor.black
-        //self.view.addSubview(title)
+        // Rounded upper corners
+        self.view.roundCorners(corners: [.topLeft, .topRight], radius: 20)
         
         // Setup the webview
-        let webView = UIWebView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height - 60))
+        let yOffset: CGFloat = 20
+        self.webView = UIWebView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y + yOffset, width: self.view.frame.width, height: self.view.frame.height - 60 - yOffset))
         webView.backgroundColor = UIColor.white
         webView.scalesPageToFit = true
         self.view.addSubview(webView)
@@ -73,30 +66,61 @@ class ResourceViewController: UIViewController {
         
         // Load the HTML into the webview
         webView.loadHTMLString(finalHtml, baseURL: Bundle.main.bundleURL)
+        webViewCenter = webView.center
         
-        /*// Setup the text view
-        let textView = UITextView(frame: CGRect(x: self.view.frame.origin.x + 20, y: self.view.frame.origin.y + 60, width: self.view.frame.width - 40, height: self.view.frame.height - 60))
-        //textView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
-        textView.textAlignment = .left
-        textView.font = UIFont.systemFont(ofSize: 18)
-        textView.textColor = UIColor.black
-        textView.isSelectable = false
-        textView.isEditable = false
-        self.scrollView.addSubview(textView)
-        
-        // Sample text
-        let attrStr = try! NSMutableAttributedString(
-            data: "This <i>paragraph</i> contains a lot of lines in the source code, but the browser ignores it.<p>This paragraph contains a lot of spaces in the source     code, but the    browserignores it.</p><p>The number of lines in a paragraph depends on the size of the browser window. If you resize the browser window, the number of lines in this paragraph will change.</p><p>This <b>paragraph</b> contains a lot of lines in the source code, but the browser ignores it.</p><p>This paragraph contains a lot of spaces in the source     code, but the    browserignores it.</p><p>The number of lines in a paragraph depends on the size of the browser window. If you resize the browser window, the number of lines in this paragraph will change.</p><p>This paragraph contains a lot of lines in the source code, but the browser ignores it.</p><p>This paragraph contains a lot of spaces in the source     code, but the    browserignores it.</p><p>The number of lines in a paragraph depends on the size of the browser window. If you resize the browser window, the number of lines in this paragraph will change.</p><p>This paragraph contains a lot of lines in the source code, but the browser ignores it.</p><p>This paragraph contains a lot of spaces in the source     code, but the    browserignores it.</p><p>The number of lines in a paragraph depends on the size of the browser window. If you resize the browser window, the number of lines in this paragraph will change.</p>".data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
-            documentAttributes: nil)
-        attrStr.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 18), range: NSRange(location: 0, length: attrStr.length))
-        textView.attributedText = attrStr*/
+        // Listen for pan gesture
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ResourceViewController.panRecognized))
+        panGestureRecognizer.delegate = self
+        self.view.addGestureRecognizer(panGestureRecognizer)
     }
     
-    /*override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    public func panRecognized(recognizer: UIPanGestureRecognizer) {
+        // Only track panning of the resource view if the webview is
+        // scrolled to the top
+        if recognizer.state == .began {
+            isTrackingPanLocation = false
+            webViewCenter = recognizer.view!.center
+        }
+        // Check for panning the main view
+        else if recognizer.state != .ended &&
+            recognizer.state != .cancelled &&
+            recognizer.state != .failed &&
+            isTrackingPanLocation {
+            
+            // Pan the view in y dimension but never let it pan upward past it's current center
+            let panOffset = recognizer.translation(in: self.view)
+            if recognizer.view!.center.y >= webViewCenter.y {
+                recognizer.view!.center = CGPoint(x: recognizer.view!.center.x, y: CGFloat.maximum(webViewCenter.y, recognizer.view!.center.y + panOffset.y))
+                recognizer.setTranslation(CGPoint.zero, in: self.view)
+                self.webView.scrollView.contentOffset.y = 0
+            }
+            
+            // If the y scroll delta reaches a certain threshold, dismiss the controller
+            if recognizer.view!.center.y - webViewCenter.y >= 130 {
+                recognizer.isEnabled = false
+                recognizer.isEnabled = true
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        else if recognizer.state == .ended ||
+            recognizer.state == .cancelled ||
+            recognizer.state == .failed {
+            isTrackingPanLocation = false
+            UIView.animate(withDuration: 0.2, animations: {
+                recognizer.view!.center = self.webViewCenter
+            })
+        }
         
-        // Set default scroll insets
-        defaultScrollInsets = scrollView.contentInset
-    }*/
+        if isTrackingPanLocation == false &&
+            self.webView.scrollView.contentOffset.y <= 0 {
+            isTrackingPanLocation = true
+            recognizer.setTranslation(CGPoint.zero, in: self.view)
+        }
+    }
+}
+
+extension ResourceViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
