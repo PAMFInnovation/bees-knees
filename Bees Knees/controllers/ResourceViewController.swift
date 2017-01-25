@@ -57,7 +57,7 @@ class ResourceViewController: UIViewController {
         let html = try? String(contentsOfFile: file!, encoding: String.Encoding.utf8)
         
         // Construct base HTML with standard styling
-        var finalHtml = "<html><head><style>body {font-family: Arial, Helvetica, sans-serif;font-size: 40px;margin: 60px 60px;}</style></head>"
+        var finalHtml = "<html><head><style>body {font-family: Arial, Helvetica, sans-serif;font-size: 40px;margin: 60px 60px;} img {width: 100%;}</style></head>"
         
         // If the HTML file does not exist, display an error message
         if html == nil || self.htmlFile == "" {
