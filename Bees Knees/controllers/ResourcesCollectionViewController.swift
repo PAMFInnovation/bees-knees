@@ -26,6 +26,7 @@ class ResourcesCollectionViewController: UICollectionViewController {
     fileprivate let itemsPerRow: CGFloat = 3
     
     fileprivate let sections: [String] = [
+        "Understanding Knee Replacement",
         "Before surgery",
         "Your Surgery and Hospital Stay",
         "Rehabilitation and Home Recovery",
@@ -36,18 +37,33 @@ class ResourcesCollectionViewController: UICollectionViewController {
     ]
     fileprivate let dataSource: [[BinderResource]] = [
         [
+            BinderResource(title: "Understanding Knee Replacement", htmlFile: "understanding-knee-replacement")
+        ],
+        [
             BinderResource(title: "Select a Coach", htmlFile: "select-your-coach"),
             BinderResource(title: "Surgical Clearance", htmlFile: "surgical-clearance"),
             BinderResource(title: "Pre-op Appointment", htmlFile: "pre-operative-appointments"),
             BinderResource(title: "Dental Work", htmlFile: "dental-work"),
             BinderResource(title: "Exercise", htmlFile: "exercise-before-surgery"),
-            BinderResource(title: "Nutrition", htmlFile: ""),
-            BinderResource(title: "Home Prep", htmlFile: ""),
-            BinderResource(title: "Pack Your Bag", htmlFile: ""),
-            BinderResource(title: "Getting Sick", htmlFile: ""),
-            BinderResource(title: "Smoking Cessation", htmlFile: "")
+            BinderResource(title: "Nutrition", htmlFile: "nutrition"),
+            BinderResource(title: "Home Prep", htmlFile: "preparing-for-your-return-home"),
+            BinderResource(title: "Pack Your Bag", htmlFile: "packing-your-bag"),
+            BinderResource(title: "Getting Sick", htmlFile: "last-minute-illness"),
+            BinderResource(title: "Food Before Surgery", htmlFile: "no-eating-or-drinking-before-surgery"),
+            BinderResource(title: "Smoking Cessation", htmlFile: "smoking-cessation")
         ],
         [
+            BinderResource(title: "Arriving for Surgery", htmlFile: "arriving-for-surgery"),
+            BinderResource(title: "Your Orthopedic Healthcare Team", htmlFile: "your-orthopedic-healthcare-team"),
+            BinderResource(title: "Surgery", htmlFile: "surgery"),
+            BinderResource(title: "After Surgery", htmlFile: "after-surgery"),
+            BinderResource(title: "Pain Management", htmlFile: "pain-management"),
+            BinderResource(title: "During Your Hospitalization", htmlFile: "during-your-hospitalization"),
+            BinderResource(title: "Types of Pain Management", htmlFile: "types-of-pain-management"),
+            BinderResource(title: "Questions About Pain", htmlFile: "questions-about-pain"),
+            BinderResource(title: "Patient Information", htmlFile: "patient-information-from-easy-bay-anesthesia-medical-group"),
+            BinderResource(title: "Daily Post-Operative Expectations", htmlFile: "daily-post-operative-expectations"),
+            BinderResource(title: "Possible Complications", htmlFile: "possible-complications")
         ],
         [
         ],

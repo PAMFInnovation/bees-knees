@@ -11,8 +11,8 @@
 		9E018F8A1E0B09C9008250FA /* LineGraphChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F891E0B09C9008250FA /* LineGraphChart.swift */; };
 		9E018F8E1E15DDEE008250FA /* UIView+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */; };
 		9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */; };
-		9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */; };
-		9E018F9F1E1B0752008250FA /* TutorialTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */; };
+		9E018F9D1E1B02A1008250FA /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */; };
+		9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E130AFB1E2EB05B0032AC96 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E130AF81E2EB0520032AC96 /* ResearchKit.framework */; };
@@ -63,6 +63,34 @@
 		9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */; };
 		9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C8B1DD67F8100D0740F /* Copy.swift */; };
 		9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C911DD68B6D00D0740F /* LinePath.swift */; };
+		9E77478C1E3BE91A004F6FB3 /* WelcomeTACController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */; };
+		9E7747AC1E3C5A61004F6FB3 /* understanding-knee-replacement.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77478E1E3C5A61004F6FB3 /* understanding-knee-replacement.html */; };
+		9E7747AD1E3C5A61004F6FB3 /* dental-work.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747901E3C5A61004F6FB3 /* dental-work.html */; };
+		9E7747AE1E3C5A61004F6FB3 /* exercise-before-surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747911E3C5A61004F6FB3 /* exercise-before-surgery.html */; };
+		9E7747AF1E3C5A61004F6FB3 /* last-minute-illness.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747921E3C5A61004F6FB3 /* last-minute-illness.html */; };
+		9E7747B01E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747931E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html */; };
+		9E7747B11E3C5A61004F6FB3 /* nutrition.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747941E3C5A61004F6FB3 /* nutrition.html */; };
+		9E7747B21E3C5A61004F6FB3 /* packing-your-bag.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747951E3C5A61004F6FB3 /* packing-your-bag.html */; };
+		9E7747B31E3C5A61004F6FB3 /* pre-operative-appointments.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747961E3C5A61004F6FB3 /* pre-operative-appointments.html */; };
+		9E7747B41E3C5A61004F6FB3 /* preparing-for-your-return-home.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747971E3C5A61004F6FB3 /* preparing-for-your-return-home.html */; };
+		9E7747B51E3C5A61004F6FB3 /* select-your-coach.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747981E3C5A61004F6FB3 /* select-your-coach.html */; };
+		9E7747B61E3C5A61004F6FB3 /* smoking-cessation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747991E3C5A61004F6FB3 /* smoking-cessation.html */; };
+		9E7747B71E3C5A61004F6FB3 /* surgical-clearance.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77479A1E3C5A61004F6FB3 /* surgical-clearance.html */; };
+		9E7747B81E3C5A61004F6FB3 /* after-surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77479C1E3C5A61004F6FB3 /* after-surgery.html */; };
+		9E7747B91E3C5A61004F6FB3 /* arriving-for-surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77479D1E3C5A61004F6FB3 /* arriving-for-surgery.html */; };
+		9E7747BA1E3C5A61004F6FB3 /* daily-post-operative-expectations.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77479E1E3C5A61004F6FB3 /* daily-post-operative-expectations.html */; };
+		9E7747BB1E3C5A61004F6FB3 /* during-your-hospitalization.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E77479F1E3C5A61004F6FB3 /* during-your-hospitalization.html */; };
+		9E7747BD1E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A11E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html */; };
+		9E7747BE1E3C5A61004F6FB3 /* possible-complications.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A21E3C5A61004F6FB3 /* possible-complications.html */; };
+		9E7747BF1E3C5A61004F6FB3 /* questions-about-pain.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A31E3C5A61004F6FB3 /* questions-about-pain.html */; };
+		9E7747C01E3C5A61004F6FB3 /* surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A41E3C5A61004F6FB3 /* surgery.html */; };
+		9E7747C11E3C5A61004F6FB3 /* types-of-pain-management.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A51E3C5A61004F6FB3 /* types-of-pain-management.html */; };
+		9E7747C21E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747A61E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html */; };
+		9E7747C41E3C5AF4004F6FB3 /* pain-management.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C31E3C5AF4004F6FB3 /* pain-management.html */; };
+		9E7747CA1E3C5BF1004F6FB3 /* binder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C61E3C5BF1004F6FB3 /* binder.jpg */; };
+		9E7747CB1E3C5BF1004F6FB3 /* knee-diagram.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */; };
+		9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */; };
+		9E7747CD1E3C5BF1004F6FB3 /* xray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C91E3C5BF1004F6FB3 /* xray.jpg */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
@@ -99,11 +127,6 @@
 		9EC4F6EF1E31634D008E8DB6 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4F6EE1E31634D008E8DB6 /* SlideInPresentationController.swift */; };
 		9EC4F6F11E328787008E8DB6 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4F6F01E328787008E8DB6 /* SlideInPresentationAnimator.swift */; };
 		9EC4F6F31E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4F6F21E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift */; };
-		9ED187FB1E37C034009E5126 /* dental-work.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F01E37C034009E5126 /* dental-work.html */; };
-		9ED187FC1E37C034009E5126 /* exercise-before-surgery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F11E37C034009E5126 /* exercise-before-surgery.html */; };
-		9ED187FD1E37C034009E5126 /* pre-operative-appointments.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F21E37C034009E5126 /* pre-operative-appointments.html */; };
-		9ED187FE1E37C034009E5126 /* select-your-coach.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F31E37C034009E5126 /* select-your-coach.html */; };
-		9ED187FF1E37C034009E5126 /* surgical-clearance.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ED187F41E37C034009E5126 /* surgical-clearance.html */; };
 		9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */; };
 		9ED188051E387C77009E5126 /* down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ED188041E387C77009E5126 /* down-arrow.png */; };
 		9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */; };
@@ -236,8 +259,8 @@
 		9E018F891E0B09C9008250FA /* LineGraphChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphChart.swift; sourceTree = "<group>"; };
 		9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Mask.swift"; path = "extensions/UIView+Mask.swift"; sourceTree = "<group>"; };
 		9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = controllers/tutorial/TutorialViewController.swift; sourceTree = "<group>"; };
-		9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewController.swift; path = controllers/tutorial/TutorialPageViewController.swift; sourceTree = "<group>"; };
-		9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialTextViewController.swift; path = controllers/tutorial/TutorialTextViewController.swift; sourceTree = "<group>"; };
+		9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomePageViewController.swift; path = controllers/tutorial/WelcomePageViewController.swift; sourceTree = "<group>"; };
+		9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTextViewController.swift; path = controllers/tutorial/WelcomeTextViewController.swift; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E130B011E3075BA0032AC96 /* ResourcesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourcesCollectionViewController.swift; path = controllers/ResourcesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +309,34 @@
 		9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItemButton.swift; path = shared/SettingsItemButton.swift; sourceTree = "<group>"; };
 		9E6E8C8B1DD67F8100D0740F /* Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copy.swift; path = util/Copy.swift; sourceTree = "<group>"; };
 		9E6E8C911DD68B6D00D0740F /* LinePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinePath.swift; path = views/LinePath.swift; sourceTree = "<group>"; };
+		9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTACController.swift; path = controllers/tutorial/WelcomeTACController.swift; sourceTree = "<group>"; };
+		9E77478E1E3C5A61004F6FB3 /* understanding-knee-replacement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "understanding-knee-replacement.html"; sourceTree = "<group>"; };
+		9E7747901E3C5A61004F6FB3 /* dental-work.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "dental-work.html"; sourceTree = "<group>"; };
+		9E7747911E3C5A61004F6FB3 /* exercise-before-surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "exercise-before-surgery.html"; sourceTree = "<group>"; };
+		9E7747921E3C5A61004F6FB3 /* last-minute-illness.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "last-minute-illness.html"; sourceTree = "<group>"; };
+		9E7747931E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "no-eating-or-drinking-before-surgery.html"; sourceTree = "<group>"; };
+		9E7747941E3C5A61004F6FB3 /* nutrition.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = nutrition.html; sourceTree = "<group>"; };
+		9E7747951E3C5A61004F6FB3 /* packing-your-bag.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "packing-your-bag.html"; sourceTree = "<group>"; };
+		9E7747961E3C5A61004F6FB3 /* pre-operative-appointments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "pre-operative-appointments.html"; sourceTree = "<group>"; };
+		9E7747971E3C5A61004F6FB3 /* preparing-for-your-return-home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "preparing-for-your-return-home.html"; sourceTree = "<group>"; };
+		9E7747981E3C5A61004F6FB3 /* select-your-coach.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "select-your-coach.html"; sourceTree = "<group>"; };
+		9E7747991E3C5A61004F6FB3 /* smoking-cessation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "smoking-cessation.html"; sourceTree = "<group>"; };
+		9E77479A1E3C5A61004F6FB3 /* surgical-clearance.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "surgical-clearance.html"; sourceTree = "<group>"; };
+		9E77479C1E3C5A61004F6FB3 /* after-surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "after-surgery.html"; sourceTree = "<group>"; };
+		9E77479D1E3C5A61004F6FB3 /* arriving-for-surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "arriving-for-surgery.html"; sourceTree = "<group>"; };
+		9E77479E1E3C5A61004F6FB3 /* daily-post-operative-expectations.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "daily-post-operative-expectations.html"; sourceTree = "<group>"; };
+		9E77479F1E3C5A61004F6FB3 /* during-your-hospitalization.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "during-your-hospitalization.html"; sourceTree = "<group>"; };
+		9E7747A11E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "patient-information-from-easy-bay-anesthesia-medical-group.html"; sourceTree = "<group>"; };
+		9E7747A21E3C5A61004F6FB3 /* possible-complications.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "possible-complications.html"; sourceTree = "<group>"; };
+		9E7747A31E3C5A61004F6FB3 /* questions-about-pain.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "questions-about-pain.html"; sourceTree = "<group>"; };
+		9E7747A41E3C5A61004F6FB3 /* surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = surgery.html; sourceTree = "<group>"; };
+		9E7747A51E3C5A61004F6FB3 /* types-of-pain-management.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "types-of-pain-management.html"; sourceTree = "<group>"; };
+		9E7747A61E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "your-orthopedic-healthcare-team.html"; sourceTree = "<group>"; };
+		9E7747C31E3C5AF4004F6FB3 /* pain-management.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "pain-management.html"; sourceTree = "<group>"; };
+		9E7747C61E3C5BF1004F6FB3 /* binder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = binder.jpg; sourceTree = "<group>"; };
+		9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "knee-diagram.jpg"; sourceTree = "<group>"; };
+		9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nutrition.jpg; sourceTree = "<group>"; };
+		9E7747C91E3C5BF1004F6FB3 /* xray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xray.jpg; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -320,11 +371,6 @@
 		9EC4F6EE1E31634D008E8DB6 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideInPresentationController.swift; path = presentations/SlideInPresentationController.swift; sourceTree = "<group>"; };
 		9EC4F6F01E328787008E8DB6 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideInPresentationAnimator.swift; path = presentations/SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		9EC4F6F21E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceCollectionHeaderView.swift; path = shared/ResourceCollectionHeaderView.swift; sourceTree = "<group>"; };
-		9ED187F01E37C034009E5126 /* dental-work.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "dental-work.html"; sourceTree = "<group>"; };
-		9ED187F11E37C034009E5126 /* exercise-before-surgery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "exercise-before-surgery.html"; sourceTree = "<group>"; };
-		9ED187F21E37C034009E5126 /* pre-operative-appointments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "pre-operative-appointments.html"; sourceTree = "<group>"; };
-		9ED187F31E37C034009E5126 /* select-your-coach.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "select-your-coach.html"; sourceTree = "<group>"; };
-		9ED187F41E37C034009E5126 /* surgical-clearance.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "surgical-clearance.html"; sourceTree = "<group>"; };
 		9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RoundCorners.swift"; path = "extensions/UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9ED188041E387C77009E5126 /* down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-arrow.png"; sourceTree = "<group>"; };
 		9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryConfirmationView.swift; path = views/PostSurgeryConfirmationView.swift; sourceTree = "<group>"; };
@@ -415,8 +461,9 @@
 			isa = PBXGroup;
 			children = (
 				9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */,
-				9E018F9B1E1B02A1008250FA /* TutorialPageViewController.swift */,
-				9E018F9E1E1B0752008250FA /* TutorialTextViewController.swift */,
+				9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */,
+				9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */,
+				9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */,
 			);
 			name = tutorial;
 			sourceTree = "<group>";
@@ -553,6 +600,96 @@
 			name = content;
 			sourceTree = "<group>";
 		};
+		9E77478D1E3C5A61004F6FB3 /* 2-understanding-knee-replacement */ = {
+			isa = PBXGroup;
+			children = (
+				9E77478E1E3C5A61004F6FB3 /* understanding-knee-replacement.html */,
+			);
+			path = "2-understanding-knee-replacement";
+			sourceTree = "<group>";
+		};
+		9E77478F1E3C5A61004F6FB3 /* 3-before-surgery */ = {
+			isa = PBXGroup;
+			children = (
+				9E7747901E3C5A61004F6FB3 /* dental-work.html */,
+				9E7747911E3C5A61004F6FB3 /* exercise-before-surgery.html */,
+				9E7747921E3C5A61004F6FB3 /* last-minute-illness.html */,
+				9E7747931E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html */,
+				9E7747941E3C5A61004F6FB3 /* nutrition.html */,
+				9E7747951E3C5A61004F6FB3 /* packing-your-bag.html */,
+				9E7747961E3C5A61004F6FB3 /* pre-operative-appointments.html */,
+				9E7747971E3C5A61004F6FB3 /* preparing-for-your-return-home.html */,
+				9E7747981E3C5A61004F6FB3 /* select-your-coach.html */,
+				9E7747991E3C5A61004F6FB3 /* smoking-cessation.html */,
+				9E77479A1E3C5A61004F6FB3 /* surgical-clearance.html */,
+			);
+			path = "3-before-surgery";
+			sourceTree = "<group>";
+		};
+		9E77479B1E3C5A61004F6FB3 /* 4-your-surgery-and-hospital-stay */ = {
+			isa = PBXGroup;
+			children = (
+				9E7747C31E3C5AF4004F6FB3 /* pain-management.html */,
+				9E77479C1E3C5A61004F6FB3 /* after-surgery.html */,
+				9E77479D1E3C5A61004F6FB3 /* arriving-for-surgery.html */,
+				9E77479E1E3C5A61004F6FB3 /* daily-post-operative-expectations.html */,
+				9E77479F1E3C5A61004F6FB3 /* during-your-hospitalization.html */,
+				9E7747A11E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html */,
+				9E7747A21E3C5A61004F6FB3 /* possible-complications.html */,
+				9E7747A31E3C5A61004F6FB3 /* questions-about-pain.html */,
+				9E7747A41E3C5A61004F6FB3 /* surgery.html */,
+				9E7747A51E3C5A61004F6FB3 /* types-of-pain-management.html */,
+				9E7747A61E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html */,
+			);
+			path = "4-your-surgery-and-hospital-stay";
+			sourceTree = "<group>";
+		};
+		9E7747A71E3C5A61004F6FB3 /* 5-rehabilitation-and-home-recovery */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "5-rehabilitation-and-home-recovery";
+			sourceTree = "<group>";
+		};
+		9E7747A81E3C5A61004F6FB3 /* 6-knee-replacement-exercises */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "6-knee-replacement-exercises";
+			sourceTree = "<group>";
+		};
+		9E7747A91E3C5A61004F6FB3 /* 7-life-with-your-new-knee */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "7-life-with-your-new-knee";
+			sourceTree = "<group>";
+		};
+		9E7747AA1E3C5A61004F6FB3 /* 8-knee-replacement-resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "8-knee-replacement-resources";
+			sourceTree = "<group>";
+		};
+		9E7747AB1E3C5A61004F6FB3 /* 9-alta-bates-summit-map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "9-alta-bates-summit-map";
+			sourceTree = "<group>";
+		};
+		9E7747C51E3C5BF1004F6FB3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9E7747C61E3C5BF1004F6FB3 /* binder.jpg */,
+				9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */,
+				9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */,
+				9E7747C91E3C5BF1004F6FB3 /* xray.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		9E960FD21DCA8A3A00811FFB /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,71 +749,19 @@
 		9ED187EE1E37C034009E5126 /* binder */ = {
 			isa = PBXGroup;
 			children = (
+				9E7747C51E3C5BF1004F6FB3 /* images */,
+				9E77478D1E3C5A61004F6FB3 /* 2-understanding-knee-replacement */,
+				9E77478F1E3C5A61004F6FB3 /* 3-before-surgery */,
+				9E77479B1E3C5A61004F6FB3 /* 4-your-surgery-and-hospital-stay */,
+				9E7747A71E3C5A61004F6FB3 /* 5-rehabilitation-and-home-recovery */,
+				9E7747A81E3C5A61004F6FB3 /* 6-knee-replacement-exercises */,
+				9E7747A91E3C5A61004F6FB3 /* 7-life-with-your-new-knee */,
+				9E7747AA1E3C5A61004F6FB3 /* 8-knee-replacement-resources */,
+				9E7747AB1E3C5A61004F6FB3 /* 9-alta-bates-summit-map */,
 				9ED188041E387C77009E5126 /* down-arrow.png */,
-				9ED187EF1E37C034009E5126 /* 1-before-surgery */,
-				9ED187F51E37C034009E5126 /* 2-your-surgery-and-hospital-stay */,
-				9ED187F61E37C034009E5126 /* 3-rehabilitation-and-home-recovery */,
-				9ED187F71E37C034009E5126 /* 4-knee-replacement-exercises */,
-				9ED187F81E37C034009E5126 /* 5-life-with-your-new-knee */,
-				9ED187F91E37C034009E5126 /* 6-knee-replacement-resources */,
-				9ED187FA1E37C034009E5126 /* 7-alta-bates-summit-map */,
 			);
 			name = binder;
 			path = content/binder;
-			sourceTree = "<group>";
-		};
-		9ED187EF1E37C034009E5126 /* 1-before-surgery */ = {
-			isa = PBXGroup;
-			children = (
-				9ED187F01E37C034009E5126 /* dental-work.html */,
-				9ED187F11E37C034009E5126 /* exercise-before-surgery.html */,
-				9ED187F21E37C034009E5126 /* pre-operative-appointments.html */,
-				9ED187F31E37C034009E5126 /* select-your-coach.html */,
-				9ED187F41E37C034009E5126 /* surgical-clearance.html */,
-			);
-			path = "1-before-surgery";
-			sourceTree = "<group>";
-		};
-		9ED187F51E37C034009E5126 /* 2-your-surgery-and-hospital-stay */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "2-your-surgery-and-hospital-stay";
-			sourceTree = "<group>";
-		};
-		9ED187F61E37C034009E5126 /* 3-rehabilitation-and-home-recovery */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "3-rehabilitation-and-home-recovery";
-			sourceTree = "<group>";
-		};
-		9ED187F71E37C034009E5126 /* 4-knee-replacement-exercises */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "4-knee-replacement-exercises";
-			sourceTree = "<group>";
-		};
-		9ED187F81E37C034009E5126 /* 5-life-with-your-new-knee */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "5-life-with-your-new-knee";
-			sourceTree = "<group>";
-		};
-		9ED187F91E37C034009E5126 /* 6-knee-replacement-resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "6-knee-replacement-resources";
-			sourceTree = "<group>";
-		};
-		9ED187FA1E37C034009E5126 /* 7-alta-bates-summit-map */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "7-alta-bates-summit-map";
 			sourceTree = "<group>";
 		};
 		9EE1D3351DD2A90400EB3E54 /* Assessments */ = {
@@ -986,40 +1071,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ED187FE1E37C034009E5126 /* select-your-coach.html in Resources */,
+				9E7747B91E3C5A61004F6FB3 /* arriving-for-surgery.html in Resources */,
+				9E7747B71E3C5A61004F6FB3 /* surgical-clearance.html in Resources */,
 				9E17D3AB1DBEB10D0072CDC1 /* PreSurgeryWelcomeInterface.xib in Resources */,
+				9E7747BB1E3C5A61004F6FB3 /* during-your-hospitalization.html in Resources */,
 				9E4D584C1E085891008953E2 /* ref_chairpressups.png in Resources */,
+				9E7747C41E3C5AF4004F6FB3 /* pain-management.html in Resources */,
 				9E4D584F1E085891008953E2 /* ref_heelslides.png in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
+				9E7747B81E3C5A61004F6FB3 /* after-surgery.html in Resources */,
+				9E7747BA1E3C5A61004F6FB3 /* daily-post-operative-expectations.html in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
 				9ED188051E387C77009E5126 /* down-arrow.png in Resources */,
+				9E7747C21E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html in Resources */,
+				9E7747B31E3C5A61004F6FB3 /* pre-operative-appointments.html in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
-				9ED187FD1E37C034009E5126 /* pre-operative-appointments.html in Resources */,
+				9E7747BF1E3C5A61004F6FB3 /* questions-about-pain.html in Resources */,
 				9E4D58421E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf in Resources */,
 				9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */,
-				9ED187FC1E37C034009E5126 /* exercise-before-surgery.html in Resources */,
+				9E7747B11E3C5A61004F6FB3 /* nutrition.html in Resources */,
 				9E4D58481E085891008953E2 /* binder_sec8_resources.pdf in Resources */,
+				9E7747C01E3C5A61004F6FB3 /* surgery.html in Resources */,
 				9E4D58411E085891008953E2 /* binder_sec1_faq.pdf in Resources */,
 				9E4D58461E085891008953E2 /* binder_sec6_exercises.pdf in Resources */,
+				9E7747CB1E3C5BF1004F6FB3 /* knee-diagram.jpg in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9E4D58431E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf in Resources */,
 				9E4D58441E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
-				9ED187FB1E37C034009E5126 /* dental-work.html in Resources */,
+				9E7747BE1E3C5A61004F6FB3 /* possible-complications.html in Resources */,
 				9E4D58521E085891008953E2 /* ref_straightlegraises.png in Resources */,
 				9E4D584B1E085891008953E2 /* ref_anklepumps.png in Resources */,
+				9E7747B21E3C5A61004F6FB3 /* packing-your-bag.html in Resources */,
+				9E7747B41E3C5A61004F6FB3 /* preparing-for-your-return-home.html in Resources */,
+				9E7747AD1E3C5A61004F6FB3 /* dental-work.html in Resources */,
+				9E7747B51E3C5A61004F6FB3 /* select-your-coach.html in Resources */,
+				9E7747B61E3C5A61004F6FB3 /* smoking-cessation.html in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9E4D584D1E085891008953E2 /* ref_glutesets.png in Resources */,
+				9E7747AE1E3C5A61004F6FB3 /* exercise-before-surgery.html in Resources */,
+				9E7747B01E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html in Resources */,
 				9E4D584E1E085891008953E2 /* ref_hamstringsets.png in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
-				9ED187FF1E37C034009E5126 /* surgical-clearance.html in Resources */,
+				9E7747CD1E3C5BF1004F6FB3 /* xray.jpg in Resources */,
+				9E7747AF1E3C5A61004F6FB3 /* last-minute-illness.html in Resources */,
+				9E7747AC1E3C5A61004F6FB3 /* understanding-knee-replacement.html in Resources */,
 				9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */,
 				9E4D584A1E085891008953E2 /* ref_abdominalbracing.png in Resources */,
 				9E4D58401E085891008953E2 /* binder_sec0_introduction.pdf in Resources */,
 				9E4D58451E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf in Resources */,
 				9E4D58491E085891008953E2 /* binder_sec9_altabatessummitmap.pdf in Resources */,
+				9E7747CA1E3C5BF1004F6FB3 /* binder.jpg in Resources */,
+				9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */,
 				9E4D58471E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf in Resources */,
+				9E7747C11E3C5A61004F6FB3 /* types-of-pain-management.html in Resources */,
+				9E7747BD1E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1170,7 @@
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
 				9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */,
 				9E43C4341DDBB8C600EF986C /* VideoViewController.swift in Sources */,
+				9E77478C1E3BE91A004F6FB3 /* WelcomeTACController.swift in Sources */,
 				9E429DBA1DC288860066FF20 /* DateOfSurgeryView.swift in Sources */,
 				D2A69C2A1DCB989C00A0F568 /* TitleTableViewCell.swift in Sources */,
 				D2B488731DEF4B4B000333D6 /* PhotoLog.swift in Sources */,
@@ -1144,7 +1252,7 @@
 				9E81DDCC1DCD05EE0065C928 /* SettingsItem.swift in Sources */,
 				D2B488721DEF4B4B000333D6 /* HeelSlides.swift in Sources */,
 				9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */,
-				9E018F9F1E1B0752008250FA /* TutorialTextViewController.swift in Sources */,
+				9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */,
 				9E8A05F01E25831A00A36B72 /* TextTableViewCell.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
@@ -1153,7 +1261,7 @@
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9EC4F6ED1E31625C008E8DB6 /* ResourceViewController.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
-				9E018F9D1E1B02A1008250FA /* TutorialPageViewController.swift in Sources */,
+				9E018F9D1E1B02A1008250FA /* WelcomePageViewController.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
 				9E81DDDD1DCD17EB0065C928 /* FAQViewController.swift in Sources */,
 				9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */,

@@ -64,8 +64,8 @@ class PostSurgeryRoutineViewController: UITabBarController {
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
-        guideVC.title = NSLocalizedString("My Roadmap to Recovery", comment: "")
-        guideVC.tabBarItem = UITabBarItem(title: "My Roadmap", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
+        guideVC.title = NSLocalizedString("My Events", comment: "")
+        guideVC.tabBarItem = UITabBarItem(title: "My Events", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
@@ -114,6 +114,12 @@ class PostSurgeryRoutineViewController: UITabBarController {
     }
 }
 
+extension PostSurgeryRoutineViewController: OCKCareCardViewControllerDelegate {
+    func careCardViewController(_ viewController: OCKCareCardViewController, didSelectRowWithInterventionActivity interventionActivity: OCKCarePlanActivity) {
+        
+    }
+}
+
 extension PostSurgeryRoutineViewController: OCKSymptomTrackerViewControllerDelegate {
     // Called when the user taps an assessment
     func symptomTrackerViewController(_ viewController: OCKSymptomTrackerViewController, didSelectRowWithAssessmentEvent assessmentEvent: OCKCarePlanEvent) {
@@ -129,6 +135,10 @@ extension PostSurgeryRoutineViewController: OCKSymptomTrackerViewControllerDeleg
         // Show the assessment's task
         let taskVC = ORKTaskViewController(task: assessment.task(), taskRun: nil)
         taskVC.delegate = self
+        
+        //
+        // Use ORKOrderedTask 
+        //
         
         // Present the task
         self.present(taskVC, animated: true, completion: nil)

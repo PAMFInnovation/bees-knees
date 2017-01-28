@@ -44,6 +44,11 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         preSurgeryWelcomeVC.title = NSLocalizedString("Welcome", comment: "")
         preSurgeryWelcomeVC.delegate = self
         
+        /*let tut = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        self.addChildViewController(tut)
+        self.view.addSubview(tut.view)
+        tut.didMove(toParentViewController: self)*/
+        
         // Create the Consent TVC
         consentTVC = ORKTaskViewController(task: ConsentTask, taskRun: nil)
         consentTVC.title = NSLocalizedString("Consent", comment: "")

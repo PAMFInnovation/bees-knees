@@ -61,12 +61,6 @@ class RootViewController: UIViewController {
             ProfileManager.sharedInstance.user.flowState == .PreSurgeryWelcome ||
             ProfileManager.sharedInstance.user.flowState == .PreSurgeryRoutine {
             
-            // TESTING logic - add surgery date
-            /*if !ProfileManager.sharedInstance.isSurgerySet() {
-                //ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("11/08/2016"))
-                ProfileManager.sharedInstance.setSurgeryDate(Util.getDateFromString("1/24/2017 11:00 am", format: "MM/dd/yyyy h:mm a"))
-            }*/
-            
             // If the surgery date has passed, transition to post-surgery welcome
             if ProfileManager.sharedInstance.isSurgerySet() &&
                 Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) {
@@ -108,23 +102,10 @@ class RootViewController: UIViewController {
             break
         }
         
-        
-        // Present the Pre-Surgery Welcome Flow
-        /*if ProfileManager.sharedInstance.checkFlowState(.Launch) ||
-            ProfileManager.sharedInstance.checkFlowState(.PreSurgeryWelcome) {
-            ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
-            self.present(preSurgeryWelcomeFlow, animated: true, completion: nil)
-            
-            // Dismiss the view and the Pre Care Card will be waiting underneath
-            //ProfileManager.sharedInstance.flowState = .PreSurgeryRoutine
-            //self.view.addSubview(preSurgeryRoutineFlow.view)
-            
-            // Add the tutorial view
-            /*let tut = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-            self.addChildViewController(tut)
-            self.view.addSubview(tut.view)
-            tut.didMove(toParentViewController: self)*/
-        }*/
+        /*let welcome = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        self.addChildViewController(welcome)
+        self.view.addSubview(welcome.view)
+        welcome.didMove(toParentViewController: self)*/
     }
     
     override func viewDidLayoutSubviews() {

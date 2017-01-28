@@ -1,5 +1,5 @@
 //
-//  TutorialPageViewController.swift
+//  WelcomePageViewController.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 1/2/17.
@@ -9,13 +9,14 @@
 import UIKit
 
 
-class TutorialPageViewController: UIPageViewController {
+class WelcomePageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
-            TutorialTextViewController(text: "Welcome to\nBee's Knees!", fontSize: 34),
-            TutorialTextViewController(text: "This App will help you prepare for your upcoming surgery and support your recovery.", fontSize: 28),
-            TutorialTextViewController(text: "Bee's Knees is a personalized journal and navigational guide on your road to recovery.", fontSize: 28),
+            WelcomeTextViewController(text: "Welcome to\nBee's Knees!", fontSize: 38),
+            WelcomeTextViewController(text: "This App will help you prepare for your upcoming surgery and support your recovery.", fontSize: 28),
+            WelcomeTextViewController(text: "Bee's Knees is a personalized journal and navigational guide on your road to recovery.", fontSize: 28),
+            WelcomeTACController(text: "Before we get started, we'd like to review the terms and conditions.", fontSize: 28),
             UIViewController()
         ]
     }()
@@ -79,7 +80,7 @@ class TutorialPageViewController: UIPageViewController {
 
 // MARK: - Page View Controller Data Source
 
-extension TutorialPageViewController: UIPageViewControllerDataSource {
+extension WelcomePageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {

@@ -1,5 +1,5 @@
 //
-//  TutorialTextViewController.swift
+//  WelcomeTextViewController.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 1/2/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TutorialTextViewController: UIViewController {
+class WelcomeTextViewController: UIViewController {
     
     // Text to display
     var textView: UITextView = UITextView()

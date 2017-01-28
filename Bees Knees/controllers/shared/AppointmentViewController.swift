@@ -70,7 +70,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.backgroundColor = UIColor.white
         
         // Set the title
-        self.title = NSLocalizedString("Appointment", comment: "")
+        self.title = NSLocalizedString("Event", comment: "")
         
         // Add items to the table view data
         tableViewData.append(AppointmentCellData(name: "titleCell"))

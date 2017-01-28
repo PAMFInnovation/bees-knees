@@ -43,7 +43,23 @@ class ResourceViewController: UIViewController {
         self.webView = UIWebView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y + yOffset, width: self.view.frame.width, height: self.view.frame.height - 60 - yOffset))
         webView.backgroundColor = UIColor.white
         webView.scalesPageToFit = true
-        self.view.addSubview(webView)
+        
+        /*let greenView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 10))
+        greenView.backgroundColor = UIColor.green
+        webView.scrollView.addSubview(greenView)
+        self.view.addSubview(webView)*/
+        
+        // Setup the webview container with a gradient
+        let gradientView: UIView = UIView(frame: self.view.frame)
+        gradientView.addSubview(webView)
+        self.view.addSubview(gradientView)
+        // Gradient
+        let gradient = CAGradientLayer(layer: gradientView.layer)
+        gradient.frame = gradientView.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.blue.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.09)
+        gradientView.layer.mask = gradient
         
         // Load the html file
         let file = Bundle.main.path(forResource: self.htmlFile, ofType: "html")
@@ -92,7 +108,7 @@ class ResourceViewController: UIViewController {
             if recognizer.view!.center.y >= webViewCenter.y {
                 recognizer.view!.center = CGPoint(x: recognizer.view!.center.x, y: CGFloat.maximum(webViewCenter.y, recognizer.view!.center.y + panOffset.y))
                 recognizer.setTranslation(CGPoint.zero, in: self.view)
-                self.webView.scrollView.contentOffset.y = 0
+                //self.webView.scrollView.contentOffset.y = 0
             }
             
             // If the y scroll delta reaches a certain threshold, dismiss the controller
