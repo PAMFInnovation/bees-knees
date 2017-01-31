@@ -130,6 +130,9 @@ class CarePlanStoreManager : NSObject {
         // Clear the store
         self._clearStore()
         
+        // Remove the passcode
+        ORKPasscodeViewController.removePasscodeFromKeychain()
+        
         // Add activities to the store
         for activity in activities {
             let carePlanActivity = activity.carePlanActivity()

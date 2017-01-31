@@ -26,9 +26,6 @@ class WelcomePasscodeViewController: WelcomeTextViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TESTING - clear passcode for testing
-        ORKPasscodeViewController.removePasscodeFromKeychain()
-        
         // Setup the "set passcode" button
         confirmButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
         confirmButton?.borderColor = UIColor.white

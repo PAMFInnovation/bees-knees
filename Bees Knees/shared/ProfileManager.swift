@@ -54,7 +54,27 @@ class ProfileManager {
     static let sharedInstance = ProfileManager()
     private init() {
         // Delete the realm file
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        // Set the configuration
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                // Version 1 changes:
+                // added didConsent: Bool
+                if oldSchemaVersion == 0 {
+                    migration.enumerateObjects(ofType: User.className(), { oldObject, newObject in
+                        let state = (oldObject!["flowState"] as! Int)
+                        var didConsent = false
+                        if state != 0 && state != 1 {
+                            didConsent = true
+                        }
+                        newObject!["didConsent"] = didConsent
+                    })
+                }
+            }
+        )
+        Realm.Configuration.defaultConfiguration = config
         
         // Get the default realm
         realm = try! Realm()
