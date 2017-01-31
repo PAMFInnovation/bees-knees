@@ -22,6 +22,7 @@ import ResearchKit
 class RootViewController: UIViewController {
     
     // View controllers
+    var welcomeFlow: WelcomePageViewController!
     var preSurgeryRoutineFlow: PreSurgeryRoutineViewController!
     var postSurgeryRoutineFlow: PostSurgeryRoutineViewController!
     
@@ -36,6 +37,11 @@ class RootViewController: UIViewController {
         // Superclass initialization
         super.init(coder: aDecoder)
         
+        // Create the welcome flow VC
+        welcomeFlow = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        welcomeFlow.classDelegate = self
+        self.addChildViewController(welcomeFlow)
+        
         // Create the Pre-Surgery Routine Flow VC
         preSurgeryRoutineFlow = PreSurgeryRoutineViewController()
         self.addChildViewController(preSurgeryRoutineFlow)
@@ -47,11 +53,6 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let welcome = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        self.addChildViewController(welcome)
-        self.view.addSubview(welcome.view)
-        welcome.didMove(toParentViewController: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,8 +63,8 @@ class RootViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Check for transition to post-surgery by checking the surgery date against today's date
-        if ProfileManager.sharedInstance.user.flowState == .Launch ||
-            ProfileManager.sharedInstance.user.flowState == .PreSurgeryWelcome ||
+        if /*ProfileManager.sharedInstance.user.flowState == .Launch ||
+            ProfileManager.sharedInstance.user.flowState == .PreSurgeryWelcome ||*/
             ProfileManager.sharedInstance.user.flowState == .PreSurgeryRoutine {
             
             // If the surgery date has passed, transition to post-surgery welcome
@@ -77,16 +78,23 @@ class RootViewController: UIViewController {
         // Determine where to go from the initial app flow state
         switch(ProfileManager.sharedInstance.getFlowState()) {
         case .Launch:
-            /*ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
-            let vc = PreSurgeryWelcomeFlowViewController()
-            vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)*/
+            ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
+            
+            self.view.addSubview(welcomeFlow.view)
+            welcomeFlow.didMove(toParentViewController: self)
+            
+            /*let vc = PreSurgeryWelcomeFlowViewController()
+             vc.classDelegate = self
+             self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryWelcome:
+            self.view.addSubview(welcomeFlow.view)
+            welcomeFlow.didMove(toParentViewController: self)
+            
             /*let vc = PreSurgeryWelcomeFlowViewController()
-            vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)*/
+             vc.classDelegate = self
+             self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryRoutine:
@@ -106,11 +114,6 @@ class RootViewController: UIViewController {
         case .Surgery:
             break
         }
-        
-        /*let welcome = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        self.addChildViewController(welcome)
-        self.view.addSubview(welcome.view)
-        welcome.didMove(toParentViewController: self)*/
     }
     
     override func viewDidLayoutSubviews() {
@@ -143,21 +146,37 @@ class RootViewController: UIViewController {
         preSurgeryRoutineFlow = PreSurgeryRoutineViewController()
         postSurgeryRoutineFlow = PostSurgeryRoutineViewController()
         
-        // Transition to the pre-surgery welcome
+        //
+        // TODO: adjust for new welcome flow
+        //
+        
+        /*// Transition to the pre-surgery welcome
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
         let vc = PreSurgeryWelcomeFlowViewController()
         vc.classDelegate = self
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)*/
     }
 }
 
-extension RootViewController: PreSurgeryWelcomeFlowDelegate {
+/*extension RootViewController: PreSurgeryWelcomeFlowDelegate {
     func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController) {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
         
         // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
+    }
+}*/
+
+extension RootViewController: WelcomePageViewControllerDelegate {
+    func completeWelcome(sender: WelcomePageViewController) {
+        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+        
+        // Add the pre-surgery routine view to the hierarchy, which will be displayed underneath
+        // the welcome flow. The welcome flow will do a custom transition out by swiping right
+        // before rmeoving itself.
+        self.view.insertSubview(preSurgeryRoutineFlow.view, belowSubview: welcomeFlow.view)
+        welcomeFlow.dismissSelf()
     }
 }
 

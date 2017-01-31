@@ -9,7 +9,13 @@
 import UIKit
 
 
+protocol WelcomePageViewControllerDelegate: class {
+    func completeWelcome(sender: WelcomePageViewController)
+}
+
 class WelcomePageViewController: UIPageViewController {
+    
+    weak var classDelegate: WelcomePageViewControllerDelegate?
     
     var orderedViewControllers: [UIViewController] = []
     var currentIndex: Int = 0
@@ -96,6 +102,15 @@ class WelcomePageViewController: UIPageViewController {
         currentIndex = index
         setViewControllers([orderedViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
     }
+    
+    func dismissSelf() {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.view.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        }, completion: { _ in
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        })
+    }
 }
 
 
@@ -176,6 +191,6 @@ extension WelcomePageViewController: WelcomeDateViewControllerDelegate {
 
 extension WelcomePageViewController: WelcomeTransitionViewControllerDelegate {
     func transition(sender: WelcomeTransitionViewController) {
-        
+        self.classDelegate?.completeWelcome(sender: self)
     }
 }
