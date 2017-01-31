@@ -32,12 +32,16 @@ class LegalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let consentData = ProfileManager.sharedInstance.getSignedConsentDocument() else {
+            return
+        }
+        
         self.view.backgroundColor = UIColor.white
         
         webView = UIWebView(frame: self.view.frame)
         self.view.addSubview(webView)
         
-        self.webView.load(ProfileManager.sharedInstance.getSignedConsentDocument(), mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
+        self.webView.load(consentData, mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

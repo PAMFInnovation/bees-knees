@@ -47,6 +47,11 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let welcome = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        self.addChildViewController(welcome)
+        self.view.addSubview(welcome.view)
+        welcome.didMove(toParentViewController: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,16 +77,16 @@ class RootViewController: UIViewController {
         // Determine where to go from the initial app flow state
         switch(ProfileManager.sharedInstance.getFlowState()) {
         case .Launch:
-            ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
+            /*ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
             let vc = PreSurgeryWelcomeFlowViewController()
             vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryWelcome:
-            let vc = PreSurgeryWelcomeFlowViewController()
+            /*let vc = PreSurgeryWelcomeFlowViewController()
             vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryRoutine:

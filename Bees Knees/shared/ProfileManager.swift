@@ -28,6 +28,7 @@ final class User: Object {
     dynamic var notes: String = ""
     
     // Signed consent data
+    dynamic var didConsent: Bool = false
     dynamic var consentData: Data = Data()
     
     // Appointments
@@ -53,7 +54,7 @@ class ProfileManager {
     static let sharedInstance = ProfileManager()
     private init() {
         // Delete the realm file
-        //try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
         
         // Get the default realm
         realm = try! Realm()
@@ -147,12 +148,18 @@ class ProfileManager {
         }
     }
     
-    func getSignedConsentDocument() -> Data {
-        return user.consentData
+    func getSignedConsentDocument() -> Data? {
+        if user.didConsent {
+            return user.consentData
+        }
+        else {
+            return nil
+        }
     }
     
     func updateSignedConsentDocument(data: Data) {
         try! realm.write {
+            user.didConsent = true
             user.consentData = data
         }
     }

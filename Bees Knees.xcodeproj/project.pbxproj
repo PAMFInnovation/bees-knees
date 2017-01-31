@@ -91,6 +91,10 @@
 		9E7747CB1E3C5BF1004F6FB3 /* knee-diagram.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */; };
 		9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */; };
 		9E7747CD1E3C5BF1004F6FB3 /* xray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E7747C91E3C5BF1004F6FB3 /* xray.jpg */; };
+		9E7747CF1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747CE1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift */; };
+		9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */; };
+		9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */; };
+		9E7747D71E3E9CA9004F6FB3 /* LegalPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
@@ -134,6 +138,9 @@
 		9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */; };
 		9EE1D3371DD2A94100EB3E54 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3361DD2A94100EB3E54 /* Assessment.swift */; };
 		9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3381DD2AA4E00EB3E54 /* Mood.swift */; };
+		9EF00A3C1E40071A00132284 /* WelcomeTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF00A3B1E40071A00132284 /* WelcomeTransitionViewController.swift */; };
+		9EF00A421E40095100132284 /* WelcomeDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF00A411E40095100132284 /* WelcomeDateViewController.swift */; };
+		9EF00A441E400CF600132284 /* DateOfSurgeryPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF00A431E400CF600132284 /* DateOfSurgeryPresentViewController.swift */; };
 		9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0531D8370F400FD6763 /* AppDelegate.swift */; };
 		9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0551D8370F400FD6763 /* RootViewController.swift */; };
 		9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA0571D8370F400FD6763 /* Main.storyboard */; };
@@ -337,6 +344,10 @@
 		9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "knee-diagram.jpg"; sourceTree = "<group>"; };
 		9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nutrition.jpg; sourceTree = "<group>"; };
 		9E7747C91E3C5BF1004F6FB3 /* xray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xray.jpg; sourceTree = "<group>"; };
+		9E7747CE1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomePasscodeViewController.swift; path = controllers/tutorial/WelcomePasscodeViewController.swift; sourceTree = "<group>"; };
+		9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Factory.swift"; path = "extensions/UIButton+Factory.swift"; sourceTree = "<group>"; };
+		9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = shared/CustomButton.swift; sourceTree = "<group>"; };
+		9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalPresentViewController.swift; path = controllers/LegalPresentViewController.swift; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -378,6 +389,9 @@
 		9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "extensions/UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		9EE1D3361DD2A94100EB3E54 /* Assessment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		9EE1D3381DD2AA4E00EB3E54 /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		9EF00A3B1E40071A00132284 /* WelcomeTransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTransitionViewController.swift; path = controllers/tutorial/WelcomeTransitionViewController.swift; sourceTree = "<group>"; };
+		9EF00A411E40095100132284 /* WelcomeDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeDateViewController.swift; path = controllers/tutorial/WelcomeDateViewController.swift; sourceTree = "<group>"; };
+		9EF00A431E400CF600132284 /* DateOfSurgeryPresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateOfSurgeryPresentViewController.swift; path = controllers/DateOfSurgeryPresentViewController.swift; sourceTree = "<group>"; };
 		9EFDA0501D8370F400FD6763 /* Bees Knees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bees Knees.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0531D8370F400FD6763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFDA0551D8370F400FD6763 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +478,9 @@
 				9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */,
 				9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */,
 				9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */,
+				9E7747CE1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift */,
+				9EF00A411E40095100132284 /* WelcomeDateViewController.swift */,
+				9EF00A3B1E40071A00132284 /* WelcomeTransitionViewController.swift */,
 			);
 			name = tutorial;
 			sourceTree = "<group>";
@@ -496,10 +513,12 @@
 				9EB5FC461DC12CF200F9A53E /* ProfileViewController.swift */,
 				9EB5FC4A1DC1679200F9A53E /* PreSurgeryTransitionViewController.swift */,
 				9E429DC11DC289C80066FF20 /* DateOfSurgeryViewController.swift */,
+				9EF00A431E400CF600132284 /* DateOfSurgeryPresentViewController.swift */,
 				9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */,
 				9E81DDD21DCD17770065C928 /* NotesViewController.swift */,
 				9E81DDD61DCD17A00065C928 /* ExpectationsViewController.swift */,
 				9E81DDDA1DCD17CE0065C928 /* LegalViewController.swift */,
+				9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */,
 				9E81DDDC1DCD17EB0065C928 /* FAQViewController.swift */,
 				9E81B0641DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift */,
 				9E81DDD41DCD17860065C928 /* ResourcesViewController.swift */,
@@ -569,6 +588,7 @@
 				9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */,
 				9EC4F6991E31219C008E8DB6 /* UIColorExtension.swift */,
 				9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */,
+				9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -706,6 +726,7 @@
 				D2BE64E41DDCBC9500EAEB7C /* ImageScrollView.swift */,
 				D24AD4DE1DCBBE8700984EED /* HorizontalRule.swift */,
 				9EB5FC401DC1111300F9A53E /* HighlightButton.swift */,
+				9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */,
 				9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */,
 				9E429DF71DC2CA620066FF20 /* CarePlanStoreManager.swift */,
 				9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */,
@@ -1167,6 +1188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7747D71E3E9CA9004F6FB3 /* LegalPresentViewController.swift in Sources */,
 				9EFDA0871D83713E00FD6763 /* PasscodeTask.swift in Sources */,
 				9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */,
 				9E43C4341DDBB8C600EF986C /* VideoViewController.swift in Sources */,
@@ -1178,6 +1200,7 @@
 				D2B488701DEF4B4B000333D6 /* GluteSets.swift in Sources */,
 				9EC4F6F31E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift in Sources */,
 				9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */,
+				9E7747CF1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift in Sources */,
 				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
 				9EC4F69A1E31219C008E8DB6 /* UIColorExtension.swift in Sources */,
@@ -1219,6 +1242,7 @@
 				9EC4F6EB1E3159FD008E8DB6 /* SlideInPresentationManager.swift in Sources */,
 				9E3E6B5F1DD4F8B8000E92E1 /* GuideTableViewCell.swift in Sources */,
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
+				9EF00A3C1E40071A00132284 /* WelcomeTransitionViewController.swift in Sources */,
 				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
 				9E018F881E0B0750008250FA /* LineGraphDataSource.swift in Sources */,
@@ -1235,8 +1259,10 @@
 				9E960FD11DCA617500811FFB /* ChecklistItem.swift in Sources */,
 				9E429DC21DC289C80066FF20 /* DateOfSurgeryViewController.swift in Sources */,
 				9EFDA0891D83715600FD6763 /* MicrophoneTask.swift in Sources */,
+				9EF00A441E400CF600132284 /* DateOfSurgeryPresentViewController.swift in Sources */,
 				9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
+				9EF00A421E40095100132284 /* WelcomeDateViewController.swift in Sources */,
 				D2B488711DEF4B4B000333D6 /* HamstringSets.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
 				9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */,
@@ -1254,9 +1280,11 @@
 				9EE1D3391DD2AA4E00EB3E54 /* Mood.swift in Sources */,
 				9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */,
 				9E8A05F01E25831A00A36B72 /* TextTableViewCell.swift in Sources */,
+				9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EC4F6921E308219008E8DB6 /* ResourceCollectionViewCell.swift in Sources */,
+				9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9EC4F6ED1E31625C008E8DB6 /* ResourceViewController.swift in Sources */,
