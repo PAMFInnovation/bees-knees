@@ -142,13 +142,18 @@ class RootViewController: UIViewController {
             postSurgeryRoutineFlow.removeFromParentViewController()
         }
         
+        // Recreate the welcome flow view controller
+        welcomeFlow = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        welcomeFlow.classDelegate = self
+        
         // Recreate the routine view controllers
         preSurgeryRoutineFlow = PreSurgeryRoutineViewController()
         postSurgeryRoutineFlow = PostSurgeryRoutineViewController()
         
-        //
-        // TODO: adjust for new welcome flow
-        //
+        // Transition to the welcome
+        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
+        self.view.addSubview(welcomeFlow.view)
+        welcomeFlow.didMove(toParentViewController: self)
         
         /*// Transition to the pre-surgery welcome
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
