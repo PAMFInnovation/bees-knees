@@ -28,7 +28,15 @@ class WelcomePageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = Colors.turquoise.color
+        // Flat background color
+        //self.view.backgroundColor = Colors.turquoise.color
+        // Gradient background color
+        //self.view.backgroundColor = UIColor.clear
+        let gradient = CAGradientLayer()
+        gradient.frame = self.view.bounds
+        gradient.colors = [Colors.turquoiseLight1.color.cgColor, Colors.turquoise.color.cgColor]
+        //gradient.colors = [Colors.turquoise.color.cgColor, UIColor.white.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
         
         // Add the view controllers
         let welcome1 = WelcomeTextViewController(text: "Welcome to\nBee's Knees!", fontSize: 38)
@@ -53,7 +61,7 @@ class WelcomePageViewController: UIPageViewController {
         transition.delegate = self
         orderedViewControllers.append(transition)
         
-        // Add the background image
+        /*// Add the background image
         let imageView = UIImageView(frame: self.view.frame)
         imageView.image = UIImage(named: "background-image")
         mainView.addSubview(imageView)
@@ -79,7 +87,7 @@ class WelcomePageViewController: UIPageViewController {
             mainView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
         }
         
-        //self.view.insertSubview(mainView, at: 0)
+        self.view.insertSubview(mainView, at: 0)*/
         
         // Set the data source
         self.dataSource = self
@@ -162,13 +170,13 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
         return orderedViewControllers[nextIndex]
     }
     
-    /*func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return orderedViewControllers.count
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentIndex
-    }*/
+    }
 }
 
 extension WelcomePageViewController: WelcomeTACControllerDelegate {

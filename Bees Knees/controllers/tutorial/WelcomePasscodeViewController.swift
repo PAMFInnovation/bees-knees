@@ -27,7 +27,7 @@ class WelcomePasscodeViewController: WelcomeTextViewController {
         super.viewDidLoad()
         
         // Setup the "set passcode" button
-        confirmButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        confirmButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         confirmButton?.borderColor = UIColor.white
         confirmButton?.borderWidth = 1
         confirmButton?.cornerRadius = 5
@@ -41,7 +41,7 @@ class WelcomePasscodeViewController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
         // Setup the "skip" button
-        skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         skipButton?.borderColor = UIColor.white
         skipButton?.borderWidth = 1
         skipButton?.cornerRadius = 5

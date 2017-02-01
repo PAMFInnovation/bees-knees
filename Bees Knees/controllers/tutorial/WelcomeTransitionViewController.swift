@@ -23,7 +23,7 @@ class WelcomeTransitionViewController: WelcomeTextViewController {
         super.viewDidLoad()
         
         // Setup the buttons
-        let goButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        let goButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         goButton.borderColor = UIColor.white
         goButton.borderWidth = 1
         goButton.cornerRadius = 5

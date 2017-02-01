@@ -14,6 +14,7 @@ class CustomButton: UIButton {
     var primaryColor: UIColor = Colors.turquoise.color
     var secondaryColor: UIColor = UIColor.white
     var disabledColor: UIColor = UIColor.lightGray
+    var textDownColor: UIColor = Colors.turquoise.color
     
     
     override var isHighlighted: Bool {
@@ -44,22 +45,24 @@ class CustomButton: UIButton {
         self.init(frame: CGRect(x: 0, y: 0, width: 160, height: 42))
     }
     
-    convenience init(primaryColor: UIColor, secondaryColor: UIColor, disabledColor: UIColor) {
+    convenience init(primaryColor: UIColor, secondaryColor: UIColor, disabledColor: UIColor, textDownColor: UIColor) {
         self.init()
         
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self.disabledColor = disabledColor
+        self.textDownColor = textDownColor
         
         customize()
     }
     
-    convenience init(frame: CGRect, primaryColor: UIColor, secondaryColor: UIColor, disabledColor: UIColor) {
+    convenience init(frame: CGRect, primaryColor: UIColor, secondaryColor: UIColor, disabledColor: UIColor, textDownColor: UIColor) {
         self.init(frame: frame)
         
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self.disabledColor = disabledColor
+        self.textDownColor = textDownColor
         
         customize()
     }
@@ -73,7 +76,7 @@ class CustomButton: UIButton {
         
         // Set additional color states
         self.setTitleColor(primaryColor, for: .normal)
-        self.setTitleColor(secondaryColor, for: .highlighted)
+        self.setTitleColor(textDownColor, for: .highlighted)
         self.setTitleColor(disabledColor, for: .disabled)
         
         // Set initial background color

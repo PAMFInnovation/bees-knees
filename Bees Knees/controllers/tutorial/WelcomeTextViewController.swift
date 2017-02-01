@@ -43,10 +43,10 @@ class WelcomeTextViewController: UIViewController {
         textView.text = self.text
         textView.isEditable = false
         textView.isSelectable = false
-        textView.layer.shadowOpacity = 1.0
+        /*textView.layer.shadowOpacity = 1.0
         textView.layer.shadowRadius = 0.0
         textView.layer.shadowColor = UIColor.black.cgColor
-        textView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        textView.layer.shadowOffset = CGSize(width: 1, height: 1)*/
         textView.translatesAutoresizingMaskIntoConstraints = false
         
         // Attach the text

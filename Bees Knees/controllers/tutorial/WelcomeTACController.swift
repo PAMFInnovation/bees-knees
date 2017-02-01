@@ -29,7 +29,7 @@ class WelcomeTACController: WelcomeTextViewController {
         super.viewDidLoad()
         
         // Setup the buttons
-        signButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        signButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         signButton?.borderColor = UIColor.white
         signButton?.borderWidth = 1
         signButton?.cornerRadius = 5
@@ -43,7 +43,7 @@ class WelcomeTACController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
         self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
-        viewButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        viewButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         viewButton?.borderColor = UIColor.white
         viewButton?.borderWidth = 1
         viewButton?.cornerRadius = 5
@@ -57,7 +57,7 @@ class WelcomeTACController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
-        continueButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        continueButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         continueButton?.borderColor = UIColor.white
         continueButton?.borderWidth = 1
         continueButton?.cornerRadius = 5

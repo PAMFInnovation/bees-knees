@@ -25,7 +25,7 @@ class WelcomeDateViewController: WelcomeTextViewController {
         super.viewDidLoad()
         
         // Setup the "set date" button
-        setButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        setButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         setButton?.borderColor = UIColor.white
         setButton?.borderWidth = 1
         setButton?.cornerRadius = 5
@@ -39,7 +39,7 @@ class WelcomeDateViewController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
         // Setup the "skip/continue" button
-        skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: Colors.turquoise.color, disabledColor: UIColor.lightGray)
+        skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         skipButton?.borderColor = UIColor.white
         skipButton?.borderWidth = 1
         skipButton?.cornerRadius = 5
