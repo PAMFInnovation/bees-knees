@@ -51,6 +51,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         addButton = UIButton(type: .custom)
         addButton.setImage(disabled, for: .normal)
         addButton.titleLabel?.text = ""
+        addButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.addButtonTouched), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,6 +92,10 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func btnTouched() {
         delegate?.toggleCompleted(sender: self, item: checklistItem!)
+    }
+    
+    func addButtonTouched() {
+        itemField.becomeFirstResponder()
     }
     
     func setChecked(_ state: Bool) {
