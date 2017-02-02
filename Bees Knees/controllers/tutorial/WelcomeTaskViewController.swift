@@ -64,10 +64,12 @@ class WelcomeTaskViewController: UIViewController {
         self.icon.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(icon)
         
+        let iconSize: CGFloat = 100
+        
         self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 60))
-        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150))
-        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150))
+        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 40))
+        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: iconSize))
+        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: iconSize))
         
         
         // Setup the main text view
@@ -85,8 +87,8 @@ class WelcomeTaskViewController: UIViewController {
         // Attach the main text
         self.view.addSubview(mainTextView)
         
-        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
-        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
+        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10))
+        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -10))
         self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .top, relatedBy: .equal, toItem: icon, attribute: .bottom, multiplier: 1.0, constant: 10))
         
         
@@ -105,8 +107,8 @@ class WelcomeTaskViewController: UIViewController {
         // Attach the secondary text
         self.view.addSubview(secondaryTextView)
         
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -10))
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 20))
         
         

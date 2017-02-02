@@ -47,6 +47,9 @@ class GuideTableViewCell: UITableViewCell {
         self.autoresizingMask = .flexibleHeight
         self.clipsToBounds = true
         
+        // Set icon as non-interactive
+        self.icon.isUserInteractionEnabled = false
+        
         // Customize labels
         self.title.font = titleNormalFont
         self.subtitle.font = subtitleNormalFont
@@ -73,6 +76,7 @@ class GuideTableViewCell: UITableViewCell {
         self.dateText.isSelectable = false
         self.dateText.textAlignment = .center
         self.dateText.textColor = UIColor.lightGray
+        self.dateText.isUserInteractionEnabled = false
         
         
         // Add custom subviews

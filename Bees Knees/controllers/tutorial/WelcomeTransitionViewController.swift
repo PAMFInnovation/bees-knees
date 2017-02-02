@@ -28,7 +28,7 @@ class WelcomeTransitionViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: goButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: goButton, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: goButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
-        self.view.addConstraint(NSLayoutConstraint(item: goButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: goButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
     }
     
     

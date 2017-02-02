@@ -32,7 +32,7 @@ class WelcomePasscodeViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
         self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -(self.view.frame.width / 2) - 10))
         self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: confirmButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         // Setup the "skip" button
         skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
@@ -46,7 +46,7 @@ class WelcomePasscodeViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: (self.view.frame.width / 2) + 10))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         // Check for passcode already set
         if Util.isPasscodeSet() {

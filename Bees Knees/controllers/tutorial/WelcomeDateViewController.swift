@@ -11,6 +11,7 @@ import UIKit
 
 class WelcomeDateViewController: WelcomeTaskViewController {
     
+    var surgerySet: Bool = false
     var setButton: CustomButton?
     var skipButton: CustomButton?
     
@@ -30,7 +31,7 @@ class WelcomeDateViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
         self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -(self.view.frame.width / 2) - 10))
         self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: setButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         // Setup the "skip/continue" button
         skipButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
@@ -44,10 +45,11 @@ class WelcomeDateViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: (self.view.frame.width / 2) + 10))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         // Change the button text based on date of surgery
-        if ProfileManager.sharedInstance.isSurgerySet() {
+        surgerySet = ProfileManager.sharedInstance.isSurgerySet()
+        if surgerySet {
             setButton?.setTitle("Edit Date", for: .normal)
             skipButton?.setTitle("Continue", for: .normal)
             completedStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
@@ -74,11 +76,15 @@ class WelcomeDateViewController: WelcomeTaskViewController {
 
 extension WelcomeDateViewController: DateOfSurgeryPresentViewControllerDelegate {
     func complete(sender: DateOfSurgeryPresentViewController) {
+        let isSurgerySet = surgerySet
         setButton?.setTitle("Edit Date", for: .normal)
         skipButton?.setTitle("Continue", for: .normal)
         grayOutText()
+        surgerySet = true
         sender.dismiss(animated: true, completion: {
-            self.markAsCompleted()
+            if !isSurgerySet {
+                self.markAsCompleted()
+            }
         })
     }
 }

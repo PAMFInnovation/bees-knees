@@ -180,7 +180,15 @@ extension WelcomePageViewController: WelcomeTaskViewControllerDelegate {
             self.classDelegate?.completeWelcome(sender: self)
         }
         else {
-            self.goToViewControllerAtIndex(currentIndex + 1)
+            if sender is WelcomeTACController {
+                self.goToViewControllerAtIndex(3)
+            }
+            else if sender is WelcomePasscodeViewController {
+                self.goToViewControllerAtIndex(4)
+            }
+            else if sender is WelcomeDateViewController {
+                self.goToViewControllerAtIndex(5)
+            }
         }
     }
 }

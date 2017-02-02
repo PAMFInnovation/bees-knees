@@ -95,6 +95,7 @@
 		9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */; };
 		9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */; };
 		9E7747D71E3E9CA9004F6FB3 /* LegalPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */; };
+		9E7AAF141E43B85700FABC23 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
@@ -350,6 +351,7 @@
 		9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Factory.swift"; path = "extensions/UIButton+Factory.swift"; sourceTree = "<group>"; };
 		9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = shared/CustomButton.swift; sourceTree = "<group>"; };
 		9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalPresentViewController.swift; path = controllers/LegalPresentViewController.swift; sourceTree = "<group>"; };
+		9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIDevice+Model.swift"; path = "extensions/UIDevice+Model.swift"; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				9EC4F6991E31219C008E8DB6 /* UIColorExtension.swift */,
 				9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */,
 				9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */,
+				9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EC4F6921E308219008E8DB6 /* ResourceCollectionViewCell.swift in Sources */,
+				9E7AAF141E43B85700FABC23 /* UIDevice+Model.swift in Sources */,
 				9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */,
 				9EA74A1F1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,

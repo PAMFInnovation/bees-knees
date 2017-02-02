@@ -41,7 +41,7 @@ class LegalViewController: UIViewController {
         webView = UIWebView(frame: self.view.frame)
         self.view.addSubview(webView)
         
-        self.webView.load(consentData, mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() as URL)
+        self.webView.load(consentData, mimeType: "application/pdf", textEncodingName: "UTF-8", baseURL: URL(string: "http://www.stackoverflow.com")!)// NSURL() as URL)// nil)// NSURL() as URL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

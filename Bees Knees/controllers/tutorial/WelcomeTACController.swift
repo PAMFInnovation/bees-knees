@@ -35,7 +35,7 @@ class WelcomeTACController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
-        self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: signButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         viewButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         viewButton?.borderColor = UIColor.white
@@ -49,7 +49,7 @@ class WelcomeTACController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
         self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -(self.view.frame.width / 2) - 10))
         self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: viewButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         continueButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         continueButton?.borderColor = UIColor.white
@@ -63,7 +63,7 @@ class WelcomeTACController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: (self.view.frame.width / 2) + 10))
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
-        self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+        self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
         
         // Check for consent and display buttons appropriately
         if ProfileManager.sharedInstance.getSignedConsentDocument() == nil {
