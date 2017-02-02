@@ -14,18 +14,14 @@ class SettingsItemNavigation: SettingsItem {
     // Header text to display on the page
     var header: String = ""
     
-    // Icon for the cell
-    var icon: String = ""
-    
     // Class name of the view controller to navigate to
     var className: String = ""
     
     
     init(name: String, header: String, icon: String, className: String) {
-        super.init(name: name, type: .Navigation)
+        super.init(name: name, icon: icon, type: .Navigation)
         
         self.header = header
-        self.icon = icon
         self.className = className
     }
 }

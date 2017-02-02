@@ -112,7 +112,7 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
         self.classDelegate?.didFinishPreFlow(sender: self)
     }
     
-    func shouldPresentPasscode() -> Bool {
+    /*func shouldPresentPasscode() -> Bool {
         // Ignore passcode on simulator as it'll cause errors
         var ignorePasscode = false
         #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
@@ -131,7 +131,7 @@ class PreSurgeryWelcomeFlowViewController: UINavigationController {
             // Present passcode modally
             self.present(passcodeTVC, animated: true, completion: nil)
         }
-    }
+    }*/
 }
 
 extension PreSurgeryWelcomeFlowViewController: PreSurgeryWelcomeDelegate {
@@ -177,14 +177,14 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
             //self.pushViewController(profileVC, animated: true)
             
             // TESTING: removed profile
-            if shouldPresentPasscode() {
+            /*if shouldPresentPasscode() {
                 // Present passcode modally
                 self.present(passcodeTVC, animated: true, completion: nil)
             }
             else {
                 // Navigate to the transition view if the passcode is already set
                 self.pushViewController(preSurgeryTransitionVC, animated: true)
-            }
+            }*/
         }
             // If Passcode, navigate to the transition view
         else if taskViewController.title?.localizedCompare("Protect").rawValue == 0 {
@@ -201,14 +201,14 @@ extension PreSurgeryWelcomeFlowViewController: ORKTaskViewControllerDelegate {
 extension PreSurgeryWelcomeFlowViewController: ProfileDelegate {
     
     func profileNextButtonPressed(sender: ProfileViewController) {
-        if shouldPresentPasscode() {
+        /*if shouldPresentPasscode() {
             // Present passcode modally
             self.present(passcodeTVC, animated: true, completion: nil)
         }
         else {
             // Navigate to the transition view if the passcode is already set
             self.pushViewController(preSurgeryTransitionVC, animated: true)
-        }
+        }*/
     }
 }
 

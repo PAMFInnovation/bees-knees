@@ -9,14 +9,7 @@
 import UIKit
 
 
-protocol WelcomeTransitionViewControllerDelegate: class {
-    func transition(sender: WelcomeTransitionViewController)
-}
-
-class WelcomeTransitionViewController: WelcomeTextViewController {
-    
-    weak var delegate: WelcomeTransitionViewControllerDelegate?
-    
+class WelcomeTransitionViewController: WelcomeTaskViewController {
     
     // MARK: - Initialization
     override func viewDidLoad() {
@@ -41,6 +34,6 @@ class WelcomeTransitionViewController: WelcomeTextViewController {
     
     // MARK: - Helper functions
     func complete() {
-        self.delegate?.transition(sender: self)
+        delegate?.completeTask(sender: self)
     }
 }

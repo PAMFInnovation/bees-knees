@@ -10,13 +10,7 @@ import UIKit
 import ResearchKit
 
 
-protocol WelcomeTACControllerDelegate: class {
-    func completeTerms(sender: WelcomeTACController)
-}
-
-class WelcomeTACController: WelcomeTextViewController {
-    
-    weak var delegate: WelcomeTACControllerDelegate?
+class WelcomeTACController: WelcomeTaskViewController {
     
     var signButton: CustomButton?
     var viewButton: CustomButton?
@@ -71,28 +65,15 @@ class WelcomeTACController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
-        // Add the completed icon
-        var checkmarkImage: UIImage = UIImage(named: "checkmark-circle")!
-        checkmarkImage = checkmarkImage.withRenderingMode(.alwaysTemplate)
-        checkmarkView = UIImageView(image: checkmarkImage)
-        checkmarkView?.tintColor = UIColor.white
-        checkmarkView?.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(checkmarkView!)
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 100))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        
         // Check for consent and display buttons appropriately
         if ProfileManager.sharedInstance.getSignedConsentDocument() == nil {
             viewButton?.isHidden = true
             continueButton?.isHidden = true
-            checkmarkView?.transform = CGAffineTransform(scaleX: 0, y: 0)
         }
         else {
             signButton?.isHidden = true
-            checkmarkView?.transform = CGAffineTransform(scaleX: 1, y: 1)
-            textView.text = "Consent has been signed! You can tap below to view the signed consent or proceed to the next step."
+            completedStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            grayOutText()
         }
     }
     
@@ -115,21 +96,8 @@ class WelcomeTACController: WelcomeTextViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func markAsCompleted() {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { finished in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            }, completion: { finished in
-                UIView.animate(withDuration: 1.0, animations: {
-                }, completion: nil)
-            })
-        })
-    }
-    
     func nextPage() {
-        self.delegate?.completeTerms(sender: self)
+        delegate?.completeTask(sender: self)
     }
 }
 
@@ -164,7 +132,8 @@ extension WelcomeTACController: ORKTaskViewControllerDelegate {
                     self.signButton?.isHidden = true
                     self.viewButton?.isHidden = false
                     self.continueButton?.isHidden = false
-                    self.textView.text = "Consent has been signed! You can tap below to view the signed consent or proceed to the next step."
+                    self.grayOutText()
+                    //self.textView.text = "Consent has been signed! You can tap below to view the signed consent or proceed to the next step."
                     taskViewController.dismiss(animated: true, completion: {
                         self.markAsCompleted()
                     })

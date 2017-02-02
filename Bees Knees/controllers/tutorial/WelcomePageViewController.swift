@@ -34,30 +34,25 @@ class WelcomePageViewController: UIPageViewController {
         //self.view.backgroundColor = UIColor.clear
         let gradient = CAGradientLayer()
         gradient.frame = self.view.bounds
-        gradient.colors = [Colors.turquoiseLight1.color.cgColor, Colors.turquoise.color.cgColor]
+        gradient.colors = [Colors.turquoiseLight2.color.cgColor, Colors.turquoise.color.cgColor]
         //gradient.colors = [Colors.turquoise.color.cgColor, UIColor.white.cgColor]
         view.layer.insertSublayer(gradient, at: 0)
         
         // Add the view controllers
-        let welcome1 = WelcomeTextViewController(text: "Welcome to\nBee's Knees!", fontSize: 38)
-        welcome1.shouldDisplaySwipeTip = true
+        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to LegUp!", secondaryText: "This app will help you prepare for your upcoming surgery and support your recovery.", mainFontSize: 32, secondaryFontSize: 24, icon: "blank-icon", displaySwipeTip: true)
         orderedViewControllers.append(welcome1)
-        let welcome2 = WelcomeTextViewController(text: "This App will help you prepare for your upcoming surgery and support your recovery.", fontSize: 28)
-        welcome2.shouldDisplaySwipeTip = true
+        let welcome2 = WelcomeInstructionsViewController()
         orderedViewControllers.append(welcome2)
-        let welcome3 = WelcomeTextViewController(text: "Bee's Knees is a personalized journal and navigational guide on your road to recovery.", fontSize: 28)
-        welcome3.shouldDisplaySwipeTip = true
-        orderedViewControllers.append(welcome3)
-        let terms = WelcomeTACController(text: "Before we get started, we'd like to review the terms and conditions.", fontSize: 28)
+        let terms = WelcomeTACController(mainText: "Before we get started, we have to review the terms and conditions.", secondaryText: "Please note: this app is just for you! The info you track in this app will not be available to your care team. Feel free to share what you have in the app with your doctor during your visit.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_legal")
         terms.delegate = self
         orderedViewControllers.append(terms)
-        let passcode = WelcomePasscodeViewController(text: "You can also keep your information secure by setting a 4-digit passcode. You will be asked to enter your passcode when you open this app.", fontSize: 28)
+        let passcode = WelcomePasscodeViewController(mainText: "Consent signed! Next step is to set up an optional passcode to secure your information.", secondaryText: "You'll be asked to enter your passcode when you open this app, and you can change your passcode at any time. You'll also have the option to use TouchID.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_passcode")
         passcode.delegate = self
         orderedViewControllers.append(passcode)
-        let date = WelcomeDateViewController(text: "If you know when your surgery is scheduled, you can enter the date here.", fontSize: 28)
+        let date = WelcomeDateViewController(mainText: "One more thing! Set your surgery date so the app can help keep you on track.", secondaryText: "Don't worry -- if you don't know your surgery date, you can add that later.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_date")
         date.delegate = self
         orderedViewControllers.append(date)
-        let transition = WelcomeTransitionViewController(text: "You're all set and ready to get started with your routine.", fontSize: 28)
+        let transition = WelcomeTransitionViewController(mainText: "You're all set! Now let's get started with your routine.", secondaryText: "On the next page, you can add all your appointments.\n\nExplore all the tabs at the bottom for more helpful tools, like \"Activities\" for exercises, and \"More\" for the binder.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_done")
         transition.delegate = self
         orderedViewControllers.append(transition)
         
@@ -129,6 +124,7 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
+        currentIndex = viewControllerIndex
         
         let previousIndex = viewControllerIndex - 1
         let orderedViewControllersCount = orderedViewControllers.count
@@ -141,7 +137,6 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        currentIndex = previousIndex
         return orderedViewControllers[previousIndex]
     }
     
@@ -149,6 +144,7 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
+        currentIndex = viewControllerIndex
         
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = orderedViewControllers.count
@@ -166,7 +162,6 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        currentIndex = nextIndex
         return orderedViewControllers[nextIndex]
     }
     
@@ -179,26 +174,13 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
     }
 }
 
-extension WelcomePageViewController: WelcomeTACControllerDelegate {
-    func completeTerms(sender: WelcomeTACController) {
-        self.goToViewControllerAtIndex(4)
-    }
-}
-
-extension WelcomePageViewController: WelcomePasscodeViewControllerDelegate {
-    func completeOrSkipPasscode(sender: WelcomePasscodeViewController) {
-        self.goToViewControllerAtIndex(5)
-    }
-}
-
-extension WelcomePageViewController: WelcomeDateViewControllerDelegate {
-    func completeOrSkipDate(sender: WelcomeDateViewController) {
-        self.goToViewControllerAtIndex(6)
-    }
-}
-
-extension WelcomePageViewController: WelcomeTransitionViewControllerDelegate {
-    func transition(sender: WelcomeTransitionViewController) {
-        self.classDelegate?.completeWelcome(sender: self)
+extension WelcomePageViewController: WelcomeTaskViewControllerDelegate {
+    func completeTask(sender: WelcomeTaskViewController) {
+        if sender is WelcomeTransitionViewController {
+            self.classDelegate?.completeWelcome(sender: self)
+        }
+        else {
+            self.goToViewControllerAtIndex(currentIndex + 1)
+        }
     }
 }

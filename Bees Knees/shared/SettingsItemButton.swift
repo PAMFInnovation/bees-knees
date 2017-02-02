@@ -15,7 +15,13 @@ class SettingsItemButton: SettingsItem {
     
     
     init(name: String, action: @escaping () -> Void) {
-        super.init(name: name, type: .Button)
+        super.init(name: name, icon: "", type: .Button)
+        
+        self.action = action
+    }
+    
+    init(name: String, icon: String, action: @escaping () -> Void) {
+        super.init(name: name, icon: icon, type: .Button)
         
         self.action = action
     }

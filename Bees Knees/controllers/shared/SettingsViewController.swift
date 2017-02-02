@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchKit
 
 
 class SettingsViewController: UITableViewController {
@@ -49,6 +50,9 @@ class SettingsViewController: UITableViewController {
         
         dataSource.append([SettingsItem]())
         dataSource[2].append(SettingsItemNavigation(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
+        dataSource[2].append(SettingsItemButton(name: "Passcode", icon: "settings-icon", action: {
+            self.setOrEditPasscode()
+        }))
         
         dataSource.append([SettingsItem]())
         dataSource[3].append(SettingsItemButton(name: "Reset App Data", action: {
@@ -99,6 +103,22 @@ class SettingsViewController: UITableViewController {
         self.alert(message: "\nThis will reset all saved data and tracked exercises.", title: "ARE YOU SURE?", cancelAction: cancel, confirmAction: confirm)
     }
     
+    func setOrEditPasscode() {
+        if Util.isSimulator() {
+            return
+        }
+        
+        if Util.isPasscodeSet() {
+            self.present(ORKPasscodeViewController.passcodeEditingViewController(withText: "", delegate: self as! ORKPasscodeDelegate, passcodeType: .type4Digit), animated: true, completion: nil)
+        }
+        else {
+            let passcodeTVC = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
+            passcodeTVC.title = NSLocalizedString("Protect", comment: "")
+            passcodeTVC.delegate = self
+            self.present(passcodeTVC, animated: true, completion: nil)
+        }
+    }
+    
     
     // MARK: - Table View Delegate
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -125,8 +145,16 @@ class SettingsViewController: UITableViewController {
         else if data.type == .Button {
             data = (data as! SettingsItemButton)
             cell.textLabel?.text = data.name
-            cell.textLabel?.textColor = UIColor.red
-            cell.textLabel?.textAlignment = .center
+            
+            if data.icon == "" {
+                cell.textLabel?.textAlignment = .center
+                cell.textLabel?.textColor = UIColor.red
+            }
+            else {
+                cell.textLabel?.textAlignment = .left
+                cell.textLabel?.textColor = UIColor.black
+                cell.imageView?.image = UIImage(named: (data as! SettingsItemButton).icon)
+            }
         }
         
         // Return the cell
@@ -158,5 +186,32 @@ class SettingsViewController: UITableViewController {
             // Trigger the action
             (data as! SettingsItemButton).action()
         }
+    }
+}
+
+extension SettingsViewController: ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        // Check for Passcode task
+        if taskViewController.title?.localizedCompare("Protect").rawValue == 0 {
+            if reason == .completed {
+                taskViewController.dismiss(animated: true, completion: nil)
+            }
+            else if reason == .discarded {
+                taskViewController.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+}
+
+extension SettingsViewController: ORKPasscodeDelegate {
+    func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
+    }
+    
+    func passcodeViewControllerDidCancel(_ viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

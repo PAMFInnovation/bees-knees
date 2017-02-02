@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ResearchKit
 
 
 class Util {
@@ -59,5 +60,18 @@ class Util {
         
         let url: NSURL = NSURL(fileURLWithPath: path)
         return url
+    }
+    
+    static func isSimulator() -> Bool {
+        // Ignore passcode on simulator as it'll cause errors
+        var isSimulator = false
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            isSimulator = true
+        #endif
+        return isSimulator
+    }
+    
+    static func isPasscodeSet() -> Bool {
+        return ORKPasscodeViewController.isPasscodeStoredInKeychain()
     }
 }

@@ -9,16 +9,10 @@
 import UIKit
 
 
-protocol WelcomeDateViewControllerDelegate: class {
-    func completeOrSkipDate(sender: WelcomeDateViewController)
-}
-
-class WelcomeDateViewController: WelcomeTextViewController {
+class WelcomeDateViewController: WelcomeTaskViewController {
     
-    weak var delegate: WelcomeDateViewControllerDelegate?
     var setButton: CustomButton?
     var skipButton: CustomButton?
-    var checkmarkView: UIImageView?
     
     // MARK: - Initialization
     override func viewDidLoad() {
@@ -52,28 +46,16 @@ class WelcomeDateViewController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
-        // Add the completed icon
-        var checkmarkImage: UIImage = UIImage(named: "checkmark-circle")!
-        checkmarkImage = checkmarkImage.withRenderingMode(.alwaysTemplate)
-        checkmarkView = UIImageView(image: checkmarkImage)
-        checkmarkView?.tintColor = UIColor.white
-        checkmarkView?.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(checkmarkView!)
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 100))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        
         // Change the button text based on date of surgery
         if ProfileManager.sharedInstance.isSurgerySet() {
             setButton?.setTitle("Edit Date", for: .normal)
             skipButton?.setTitle("Continue", for: .normal)
-            checkmarkView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            completedStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            grayOutText()
         }
         else {
             setButton?.setTitle("Set Date", for: .normal)
             skipButton?.setTitle("Skip This Step", for: .normal)
-            checkmarkView?.transform = CGAffineTransform(scaleX: 0, y: 0)
         }
     }
     
@@ -86,20 +68,7 @@ class WelcomeDateViewController: WelcomeTextViewController {
     }
     
     func skip() {
-        self.delegate?.completeOrSkipDate(sender: self)
-    }
-    
-    func markAsCompleted() {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { finished in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            }, completion: { finished in
-                UIView.animate(withDuration: 1.0, animations: {
-                }, completion: nil)
-            })
-        })
+        delegate?.completeTask(sender: self)
     }
 }
 
@@ -107,6 +76,7 @@ extension WelcomeDateViewController: DateOfSurgeryPresentViewControllerDelegate 
     func complete(sender: DateOfSurgeryPresentViewController) {
         setButton?.setTitle("Edit Date", for: .normal)
         skipButton?.setTitle("Continue", for: .normal)
+        grayOutText()
         sender.dismiss(animated: true, completion: {
             self.markAsCompleted()
         })

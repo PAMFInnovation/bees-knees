@@ -23,9 +23,13 @@ class SettingsItem: NSObject {
     // Name of the cell
     var name: String = ""
     
+    // Icon for the cell
+    var icon: String = ""
     
-    init(name: String, type: SettingsItemType = .Default) {
+    
+    init(name: String, icon: String, type: SettingsItemType = .Default) {
         self.name = name
+        self.icon = icon
         self.type = type
     }
 }

@@ -10,16 +10,10 @@ import UIKit
 import ResearchKit
 
 
-protocol WelcomePasscodeViewControllerDelegate: class {
-    func completeOrSkipPasscode(sender: WelcomePasscodeViewController)
-}
-
-class WelcomePasscodeViewController: WelcomeTextViewController {
+class WelcomePasscodeViewController: WelcomeTaskViewController {
     
-    weak var delegate: WelcomePasscodeViewControllerDelegate?
     var confirmButton: CustomButton?
     var skipButton: CustomButton?
-    var checkmarkView: UIImageView?
     
     
     // MARK: - Initialization
@@ -54,78 +48,39 @@ class WelcomePasscodeViewController: WelcomeTextViewController {
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: skipButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
-        // Add the completed icon
-        var checkmarkImage: UIImage = UIImage(named: "checkmark-circle")!
-        checkmarkImage = checkmarkImage.withRenderingMode(.alwaysTemplate)
-        checkmarkView = UIImageView(image: checkmarkImage)
-        checkmarkView?.tintColor = UIColor.white
-        checkmarkView?.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(checkmarkView!)
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 100))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        self.view.addConstraint(NSLayoutConstraint(item: checkmarkView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        
         // Check for passcode already set
-        if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
+        if Util.isPasscodeSet() {
             self.confirmButton?.setTitle("Edit Passcode", for: .normal)
             self.skipButton?.setTitle("Continue", for: .normal)
-            self.textView.text = "Your 4-digit passcode has been set!"
-            checkmarkView?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            completedStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            grayOutText()
         }
         else {
             self.confirmButton?.setTitle("Set Passcode", for: .normal)
             self.skipButton?.setTitle("Skip This Step", for: .normal)
-            checkmarkView?.transform = CGAffineTransform(scaleX: 0, y: 0)
         }
     }
     
     
     // MARK: - Helper functions
     func presentPasscode() {
-        if shouldPresentPasscode() {
+        if Util.isSimulator() {
+            return
+        }
+        
+        if Util.isPasscodeSet() {
+            self.present(ORKPasscodeViewController.passcodeEditingViewController(withText: "", delegate: self, passcodeType: .type4Digit), animated: true, completion: nil)
+        }
+        else {
             let passcodeTVC = ORKTaskViewController(task: PasscodeTask, taskRun: nil)
             passcodeTVC.title = NSLocalizedString("Protect", comment: "")
             passcodeTVC.delegate = self
             self.present(passcodeTVC, animated: true, completion: nil)
         }
-        else if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
-            self.present(ORKPasscodeViewController.passcodeEditingViewController(withText: "", delegate: self, passcodeType: .type4Digit), animated: true, completion: nil)
-        }
     }
     
     func skip() {
-        delegate?.completeOrSkipPasscode(sender: self)
-    }
-    
-    func shouldPresentPasscode() -> Bool {
-        // Ignore passcode on simulator as it'll cause errors
-        var ignorePasscode = false
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
-            ignorePasscode = true
-        #endif
-        
-        // This app requires a passcode for certain views. Make sure the user has set a passcode before starting with the app
-        let passcodeSet = ORKPasscodeViewController.isPasscodeStoredInKeychain()
-        if ignorePasscode || passcodeSet {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-    
-    func markAsCompleted() {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        }, completion: { finished in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.checkmarkView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            }, completion: { finished in
-                UIView.animate(withDuration: 1.0, animations: {
-                }, completion: nil)
-            })
-        })
+        delegate?.completeTask(sender: self)
     }
 }
 
@@ -139,7 +94,8 @@ extension WelcomePasscodeViewController: ORKTaskViewControllerDelegate {
                 // Dismiss the passcode and mark this as completed
                 self.confirmButton?.setTitle("Edit Passcode", for: .normal)
                 self.skipButton?.setTitle("Continue", for: .normal)
-                self.textView.text = "Your 4-digit passcode has been set!"
+                grayOutText()
+                //self.textView.text = "Your 4-digit passcode has been set!"
                 taskViewController.dismiss(animated: true, completion: {
                     self.markAsCompleted()
                 })

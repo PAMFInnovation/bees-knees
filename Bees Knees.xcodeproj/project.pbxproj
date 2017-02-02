@@ -118,6 +118,8 @@
 		9E960FDC1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */; };
 		9E960FDE1DCAA5BA00811FFB /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */; };
 		9E960FE01DCAA5D000811FFB /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */; };
+		9EA74A191E429B630020E829 /* WelcomeTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA74A181E429B630020E829 /* WelcomeTaskViewController.swift */; };
+		9EA74A1F1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA74A1E1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift */; };
 		9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC401DC1111300F9A53E /* HighlightButton.swift */; };
 		9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */; };
 		9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */; };
@@ -369,6 +371,8 @@
 		9E960FDB1DCAA58700811FFB /* AppointmentTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentTypeTableViewCell.swift; path = shared/AppointmentTypeTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FDD1DCAA5BA00811FFB /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = shared/DateTableViewCell.swift; sourceTree = "<group>"; };
 		9E960FDF1DCAA5D000811FFB /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceTableViewCell.swift; path = shared/PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		9EA74A181E429B630020E829 /* WelcomeTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTaskViewController.swift; path = controllers/tutorial/WelcomeTaskViewController.swift; sourceTree = "<group>"; };
+		9EA74A1E1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeInstructionsViewController.swift; path = controllers/tutorial/WelcomeInstructionsViewController.swift; sourceTree = "<group>"; };
 		9EB5FC401DC1111300F9A53E /* HighlightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighlightButton.swift; path = shared/HighlightButton.swift; sourceTree = "<group>"; };
 		9EB5FC421DC11FFE00F9A53E /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileManager.swift; path = shared/ProfileManager.swift; sourceTree = "<group>"; };
 		9EB5FC441DC12CBF00F9A53E /* ProfileInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileInterface.xib; path = interfaces/ProfileInterface.xib; sourceTree = "<group>"; };
@@ -477,10 +481,12 @@
 				9E018F9A1E1B02A1008250FA /* TutorialViewController.swift */,
 				9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */,
 				9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */,
+				9EA74A181E429B630020E829 /* WelcomeTaskViewController.swift */,
 				9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */,
 				9E7747CE1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift */,
 				9EF00A411E40095100132284 /* WelcomeDateViewController.swift */,
 				9EF00A3B1E40071A00132284 /* WelcomeTransitionViewController.swift */,
+				9EA74A1E1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift */,
 			);
 			name = tutorial;
 			sourceTree = "<group>";
@@ -1244,6 +1250,7 @@
 				9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */,
 				9EF00A3C1E40071A00132284 /* WelcomeTransitionViewController.swift in Sources */,
 				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
+				9EA74A191E429B630020E829 /* WelcomeTaskViewController.swift in Sources */,
 				9E960FCB1DC94BAD00811FFB /* SurgeryCountdown.swift in Sources */,
 				9E018F881E0B0750008250FA /* LineGraphDataSource.swift in Sources */,
 				9E018F8A1E0B09C9008250FA /* LineGraphChart.swift in Sources */,
@@ -1285,6 +1292,7 @@
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EC4F6921E308219008E8DB6 /* ResourceCollectionViewCell.swift in Sources */,
 				9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */,
+				9EA74A1F1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
 				9EC4F6ED1E31625C008E8DB6 /* ResourceViewController.swift in Sources */,
