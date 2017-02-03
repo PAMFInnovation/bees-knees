@@ -96,6 +96,11 @@
 		9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */; };
 		9E7747D71E3E9CA9004F6FB3 /* LegalPresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */; };
 		9E7AAF141E43B85700FABC23 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */; };
+		9E7AAF1D1E43F8BE00FABC23 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF1C1E43F8BE00FABC23 /* ActivityDetailViewController.swift */; };
+		9E7AAF1F1E43F8E800FABC23 /* ActivityDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF1E1E43F8E800FABC23 /* ActivityDetailHeaderView.swift */; };
+		9E7AAF211E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF201E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift */; };
+		9E7AAF251E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF241E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift */; };
+		9E7AAF271E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF261E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
@@ -352,6 +357,11 @@
 		9E7747D41E3CE45A004F6FB3 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = shared/CustomButton.swift; sourceTree = "<group>"; };
 		9E7747D61E3E9CA9004F6FB3 /* LegalPresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalPresentViewController.swift; path = controllers/LegalPresentViewController.swift; sourceTree = "<group>"; };
 		9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIDevice+Model.swift"; path = "extensions/UIDevice+Model.swift"; sourceTree = "<group>"; };
+		9E7AAF1C1E43F8BE00FABC23 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailViewController.swift; path = activities/ActivityDetailViewController.swift; sourceTree = "<group>"; };
+		9E7AAF1E1E43F8E800FABC23 /* ActivityDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailHeaderView.swift; path = activities/ActivityDetailHeaderView.swift; sourceTree = "<group>"; };
+		9E7AAF201E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailInstructionsTableViewCell.swift; path = activities/ActivityDetailInstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		9E7AAF241E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailRationaleTableViewCell.swift; path = activities/ActivityDetailRationaleTableViewCell.swift; sourceTree = "<group>"; };
+		9E7AAF261E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailImageTableViewCell.swift; path = activities/ActivityDetailImageTableViewCell.swift; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -719,6 +729,18 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		9E7AAF1B1E43F86D00FABC23 /* activities */ = {
+			isa = PBXGroup;
+			children = (
+				9E7AAF1C1E43F8BE00FABC23 /* ActivityDetailViewController.swift */,
+				9E7AAF1E1E43F8E800FABC23 /* ActivityDetailHeaderView.swift */,
+				9E7AAF201E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift */,
+				9E7AAF241E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift */,
+				9E7AAF261E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift */,
+			);
+			name = activities;
+			sourceTree = "<group>";
+		};
 		9E960FD21DCA8A3A00811FFB /* shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +853,7 @@
 		9EFDA0521D8370F400FD6763 /* Bees Knees */ = {
 			isa = PBXGroup;
 			children = (
+				9E7AAF1B1E43F86D00FABC23 /* activities */,
 				9E429DC31DC29E240066FF20 /* extensions */,
 				9E17D3A91DBEB0D60072CDC1 /* interfaces */,
 				9EC4F6E91E315933008E8DB6 /* presentations */,
@@ -1212,6 +1235,7 @@
 				9E7747CF1E3C5F70004F6FB3 /* WelcomePasscodeViewController.swift in Sources */,
 				9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */,
 				9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */,
+				9E7AAF251E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift in Sources */,
 				9EC4F69A1E31219C008E8DB6 /* UIColorExtension.swift in Sources */,
 				9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */,
 				9EB5FC431DC11FFE00F9A53E /* ProfileManager.swift in Sources */,
@@ -1233,7 +1257,9 @@
 				D23DC5CD1DFB640200663595 /* UIApplication+TopViewController.swift in Sources */,
 				D2B4886F1DEF4B4B000333D6 /* ChairPressUps.swift in Sources */,
 				D2B4886D1DEF4B4B000333D6 /* AbdominalBracing.swift in Sources */,
+				9E7AAF1D1E43F8BE00FABC23 /* ActivityDetailViewController.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
+				9E7AAF271E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift in Sources */,
 				9EFDA08D1D83717A00FD6763 /* ConsentDocument.swift in Sources */,
 				D2BE64EB1DDCBCFB00EAEB7C /* ImageViewController.swift in Sources */,
 				D2B488621DEDFA3F000333D6 /* Theme.swift in Sources */,
@@ -1247,6 +1273,7 @@
 				9E81DDD71DCD17A00065C928 /* ExpectationsViewController.swift in Sources */,
 				9EE1D3371DD2A94100EB3E54 /* Assessment.swift in Sources */,
 				D224BA851DECD73100A77108 /* BuildInsightsOperation.swift in Sources */,
+				9E7AAF1F1E43F8E800FABC23 /* ActivityDetailHeaderView.swift in Sources */,
 				D2B488741DEF4B4B000333D6 /* QuadSets.swift in Sources */,
 				9EC4F6EB1E3159FD008E8DB6 /* SlideInPresentationManager.swift in Sources */,
 				9E3E6B5F1DD4F8B8000E92E1 /* GuideTableViewCell.swift in Sources */,
@@ -1291,6 +1318,7 @@
 				9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */,
 				9E8A05F01E25831A00A36B72 /* TextTableViewCell.swift in Sources */,
 				9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */,
+				9E7AAF211E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,
 				9EC4F6921E308219008E8DB6 /* ResourceCollectionViewCell.swift in Sources */,

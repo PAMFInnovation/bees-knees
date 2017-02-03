@@ -12,6 +12,9 @@ import CareKit
 struct PhotoLog: Activity {
     let activityType: ActivityType = .PhotoLog
     
+    let rationale: String = NSLocalizedString("", comment: "")
+    let image: (name: String, type: String) = ("", "")
+    
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)

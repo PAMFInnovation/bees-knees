@@ -11,8 +11,10 @@ import ResearchKit
 
 
 struct Mood: Assessment {
-    
     let activityType: ActivityType = .Mood
+    
+    let rationale: String = NSLocalizedString("", comment: "")
+    let image: (name: String, type: String) = ("", "")
     
     
     func carePlanActivity() -> OCKCarePlanActivity {

@@ -12,6 +12,9 @@ import CareKit
 struct ChairPressUps: Activity {
     let activityType: ActivityType = .ChairPressUps
     
+    let rationale: String = NSLocalizedString("This is just another sample rationale.", comment: "")
+    let image: (name: String, type: String) = ("ref_chairpressups", "png")
+    
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
@@ -30,7 +33,7 @@ struct ChairPressUps: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: Util.getURLForResource(resource: "ref_chairpressups", type: "png") as URL,
+            imageURL: Util.getURLForResource(resource: image.name, type: image.type) as URL,
             schedule: schedule,
             userInfo: nil
         )

@@ -11,8 +11,10 @@ import ResearchKit
 
 
 struct KneePain: Assessment {
-    
     let activityType: ActivityType = .KneePain
+    
+    let rationale: String = NSLocalizedString("", comment: "")
+    let image: (name: String, type: String) = ("", "")
     
     
     func carePlanActivity() -> OCKCarePlanActivity {

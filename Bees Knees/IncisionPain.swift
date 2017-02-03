@@ -11,8 +11,10 @@ import ResearchKit
 
 
 struct IncisionPain: Assessment {
-    
     let activityType: ActivityType = .IncisionPain
+    
+    let rationale: String = NSLocalizedString("", comment: "")
+    let image: (name: String, type: String) = ("", "")
     
     
     func carePlanActivity() -> OCKCarePlanActivity {

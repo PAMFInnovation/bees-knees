@@ -18,21 +18,6 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
     private var checklistVC: PreSurgeryChecklistViewController!
     private var settingsVC: SettingsViewController!
     
-    // Care Card activities
-    let activities: [Activity] = [
-        Walk(),
-        QuadSets(),
-        AnklePumps(),
-        GluteSets(),
-        HeelSlides(),
-        StraightLegRaises(),
-        SeatedHeelSlides(),
-        HamstringSets(),
-        ChairPressUps(),
-        AbdominalBracing(),
-        PhotoLog()
-    ]
-    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -46,17 +31,6 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
     convenience init() {
         self.init(nibName: nil, bundle: nil)
         
-        // Add activities to the store
-        /*for activity in activities {
-         let carePlanActivity = activity.carePlanActivity()
-         
-         CarePlanStoreManager.sharedInstance.store.add(carePlanActivity) { success, error in
-         if !success {
-         print("Error adding activity to the store: ", error?.localizedDescription)
-         }
-         }
-         }*/
-        
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
         guideVC.title = NSLocalizedString("My Events", comment: "")
@@ -64,6 +38,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
+        careCardVC.delegate = self
         careCardVC.title = NSLocalizedString("Physical Preparation Activities", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: "Activities", image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
@@ -94,5 +69,15 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Set default tab
         self.selectedIndex = 0
+    }
+}
+
+extension PreSurgeryRoutineViewController: OCKCareCardViewControllerDelegate {
+    func careCardViewController(_ viewController: OCKCareCardViewController, didSelectRowWithInterventionActivity interventionActivity: OCKCarePlanActivity) {
+        let activityType = ActivityType(rawValue: interventionActivity.identifier)
+        let activity = CarePlanStoreManager.sharedInstance.activityWithType(activityType!)
+        let activityContainer = ActivityContainer(activity: activity!, carePlanActivity: interventionActivity)
+        let activityVC = ActivityDetailViewController(activity: activityContainer)
+        viewController.navigationController?.pushViewController(activityVC, animated: true)
     }
 }

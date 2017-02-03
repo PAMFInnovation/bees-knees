@@ -270,7 +270,7 @@ class CarePlanStoreManager : NSObject {
         }
     }
     
-    fileprivate func activityWithType(_ type: ActivityType) -> Activity? {
+    func activityWithType(_ type: ActivityType) -> Activity? {
         for activity in activities where activity.activityType == type {
             return activity
         }

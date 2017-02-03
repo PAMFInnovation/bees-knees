@@ -12,6 +12,9 @@ import CareKit
 struct HamstringSets: Activity {
     let activityType: ActivityType = .HamstringSets
     
+    let rationale: String = NSLocalizedString("", comment: "")
+    let image: (name: String, type: String) = ("ref_hamstringsets", "png")
+    
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
@@ -30,7 +33,7 @@ struct HamstringSets: Activity {
             text: summary,
             tintColor: Colors.turquoise.color,
             instructions: instructions,
-            imageURL: Util.getURLForResource(resource: "ref_hamstringsets", type: "png") as URL,
+            imageURL: Util.getURLForResource(resource: image.name, type: image.type) as URL,
             schedule: schedule,
             userInfo: nil
         )

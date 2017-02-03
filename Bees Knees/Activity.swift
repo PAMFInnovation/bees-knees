@@ -8,7 +8,16 @@
 
 import CareKit
 
+
+struct ActivityContainer {
+    let activity: Activity
+    let carePlanActivity: OCKCarePlanActivity
+}
+
 protocol Activity {
+    var rationale: String { get }
+    var image: (name: String, type: String) { get }
+    
     var activityType: ActivityType { get }
     
     func carePlanActivity() -> OCKCarePlanActivity

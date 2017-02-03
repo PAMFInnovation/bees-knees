@@ -20,24 +20,6 @@ class PostSurgeryRoutineViewController: UITabBarController {
     fileprivate var insightsVC: OCKInsightsViewController!
     fileprivate var settingsVC: SettingsViewController!
     
-    // Care Card activities
-    let activities: [Activity] = [
-        Walk(),
-        QuadSets(),
-        AnklePumps(),
-        GluteSets(),
-        HeelSlides(),
-        StraightLegRaises(),
-        SeatedHeelSlides(),
-        HamstringSets(),
-        ChairPressUps(),
-        AbdominalBracing(),
-        PhotoLog(),
-        KneePain(),
-        Mood(),
-        IncisionPain()
-    ]
-    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -51,17 +33,6 @@ class PostSurgeryRoutineViewController: UITabBarController {
     convenience init() {
         self.init(nibName: nil, bundle: nil)
         
-        /*// Add activities to the store
-         for activity in activities {
-         let carePlanActivity = activity.carePlanActivity()
-         
-         CarePlanStoreManager.sharedInstance.store.add(carePlanActivity) { success, error in
-         if !success {
-         print("Error adding activity to the store: ", error?.localizedDescription)
-         }
-         }
-         }*/
-        
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
         guideVC.title = NSLocalizedString("My Events", comment: "")
@@ -69,6 +40,7 @@ class PostSurgeryRoutineViewController: UITabBarController {
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
+        careCardVC.delegate = self
         careCardVC.title = NSLocalizedString("Activities", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: careCardVC.title, image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
@@ -105,18 +77,15 @@ class PostSurgeryRoutineViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    func activityWithType(_ type: ActivityType) -> Activity? {
-        for activity in activities where activity.activityType == type {
-            return activity
-        }
-        return nil
-    }
 }
 
 extension PostSurgeryRoutineViewController: OCKCareCardViewControllerDelegate {
     func careCardViewController(_ viewController: OCKCareCardViewController, didSelectRowWithInterventionActivity interventionActivity: OCKCarePlanActivity) {
-        
+        let activityType = ActivityType(rawValue: interventionActivity.identifier)
+        let activity = CarePlanStoreManager.sharedInstance.activityWithType(activityType!)
+        let activityContainer = ActivityContainer(activity: activity!, carePlanActivity: interventionActivity)
+        let activityVC = ActivityDetailViewController(activity: activityContainer)
+        viewController.navigationController?.pushViewController(activityVC, animated: true)
     }
 }
 
@@ -125,7 +94,7 @@ extension PostSurgeryRoutineViewController: OCKSymptomTrackerViewControllerDeleg
     func symptomTrackerViewController(_ viewController: OCKSymptomTrackerViewController, didSelectRowWithAssessmentEvent assessmentEvent: OCKCarePlanEvent) {
         // Lookup the assessment from the row
         guard let activityType = ActivityType(rawValue: assessmentEvent.activity.identifier) else { return }
-        guard let assessment = self.activityWithType(activityType) as? Assessment else { return }
+        guard let assessment = CarePlanStoreManager.sharedInstance.activityWithType(activityType) as? Assessment else { return }
         
         // Check if we should show a task for the selected assessment event
         guard assessmentEvent.state == .initial ||
@@ -158,7 +127,7 @@ extension PostSurgeryRoutineViewController: ORKTaskViewControllerDelegate {
         // Determine the event that was completed and the assessment it represents
         guard let event = self.assessmentsVC.lastSelectedAssessmentEvent,
             let activityType = ActivityType(rawValue: event.activity.identifier),
-            let assessment = self.activityWithType(activityType) as? Assessment else { return }
+            let assessment = CarePlanStoreManager.sharedInstance.activityWithType(activityType) as? Assessment else { return }
         
         // Build an event result object that can be saved into the store
         let carePlanResult = assessment.buildResultForCarePlanEvent(event, taskResult: taskViewController.result)
