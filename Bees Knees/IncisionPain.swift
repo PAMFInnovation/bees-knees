@@ -15,6 +15,7 @@ struct IncisionPain: Assessment {
     
     let rationale: String = NSLocalizedString("", comment: "")
     let image: (name: String, type: String) = ("", "")
+    let video: (name: String, type: String) = ("", "")
     
     
     func carePlanActivity() -> OCKCarePlanActivity {

@@ -17,6 +17,7 @@ struct ActivityContainer {
 protocol Activity {
     var rationale: String { get }
     var image: (name: String, type: String) { get }
+    var video: (name: String, type: String) { get }
     
     var activityType: ActivityType { get }
     

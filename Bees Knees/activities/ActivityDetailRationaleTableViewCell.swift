@@ -18,7 +18,7 @@ class ActivityDetailRationaleTableViewCell: UITableViewCell {
     let LeadingMargin: CGFloat = 20.0
     let TrailingMargin: CGFloat = 20.0
     
-    var activity: ActivityContainer? {
+    var activityContainer: ActivityContainer? {
         didSet {
             self.updateView()
         }
@@ -50,11 +50,11 @@ class ActivityDetailRationaleTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        _textLabel.text = activity?.activity.rationale
+        _textLabel.text = activityContainer?.activity.rationale
     }
     
     func setupConstraints() {
-        textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        _textLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.addConstraint(NSLayoutConstraint(item: _textLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: LeadingMargin))
         self.addConstraint(NSLayoutConstraint(item: _textLabel, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -TrailingMargin))

@@ -18,7 +18,7 @@ class ActivityDetailHeaderView: UIView {
     let BottomMargin: CGFloat = 15.0
     let TopMargin: CGFloat = 20.0
     
-    var activity: ActivityContainer? {
+    var activityContainer: ActivityContainer? {
         didSet {
             self.updateView()
         }
@@ -64,9 +64,9 @@ class ActivityDetailHeaderView: UIView {
     }
     
     func updateView() {
-        self.tintColor = activity?.carePlanActivity.tintColor
-        titleLabel.text = activity?.carePlanActivity.title
-        textLabel.text = activity?.carePlanActivity.text
+        self.tintColor = activityContainer?.carePlanActivity.tintColor
+        titleLabel.text = activityContainer?.carePlanActivity.title
+        textLabel.text = activityContainer?.carePlanActivity.text
         bottomEdge.backgroundColor = self.tintColor
     }
     

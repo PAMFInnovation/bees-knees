@@ -39,9 +39,10 @@ class ResourcesViewController: UITableViewController {
         dataSource.append(Resource(type: .DOC, title: "Resources", fileName: "binder_sec8_resources", fileType: "pdf"))
         dataSource.append(Resource(type: .DOC, title: "Alta Bates Summit Map", fileName: "binder_sec9_altabatessummitmap", fileType: "pdf"))
         
+        
+        dataSource.append(Resource(type: .VIDEO, title: "Testimonials from the patients of Sutter.", fileName: "sample-video", fileType: "m4v"))
         /*dataSource.append(Resource(type: .DOC, title: "Surgery overview.", fileName: "sample-doc", fileType: "pdf"))
         dataSource.append(Resource(type: .DOC, title: "Walkthrough of the procedure.", fileName: "sample-doc", fileType: "pdf"))
-        dataSource.append(Resource(type: .VIDEO, title: "Testimonials from the patients of Sutter.", fileName: "sample-video", fileType: "m4v"))
         dataSource.append(Resource(type: .IMAGE, title: "Banner", fileName: "sample-banner-image", fileType: "jpg"))
         dataSource.append(Resource(type: .IMAGE, title: "GIF", fileName: "sample-gif", fileType: "gif"))
         dataSource.append(Resource(type: .IMAGE, title: "PNG", fileName: "sample-png", fileType: "png"))

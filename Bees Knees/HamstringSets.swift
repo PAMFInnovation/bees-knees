@@ -14,6 +14,7 @@ struct HamstringSets: Activity {
     
     let rationale: String = NSLocalizedString("", comment: "")
     let image: (name: String, type: String) = ("ref_hamstringsets", "png")
+    let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule

@@ -77,7 +77,7 @@ extension PreSurgeryRoutineViewController: OCKCareCardViewControllerDelegate {
         let activityType = ActivityType(rawValue: interventionActivity.identifier)
         let activity = CarePlanStoreManager.sharedInstance.activityWithType(activityType!)
         let activityContainer = ActivityContainer(activity: activity!, carePlanActivity: interventionActivity)
-        let activityVC = ActivityDetailViewController(activity: activityContainer)
+        let activityVC = ActivityDetailViewController(activityContainer: activityContainer)
         viewController.navigationController?.pushViewController(activityVC, animated: true)
     }
 }

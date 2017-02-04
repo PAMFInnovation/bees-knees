@@ -101,6 +101,8 @@
 		9E7AAF211E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF201E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift */; };
 		9E7AAF251E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF241E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift */; };
 		9E7AAF271E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF261E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift */; };
+		9E7AAF331E450E9500FABC23 /* sample-video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 9E7AAF321E450E9500FABC23 /* sample-video.m4v */; };
+		9E7AAF391E45505A00FABC23 /* UIView+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7AAF381E45505A00FABC23 /* UIView+ViewController.swift */; };
 		9E7CC24B1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */; };
 		9E7CC24D1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */; };
 		9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */; };
@@ -362,6 +364,8 @@
 		9E7AAF201E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailInstructionsTableViewCell.swift; path = activities/ActivityDetailInstructionsTableViewCell.swift; sourceTree = "<group>"; };
 		9E7AAF241E445A7300FABC23 /* ActivityDetailRationaleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailRationaleTableViewCell.swift; path = activities/ActivityDetailRationaleTableViewCell.swift; sourceTree = "<group>"; };
 		9E7AAF261E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityDetailImageTableViewCell.swift; path = activities/ActivityDetailImageTableViewCell.swift; sourceTree = "<group>"; };
+		9E7AAF321E450E9500FABC23 /* sample-video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sample-video.m4v"; path = "content/sample-video.m4v"; sourceTree = "<group>"; };
+		9E7AAF381E45505A00FABC23 /* UIView+ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+ViewController.swift"; path = "extensions/UIView+ViewController.swift"; sourceTree = "<group>"; };
 		9E7CC24A1DC7ACC900906BEA /* PreSurgeryChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryChecklistViewController.swift; path = controllers/PreSurgeryChecklistViewController.swift; sourceTree = "<group>"; };
 		9E7CC24C1DC7BE5C00906BEA /* ChecklistItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItemTableViewCell.swift; path = shared/ChecklistItemTableViewCell.swift; sourceTree = "<group>"; };
 		9E81B05E1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostSurgeryWelcomeInterface.xib; path = interfaces/PostSurgeryWelcomeInterface.xib; sourceTree = "<group>"; };
@@ -608,6 +612,7 @@
 				9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */,
 				9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */,
 				9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */,
+				9E7AAF381E45505A00FABC23 /* UIView+ViewController.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 		9E43C42E1DDBB80E00EF986C /* content */ = {
 			isa = PBXGroup;
 			children = (
+				9E7AAF321E450E9500FABC23 /* sample-video.m4v */,
 				9ED187EE1E37C034009E5126 /* binder */,
 				9E4D582D1E085891008953E2 /* binder_sec0_introduction.pdf */,
 				9E4D582E1E085891008953E2 /* binder_sec1_faq.pdf */,
@@ -1165,6 +1171,7 @@
 				9E4D584D1E085891008953E2 /* ref_glutesets.png in Resources */,
 				9E7747AE1E3C5A61004F6FB3 /* exercise-before-surgery.html in Resources */,
 				9E7747B01E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html in Resources */,
+				9E7AAF331E450E9500FABC23 /* sample-video.m4v in Resources */,
 				9E4D584E1E085891008953E2 /* ref_hamstringsets.png in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
 				9E7747CD1E3C5BF1004F6FB3 /* xray.jpg in Resources */,
@@ -1299,6 +1306,7 @@
 				9EF00A441E400CF600132284 /* DateOfSurgeryPresentViewController.swift in Sources */,
 				9E018F9C1E1B02A1008250FA /* TutorialViewController.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
+				9E7AAF391E45505A00FABC23 /* UIView+ViewController.swift in Sources */,
 				9EF00A421E40095100132284 /* WelcomeDateViewController.swift in Sources */,
 				D2B488711DEF4B4B000333D6 /* HamstringSets.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,

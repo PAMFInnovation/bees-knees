@@ -18,7 +18,7 @@ class ActivityDetailImageTableViewCell: UITableViewCell {
     let LeadingMargin: CGFloat = 20.0
     let TrailingMargin: CGFloat = 20.0
     
-    var activity: ActivityContainer? {
+    var activityContainer: ActivityContainer? {
         didSet {
             self.updateView()
         }
@@ -48,7 +48,7 @@ class ActivityDetailImageTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        let image: UIImage = UIImage(named: (activity?.activity.image.name)!)!
+        let image: UIImage = UIImage(named: (activityContainer?.activity.image.name)!)!
         _imageView.image = image
     }
     

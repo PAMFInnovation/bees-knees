@@ -12,8 +12,9 @@ import CareKit
 struct AnklePumps: Activity {
     let activityType: ActivityType = .AnklePumps
     
-    let rationale: String = NSLocalizedString("This is just a sample rationale.", comment: "")
+    let rationale: String = NSLocalizedString("", comment: "")
     let image: (name: String, type: String) = ("ref_anklepumps", "png")
+    let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule

@@ -21,7 +21,7 @@ class ActivityDetailViewController: UITableViewController {
     let ImageCellIdentifier: String = "ImageCell"
     let ImageTitle: String = "Image"
     
-    var activity: ActivityContainer?
+    var activityContainer: ActivityContainer?
     var headerView: ActivityDetailHeaderView?
     
     var sectionTitles: [String] = []
@@ -36,9 +36,9 @@ class ActivityDetailViewController: UITableViewController {
         super.init(style: style)
     }
     
-    convenience init(activity: ActivityContainer) {
+    convenience init(activityContainer: ActivityContainer) {
         self.init(style: .grouped)
-        self.activity = activity
+        self.activityContainer = activityContainer
     }
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class ActivityDetailViewController: UITableViewController {
     func prepareView() {
         headerView = ActivityDetailHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: HeaderViewHeight))
         headerView?.setShowEdgeIndicator(false)
-        headerView?.activity = activity
+        headerView?.activityContainer = activityContainer
         
         self.tableView.tableHeaderView = headerView
         
@@ -82,15 +82,15 @@ class ActivityDetailViewController: UITableViewController {
     }
     
     func createTableViewDataArray() {
-        if ((activity?.carePlanActivity.instructions) != nil) {
+        if ((activityContainer?.carePlanActivity.instructions) != nil) {
             sectionTitles.append(InstructionsTitle)
         }
         
-        if ((activity?.activity.rationale) != "") {
+        if ((activityContainer?.activity.rationale) != "") {
             sectionTitles.append(RationaleTitle)
         }
         
-        if ((activity?.activity.image.name) != "") {
+        if ((activityContainer?.activity.image.name) != "") {
             sectionTitles.append(ImageTitle)
         }
     }
@@ -120,19 +120,19 @@ class ActivityDetailViewController: UITableViewController {
         
         if sectionTitle == InstructionsTitle {
             let cell: ActivityDetailInstructionsTableViewCell = tableView.dequeueReusableCell(withIdentifier: InstructionsCellIdentifier) as! ActivityDetailInstructionsTableViewCell
-            cell.activity = activity
+            cell.activityContainer = activityContainer
             
             return cell
         }
         else if sectionTitle == RationaleTitle {
             let cell: ActivityDetailRationaleTableViewCell = tableView.dequeueReusableCell(withIdentifier: RationaleCellIdentifier) as! ActivityDetailRationaleTableViewCell
-            cell.activity = activity
+            cell.activityContainer = activityContainer
             
             return cell
         }
         else if sectionTitle == ImageTitle {
             let cell: ActivityDetailImageTableViewCell = tableView.dequeueReusableCell(withIdentifier: ImageCellIdentifier) as! ActivityDetailImageTableViewCell
-            cell.activity = activity
+            cell.activityContainer = activityContainer
             
             return cell
         }
