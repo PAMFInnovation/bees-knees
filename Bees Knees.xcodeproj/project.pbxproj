@@ -25,6 +25,38 @@
 		9E1E44C71DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */; };
 		9E1E44C91DD1443C00FF78A6 /* PostSurgeryGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */; };
 		9E1E44CB1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */; };
+		9E296E331E46560300C66EE5 /* after-the-hospital.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E2D1E46560300C66EE5 /* after-the-hospital.html */; };
+		9E296E341E46560300C66EE5 /* home-recovery.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E2E1E46560300C66EE5 /* home-recovery.html */; };
+		9E296E351E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E2F1E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html */; };
+		9E296E361E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E301E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html */; };
+		9E296E371E46560300C66EE5 /* post-hospital-discharge.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E311E46560300C66EE5 /* post-hospital-discharge.html */; };
+		9E296E381E46560300C66EE5 /* rehabilitation.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E321E46560300C66EE5 /* rehabilitation.html */; };
+		9E296E3F1E46561000C66EE5 /* how-to-use-an-incentive-spirometer.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E3D1E46561000C66EE5 /* how-to-use-an-incentive-spirometer.html */; };
+		9E296E401E46561000C66EE5 /* total-knee-replacement-exercises.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E3E1E46561000C66EE5 /* total-knee-replacement-exercises.html */; };
+		9E296E471E46561800C66EE5 /* air-travel-and-metal-detectors.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E411E46561800C66EE5 /* air-travel-and-metal-detectors.html */; };
+		9E296E481E46561800C66EE5 /* dental-work-precautions.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E421E46561800C66EE5 /* dental-work-precautions.html */; };
+		9E296E491E46561800C66EE5 /* driving.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E431E46561800C66EE5 /* driving.html */; };
+		9E296E4A1E46561800C66EE5 /* follow-up-appointments.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E441E46561800C66EE5 /* follow-up-appointments.html */; };
+		9E296E4B1E46561800C66EE5 /* quick-guide-to-home-care-instructions.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E451E46561800C66EE5 /* quick-guide-to-home-care-instructions.html */; };
+		9E296E4C1E46561800C66EE5 /* sexual-activities.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E461E46561800C66EE5 /* sexual-activities.html */; };
+		9E296E501E46561F00C66EE5 /* alta-bates-summit-medical-center.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E4D1E46561F00C66EE5 /* alta-bates-summit-medical-center.html */; };
+		9E296E511E46561F00C66EE5 /* other-exercise-resources.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E4E1E46561F00C66EE5 /* other-exercise-resources.html */; };
+		9E296E521E46561F00C66EE5 /* other-websites.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E4F1E46561F00C66EE5 /* other-websites.html */; };
+		9E296E541E46562500C66EE5 /* alta-bates-summit-campus-locations.html in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E531E46562500C66EE5 /* alta-bates-summit-campus-locations.html */; };
+		9E296E631E46E7DC00C66EE5 /* abdominal-bracing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E551E46E7DC00C66EE5 /* abdominal-bracing.jpg */; };
+		9E296E641E46E7DC00C66EE5 /* ankle-pumps.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E561E46E7DC00C66EE5 /* ankle-pumps.jpg */; };
+		9E296E651E46E7DC00C66EE5 /* chair-press-ups-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E571E46E7DC00C66EE5 /* chair-press-ups-1.jpg */; };
+		9E296E661E46E7DC00C66EE5 /* chairpress-ups-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E581E46E7DC00C66EE5 /* chairpress-ups-2.jpg */; };
+		9E296E671E46E7DC00C66EE5 /* glute-sets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E591E46E7DC00C66EE5 /* glute-sets.jpg */; };
+		9E296E681E46E7DC00C66EE5 /* hamstring-sets.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5A1E46E7DC00C66EE5 /* hamstring-sets.jpg */; };
+		9E296E691E46E7DC00C66EE5 /* heel-slides.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5B1E46E7DC00C66EE5 /* heel-slides.jpg */; };
+		9E296E6A1E46E7DC00C66EE5 /* map.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5C1E46E7DC00C66EE5 /* map.JPG */; };
+		9E296E6B1E46E7DC00C66EE5 /* pain-scale.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5D1E46E7DC00C66EE5 /* pain-scale.JPG */; };
+		9E296E6C1E46E7DC00C66EE5 /* quad-set.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5E1E46E7DC00C66EE5 /* quad-set.jpg */; };
+		9E296E6D1E46E7DC00C66EE5 /* seated-heel-slides.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E5F1E46E7DC00C66EE5 /* seated-heel-slides.JPG */; };
+		9E296E6E1E46E7DC00C66EE5 /* smoking-chart.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E601E46E7DC00C66EE5 /* smoking-chart.JPG */; };
+		9E296E6F1E46E7DC00C66EE5 /* spirometer.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E611E46E7DC00C66EE5 /* spirometer.JPG */; };
+		9E296E701E46E7DC00C66EE5 /* straight-leg-raises.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 9E296E621E46E7DC00C66EE5 /* straight-leg-raises.JPG */; };
 		9E2E05611DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */; };
 		9E2E05621DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */; };
 		9E3E6B5D1DD4EF20000E92E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E6B5C1DD4EF20000E92E1 /* Colors.swift */; };
@@ -288,6 +320,38 @@
 		9E1E44C61DD0F58C00FF78A6 /* PostSurgeryCongratsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryCongratsView.swift; path = views/PostSurgeryCongratsView.swift; sourceTree = "<group>"; };
 		9E1E44C81DD1443C00FF78A6 /* PostSurgeryGoalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryGoalView.swift; path = views/PostSurgeryGoalView.swift; sourceTree = "<group>"; };
 		9E1E44CA1DD14C7300FF78A6 /* PostSurgeryTransitionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryTransitionView.swift; path = views/PostSurgeryTransitionView.swift; sourceTree = "<group>"; };
+		9E296E2D1E46560300C66EE5 /* after-the-hospital.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "after-the-hospital.html"; sourceTree = "<group>"; };
+		9E296E2E1E46560300C66EE5 /* home-recovery.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "home-recovery.html"; sourceTree = "<group>"; };
+		9E296E2F1E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html"; sourceTree = "<group>"; };
+		9E296E301E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html"; sourceTree = "<group>"; };
+		9E296E311E46560300C66EE5 /* post-hospital-discharge.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "post-hospital-discharge.html"; sourceTree = "<group>"; };
+		9E296E321E46560300C66EE5 /* rehabilitation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = rehabilitation.html; sourceTree = "<group>"; };
+		9E296E3D1E46561000C66EE5 /* how-to-use-an-incentive-spirometer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "how-to-use-an-incentive-spirometer.html"; sourceTree = "<group>"; };
+		9E296E3E1E46561000C66EE5 /* total-knee-replacement-exercises.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "total-knee-replacement-exercises.html"; sourceTree = "<group>"; };
+		9E296E411E46561800C66EE5 /* air-travel-and-metal-detectors.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "air-travel-and-metal-detectors.html"; sourceTree = "<group>"; };
+		9E296E421E46561800C66EE5 /* dental-work-precautions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "dental-work-precautions.html"; sourceTree = "<group>"; };
+		9E296E431E46561800C66EE5 /* driving.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = driving.html; sourceTree = "<group>"; };
+		9E296E441E46561800C66EE5 /* follow-up-appointments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "follow-up-appointments.html"; sourceTree = "<group>"; };
+		9E296E451E46561800C66EE5 /* quick-guide-to-home-care-instructions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "quick-guide-to-home-care-instructions.html"; sourceTree = "<group>"; };
+		9E296E461E46561800C66EE5 /* sexual-activities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "sexual-activities.html"; sourceTree = "<group>"; };
+		9E296E4D1E46561F00C66EE5 /* alta-bates-summit-medical-center.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "alta-bates-summit-medical-center.html"; sourceTree = "<group>"; };
+		9E296E4E1E46561F00C66EE5 /* other-exercise-resources.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "other-exercise-resources.html"; sourceTree = "<group>"; };
+		9E296E4F1E46561F00C66EE5 /* other-websites.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "other-websites.html"; sourceTree = "<group>"; };
+		9E296E531E46562500C66EE5 /* alta-bates-summit-campus-locations.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "alta-bates-summit-campus-locations.html"; sourceTree = "<group>"; };
+		9E296E551E46E7DC00C66EE5 /* abdominal-bracing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "abdominal-bracing.jpg"; sourceTree = "<group>"; };
+		9E296E561E46E7DC00C66EE5 /* ankle-pumps.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ankle-pumps.jpg"; sourceTree = "<group>"; };
+		9E296E571E46E7DC00C66EE5 /* chair-press-ups-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "chair-press-ups-1.jpg"; sourceTree = "<group>"; };
+		9E296E581E46E7DC00C66EE5 /* chairpress-ups-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "chairpress-ups-2.jpg"; sourceTree = "<group>"; };
+		9E296E591E46E7DC00C66EE5 /* glute-sets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "glute-sets.jpg"; sourceTree = "<group>"; };
+		9E296E5A1E46E7DC00C66EE5 /* hamstring-sets.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hamstring-sets.jpg"; sourceTree = "<group>"; };
+		9E296E5B1E46E7DC00C66EE5 /* heel-slides.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "heel-slides.jpg"; sourceTree = "<group>"; };
+		9E296E5C1E46E7DC00C66EE5 /* map.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.JPG; sourceTree = "<group>"; };
+		9E296E5D1E46E7DC00C66EE5 /* pain-scale.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pain-scale.JPG"; sourceTree = "<group>"; };
+		9E296E5E1E46E7DC00C66EE5 /* quad-set.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "quad-set.jpg"; sourceTree = "<group>"; };
+		9E296E5F1E46E7DC00C66EE5 /* seated-heel-slides.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "seated-heel-slides.JPG"; sourceTree = "<group>"; };
+		9E296E601E46E7DC00C66EE5 /* smoking-chart.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "smoking-chart.JPG"; sourceTree = "<group>"; };
+		9E296E611E46E7DC00C66EE5 /* spirometer.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spirometer.JPG; sourceTree = "<group>"; };
+		9E296E621E46E7DC00C66EE5 /* straight-leg-raises.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "straight-leg-raises.JPG"; sourceTree = "<group>"; };
 		9E2E055F1DC3F8AE00E28651 /* PreSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryRoutineViewController.swift; path = controllers/flow/PreSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
 		9E2E05601DC3F8AE00E28651 /* PreSurgeryWelcomeFlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreSurgeryWelcomeFlowViewController.swift; path = controllers/flow/PreSurgeryWelcomeFlowViewController.swift; sourceTree = "<group>"; };
 		9E3E6B5C1DD4EF20000E92E1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = util/Colors.swift; sourceTree = "<group>"; };
@@ -692,6 +756,12 @@
 		9E7747A71E3C5A61004F6FB3 /* 5-rehabilitation-and-home-recovery */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E2D1E46560300C66EE5 /* after-the-hospital.html */,
+				9E296E2E1E46560300C66EE5 /* home-recovery.html */,
+				9E296E2F1E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html */,
+				9E296E301E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html */,
+				9E296E311E46560300C66EE5 /* post-hospital-discharge.html */,
+				9E296E321E46560300C66EE5 /* rehabilitation.html */,
 			);
 			path = "5-rehabilitation-and-home-recovery";
 			sourceTree = "<group>";
@@ -699,6 +769,8 @@
 		9E7747A81E3C5A61004F6FB3 /* 6-knee-replacement-exercises */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E3D1E46561000C66EE5 /* how-to-use-an-incentive-spirometer.html */,
+				9E296E3E1E46561000C66EE5 /* total-knee-replacement-exercises.html */,
 			);
 			path = "6-knee-replacement-exercises";
 			sourceTree = "<group>";
@@ -706,6 +778,12 @@
 		9E7747A91E3C5A61004F6FB3 /* 7-life-with-your-new-knee */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E411E46561800C66EE5 /* air-travel-and-metal-detectors.html */,
+				9E296E421E46561800C66EE5 /* dental-work-precautions.html */,
+				9E296E431E46561800C66EE5 /* driving.html */,
+				9E296E441E46561800C66EE5 /* follow-up-appointments.html */,
+				9E296E451E46561800C66EE5 /* quick-guide-to-home-care-instructions.html */,
+				9E296E461E46561800C66EE5 /* sexual-activities.html */,
 			);
 			path = "7-life-with-your-new-knee";
 			sourceTree = "<group>";
@@ -713,6 +791,9 @@
 		9E7747AA1E3C5A61004F6FB3 /* 8-knee-replacement-resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E4D1E46561F00C66EE5 /* alta-bates-summit-medical-center.html */,
+				9E296E4E1E46561F00C66EE5 /* other-exercise-resources.html */,
+				9E296E4F1E46561F00C66EE5 /* other-websites.html */,
 			);
 			path = "8-knee-replacement-resources";
 			sourceTree = "<group>";
@@ -720,6 +801,7 @@
 		9E7747AB1E3C5A61004F6FB3 /* 9-alta-bates-summit-map */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E531E46562500C66EE5 /* alta-bates-summit-campus-locations.html */,
 			);
 			path = "9-alta-bates-summit-map";
 			sourceTree = "<group>";
@@ -727,6 +809,20 @@
 		9E7747C51E3C5BF1004F6FB3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9E296E551E46E7DC00C66EE5 /* abdominal-bracing.jpg */,
+				9E296E561E46E7DC00C66EE5 /* ankle-pumps.jpg */,
+				9E296E571E46E7DC00C66EE5 /* chair-press-ups-1.jpg */,
+				9E296E581E46E7DC00C66EE5 /* chairpress-ups-2.jpg */,
+				9E296E591E46E7DC00C66EE5 /* glute-sets.jpg */,
+				9E296E5A1E46E7DC00C66EE5 /* hamstring-sets.jpg */,
+				9E296E5B1E46E7DC00C66EE5 /* heel-slides.jpg */,
+				9E296E5C1E46E7DC00C66EE5 /* map.JPG */,
+				9E296E5D1E46E7DC00C66EE5 /* pain-scale.JPG */,
+				9E296E5E1E46E7DC00C66EE5 /* quad-set.jpg */,
+				9E296E5F1E46E7DC00C66EE5 /* seated-heel-slides.JPG */,
+				9E296E601E46E7DC00C66EE5 /* smoking-chart.JPG */,
+				9E296E611E46E7DC00C66EE5 /* spirometer.JPG */,
+				9E296E621E46E7DC00C66EE5 /* straight-leg-raises.JPG */,
 				9E7747C61E3C5BF1004F6FB3 /* binder.jpg */,
 				9E7747C71E3C5BF1004F6FB3 /* knee-diagram.jpg */,
 				9E7747C81E3C5BF1004F6FB3 /* nutrition.jpg */,
@@ -1137,25 +1233,38 @@
 				9E4D584C1E085891008953E2 /* ref_chairpressups.png in Resources */,
 				9E7747C41E3C5AF4004F6FB3 /* pain-management.html in Resources */,
 				9E4D584F1E085891008953E2 /* ref_heelslides.png in Resources */,
+				9E296E3F1E46561000C66EE5 /* how-to-use-an-incentive-spirometer.html in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
+				9E296E481E46561800C66EE5 /* dental-work-precautions.html in Resources */,
 				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
+				9E296E521E46561F00C66EE5 /* other-websites.html in Resources */,
 				9E7747B81E3C5A61004F6FB3 /* after-surgery.html in Resources */,
+				9E296E501E46561F00C66EE5 /* alta-bates-summit-medical-center.html in Resources */,
 				9E7747BA1E3C5A61004F6FB3 /* daily-post-operative-expectations.html in Resources */,
+				9E296E6A1E46E7DC00C66EE5 /* map.JPG in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
+				9E296E351E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html in Resources */,
 				9ED188051E387C77009E5126 /* down-arrow.png in Resources */,
 				9E7747C21E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html in Resources */,
+				9E296E371E46560300C66EE5 /* post-hospital-discharge.html in Resources */,
 				9E7747B31E3C5A61004F6FB3 /* pre-operative-appointments.html in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
+				9E296E6F1E46E7DC00C66EE5 /* spirometer.JPG in Resources */,
 				9E7747BF1E3C5A61004F6FB3 /* questions-about-pain.html in Resources */,
 				9E4D58421E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf in Resources */,
 				9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */,
 				9E7747B11E3C5A61004F6FB3 /* nutrition.html in Resources */,
 				9E4D58481E085891008953E2 /* binder_sec8_resources.pdf in Resources */,
 				9E7747C01E3C5A61004F6FB3 /* surgery.html in Resources */,
+				9E296E6C1E46E7DC00C66EE5 /* quad-set.jpg in Resources */,
 				9E4D58411E085891008953E2 /* binder_sec1_faq.pdf in Resources */,
 				9E4D58461E085891008953E2 /* binder_sec6_exercises.pdf in Resources */,
+				9E296E651E46E7DC00C66EE5 /* chair-press-ups-1.jpg in Resources */,
+				9E296E541E46562500C66EE5 /* alta-bates-summit-campus-locations.html in Resources */,
 				9E7747CB1E3C5BF1004F6FB3 /* knee-diagram.jpg in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
+				9E296E341E46560300C66EE5 /* home-recovery.html in Resources */,
+				9E296E381E46560300C66EE5 /* rehabilitation.html in Resources */,
 				9E4D58431E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf in Resources */,
 				9E4D58441E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
@@ -1165,28 +1274,47 @@
 				9E7747B21E3C5A61004F6FB3 /* packing-your-bag.html in Resources */,
 				9E7747B41E3C5A61004F6FB3 /* preparing-for-your-return-home.html in Resources */,
 				9E7747AD1E3C5A61004F6FB3 /* dental-work.html in Resources */,
+				9E296E6E1E46E7DC00C66EE5 /* smoking-chart.JPG in Resources */,
 				9E7747B51E3C5A61004F6FB3 /* select-your-coach.html in Resources */,
+				9E296E361E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html in Resources */,
 				9E7747B61E3C5A61004F6FB3 /* smoking-cessation.html in Resources */,
+				9E296E331E46560300C66EE5 /* after-the-hospital.html in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9E4D584D1E085891008953E2 /* ref_glutesets.png in Resources */,
+				9E296E4C1E46561800C66EE5 /* sexual-activities.html in Resources */,
 				9E7747AE1E3C5A61004F6FB3 /* exercise-before-surgery.html in Resources */,
 				9E7747B01E3C5A61004F6FB3 /* no-eating-or-drinking-before-surgery.html in Resources */,
 				9E7AAF331E450E9500FABC23 /* sample-video.m4v in Resources */,
 				9E4D584E1E085891008953E2 /* ref_hamstringsets.png in Resources */,
 				9EB5FC451DC12CBF00F9A53E /* ProfileInterface.xib in Resources */,
 				9E7747CD1E3C5BF1004F6FB3 /* xray.jpg in Resources */,
+				9E296E671E46E7DC00C66EE5 /* glute-sets.jpg in Resources */,
+				9E296E681E46E7DC00C66EE5 /* hamstring-sets.jpg in Resources */,
+				9E296E4A1E46561800C66EE5 /* follow-up-appointments.html in Resources */,
+				9E296E641E46E7DC00C66EE5 /* ankle-pumps.jpg in Resources */,
 				9E7747AF1E3C5A61004F6FB3 /* last-minute-illness.html in Resources */,
 				9E7747AC1E3C5A61004F6FB3 /* understanding-knee-replacement.html in Resources */,
 				9E81B05F1DD25E9600F8929D /* PostSurgeryWelcomeInterface.xib in Resources */,
+				9E296E471E46561800C66EE5 /* air-travel-and-metal-detectors.html in Resources */,
 				9E4D584A1E085891008953E2 /* ref_abdominalbracing.png in Resources */,
+				9E296E491E46561800C66EE5 /* driving.html in Resources */,
 				9E4D58401E085891008953E2 /* binder_sec0_introduction.pdf in Resources */,
 				9E4D58451E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf in Resources */,
+				9E296E401E46561000C66EE5 /* total-knee-replacement-exercises.html in Resources */,
+				9E296E6D1E46E7DC00C66EE5 /* seated-heel-slides.JPG in Resources */,
+				9E296E701E46E7DC00C66EE5 /* straight-leg-raises.JPG in Resources */,
+				9E296E4B1E46561800C66EE5 /* quick-guide-to-home-care-instructions.html in Resources */,
 				9E4D58491E085891008953E2 /* binder_sec9_altabatessummitmap.pdf in Resources */,
+				9E296E691E46E7DC00C66EE5 /* heel-slides.jpg in Resources */,
 				9E7747CA1E3C5BF1004F6FB3 /* binder.jpg in Resources */,
+				9E296E511E46561F00C66EE5 /* other-exercise-resources.html in Resources */,
 				9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */,
+				9E296E6B1E46E7DC00C66EE5 /* pain-scale.JPG in Resources */,
 				9E4D58471E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf in Resources */,
 				9E7747C11E3C5A61004F6FB3 /* types-of-pain-management.html in Resources */,
+				9E296E631E46E7DC00C66EE5 /* abdominal-bracing.jpg in Resources */,
 				9E7747BD1E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html in Resources */,
+				9E296E661E46E7DC00C66EE5 /* chairpress-ups-2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

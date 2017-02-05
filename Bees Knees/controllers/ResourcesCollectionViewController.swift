@@ -27,7 +27,7 @@ class ResourcesCollectionViewController: UICollectionViewController {
     
     fileprivate let sections: [String] = [
         "Understanding Knee Replacement",
-        "Before surgery",
+        "Before Surgery",
         "Your Surgery and Hospital Stay",
         "Rehabilitation and Home Recovery",
         "Knee Replacement Exercises",
@@ -36,9 +36,11 @@ class ResourcesCollectionViewController: UICollectionViewController {
         "Alta Bates Summit Map"
     ]
     fileprivate let dataSource: [[BinderResource]] = [
+        // Understanding Knee Replacement
         [
             BinderResource(title: "Understanding Knee Replacement", htmlFile: "understanding-knee-replacement")
         ],
+        // Before Surgery
         [
             BinderResource(title: "Select a Coach", htmlFile: "select-your-coach"),
             BinderResource(title: "Surgical Clearance", htmlFile: "surgical-clearance"),
@@ -52,6 +54,7 @@ class ResourcesCollectionViewController: UICollectionViewController {
             BinderResource(title: "Food Before Surgery", htmlFile: "no-eating-or-drinking-before-surgery"),
             BinderResource(title: "Smoking Cessation", htmlFile: "smoking-cessation")
         ],
+        // Your Surgery and Hospital Stay
         [
             BinderResource(title: "Arriving for Surgery", htmlFile: "arriving-for-surgery"),
             BinderResource(title: "Your Orthopedic Healthcare Team", htmlFile: "your-orthopedic-healthcare-team"),
@@ -65,15 +68,38 @@ class ResourcesCollectionViewController: UICollectionViewController {
             BinderResource(title: "Daily Post-Operative Expectations", htmlFile: "daily-post-operative-expectations"),
             BinderResource(title: "Possible Complications", htmlFile: "possible-complications")
         ],
+        // Rehabilitation and Home Recovery
         [
+            BinderResource(title: "Rehabilitation", htmlFile: "rehabilitation"),
+            BinderResource(title: "Physical Therapy in the Hospital, SNF and Acute Rehabilitation", htmlFile: "physical-therapy-in-the-hospital-snf-and-acute-rehabilitation"),
+            BinderResource(title: "Occupational Therapy in the Hospital, SNF, Acute Rehabilitation", htmlFile: "occupational-therapy-in-the-hospital-snf-acute-rehabilitation"),
+            BinderResource(title: "After the Hospital", htmlFile: "after-the-hospital"),
+            BinderResource(title: "Post-Hospital Discharge", htmlFile: "post-hospital-discharge"),
+            BinderResource(title: "Home Recovery", htmlFile: "home-recovery")
         ],
+        // Knee Replacement Exercises
         [
+            BinderResource(title: "Total Knee Replacement Exercises", htmlFile: "total-knee-replacement-exercises"),
+            BinderResource(title: "How to Use an Incentive Spirometer", htmlFile: "how-to-use-an-incentive-spirometer")
         ],
+        // Life with Your New Knee
         [
+            BinderResource(title: "Quick Guide to Home Care Instructions", htmlFile: "quick-guide-to-home-care-instructions"),
+            BinderResource(title: "Follow-up Appointments", htmlFile: "follow-up-appointments"),
+            BinderResource(title: "Dental Work Precautions", htmlFile: "dental-work-precautions"),
+            BinderResource(title: "Driving", htmlFile: "driving"),
+            BinderResource(title: "Air Travel and Metal Detectors", htmlFile: "air-travel-and-metal-detectors"),
+            BinderResource(title: "Sexual Activities", htmlFile: "sexual-activities")
         ],
+        // Knee Replacement Resources
         [
+            BinderResource(title: "Alta Bates Summit Medical Center", htmlFile: "alta-bates-summit-medical-center"),
+            BinderResource(title: "Other Websites", htmlFile: "other-websites"),
+            BinderResource(title: "Other Exercise Resources", htmlFile: "other-exercise-resources")
         ],
+        // Alta Bates Summit Map
         [
+            BinderResource(title: "Alta Bates Summit Campus Locations", htmlFile: "alta-bates-summit-campus-locations")
         ]
     ]
     
