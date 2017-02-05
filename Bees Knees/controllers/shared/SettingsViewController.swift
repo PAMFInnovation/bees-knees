@@ -41,7 +41,9 @@ class SettingsViewController: UITableViewController {
         
         dataSource.append([SettingsItem]())
         //dataSource[1].append(SettingsItemNavigation(name: "Old Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
-        dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
+        //dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
+        dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesTableViewController"))
+        //dataSource[1].append(SettingsItemNavigation(name: "Cell Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
         dataSource[1].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
         
         /*dataSource.append([SettingsItem]())

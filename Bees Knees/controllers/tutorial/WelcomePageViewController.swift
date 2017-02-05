@@ -39,20 +39,20 @@ class WelcomePageViewController: UIPageViewController {
         view.layer.insertSublayer(gradient, at: 0)
         
         // Add the view controllers
-        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to LegUp!", secondaryText: "This app will help you prepare for your upcoming surgery and support your recovery.", mainFontSize: 32, secondaryFontSize: 24, icon: "blank-icon", displaySwipeTip: true)
+        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to LegUp!", secondaryText: "Helping prepare you for surgery and support your recovery", mainFontSize: 32, secondaryFontSize: 22, icon: "blank-icon", displaySwipeTip: true)
         orderedViewControllers.append(welcome1)
         let welcome2 = WelcomeInstructionsViewController()
         orderedViewControllers.append(welcome2)
-        let terms = WelcomeTACController(mainText: "Before we get started, we have to review the terms and conditions.", secondaryText: "Please note: this app is just for you! The info you track in this app will not be available to your care team. Feel free to share what you have in the app with your doctor during your visit.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_legal")
+        let terms = WelcomeTACController(mainText: "Before we get started, let's review terms of use.", secondaryText: "Please note: this app is just for you! The info in this app will not be available to your care team. Feel free to share the app with your care team at any visit.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_legal")
         terms.delegate = self
         orderedViewControllers.append(terms)
-        let passcode = WelcomePasscodeViewController(mainText: "Consent signed! Next step is to set up an optional passcode to secure your information.", secondaryText: "You'll be asked to enter your passcode when you open this app, and you can change your passcode at any time. You'll also have the option to use TouchID.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_passcode")
+        let passcode = WelcomePasscodeViewController(mainText: "Next step is to set up an optional passcode to secure your information.", secondaryText: "You'll enter your passcode when you open this app, and you can change your passcode at any time.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
         passcode.delegate = self
         orderedViewControllers.append(passcode)
-        let date = WelcomeDateViewController(mainText: "One more thing! Set your surgery date so the app can help keep you on track.", secondaryText: "Don't worry -- if you don't know your surgery date, you can add that later.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_date")
+        let date = WelcomeDateViewController(mainText: "One more thing! Set your surgery date so the app can help keep you on track.", secondaryText: "Don't worry -- if you don't know your surgery date, you can add that later.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_date")
         date.delegate = self
         orderedViewControllers.append(date)
-        let transition = WelcomeTransitionViewController(mainText: "You're all set! Now let's get started with your routine.", secondaryText: "On the next page, you can add all your appointments.\n\nExplore all the tabs at the bottom for more helpful tools, like \"Activities\" for exercises, and \"More\" for the binder.", mainFontSize: 24, secondaryFontSize: 18, icon: "welcome_done")
+        let transition = WelcomeTransitionViewController(mainText: "You're all set! Now let's get started with your routine.", secondaryText: "On the next page, you can add all your appointments and what's ahead.\n\nThen, explore all the tabs along the bottom for more helpful tools, like \"Activities\" for exercises, and \"More\" for the binder.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_done")
         transition.delegate = self
         orderedViewControllers.append(transition)
         

@@ -28,7 +28,7 @@ class WelcomeTACController: WelcomeTaskViewController {
         signButton?.borderWidth = 1
         signButton?.cornerRadius = 5
         signButton?.titleLabel?.textAlignment = .center
-        signButton?.setTitle("Sign Consent", for: .normal)
+        signButton?.setTitle("Review", for: .normal)
         signButton?.addTarget(self, action: #selector(WelcomeTACController.displayConsent), for: .touchUpInside)
         signButton?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(signButton!)
@@ -42,7 +42,7 @@ class WelcomeTACController: WelcomeTaskViewController {
         viewButton?.borderWidth = 1
         viewButton?.cornerRadius = 5
         viewButton?.titleLabel?.textAlignment = .center
-        viewButton?.setTitle("View Consent", for: .normal)
+        viewButton?.setTitle("View", for: .normal)
         viewButton?.addTarget(self, action: #selector(WelcomeTACController.displaySignedConsent), for: .touchUpInside)
         viewButton?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(viewButton!)

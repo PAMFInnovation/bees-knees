@@ -18,17 +18,17 @@ class WelcomeInstructionsViewController: UIViewController {
     
     // Main text to display
     var textView: UITextView = UITextView()
-    var text: String = "LegUp is a personalized journal and navigational guide on your road to recovery. It will help you:"
+    var text: String = "LegUp is a personalized journal and navigational guide to recovery. It will help you:"
     
     // State for displaying swipe tip
     var swipeLabel: UILabel = UILabel()
     
     // Features
     let features: [WelcomeFeature] = [
-        WelcomeFeature(icon: "guide-icon", description: "Keep appointments that lie ahead together and know what to expect"),
-        WelcomeFeature(icon: "carecard-icon", description: "Show exercises to build strength and track your completion"),
-        WelcomeFeature(icon: "checklist-icon", description: "Manage your to-do's pre-surgery"),
-        WelcomeFeature(icon: "insights-icon", description: "Track your pain and mood post-surgery and see how it changes over time"),
+        WelcomeFeature(icon: "guide-icon", description: "View appointments in one place and remember what to bring"),
+        WelcomeFeature(icon: "carecard-icon", description: "Learn exercises that build strength and track your routine"),
+        //WelcomeFeature(icon: "checklist-icon", description: "Manage your to-do's pre-surgery"),
+        WelcomeFeature(icon: "insights-icon", description: "Record your pain post-surgery and see changes over time"),
         WelcomeFeature(icon: "resources-icon", description: "Access your binder on-the-go")
     ]
     
@@ -43,7 +43,7 @@ class WelcomeInstructionsViewController: UIViewController {
         
         // Setup the text view
         textView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
-        textView.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightLight)
+        textView.font = UIFont.init(name: "HelveticaNeue-Bold", size: 22) //UIFont.systemFont(ofSize: 22, weight: UIFontWeightLight)
         textView.textColor = UIColor.white
         textView.backgroundColor = UIColor.clear
         textView.textAlignment = .center
@@ -96,7 +96,7 @@ class WelcomeInstructionsViewController: UIViewController {
             let featureText = UITextView()
             featureText.text = feature.description
             featureText.textAlignment = .left
-            featureText.font = UIFont.systemFont(ofSize: 16)
+            featureText.font = UIFont.init(name: "HelveticaNeue", size: 16) //UIFont.systemFont(ofSize: 16)
             featureText.textColor = UIColor.white
             featureText.backgroundColor = UIColor.clear
             featureText.isScrollEnabled = false

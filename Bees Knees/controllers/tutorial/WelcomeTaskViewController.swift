@@ -74,7 +74,7 @@ class WelcomeTaskViewController: UIViewController {
         
         // Setup the main text view
         mainTextView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
-        mainTextView.font = UIFont.systemFont(ofSize: self.mainFontSize, weight: UIFontWeightLight)
+        mainTextView.font = UIFont.init(name: "HelveticaNeue-Bold", size: self.mainFontSize)// UIFont.systemFont(ofSize: self.mainFontSize, weight: UIFontWeightLight)
         mainTextView.textColor = UIColor.white
         mainTextView.backgroundColor = UIColor.clear
         mainTextView.textAlignment = .center
@@ -94,7 +94,7 @@ class WelcomeTaskViewController: UIViewController {
         
         // Setup the secondary text view
         secondaryTextView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 240)
-        secondaryTextView.font = UIFont.systemFont(ofSize: self.secondaryFontSize, weight: UIFontWeightLight)
+        secondaryTextView.font = UIFont.init(name: "HelveticaNeue", size: self.secondaryFontSize) //UIFont.systemFont(ofSize: self.secondaryFontSize, weight: UIFontWeightLight)
         secondaryTextView.textColor = UIColor.white
         secondaryTextView.backgroundColor = UIColor.clear
         secondaryTextView.textAlignment = .center
@@ -109,7 +109,7 @@ class WelcomeTaskViewController: UIViewController {
         
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10))
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -10))
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 20))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 15))
         
         
         // Add the completed icon and text
@@ -120,7 +120,7 @@ class WelcomeTaskViewController: UIViewController {
         completedStackView.translatesAutoresizingMaskIntoConstraints = false
         completedStackView.transform = CGAffineTransform(scaleX: 0, y: 0)
         
-        let imageSize: CGFloat = 30
+        let imageSize: CGFloat = 50
         var checkmarkImage: UIImage = UIImage(named: "checkmark-circle")!
         checkmarkImage = checkmarkImage.withRenderingMode(.alwaysTemplate)
         completedIcon = UIImageView(image: checkmarkImage)
@@ -131,15 +131,15 @@ class WelcomeTaskViewController: UIViewController {
         
         completedLabel.text = "Completed!"
         completedLabel.textAlignment = .left
-        completedLabel.font = UIFont.systemFont(ofSize: 14)
+        completedLabel.font = UIFont.init(name: "HelveticaNeue-Bold", size: 28)// UIFont.systemFont(ofSize: 24)
         completedLabel.textColor = UIColor.white
         completedStackView.addArrangedSubview(completedLabel)
         
         self.view.addSubview(completedStackView)
         
-        self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .top, relatedBy: .equal, toItem: secondaryTextView, attribute: .bottom, multiplier: 1.0, constant: 5))
+        self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .top, relatedBy: .equal, toItem: secondaryTextView, attribute: .bottom, multiplier: 1.0, constant: 20))
         self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 140))
+        self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 240))
         self.view.addConstraint(NSLayoutConstraint(item: completedStackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
         
         
@@ -157,6 +157,8 @@ class WelcomeTaskViewController: UIViewController {
     
     // MARK: - Helper functions
     func grayOutText() {
+        mainTextView.textColor = UIColor.init(white: 1.0, alpha: 0.6)
+        secondaryTextView.textColor = UIColor.init(white: 1.0, alpha: 0.6)
         //mainTextView.textColor = UIColor.lightGray
         //secondaryTextView.textColor = UIColor.darkGray
     }
