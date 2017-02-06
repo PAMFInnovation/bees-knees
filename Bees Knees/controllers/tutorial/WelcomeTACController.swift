@@ -108,8 +108,8 @@ extension WelcomeTACController: ORKTaskViewControllerDelegate {
             if reason == .completed {
                 let result = taskViewController.result.results?[0] as! ORKStepResult
                 let signatureResult = result.results?[0] as! ORKConsentSignatureResult
-                let firstName = signatureResult.signature?.givenName
-                let lastName = signatureResult.signature?.familyName
+                //let firstName = signatureResult.signature?.givenName
+                //let lastName = signatureResult.signature?.familyName
                 
                 // If the user is choosing not to consent, we should intervene
                 if !signatureResult.consented {
@@ -118,12 +118,12 @@ extension WelcomeTACController: ORKTaskViewControllerDelegate {
                 }
                 else {
                     // Set the values in the singleton
-                    let name: String = firstName! + " " + lastName!
-                    ProfileManager.sharedInstance.updateUserInfo(name: name, email: nil, phone: nil)
+                    //let name: String = firstName! + " " + lastName!
+                    //ProfileManager.sharedInstance.updateUserInfo(name: name, email: nil, phone: nil)
                     
                     // Sign the consent document
                     let signedConsent = ConsentDocument.copy()
-                    signatureResult.apply(to: signedConsent as! ORKConsentDocument)
+                    //signatureResult.apply(to: signedConsent as! ORKConsentDocument)
                     (signedConsent as! ORKConsentDocument).makePDF(completionHandler: { (data: Data?, error: Error?) in
                         ProfileManager.sharedInstance.updateSignedConsentDocument(data: data!)
                     })
