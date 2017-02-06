@@ -14,7 +14,7 @@ struct GluteSets: Activity {
     
     let rationale: String = NSLocalizedString("", comment: "")
     let image: (name: String, type: String) = ("ref_glutesets", "png")
-    let video: (name: String, type: String) = ("", "")
+    let video: (name: String, type: String) = ("GluteSets", "mp4")
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule

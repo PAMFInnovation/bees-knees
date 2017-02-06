@@ -97,6 +97,11 @@
 		9E66BD951E284FCD00B588FC /* SettingsItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */; };
 		9E6829031E48FCE700568DB6 /* DailyRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6829021E48FCE700568DB6 /* DailyRoutine.swift */; };
 		9E6829051E4902D700568DB6 /* AnklePumps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829041E4902D700568DB6 /* AnklePumps.mp4 */; };
+		9E6829071E4917D300568DB6 /* QuadSets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829061E4917D300568DB6 /* QuadSets.mp4 */; };
+		9E68290C1E49429400568DB6 /* GluteSets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829081E49429400568DB6 /* GluteSets.mp4 */; };
+		9E68290D1E49429400568DB6 /* HamstringSets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829091E49429400568DB6 /* HamstringSets.mp4 */; };
+		9E68290E1E49429400568DB6 /* HeelSlide.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E68290A1E49429400568DB6 /* HeelSlide.mp4 */; };
+		9E68290F1E49429400568DB6 /* StraighLegRaises.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E68290B1E49429400568DB6 /* StraighLegRaises.mp4 */; };
 		9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C8B1DD67F8100D0740F /* Copy.swift */; };
 		9E6E8C921DD68B6D00D0740F /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6E8C911DD68B6D00D0740F /* LinePath.swift */; };
 		9E77478C1E3BE91A004F6FB3 /* WelcomeTACController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */; };
@@ -395,6 +400,11 @@
 		9E66BD941E284FCD00B588FC /* SettingsItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsItemButton.swift; path = shared/SettingsItemButton.swift; sourceTree = "<group>"; };
 		9E6829021E48FCE700568DB6 /* DailyRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyRoutine.swift; sourceTree = "<group>"; };
 		9E6829041E4902D700568DB6 /* AnklePumps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = AnklePumps.mp4; path = content/AnklePumps.mp4; sourceTree = "<group>"; };
+		9E6829061E4917D300568DB6 /* QuadSets.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = QuadSets.mp4; path = content/QuadSets.mp4; sourceTree = "<group>"; };
+		9E6829081E49429400568DB6 /* GluteSets.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = GluteSets.mp4; path = content/GluteSets.mp4; sourceTree = "<group>"; };
+		9E6829091E49429400568DB6 /* HamstringSets.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = HamstringSets.mp4; path = content/HamstringSets.mp4; sourceTree = "<group>"; };
+		9E68290A1E49429400568DB6 /* HeelSlide.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = HeelSlide.mp4; path = content/HeelSlide.mp4; sourceTree = "<group>"; };
+		9E68290B1E49429400568DB6 /* StraighLegRaises.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = StraighLegRaises.mp4; path = content/StraighLegRaises.mp4; sourceTree = "<group>"; };
 		9E6E8C8B1DD67F8100D0740F /* Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Copy.swift; path = util/Copy.swift; sourceTree = "<group>"; };
 		9E6E8C911DD68B6D00D0740F /* LinePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinePath.swift; path = views/LinePath.swift; sourceTree = "<group>"; };
 		9E77478B1E3BE91A004F6FB3 /* WelcomeTACController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTACController.swift; path = controllers/tutorial/WelcomeTACController.swift; sourceTree = "<group>"; };
@@ -691,6 +701,11 @@
 		9E43C42E1DDBB80E00EF986C /* content */ = {
 			isa = PBXGroup;
 			children = (
+				9E6829081E49429400568DB6 /* GluteSets.mp4 */,
+				9E6829091E49429400568DB6 /* HamstringSets.mp4 */,
+				9E68290A1E49429400568DB6 /* HeelSlide.mp4 */,
+				9E68290B1E49429400568DB6 /* StraighLegRaises.mp4 */,
+				9E6829061E4917D300568DB6 /* QuadSets.mp4 */,
 				9E6829041E4902D700568DB6 /* AnklePumps.mp4 */,
 				9ED187EE1E37C034009E5126 /* binder */,
 				9E4D582D1E085891008953E2 /* binder_sec0_introduction.pdf */,
@@ -1246,6 +1261,7 @@
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				9E296E481E46561800C66EE5 /* dental-work-precautions.html in Resources */,
 				D2E777F71DDF7294003176B0 /* PostSurgeryCongratsInterface.xib in Resources */,
+				9E6829071E4917D300568DB6 /* QuadSets.mp4 in Resources */,
 				9E296E521E46561F00C66EE5 /* other-websites.html in Resources */,
 				9E7747B81E3C5A61004F6FB3 /* after-surgery.html in Resources */,
 				9E296E501E46561F00C66EE5 /* alta-bates-summit-medical-center.html in Resources */,
@@ -1284,10 +1300,12 @@
 				9E7747B21E3C5A61004F6FB3 /* packing-your-bag.html in Resources */,
 				9E7747B41E3C5A61004F6FB3 /* preparing-for-your-return-home.html in Resources */,
 				9E7747AD1E3C5A61004F6FB3 /* dental-work.html in Resources */,
+				9E68290C1E49429400568DB6 /* GluteSets.mp4 in Resources */,
 				9E296E6E1E46E7DC00C66EE5 /* smoking-chart.JPG in Resources */,
 				9E7747B51E3C5A61004F6FB3 /* select-your-coach.html in Resources */,
 				9E296E361E46560300C66EE5 /* physical-therapy-in-the-hospital-snf-and-acute-rehabilitation.html in Resources */,
 				9E7747B61E3C5A61004F6FB3 /* smoking-cessation.html in Resources */,
+				9E68290E1E49429400568DB6 /* HeelSlide.mp4 in Resources */,
 				9E296E331E46560300C66EE5 /* after-the-hospital.html in Resources */,
 				9EB5FC491DC1646700F9A53E /* PreSurgeryTransitionInterface.xib in Resources */,
 				9E4D584D1E085891008953E2 /* ref_glutesets.png in Resources */,
@@ -1317,8 +1335,10 @@
 				9E296E691E46E7DC00C66EE5 /* heel-slides.jpg in Resources */,
 				9E7747CA1E3C5BF1004F6FB3 /* binder.jpg in Resources */,
 				9E296E511E46561F00C66EE5 /* other-exercise-resources.html in Resources */,
+				9E68290D1E49429400568DB6 /* HamstringSets.mp4 in Resources */,
 				9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */,
 				9E296E6B1E46E7DC00C66EE5 /* pain-scale.JPG in Resources */,
+				9E68290F1E49429400568DB6 /* StraighLegRaises.mp4 in Resources */,
 				9E4D58471E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf in Resources */,
 				9E7747C11E3C5A61004F6FB3 /* types-of-pain-management.html in Resources */,
 				9E296E631E46E7DC00C66EE5 /* abdominal-bracing.jpg in Resources */,

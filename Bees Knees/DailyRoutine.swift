@@ -87,63 +87,63 @@ struct DailyRoutine: Assessment {
     
     fileprivate func convertRawToPersonal(score: Int) -> String {
         switch score {
-        case 0:
+        case 28:
             return "100"
-        case 1:
+        case 27:
             return "94.4"
-        case 2:
+        case 26:
             return "89.5"
-        case 3:
+        case 25:
             return "85.2"
-        case 4:
+        case 24:
             return "81.4"
-        case 5:
+        case 23:
             return "78"
-        case 6:
+        case 22:
             return "75.1"
-        case 7:
+        case 21:
             return "72.5"
-        case 8:
+        case 20:
             return "70.3"
-        case 9:
+        case 19:
             return "68.2"
-        case 10:
+        case 18:
             return "66.4"
-        case 11:
+        case 17:
             return "64.7"
-        case 12:
+        case 16:
             return "63"
-        case 13:
+        case 15:
             return "61.4"
         case 14:
             return "59.7"
-        case 15:
+        case 13:
             return "58"
-        case 16:
+        case 12:
             return "56"
-        case 17:
+        case 11:
             return "53.9"
-        case 18:
+        case 10:
             return "51.5"
-        case 19:
+        case 9:
             return "48.8"
-        case 20:
+        case 8:
             return "45.6"
-        case 21:
+        case 7:
             return "42.1"
-        case 22:
+        case 6:
             return "38"
-        case 23:
+        case 5:
             return "33.4"
-        case 24:
+        case 4:
             return "28.2"
-        case 25:
+        case 3:
             return "22.3"
-        case 26:
+        case 2:
             return "15.7"
-        case 27:
+        case 1:
             return "8.2"
-        case 28:
+        case 0:
             return "0"
         default:
             return "0"
