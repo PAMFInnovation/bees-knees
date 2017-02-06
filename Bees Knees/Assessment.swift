@@ -12,6 +12,7 @@ import ResearchKit
 
 protocol Assessment: Activity {
     func task() -> ORKTask
+    func buildResultForCarePlanEvent(_ event: OCKCarePlanEvent, taskResult: ORKTaskResult) -> OCKCarePlanEventResult
 }
 
 extension Assessment {
@@ -23,9 +24,6 @@ extension Assessment {
         if let scaleResult = stepResult as? ORKScaleQuestionResult, let answer = scaleResult.scaleAnswer {
             return OCKCarePlanEventResult(valueString: answer.stringValue, unitString: "out of 10", userInfo: nil)
         }
-        /*else if let numericResult = stepResult as? ORKNumericQuestionResult, let answer = numericResult.numericAnswer {
-            return OCKCarePlanEventResult(valueString: answer.stringValue, unitString: numericResult.unit, userInfo: nil)
-        }*/
         
         fatalError("Unexpected task result type")
     }

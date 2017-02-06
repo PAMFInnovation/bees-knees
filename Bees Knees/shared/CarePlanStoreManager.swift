@@ -53,7 +53,8 @@ class CarePlanStoreManager : NSObject {
         PhotoLog(),
         KneePain(),
         Mood(),
-        IncisionPain()
+        IncisionPain(),
+        DailyRoutine()
     ]
     
     // Reference to the delegate
