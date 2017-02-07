@@ -39,7 +39,7 @@ class WelcomePageViewController: UIPageViewController {
         view.layer.insertSublayer(gradient, at: 0)
         
         // Add the view controllers
-        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to LegUp!", secondaryText: "Helping prepare you for surgery and support your recovery", mainFontSize: 32, secondaryFontSize: 22, icon: "blank-icon", displaySwipeTip: true)
+        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to JointCare!", secondaryText: "Helping prepare you for surgery and support your recovery", mainFontSize: 32, secondaryFontSize: 22, icon: "blank-icon", displaySwipeTip: true)
         orderedViewControllers.append(welcome1)
         let welcome2 = WelcomeInstructionsViewController()
         orderedViewControllers.append(welcome2)

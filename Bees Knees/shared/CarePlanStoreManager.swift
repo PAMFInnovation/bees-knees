@@ -51,9 +51,9 @@ class CarePlanStoreManager : NSObject {
         ChairPressUps(),
         AbdominalBracing(),
         PhotoLog(),
-        KneePain(),
+        //KneePain(),
         Mood(),
-        IncisionPain(),
+        //IncisionPain(),
         DailyRoutine()
     ]
     
