@@ -39,7 +39,25 @@ protocol CarePlanStoreManagerDelegate: class {
 class CarePlanStoreManager : NSObject {
     
     // Care Card activities
-    let activities: [Activity] = [
+    fileprivate var activities: [Activity] = [
+        /*Walk(),
+        QuadSets(),
+        AnklePumps(),
+        GluteSets(),
+        HeelSlides(),
+        StraightLegRaises(),
+        SeatedHeelSlides(),
+        HamstringSets(),
+        ChairPressUps(),
+        AbdominalBracing(),
+        PhotoLog()*/
+        //KneePain(),
+        //Mood()
+        //IncisionPain(),
+        //DailyRoutine()
+    ]
+    
+    fileprivate var baseActivities: [Activity] = [
         Walk(),
         QuadSets(),
         AnklePumps(),
@@ -50,11 +68,7 @@ class CarePlanStoreManager : NSObject {
         HamstringSets(),
         ChairPressUps(),
         AbdominalBracing(),
-        PhotoLog(),
-        //KneePain(),
-        Mood(),
-        //IncisionPain(),
-        DailyRoutine()
+        PhotoLog()
     ]
     
     // Reference to the delegate
@@ -99,7 +113,8 @@ class CarePlanStoreManager : NSObject {
         //self._clearStore()
         
         // Add activities to the store
-        for activity in activities {
+        for activity in baseActivities {
+            activities.append(activity)
             let carePlanActivity = activity.carePlanActivity()
             
             self.store.add(carePlanActivity) { success, error in
@@ -130,12 +145,14 @@ class CarePlanStoreManager : NSObject {
     func resetStore() {
         // Clear the store
         self._clearStore()
+        activities = []
         
         // Remove the passcode
         ORKPasscodeViewController.removePasscodeFromKeychain()
         
         // Add activities to the store
-        for activity in activities {
+        for activity in baseActivities {
+            activities.append(activity)
             let carePlanActivity = activity.carePlanActivity()
             
             self.store.add(carePlanActivity) { success, error in
@@ -276,6 +293,29 @@ class CarePlanStoreManager : NSObject {
             return activity
         }
         return nil
+    }
+    
+    func addDailyRoutineAssessment() {
+        let dailyRoutineActivity = DailyRoutine()
+        activities.append(dailyRoutineActivity)
+        
+        let dailyRoutineCareActivity = dailyRoutineActivity.carePlanActivity()
+        self.store.add(dailyRoutineCareActivity) { success, error in
+            if !success {
+                print("Error adding activity to the store: ", error?.localizedDescription)
+            }
+        }
+        
+        
+        let painActivity = KneePain()
+        activities.append(painActivity)
+        
+        let painCareActivity = painActivity.carePlanActivity()
+        self.store.add(painCareActivity) { success, error in
+            if !success {
+                print("Error adding activity to the store: ", error?.localizedDescription)
+            }
+        }
     }
 }
 

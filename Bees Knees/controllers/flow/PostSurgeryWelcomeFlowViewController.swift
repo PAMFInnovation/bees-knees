@@ -195,6 +195,9 @@ extension PostSurgeryWelcomeFlowViewController: PostSurgeryWelcomeDelegate {
 
 extension PostSurgeryWelcomeFlowViewController: PostSurgeryTransitionDelegate {
     func transitionToPostRoutine(sender: PostSurgeryTransitionView) {
+        // Add the DailyRoutine assessment to the care store, since it needs to occur on a specific day
+        CarePlanStoreManager.sharedInstance.addDailyRoutineAssessment()
+        
         // We're finished with this flow
         self.classDelegate?.didFinishPostFlow(sender: self)
     }

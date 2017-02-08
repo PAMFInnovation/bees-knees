@@ -21,10 +21,16 @@ struct DailyRoutine: Assessment {
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create a weekly schedule.
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [1, 1, 1, 1, 1, 1, 1])
+        
+        // This event should only occur once a week, starting on the day this activity was accessed
+        var occurrences: [NSNumber] = [0, 0, 0, 0, 0, 0, 0]
+        let currentDay = Date().dayNumberOfWeek()
+        occurrences[currentDay! - 1] = 1
+        
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: occurrences)
         
         // Get the localized strings to use for the assessment.
-        let title = NSLocalizedString("My Knee", comment: "")
+        let title = NSLocalizedString("Range of Motion", comment: "")
         
         let activity = OCKCarePlanActivity.assessment(withIdentifier: activityType.rawValue, groupIdentifier: nil, title: title, text: nil, tintColor: UIColor(red: 0x8D / 255.0, green: 0xC6 / 255.0, blue: 0x3F / 255.0, alpha: 1.0), resultResettable: true, schedule: schedule, userInfo: nil)
         

@@ -15,6 +15,7 @@
 		9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E0F59841E495005004ED1F8 /* Date+DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0F59831E495005004ED1F8 /* Date+DayOfWeek.swift */; };
 		9E130AFB1E2EB05B0032AC96 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E130AF81E2EB0520032AC96 /* ResearchKit.framework */; };
 		9E130AFC1E2EB05B0032AC96 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E130AF81E2EB0520032AC96 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E130B021E3075BA0032AC96 /* ResourcesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E130B011E3075BA0032AC96 /* ResourcesCollectionViewController.swift */; };
@@ -319,6 +320,7 @@
 		9E018F9B1E1B02A1008250FA /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomePageViewController.swift; path = controllers/tutorial/WelcomePageViewController.swift; sourceTree = "<group>"; };
 		9E018F9E1E1B0752008250FA /* WelcomeTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeTextViewController.swift; path = controllers/tutorial/WelcomeTextViewController.swift; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
+		9E0F59831E495005004ED1F8 /* Date+DayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+DayOfWeek.swift"; path = "extensions/Date+DayOfWeek.swift"; sourceTree = "<group>"; };
 		9E130AF11E2EB0520032AC96 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		9E130B011E3075BA0032AC96 /* ResourcesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourcesCollectionViewController.swift; path = controllers/ResourcesCollectionViewController.swift; sourceTree = "<group>"; };
 		9E14B7311DCCE18B00C7973A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = controllers/shared/SettingsViewController.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 				9E7747D21E3C776B004F6FB3 /* UIButton+Factory.swift */,
 				9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */,
 				9E7AAF381E45505A00FABC23 /* UIView+ViewController.swift */,
+				9E0F59831E495005004ED1F8 /* Date+DayOfWeek.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -1495,6 +1498,7 @@
 				9EA74A1F1E42FE8D0020E829 /* WelcomeInstructionsViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E43C4361DDBCA0500EF986C /* DocViewController.swift in Sources */,
+				9E0F59841E495005004ED1F8 /* Date+DayOfWeek.swift in Sources */,
 				9EC4F6ED1E31625C008E8DB6 /* ResourceViewController.swift in Sources */,
 				9E17D3A21DB93D340072CDC1 /* PreSurgeryWelcomeViewController.swift in Sources */,
 				9E018F9D1E1B02A1008250FA /* WelcomePageViewController.swift in Sources */,
@@ -1659,7 +1663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = K65HQ235M5;
@@ -1684,7 +1688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = K65HQ235M5;
