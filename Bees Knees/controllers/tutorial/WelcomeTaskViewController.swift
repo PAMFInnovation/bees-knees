@@ -87,8 +87,8 @@ class WelcomeTaskViewController: UIViewController {
         // Attach the main text
         self.view.addSubview(mainTextView)
         
-        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10))
-        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -10))
+        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
+        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .top, relatedBy: .equal, toItem: icon, attribute: .bottom, multiplier: 1.0, constant: 10))
         
         
@@ -107,8 +107,8 @@ class WelcomeTaskViewController: UIViewController {
         // Attach the secondary text
         self.view.addSubview(secondaryTextView)
         
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10))
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -10))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 20))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 15))
         
         

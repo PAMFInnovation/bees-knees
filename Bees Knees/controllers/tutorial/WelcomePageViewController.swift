@@ -34,12 +34,11 @@ class WelcomePageViewController: UIPageViewController {
         //self.view.backgroundColor = UIColor.clear
         let gradient = CAGradientLayer()
         gradient.frame = self.view.bounds
-        gradient.colors = [Colors.turquoiseLight2.color.cgColor, Colors.turquoise.color.cgColor]
-        //gradient.colors = [Colors.turquoise.color.cgColor, UIColor.white.cgColor]
+        gradient.colors = [UIColor.init("#00c0ba").cgColor, UIColor.init("#005d58").cgColor]
         view.layer.insertSublayer(gradient, at: 0)
         
         // Add the view controllers
-        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to JointCare!", secondaryText: "Helping prepare you for surgery and support your recovery", mainFontSize: 32, secondaryFontSize: 22, icon: "blank-icon", displaySwipeTip: true)
+        let welcome1 = WelcomeTaskViewController(mainText: "Welcome to JointCare", secondaryText: "Helping prepare you for surgery and support your recovery", mainFontSize: 32, secondaryFontSize: 22, icon: "blank-icon", displaySwipeTip: true)
         orderedViewControllers.append(welcome1)
         let welcome2 = WelcomeInstructionsViewController()
         orderedViewControllers.append(welcome2)
