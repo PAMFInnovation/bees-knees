@@ -111,7 +111,7 @@ class BuildInsightsOperation: Operation {
         
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
-        lineGraph.title = "Knee Pain"
+        lineGraph.title = "Pain"
         CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
         return lineGraph
     }

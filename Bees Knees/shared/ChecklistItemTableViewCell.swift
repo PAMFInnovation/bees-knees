@@ -69,11 +69,13 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         let textWidth = self.frame.width - textOffset - iconSize - iconLeftOffset
         
         // Add the toggle button to the subview
-        toggleButton.frame = CGRect(x: iconLeftOffset, y: heightOffset, width: iconSize, height: iconSize)
+        toggleButton.frame = CGRect(x: 0, y: 0, width: iconSize + iconLeftOffset, height: heightOffset + heightOffset + iconSize)
+        toggleButton.contentEdgeInsets = UIEdgeInsets(top: heightOffset, left: iconLeftOffset, bottom: heightOffset, right: 0)
         self.addSubview(toggleButton)
         
         // Add the add button to the subview in the same place as the toggle
-        addButton.frame = CGRect(x: iconLeftOffset, y: heightOffset, width: iconSize, height: iconSize)
+        addButton.frame = CGRect(x: 0, y: 0, width: iconSize + iconLeftOffset, height: heightOffset + heightOffset + iconSize)
+        addButton.contentEdgeInsets = UIEdgeInsets(top: heightOffset, left: iconLeftOffset, bottom: heightOffset, right: 0)
         self.addSubview(addButton)
         
         // Add the label to the subview
