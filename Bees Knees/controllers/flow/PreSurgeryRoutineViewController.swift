@@ -33,13 +33,13 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         
         // Create the Wilderness Guide VC
         guideVC =  WildernessGuideViewController()
-        guideVC.title = NSLocalizedString("My Events", comment: "")
-        guideVC.tabBarItem = UITabBarItem(title: "My Events", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
+        guideVC.title = NSLocalizedString("My Schedule", comment: "")
+        guideVC.tabBarItem = UITabBarItem(title: "Schedule", image: UIImage(named: "guide-icon"), selectedImage: UIImage(named: "guide-icon"))
         
         // Create the CareCard VC
         careCardVC = OCKCareCardViewController(carePlanStore: CarePlanStoreManager.sharedInstance.store)
         careCardVC.delegate = self
-        careCardVC.title = NSLocalizedString("Physical Preparation Activities", comment: "")
+        careCardVC.title = NSLocalizedString("Activities", comment: "")
         careCardVC.tabBarItem = UITabBarItem(title: "Activities", image: UIImage(named: "carecard-icon"), selectedImage: UIImage(named: "carecard-icon"))
         careCardVC.maskImageTintColor = Colors.turquoise.color
         careCardVC.maskImage = UIImage(named: "carecard-heart-large")

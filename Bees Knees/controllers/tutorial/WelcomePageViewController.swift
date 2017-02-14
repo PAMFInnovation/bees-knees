@@ -94,12 +94,6 @@ class WelcomePageViewController: UIPageViewController {
     
     
     // MARK: - Helper functions
-    private func testViewController(_ color: UIColor) -> UIViewController {
-        let vc: UIViewController = UIViewController()
-        vc.view.backgroundColor = color
-        return vc
-    }
-    
     func goToViewControllerAtIndex(_ index: Int) {
         currentIndex = index
         setViewControllers([orderedViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)

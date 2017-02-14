@@ -44,7 +44,7 @@ struct DailyRoutine: Assessment {
     
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
-        let question = NSLocalizedString("Please indicate the degree of difficulty you have experienced in the last week due to your surgical knee:", comment: "")
+        let question = NSLocalizedString("Please indicate the degree of difficulty you have experienced performing this activity in the last week due to your surgical knee:", comment: "")
         let prompts: [(String, String)] = [
             (NSLocalizedString("Rising from bed", comment: ""), "rising-from-bed"),
             (NSLocalizedString("Putting on socks/stockings", comment: ""), "putting-on-socks"),
@@ -69,7 +69,7 @@ struct DailyRoutine: Assessment {
             let answerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: answerChoices)
             
             // Question
-            let questionStep = ORKQuestionStep(identifier: prompt.1, title: question, text: prompt.0, answer: answerFormat)
+            let questionStep = ORKQuestionStep(identifier: prompt.1, title: prompt.0, text: question, answer: answerFormat)
             questionStep.isOptional = false
             questions.append(questionStep)
         }
