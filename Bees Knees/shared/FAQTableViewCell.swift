@@ -48,7 +48,7 @@ class FAQTableViewCell: UITableViewCell {
         //self.caret.backgroundColor = UIColor.red
         
         self.answer.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
-        self.answer.textAlignment = .justified
+        self.answer.textAlignment = .left
         self.answer.isEditable = false
         self.answer.isSelectable = false
         self.answer.isScrollEnabled = false
