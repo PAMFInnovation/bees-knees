@@ -38,6 +38,10 @@ final class User: Object {
     dynamic var surgeryAppointment: Appointment? = Appointment(title: "Surgery", type: AppointmentType.Surgery)
     dynamic var isSurgerySet: Bool = false
     
+    // Flow Start Dates
+    dynamic var preSurgeryStartDate: Date = Date()
+    dynamic var postSurgeryStartDate: Date = Date()
+    
     // Checklist
     let checklist = List<ChecklistItem>()
     
@@ -58,20 +62,27 @@ class ProfileManager {
         
         // Set the configuration
         let config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
-                // Version 1 changes:
-                // added didConsent: Bool
-                if oldSchemaVersion == 0 {
-                    migration.enumerateObjects(ofType: User.className(), { oldObject, newObject in
+                migration.enumerateObjects(ofType: User.className(), { oldObject, newObject in
+                    // Version 1 changes:
+                    // added didConsent: Bool
+                    if oldSchemaVersion < 1 {
                         let state = (oldObject!["flowState"] as! Int)
                         var didConsent = false
                         if state != 0 && state != 1 {
                             didConsent = true
                         }
                         newObject!["didConsent"] = didConsent
-                    })
-                }
+                    }
+                    
+                    // Version 2 changes:
+                    // added postSurgeryStartDate: Date
+                    if oldSchemaVersion < 2 {
+                        newObject!["preSurgeryStartDate"] = Date()
+                        newObject!["postSurgeryStartDate"] = Date()
+                    }
+                })
             }
         )
         Realm.Configuration.defaultConfiguration = config
@@ -116,6 +127,26 @@ class ProfileManager {
             user.surgeryAppointment!.date = date
             user.surgeryAppointment!.scheduled = true
             user.isSurgerySet = true
+        }
+    }
+    
+    func getPreSurgeryStartDate() -> Date {
+        return user.preSurgeryStartDate
+    }
+    
+    func setPreSurgeryStartDate(_ date: Date) {
+        try! realm.write {
+            user.preSurgeryStartDate = date
+        }
+    }
+    
+    func getPostSurgeryStartDate() -> Date {
+        return user.postSurgeryStartDate
+    }
+    
+    func setPostSurgeryStartDate(_ date: Date) {
+        try! realm.write {
+            user.postSurgeryStartDate = date
         }
     }
     

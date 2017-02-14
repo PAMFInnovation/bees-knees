@@ -20,14 +20,18 @@ struct DailyRoutine: Assessment {
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create a weekly schedule.
-        let startDate = DateComponents(year: 2016, month: 11, day: 01)
+        let startDate = NSDateComponents(date: ProfileManager.sharedInstance.getPostSurgeryStartDate(), calendar: Calendar.current)
+        
+        var components = DateComponents()
+        let dayDate = (Calendar.current as NSCalendar).date(byAdding: components, to: ProfileManager.sharedInstance.getPostSurgeryStartDate(), options: [])!
+        let dayComponents = NSDateComponents(date: dayDate, calendar: Calendar.current)
         
         // This event should only occur once a week, starting on the day this activity was accessed
         var occurrences: [NSNumber] = [0, 0, 0, 0, 0, 0, 0]
-        let currentDay = Date().dayNumberOfWeek()
+        let currentDay = ProfileManager.sharedInstance.getPostSurgeryStartDate().dayNumberOfWeek()
         occurrences[currentDay! - 1] = 1
         
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: occurrences)
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: dayComponents as DateComponents, occurrencesOnEachDay: occurrences)
         
         // Get the localized strings to use for the assessment.
         let title = NSLocalizedString("Range of Motion", comment: "")

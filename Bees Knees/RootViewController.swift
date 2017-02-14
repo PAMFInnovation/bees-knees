@@ -200,6 +200,7 @@ extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     
     func returnToPreFlow(sender: PostSurgeryWelcomeFlowViewController) {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+        ProfileManager.sharedInstance.setPreSurgeryStartDate(Date())
         
         // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)

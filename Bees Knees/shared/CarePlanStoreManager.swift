@@ -123,6 +123,9 @@ class CarePlanStoreManager : NSObject {
                 }
             }
         }
+        if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
+            self.addDailyRoutineAssessment()
+        }
         
         // TEMP: add sample data
         //self._addSampleInterventionData()

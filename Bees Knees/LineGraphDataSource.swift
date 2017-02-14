@@ -14,6 +14,7 @@ class LineGraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
     // MARK: - Members
     var plotPoints: [ORKValueRange] = []
     var labels: [String] = []
+    var valueRange: (Double, Double) = (0, 10)
     
     
     // MARK: - Initialization
@@ -21,9 +22,10 @@ class LineGraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
         super.init()
     }
     
-    init(_ plotPoints: [ORKValueRange], labels: [String]) {
+    init(_ plotPoints: [ORKValueRange], labels: [String], valueRange: (Double, Double) = (0, 10)) {
         self.plotPoints = plotPoints
         self.labels = labels
+        self.valueRange = valueRange
         
         super.init()
     }
@@ -43,11 +45,11 @@ class LineGraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
     }
     
     func maximumValue(for graphChartView: ORKGraphChartView) -> Double {
-        return 10
+        return valueRange.1
     }
     
     func minimumValue(for graphChartView: ORKGraphChartView) -> Double {
-        return 0
+        return valueRange.0
     }
     
     func graphChartView(_ graphChartView: ORKGraphChartView, titleForXAxisAtPointIndex pointIndex: Int) -> String? {

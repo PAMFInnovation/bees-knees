@@ -37,9 +37,12 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Properties
     
+    var rangeOfMotionEvents: DailyEvents?
     var kneePainEvents: DailyEvents?
     var moodEvents: DailyEvents?
     var incisionPainEvents: DailyEvents?
+    
+    var postSurgeryStartDate: Date?
     
     fileprivate(set) var insights = [OCKInsightItem.emptyInsightsMessage()]
     
@@ -53,17 +56,21 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
+        if let insight = createRangeOfMotionInsight() {
+            newInsights.append(insight)
+        }
+        
         if let insight = createKneePainInsight() {
             newInsights.append(insight)
         }
         
-        if let insight = createMoodInsight() {
+        /*if let insight = createMoodInsight() {
             newInsights.append(insight)
         }
         
         if let insight = createIncisionPainInsight() {
             newInsights.append(insight)
-        }
+        }*/
         
         // Store any new insights that we created.
         if !newInsights.isEmpty {
@@ -73,6 +80,51 @@ class BuildInsightsOperation: Operation {
     
     
     // MARK: - Convenience
+    
+    func createRangeOfMotionInsight() -> OCKInsightItem? {
+        // Make sure there are events to parse
+        guard let rangeOfMotionEvents = rangeOfMotionEvents else { return nil }
+        
+        // Only proceed if the patient is in post surgery
+        guard let postSurgeryStartDate = postSurgeryStartDate else { return nil }
+        
+        // Determine the start date for the previous week
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.day = 0
+        var currentDate = calendar.date(byAdding: components, to: postSurgeryStartDate)!
+        
+        
+        // Construct the plot points
+        var plotPoints: [ORKValueRange] = []
+        var labels: [String] = []
+        
+        // Iterate until we have all dates, ensuring we don't go beyond "today"
+        var dayComponents = NSDateComponents(date: currentDate, calendar: calendar)
+        while currentDate < Date() {
+            // Get the result and append scores to the plot
+            if let result = rangeOfMotionEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
+                plotPoints.append(ORKValueRange(value: Double(score)))
+            }
+            else {
+                plotPoints.append(ORKValueRange())
+            }
+            
+            // Append labels to the plot
+            labels.append(Util.getFormattedDate(currentDate, dateFormat: "M/d"))
+            
+            // Increment the date by 1 week
+            components.day = components.day! + 7
+            currentDate = calendar.date(byAdding: components, to: postSurgeryStartDate)!
+            dayComponents = NSDateComponents(date: currentDate, calendar: calendar)
+        }
+        
+        // Create the line graph and set the data
+        let lineGraph = LineGraphChart.init()
+        lineGraph.title = "Range of Motion"
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100))
+        return lineGraph
+    }
     
     func createKneePainInsight() -> OCKInsightItem? {
         
@@ -88,7 +140,6 @@ class BuildInsightsOperation: Operation {
         let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
-        // Knee Pain, Mood, Incision Pain
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
         
@@ -130,7 +181,6 @@ class BuildInsightsOperation: Operation {
         let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
-        // Knee Pain, Mood, Incision Pain
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
         
@@ -172,7 +222,6 @@ class BuildInsightsOperation: Operation {
         let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
-        // Knee Pain, Mood, Incision Pain
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
         
