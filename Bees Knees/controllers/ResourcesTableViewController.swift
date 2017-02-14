@@ -21,7 +21,7 @@ class ResourcesTableViewController: UITableViewController {
     fileprivate let itemsPerRow: CGFloat = 3
     
     fileprivate let sections: [String] = [
-        "Understanding Knee Replacement",
+        //"Understanding Knee Replacement",
         "Before Surgery",
         "Your Surgery and Hospital Stay",
         "Rehabilitation and Home Recovery",
@@ -31,12 +31,13 @@ class ResourcesTableViewController: UITableViewController {
         "Alta Bates Summit Map"
     ]
     fileprivate let dataSource: [[BinderResource]] = [
-        // Understanding Knee Replacement
+        /*// Understanding Knee Replacement
         [
             BinderResource(title: "Understanding Knee Replacement", htmlFile: "understanding-knee-replacement")
-        ],
+        ],*/
         // Before Surgery
         [
+            BinderResource(title: "Understanding Knee Replacement", htmlFile: "understanding-knee-replacement"),
             BinderResource(title: "Select a Coach", htmlFile: "select-your-coach"),
             BinderResource(title: "Surgical Clearance", htmlFile: "surgical-clearance"),
             BinderResource(title: "Pre-op Appointment", htmlFile: "pre-operative-appointments"),

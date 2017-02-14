@@ -17,7 +17,7 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
     
     var leftButton: CustomButton?
     var rightButton: CustomButton?
-    var dateOfSurgeryVC: DateOfSurgeryViewController = DateOfSurgeryViewController()
+    var dateOfSurgeryVC = DateOfSurgeryPresentViewController()
     
     // Class Delegate
     var classDelegate: PostWelcomeConfirmViewControllerDelegate?
@@ -57,8 +57,11 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
         
         // Create the DateOfSurgery VC
         dateOfSurgeryVC.title = NSLocalizedString("Adjust Date", comment: "")
+        dateOfSurgeryVC.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(PostWelcomeConfirmViewController.closeDateViewController))
         
         // Add a confirm button to transition back
+        dateOfSurgeryVC.delegate = self
+        dateOfSurgeryVC.closeTitle = "Cancel"
         let confirmButton: HighlightButton = HighlightButton()
         confirmButton.setTitle("Confirm", for: .normal)
         let buttonSize: CGSize = CGSize(width: 160, height: 42)
@@ -70,6 +73,10 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
         // Set the button text
         leftButton?.setTitle("Change Date", for: .normal)
         rightButton?.setTitle("Continue", for: .normal)
+        
+        // We want to auto-advance this page but don't want to display the completed text,
+        // so we'll mark that view as hidden
+        self.completedStackView.isHidden = true
     }
     
     
@@ -79,16 +86,15 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
     }
     
     func rightButtonPress() {
-        skip()
+        self.advance()
     }
     
     func presentDateViewController() {
-        // Present this controller
         self.present(dateOfSurgeryVC, animated: true, completion: nil)
     }
     
-    func skip() {
-        delegate?.completeTask(sender: self)
+    func closeDateViewController() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func surgeryDateAdjusted() {
@@ -102,7 +108,9 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
             let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let confirm: UIAlertAction = UIAlertAction(title: "Yes", style: .default, handler: {(alert: UIAlertAction!) in
                 // Return to confirmation view
-                _self.dismiss(animated: true, completion: nil)
+                _self.dismiss(animated: true, completion: {
+                    _self.advance()
+                })
             })
             dateOfSurgeryVC.alert(message: "The date you entered has already passed. Did you have your surgery?", title: "", cancelAction: cancel, confirmAction: confirm)
         }
@@ -119,5 +127,11 @@ class PostWelcomeConfirmViewController: WelcomeTaskViewController {
             dateOfSurgeryVC.alert(message: "With this new date, your surgery has yet to happen. Proceed back to your Pre-Surgery Routine?", title: "", cancelAction: cancel, confirmAction: confirm)
             
         }
+    }
+}
+
+extension PostWelcomeConfirmViewController: DateOfSurgeryPresentViewControllerDelegate {
+    func complete(sender: DateOfSurgeryPresentViewController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

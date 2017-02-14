@@ -17,7 +17,7 @@ class DateOfSurgeryPresentViewController: DateOfSurgeryViewController {
     
     weak var delegate: DateOfSurgeryPresentViewControllerDelegate?
     var navBar: UINavigationBar?
-    
+    var closeTitle: String = "Done"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class DateOfSurgeryPresentViewController: DateOfSurgeryViewController {
         navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60))
         self.view.addSubview(navBar!);
         let navItem = UINavigationItem(title: "Date of Surgery");
-        let closeButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(DateOfSurgeryPresentViewController.close))
+        let closeButton = UIBarButtonItem(title: closeTitle, style: .done, target: self, action: #selector(DateOfSurgeryPresentViewController.close))
         navItem.rightBarButtonItem = closeButton;
         navBar?.setItems([navItem], animated: false);
     }
