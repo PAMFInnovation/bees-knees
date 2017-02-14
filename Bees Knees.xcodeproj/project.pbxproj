@@ -184,6 +184,8 @@
 		9EC4F6F31E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4F6F21E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift */; };
 		9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */; };
 		9ED188051E387C77009E5126 /* down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ED188041E387C77009E5126 /* down-arrow.png */; };
+		9ED4B1381E537D0B0004537B /* PostWelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4B1371E537D0B0004537B /* PostWelcomePageViewController.swift */; };
+		9ED4B13A1E537F660004537B /* PostWelcomeConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4B1391E537F660004537B /* PostWelcomeConfirmViewController.swift */; };
 		9EE1D32E1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */; };
 		9EE1D3301DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */; };
 		9EE1D3321DD2A13400EB3E54 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */; };
@@ -486,6 +488,8 @@
 		9EC4F6F21E328F2E008E8DB6 /* ResourceCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceCollectionHeaderView.swift; path = shared/ResourceCollectionHeaderView.swift; sourceTree = "<group>"; };
 		9ED188021E382F0F009E5126 /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RoundCorners.swift"; path = "extensions/UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		9ED188041E387C77009E5126 /* down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-arrow.png"; sourceTree = "<group>"; };
+		9ED4B1371E537D0B0004537B /* PostWelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWelcomePageViewController.swift; path = "controllers/post-welcome/PostWelcomePageViewController.swift"; sourceTree = "<group>"; };
+		9ED4B1391E537F660004537B /* PostWelcomeConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostWelcomeConfirmViewController.swift; path = "controllers/post-welcome/PostWelcomeConfirmViewController.swift"; sourceTree = "<group>"; };
 		9EE1D32D1DD28F5800EB3E54 /* PostSurgeryConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryConfirmationView.swift; path = views/PostSurgeryConfirmationView.swift; sourceTree = "<group>"; };
 		9EE1D32F1DD294BC00EB3E54 /* PostSurgeryRoutineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSurgeryRoutineViewController.swift; path = controllers/flow/PostSurgeryRoutineViewController.swift; sourceTree = "<group>"; };
 		9EE1D3311DD2A13400EB3E54 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "extensions/UIViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -610,6 +614,7 @@
 		9E17D3A51DB942960072CDC1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9ED4B1321E537CE40004537B /* post-welcome */,
 				9E018F991E1B0271008250FA /* tutorial */,
 				9E960FD21DCA8A3A00811FFB /* shared */,
 				9E2E055E1DC3F84900E28651 /* flow */,
@@ -942,6 +947,15 @@
 			);
 			name = binder;
 			path = content/binder;
+			sourceTree = "<group>";
+		};
+		9ED4B1321E537CE40004537B /* post-welcome */ = {
+			isa = PBXGroup;
+			children = (
+				9ED4B1371E537D0B0004537B /* PostWelcomePageViewController.swift */,
+				9ED4B1391E537F660004537B /* PostWelcomeConfirmViewController.swift */,
+			);
+			name = "post-welcome";
 			sourceTree = "<group>";
 		};
 		9EE1D3351DD2A90400EB3E54 /* Assessments */ = {
@@ -1475,6 +1489,7 @@
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
 				9E81B0651DD25EC400F8929D /* PostSurgeryWelcomeViewController.swift in Sources */,
 				9E43C42D1DDBAEBF00EF986C /* ResourceTableViewCell.swift in Sources */,
+				9ED4B1381E537D0B0004537B /* PostWelcomePageViewController.swift in Sources */,
 				D2A69C2C1DCB991100A0F568 /* NotesTableViewCell.swift in Sources */,
 				9E81DDD51DCD17860065C928 /* ResourcesViewController.swift in Sources */,
 				D24439661DECBB0600D00C0F /* InsightsBuilder.swift in Sources */,
@@ -1489,6 +1504,7 @@
 				9E018F9F1E1B0752008250FA /* WelcomeTextViewController.swift in Sources */,
 				9E8A05F01E25831A00A36B72 /* TextTableViewCell.swift in Sources */,
 				9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */,
+				9ED4B13A1E537F660004537B /* PostWelcomeConfirmViewController.swift in Sources */,
 				9E7AAF211E44083700FABC23 /* ActivityDetailInstructionsTableViewCell.swift in Sources */,
 				9EB5FC471DC12CF200F9A53E /* ProfileViewController.swift in Sources */,
 				D2B488751DEF4B4B000333D6 /* SeatedHeelSlides.swift in Sources */,

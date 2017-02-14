@@ -34,8 +34,10 @@ class RootViewController: UIViewController {
         // First-time call to ProfileManager
         ProfileManager.sharedInstance
         
+        
         // Superclass initialization
         super.init(coder: aDecoder)
+        
         
         // Create the welcome flow VC
         welcomeFlow = WelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -102,9 +104,13 @@ class RootViewController: UIViewController {
             break
             
         case .PostSurgeryWelcome:
-            let vc = PostSurgeryWelcomeFlowViewController()
+            let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
             vc.classDelegate = self
             self.present(vc, animated: true, completion: nil)
+            
+            /*let vc = PostSurgeryWelcomeFlowViewController()
+            vc.classDelegate = self
+            self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PostSurgeryRoutine:
@@ -125,9 +131,14 @@ class RootViewController: UIViewController {
     
     func transitionToPostSurgeryWelcomeFlow() {
         ProfileManager.sharedInstance.updateFlowState(.PostSurgeryWelcome)
-        let vc = PostSurgeryWelcomeFlowViewController()
+        
+        let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         vc.classDelegate = self
         self.present(vc, animated: true, completion: nil)
+        
+        /*let vc = PostSurgeryWelcomeFlowViewController()
+        vc.classDelegate = self
+        self.present(vc, animated: true, completion: nil)*/
     }
     
     func transitionToLaunch(from: FlowState) {
@@ -176,6 +187,7 @@ class RootViewController: UIViewController {
 extension RootViewController: WelcomePageViewControllerDelegate {
     func completeWelcome(sender: WelcomePageViewController) {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+        ProfileManager.sharedInstance.setPreSurgeryStartDate(Date())
         
         // Add the pre-surgery routine view to the hierarchy, which will be displayed underneath
         // the welcome flow. The welcome flow will do a custom transition out by swiping right
@@ -200,10 +212,31 @@ extension RootViewController: PostSurgeryWelcomeFlowDelegate {
     
     func returnToPreFlow(sender: PostSurgeryWelcomeFlowViewController) {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
-        ProfileManager.sharedInstance.setPreSurgeryStartDate(Date())
         
         // Dismiss the view and the Pre Care Card will be waiting underneath
         self.view.addSubview(preSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RootViewController: PostWelcomePageViewControllerDelegate {
+    func postWelcomeComplete(sender: PostWelcomePageViewController) {
+        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
+        
+        // Remove the Pre-Surgery Routine Flow
+        preSurgeryRoutineFlow.view.removeFromSuperview()
+        preSurgeryRoutineFlow.removeFromParentViewController()
+        
+        // Dismiss the view and the Post Care Card will be waiting underneath
+        self.view.addSubview(postSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func postWelcomeReturn(sender: PostWelcomePageViewController) {
+        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+        
+        // Dismiss the view and the Pre Care Card will be waiting underneath
+        //self.view.addSubview(preSurgeryRoutineFlow.view)
         self.dismiss(animated: true, completion: nil)
     }
 }
