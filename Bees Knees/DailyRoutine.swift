@@ -35,8 +35,9 @@ struct DailyRoutine: Assessment {
         
         // Get the localized strings to use for the assessment.
         let title = NSLocalizedString("Range of Motion", comment: "")
+        let text = NSLocalizedString("Weekly score: 0-100, 100 = no issues", comment: "")
         
-        let activity = OCKCarePlanActivity.assessment(withIdentifier: activityType.rawValue, groupIdentifier: nil, title: title, text: nil, tintColor: UIColor(red: 0x8D / 255.0, green: 0xC6 / 255.0, blue: 0x3F / 255.0, alpha: 1.0), resultResettable: true, schedule: schedule, userInfo: nil)
+        let activity = OCKCarePlanActivity.assessment(withIdentifier: activityType.rawValue, groupIdentifier: nil, title: title, text: text, tintColor: UIColor(red: 0x8D / 255.0, green: 0xC6 / 255.0, blue: 0x3F / 255.0, alpha: 1.0), resultResettable: true, schedule: schedule, userInfo: nil)
         
         return activity
     }

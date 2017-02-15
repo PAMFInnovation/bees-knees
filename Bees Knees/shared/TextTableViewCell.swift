@@ -18,7 +18,7 @@ class TextTableViewCell: AppointmentTableViewCell {
     }
     
     var notesTextArea = UITextView()
-    let notesHeight: CGFloat = 150
+    let notesHeight: CGFloat = 180
     
     
     // MARK: - Initialization
@@ -38,6 +38,7 @@ class TextTableViewCell: AppointmentTableViewCell {
         notesTextArea.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: notesHeight)
         notesTextArea.isEditable = false
         notesTextArea.isSelectable = false
+        notesTextArea.isScrollEnabled = false
         notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         notesTextArea.font = UIFont(name: "ArialMT", size: 16)
         notesTextArea.tintColor = UIColor.gray

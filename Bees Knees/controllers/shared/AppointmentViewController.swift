@@ -81,11 +81,12 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         tableViewData.append(AppointmentCellData(name: "plannerCell"))
         
         // Setup the scrollview
-        self.scrollView = UIScrollView(frame: self.view.frame)
+        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height + 200)
+        self.scrollView = UIScrollView(frame: frame)
         self.view.addSubview(scrollView)
         
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height + 200), style: .grouped)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 60), style: .grouped)
         self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0].name)
         //self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
         self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)

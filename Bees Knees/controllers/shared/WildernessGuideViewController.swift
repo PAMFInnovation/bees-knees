@@ -320,7 +320,13 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         }
         else if appt.type == AppointmentType.Surgery {
             //height = appt == nextAppointment ? 215 : 86
-            height = appt == nextAppointment ? 175 : height
+            height = appt == nextAppointment ? 200 : height
+        }
+        else if appt.type == AppointmentType.PreOp {
+            height = appt == nextAppointment ? 200 : height
+        }
+        else if appt.type == AppointmentType.Orthopedic {
+            height = appt == nextAppointment ? 200 : height
         }
         else if appt.type == AppointmentType.CheckUp || appt.type == AppointmentType.Consultation {
             //height = height

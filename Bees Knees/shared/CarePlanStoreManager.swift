@@ -67,8 +67,8 @@ class CarePlanStoreManager : NSObject {
         SeatedHeelSlides(),
         HamstringSets(),
         ChairPressUps(),
-        AbdominalBracing(),
-        PhotoLog()
+        AbdominalBracing()/*,
+        PhotoLog()*/
     ]
     
     // Reference to the delegate
