@@ -43,21 +43,21 @@ class Copy {
         case .FollowUp2Week:
             return "" +
                 "Plan to:\n" +
-                "- Check you range of motion and strength\n" +
+                "- Check your range of motion and strength\n" +
                 "- Bring your list of questions, if any\n" +
                 "- Share any difficulties in increasing activity levels"
             
         case .FollowUp6Week:
             return "" +
                 "Plan to:\n" +
-                "- Check you range of motion and strength\n" +
+                "- Check your range of motion and strength\n" +
                 "- Bring your list of questions, if any\n" +
                 "- Share any difficulties in increasing activity levels"
             
         case .FollowUp12Week:
             return "" +
                 "Plan to:\n" +
-                "- Check you range of motion and strength\n" +
+                "- Check your range of motion and strength\n" +
                 "- Bring your list of questions, if any\n" +
                 "- Share any difficulties in increasing activity levels"
             

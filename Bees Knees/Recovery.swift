@@ -1,5 +1,5 @@
 //
-//  DailyRoutine.swift
+//  Recovery.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 2/6/17.
@@ -10,8 +10,8 @@ import CareKit
 import ResearchKit
 
 
-struct DailyRoutine: Assessment {
-    let activityType: ActivityType = .DailyRoutine
+struct Recovery: Assessment {
+    let activityType: ActivityType = .Recovery
     
     let rationale: String = NSLocalizedString("", comment: "")
     let image: (name: String, type: String) = ("", "")
@@ -34,7 +34,7 @@ struct DailyRoutine: Assessment {
         let schedule = OCKCareSchedule.weeklySchedule(withStartDate: dayComponents as DateComponents, occurrencesOnEachDay: occurrences)
         
         // Get the localized strings to use for the assessment.
-        let title = NSLocalizedString("Range of Motion", comment: "")
+        let title = NSLocalizedString("Pain & Recovery", comment: "")
         let text = NSLocalizedString("Weekly score: 0-100, 100 = no issues", comment: "")
         
         let activity = OCKCarePlanActivity.assessment(withIdentifier: activityType.rawValue, groupIdentifier: nil, title: title, text: text, tintColor: UIColor(red: 0x8D / 255.0, green: 0xC6 / 255.0, blue: 0x3F / 255.0, alpha: 1.0), resultResettable: true, schedule: schedule, userInfo: nil)
@@ -45,15 +45,14 @@ struct DailyRoutine: Assessment {
     
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
-        let question = NSLocalizedString("Please indicate the degree of difficulty you have experienced performing this activity in the last week due to your surgical knee:", comment: "")
-        let prompts: [(String, String)] = [
-            (NSLocalizedString("Rising from bed", comment: ""), "rising-from-bed"),
-            (NSLocalizedString("Putting on socks/stockings", comment: ""), "putting-on-socks"),
-            (NSLocalizedString("Rising from sitting", comment: ""), "rising-from-sitting"),
-            (NSLocalizedString("Bending to floor", comment: ""), "bending-to-floor"),
-            (NSLocalizedString("Twisting/pivoting on your surgical knee", comment: ""), "twisting-and-pivoting"),
-            (NSLocalizedString("Kneeling", comment: ""), "kneeling"),
-            (NSLocalizedString("Squatting", comment: ""), "squatting")
+        let prompts: [(String, String, String)] = [
+            (NSLocalizedString("The following question concerns the amount of joint stiffness you have experienced during the last week in your knee. Stiffness is a sensation of restriction or slowness in the ease with which you move your knee joint.", comment: ""), NSLocalizedString("How severe is your knee stiffness after first wakening in the morning?", comment: ""), "stiffness"),
+            (NSLocalizedString("What amount of knee pain have you experienced the last week during the following activities?", comment: ""), NSLocalizedString("Twisting/pivoting on your knee", comment: ""), "twisting"),
+            (NSLocalizedString("What amount of knee pain have you experienced the last week during the following activities?", comment: ""), NSLocalizedString("Straightening knee fully", comment: ""), "straightening-knee"),
+            (NSLocalizedString("What amount of knee pain have you experienced the last week during the following activities?", comment: ""), NSLocalizedString("Going up or down stairs", comment: ""), "stairs"),
+            (NSLocalizedString("What amount of knee pain have you experienced the last week during the following activities?", comment: ""), NSLocalizedString("Standing upright", comment: ""), "standing-upright"),
+            (NSLocalizedString("The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your knee.", comment: ""), NSLocalizedString("Rising from sitting", comment: ""), "rising-from-sitting"),
+            (NSLocalizedString("The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your knee.", comment: ""), NSLocalizedString("Bending to floor/pick up an object", comment: ""), "bending")
         ]
         let answerChoices = [
             ORKTextChoice(text: "None", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
@@ -70,7 +69,7 @@ struct DailyRoutine: Assessment {
             let answerFormat = ORKTextChoiceAnswerFormat(style: .singleChoice, textChoices: answerChoices)
             
             // Question
-            let questionStep = ORKQuestionStep(identifier: prompt.1, title: prompt.0, text: question, answer: answerFormat)
+            let questionStep = ORKQuestionStep(identifier: prompt.2, title: prompt.1, text: prompt.0, answer: answerFormat)
             questionStep.isOptional = false
             questions.append(questionStep)
         }
@@ -101,59 +100,59 @@ struct DailyRoutine: Assessment {
         case 28:
             return "100"
         case 27:
-            return "94.4"
+            return "91.975"
         case 26:
-            return "89.5"
+            return "84.6"
         case 25:
-            return "85.2"
+            return "79.914"
         case 24:
-            return "81.4"
+            return "76.332"
         case 23:
-            return "78"
+            return "73.342"
         case 22:
-            return "75.1"
+            return "70.704"
         case 21:
-            return "72.5"
+            return "68.284"
         case 20:
-            return "70.3"
+            return "65.994"
         case 19:
-            return "68.2"
+            return "63.776"
         case 18:
-            return "66.4"
+            return "61.583"
         case 17:
-            return "64.7"
+            return "59.381"
         case 16:
-            return "63"
+            return "57.140"
         case 15:
-            return "61.4"
+            return "54.840"
         case 14:
-            return "59.7"
+            return "52.465"
         case 13:
-            return "58"
+            return "50.012"
         case 12:
-            return "56"
+            return "47.487"
         case 11:
-            return "53.9"
+            return "44.905"
         case 10:
-            return "51.5"
+            return "42.281"
         case 9:
-            return "48.8"
+            return "39.625"
         case 8:
-            return "45.6"
+            return "36.931"
         case 7:
-            return "42.1"
+            return "34.174"
         case 6:
-            return "38"
+            return "31.307"
         case 5:
-            return "33.4"
+            return "28.251"
         case 4:
-            return "28.2"
+            return "24.875"
         case 3:
-            return "22.3"
+            return "20.941"
         case 2:
-            return "15.7"
+            return "15.939"
         case 1:
-            return "8.2"
+            return "8.291"
         case 0:
             return "0"
         default:

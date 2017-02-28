@@ -39,5 +39,5 @@ enum ActivityType: String {
     case KneePain
     case Mood
     case IncisionPain
-    case DailyRoutine
+    case Recovery
 }

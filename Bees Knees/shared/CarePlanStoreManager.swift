@@ -54,7 +54,7 @@ class CarePlanStoreManager : NSObject {
         //KneePain(),
         //Mood()
         //IncisionPain(),
-        //DailyRoutine()
+        //Recovery()
     ]
     
     fileprivate var baseActivities: [Activity] = [
@@ -124,7 +124,7 @@ class CarePlanStoreManager : NSObject {
             }
         }
         if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
-            self.addDailyRoutineAssessment()
+            self.addRecoveryAssessment()
         }
         
         // TEMP: add sample data
@@ -298,23 +298,33 @@ class CarePlanStoreManager : NSObject {
         return nil
     }
     
-    func addDailyRoutineAssessment() {
-        let dailyRoutineActivity = DailyRoutine()
-        activities.append(dailyRoutineActivity)
+    func addRecoveryAssessment() {
+        let recoveryActivity = Recovery()
+        activities.append(recoveryActivity)
         
-        let dailyRoutineCareActivity = dailyRoutineActivity.carePlanActivity()
-        self.store.add(dailyRoutineCareActivity) { success, error in
+        let recoveryCareActivity = recoveryActivity.carePlanActivity()
+        self.store.add(recoveryCareActivity) { success, error in
             if !success {
                 print("Error adding activity to the store: ", error?.localizedDescription)
             }
         }
         
         
-        let painActivity = KneePain()
+        /*let painActivity = KneePain()
         activities.append(painActivity)
         
         let painCareActivity = painActivity.carePlanActivity()
         self.store.add(painCareActivity) { success, error in
+            if !success {
+                print("Error adding activity to the store: ", error?.localizedDescription)
+            }
+        }*/
+        
+        let moodActivity = Mood()
+        activities.append(moodActivity)
+        
+        let moodCareActivity = moodActivity.carePlanActivity()
+        self.store.add(moodCareActivity) { success, error in
             if !success {
                 print("Error adding activity to the store: ", error?.localizedDescription)
             }

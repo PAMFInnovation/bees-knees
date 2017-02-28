@@ -114,9 +114,9 @@ extension PostWelcomePageViewController: UIPageViewControllerDataSource {
 extension PostWelcomePageViewController: WelcomeTaskViewControllerDelegate {
     func completeTask(sender: WelcomeTaskViewController) {
         if sender is WelcomeTransitionViewController {
-            // Add the DailyRoutine assessment to the care store, since it needs to occur on a specific day
+            // Add the Recovery assessment to the care store, since it needs to occur on a specific day
             ProfileManager.sharedInstance.setPostSurgeryStartDate(Date())
-            CarePlanStoreManager.sharedInstance.addDailyRoutineAssessment()
+            CarePlanStoreManager.sharedInstance.addRecoveryAssessment()
             
             // Complete this flow
             self.classDelegate?.postWelcomeComplete(sender: self)

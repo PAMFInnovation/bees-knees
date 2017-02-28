@@ -37,7 +37,7 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Properties
     
-    var rangeOfMotionEvents: DailyEvents?
+    var recoveryEvents: DailyEvents?
     var kneePainEvents: DailyEvents?
     var moodEvents: DailyEvents?
     var incisionPainEvents: DailyEvents?
@@ -56,19 +56,19 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
-        if let insight = createRangeOfMotionInsight() {
+        if let insight = createRecoveryInsight() {
             newInsights.append(insight)
         }
         
-        if let insight = createKneePainInsight() {
+        /*if let insight = createKneePainInsight() {
+            newInsights.append(insight)
+        }*/
+        
+        if let insight = createMoodInsight() {
             newInsights.append(insight)
         }
         
-        /*if let insight = createMoodInsight() {
-            newInsights.append(insight)
-        }
-        
-        if let insight = createIncisionPainInsight() {
+        /*if let insight = createIncisionPainInsight() {
             newInsights.append(insight)
         }*/
         
@@ -81,9 +81,9 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Convenience
     
-    func createRangeOfMotionInsight() -> OCKInsightItem? {
+    func createRecoveryInsight() -> OCKInsightItem? {
         // Make sure there are events to parse
-        guard let rangeOfMotionEvents = rangeOfMotionEvents else { return nil }
+        guard let recoveryEvents = recoveryEvents else { return nil }
         
         // Only proceed if the patient is in post surgery
         guard let postSurgeryStartDate = postSurgeryStartDate else { return nil }
@@ -103,7 +103,7 @@ class BuildInsightsOperation: Operation {
         var dayComponents = NSDateComponents(date: currentDate, calendar: calendar)
         while currentDate < Date() {
             // Get the result and append scores to the plot
-            if let result = rangeOfMotionEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
+            if let result = recoveryEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
                 plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
@@ -121,7 +121,7 @@ class BuildInsightsOperation: Operation {
         
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
-        lineGraph.title = "Range of Motion"
+        lineGraph.title = "Pain & Recovery"
         CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100))
         return lineGraph
     }
