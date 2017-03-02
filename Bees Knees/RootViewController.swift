@@ -84,19 +84,11 @@ class RootViewController: UIViewController {
             
             self.view.addSubview(welcomeFlow.view)
             welcomeFlow.didMove(toParentViewController: self)
-            
-            /*let vc = PreSurgeryWelcomeFlowViewController()
-             vc.classDelegate = self
-             self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryWelcome:
             self.view.addSubview(welcomeFlow.view)
             welcomeFlow.didMove(toParentViewController: self)
-            
-            /*let vc = PreSurgeryWelcomeFlowViewController()
-             vc.classDelegate = self
-             self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PreSurgeryRoutine:
@@ -107,10 +99,6 @@ class RootViewController: UIViewController {
             let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
             vc.classDelegate = self
             self.present(vc, animated: true, completion: nil)
-            
-            /*let vc = PostSurgeryWelcomeFlowViewController()
-            vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)*/
             break
             
         case .PostSurgeryRoutine:
@@ -135,10 +123,6 @@ class RootViewController: UIViewController {
         let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         vc.classDelegate = self
         self.present(vc, animated: true, completion: nil)
-        
-        /*let vc = PostSurgeryWelcomeFlowViewController()
-        vc.classDelegate = self
-        self.present(vc, animated: true, completion: nil)*/
     }
     
     func transitionToLaunch(from: FlowState) {
