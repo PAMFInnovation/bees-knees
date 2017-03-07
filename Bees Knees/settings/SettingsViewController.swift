@@ -33,22 +33,12 @@ class SettingsViewController: UITableViewController {
         self.init(style: UITableViewStyle.grouped)
         
         // Add data to the data source
-        //dataSource.append([SettingsItem]())
-        //dataSource[0].append(SettingsItem(name: "My Profile", header: "My Profile", icon: "profile-icon", className: "ProfileViewController"))
-        
         dataSource.append([SettingsItem]())
         dataSource[0].append(SettingsItemNavigation(name: "Notes", header: "Notes", icon: "notes-icon", className: "NotesViewController"))
         
         dataSource.append([SettingsItem]())
-        //dataSource[1].append(SettingsItemNavigation(name: "Old Binder", header: "Binder", icon: "resources-icon", className: "ResourcesViewController"))
-        //dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
         dataSource[1].append(SettingsItemNavigation(name: "Binder", header: "Binder", icon: "resources-icon", className: "ResourcesTableViewController"))
-        //dataSource[1].append(SettingsItemNavigation(name: "Cell Binder", header: "Binder", icon: "resources-icon", className: "ResourcesCollectionViewController"))
         dataSource[1].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
-        
-        /*dataSource.append([SettingsItem]())
-        dataSource[1].append(SettingsItemNavigation(name: "What to know before surgery", header: "What to know before surgery", icon: "expectations-icon", className: "ExpectationsViewController"))
-        dataSource[1].append(SettingsItemNavigation(name: "What to expect after surgery", header: "What to expect after surgery", icon: "expectations-icon", className: "ExpectationsViewController"))*/
         
         dataSource.append([SettingsItem]())
         dataSource[2].append(SettingsItemNavigation(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
