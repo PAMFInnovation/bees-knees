@@ -20,12 +20,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
     var tableViewData = [Appointment]()
     var nextAppointment: Appointment?
     
-    // Paths
-    var dottedPath: MyPath!
-    var solidPath: MyPath!
-    var pathOffset: CGPoint = CGPoint(x: 43, y: 35)
-    var shouldRenderPath: Bool = true
-    
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -67,15 +61,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.delegate = self
         self.tableView.dataSource = self
         scrollView.addSubview(self.tableView)
-        
-        // Add the line paths
-        dottedPath = MyPath(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), isDashed: true)
-        solidPath = MyPath(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height), isDashed: false)
-        
-        // Insert the line path subview as the first view in the table view
-        // This ensures it renders underneath the cells themselves
-        //self.tableView.insertSubview(solidPath, at: 0)
-        //self.tableView.insertSubview(dottedPath, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,9 +68,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Update the surgery label
         self.countdownView.updateSurgeryLabel()
-        
-        // Ensure we rerender the path
-        shouldRenderPath = true
         
         // Reload the table
         self.reloadTable()
@@ -165,9 +147,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         
         // Reload the table
         self.tableView.reloadData()
-        
-        // Redraw the dotted/solid paths
-        self.redrawPaths()
     }
     
     func populateTable() {
@@ -258,55 +237,6 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
                     found = true
                 }
             }
-        }
-    }
-    
-    func redrawPaths() {
-        if shouldRenderPath {
-            // Find the path lengths
-            var dashedPathLength: CGFloat = 0
-            var solidPathLength: CGFloat = 0
-            var previousCellLength: CGFloat = 0
-            for (index, cell) in self.tableViewData.enumerated() {
-                // Get the cell height
-                let height = self.getHeightForCell(index: index)
-                
-                // Ignore the last cell's height
-                if index < self.tableViewData.count - 1 {
-                    // Always increment dashes path length
-                    dashedPathLength = dashedPathLength + height
-                    
-                    // Only increment solid path length if the cell is elapsed
-                    if (cell as Appointment).elapsed {
-                        solidPathLength = solidPathLength + previousCellLength
-                    }
-                }
-                
-                // Set the previous cell length for solid paths
-                previousCellLength = height
-            }
-            
-            // Update the height of the path views to accommodate the accumulated height
-            // Add previous cell length since we left that out of the overall height
-            dottedPath.frame.size = CGSize(width: dottedPath.frame.size.width, height: dashedPathLength + previousCellLength)
-            solidPath.frame.size = CGSize(width: dottedPath.frame.size.width, height: dashedPathLength + previousCellLength)
-            
-            // The starting path for both lines will always be the offset
-            dottedPath.setStartPoint(pathOffset)
-            solidPath.setStartPoint(pathOffset)
-            
-            // The ending path for the dotted line will be based on the path length, calculated from the accumulated height of all cells
-            dottedPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + dashedPathLength))
-            
-            // The ending path for the solid line will be based on the solid path length, calculated from the accumulated height of all elapsed cells
-            solidPath.setEndPoint(CGPoint(x: pathOffset.x, y: pathOffset.y + solidPathLength))
-            
-            // Trigger a draw on the next frame
-            dottedPath.setNeedsDisplay()
-            solidPath.setNeedsDisplay()
-            
-            // Reset render state
-            shouldRenderPath = false
         }
     }
     

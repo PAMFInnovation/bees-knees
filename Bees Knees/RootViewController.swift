@@ -149,24 +149,8 @@ class RootViewController: UIViewController {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
         self.view.addSubview(welcomeFlow.view)
         welcomeFlow.didMove(toParentViewController: self)
-        
-        /*// Transition to the pre-surgery welcome
-        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryWelcome)
-        let vc = PreSurgeryWelcomeFlowViewController()
-        vc.classDelegate = self
-        self.present(vc, animated: true, completion: nil)*/
     }
 }
-
-/*extension RootViewController: PreSurgeryWelcomeFlowDelegate {
-    func didFinishPreFlow(sender: PreSurgeryWelcomeFlowViewController) {
-        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
-        
-        // Dismiss the view and the Pre Care Card will be waiting underneath
-        self.view.addSubview(preSurgeryRoutineFlow.view)
-        self.dismiss(animated: true, completion: nil)
-    }
-}*/
 
 extension RootViewController: WelcomePageViewControllerDelegate {
     func completeWelcome(sender: WelcomePageViewController) {
@@ -178,28 +162,6 @@ extension RootViewController: WelcomePageViewControllerDelegate {
         // before rmeoving itself.
         self.view.insertSubview(preSurgeryRoutineFlow.view, belowSubview: welcomeFlow.view)
         welcomeFlow.dismissSelf()
-    }
-}
-
-extension RootViewController: PostSurgeryWelcomeFlowDelegate {
-    func didFinishPostFlow(sender: PostSurgeryWelcomeFlowViewController) {
-        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
-        
-        // Remove the Pre-Surgery Routine Flow
-        preSurgeryRoutineFlow.view.removeFromSuperview()
-        preSurgeryRoutineFlow.removeFromParentViewController()
-        
-        // Dismiss the view and the Post Care Card will be waiting underneath
-        self.view.addSubview(postSurgeryRoutineFlow.view)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func returnToPreFlow(sender: PostSurgeryWelcomeFlowViewController) {
-        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
-        
-        // Dismiss the view and the Pre Care Card will be waiting underneath
-        self.view.addSubview(preSurgeryRoutineFlow.view)
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
