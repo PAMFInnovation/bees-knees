@@ -1,8 +1,35 @@
 #JointCare app
 
-Required iOS Version: **9.3+**  
-Supported Devices: **iPhone 5+**  
-Capabilities: **none**  
+###Configuration:
+
+**Step 1:** Clone this repository, CareKit, and ResearchKit, all in the same ROOT directory:
+
+```
+# Create a new directory for the JointCare project
+mkdir JointCare
+cd JointCare
+
+# Clone the required repositories
+git clone https://github.com/PAMFInnovation/bees-knees
+git clone https://github.com/carekit-apple/CareKit
+git clone https://github.com/ResearchKit/ResearchKit
+```
+
+**Step 2:** Open the *bees-knees* project:
+
+```
+open Bees\ Knees.xcodeproj/
+```
+
+**Step 3:** Build and Run in XCode
+
+-
+
+*Additional Details:*  
+- Required XCode Version: **8.2.1+**  
+- Required iOS Version: **9.3+**  
+- Supported Devices: **iPhone 5+**  
+- Capabilities: **none**  
 
 ###Frameworks:
 1) [Realm](https://realm.io/)  
