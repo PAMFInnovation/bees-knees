@@ -163,7 +163,7 @@ class GuideTableViewCell: UITableViewCell {
         else {
             // Set text
             self.title.text = self.appointment?.title
-            self.subtitle.text = "Tap to schedule"
+            self.subtitle.text = "Tap to add date"
             self.detail.text = ""
             self.dateText.text = ""
             
