@@ -12,7 +12,7 @@ import CareKit
 struct AnklePumps: Activity {
     let activityType: ActivityType = .AnklePumps
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Decreases risk of blood clots\n\u{2022} Promotes circulation to lower leg and foot\n\u{2022} Helps with ankle range of motion\n\u{2022} Decreases swelling in knee, if done with other exercises", comment: "")
     let image: (name: String, type: String) = ("ref_anklepumps", "png")
     let video: (name: String, type: String) = ("AnklePumps", "mp4")
     

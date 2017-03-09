@@ -41,7 +41,7 @@ class SettingsViewController: UITableViewController {
         dataSource[1].append(SettingsItemNavigation(name: "Frequently Asked Questions", header: "FAQs", icon: "faq-icon", className: "FAQViewController"))
         
         dataSource.append([SettingsItem]())
-        dataSource[2].append(SettingsItemNavigation(name: "Legal", header: "Legal", icon: "legal-icon", className: "LegalViewController"))
+        dataSource[2].append(SettingsItemNavigation(name: "Terms and Conditions", header: "Terms and Conditions", icon: "legal-icon", className: "LegalViewController"))
         dataSource[2].append(SettingsItemButton(name: "Passcode", icon: "settings-icon", action: {
             self.setOrEditPasscode()
         }))

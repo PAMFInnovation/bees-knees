@@ -12,7 +12,7 @@ import CareKit
 struct HamstringSets: Activity {
     let activityType: ActivityType = .HamstringSets
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in hamstring muscles\n\u{2022} Activates hamstring muscles, which help control your knee joint in standing and walking", comment: "")
     let image: (name: String, type: String) = ("ref_hamstringsets", "png")
     let video: (name: String, type: String) = ("HamstringSets", "mp4")
     

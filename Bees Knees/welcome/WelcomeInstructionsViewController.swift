@@ -18,7 +18,7 @@ class WelcomeInstructionsViewController: UIViewController {
     
     // Main text to display
     var textView: UITextView = UITextView()
-    var text: String = "JointCare is a personalized journal and navigational guide to recovery. It will help you:"
+    var text: String = "JointCare is a navigational guide to recovery and personalized journal. It will help you:"
     
     // State for displaying swipe tip
     var swipeLabel: UILabel = UILabel()

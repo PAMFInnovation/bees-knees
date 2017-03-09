@@ -12,7 +12,7 @@ import CareKit
 struct HeelSlides: Activity {
     let activityType: ActivityType = .HeelSlides
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Increases knee’s range of motion\n\u{2022} Promotes circulation\n\u{2022} Builds strength in surgical knee and leg\n\u{2022} Assists with getting out of bed", comment: "")
     let image: (name: String, type: String) = ("ref_heelslides", "png")
     let video: (name: String, type: String) = ("HeelSlide", "mp4")
     

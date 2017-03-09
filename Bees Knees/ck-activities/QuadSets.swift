@@ -12,7 +12,7 @@ import CareKit
 struct QuadSets: Activity {
     let activityType: ActivityType = .QuadSets
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in your thigh muscles\n\u{2022} Reminds your body how to activate quad/thigh muscle\n\u{2022} Practices straightening surgical knee\n\u{2022} Decreases swelling in the knee", comment: "")
     let image: (name: String, type: String) = ("ref_quadsets", "png")
     let video: (name: String, type: String) = ("QuadSets", "mp4")
     

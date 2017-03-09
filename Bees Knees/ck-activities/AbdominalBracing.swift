@@ -12,7 +12,7 @@ import CareKit
 struct AbdominalBracing: Activity {
     let activityType: ActivityType = .AbdominalBracing
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Build strength in your lower back and core muscles", comment: "")
     let image: (name: String, type: String) = ("ref_abdominalbracing", "png")
     let video: (name: String, type: String) = ("", "")
     

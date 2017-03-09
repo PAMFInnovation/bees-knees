@@ -12,7 +12,7 @@ import CareKit
 struct GluteSets: Activity {
     let activityType: ActivityType = .GluteSets
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Builds strength in glute muscle which is crucial for standing, walking, climbing stairs, good posture, and balance\n\u{2022} Promotes circulation in glute muscle\n\u{2022} Reminds your body how to activate glute muscle", comment: "")
     let image: (name: String, type: String) = ("ref_glutesets", "png")
     let video: (name: String, type: String) = ("GluteSets", "mp4")
     

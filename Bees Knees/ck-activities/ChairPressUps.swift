@@ -12,7 +12,7 @@ import CareKit
 struct ChairPressUps: Activity {
     let activityType: ActivityType = .ChairPressUps
     
-    let rationale: String = NSLocalizedString("", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Practices sitting to standing to sitting again safely\n\u{2022} Practices using legs and arms together", comment: "")
     let image: (name: String, type: String) = ("ref_chairpressups", "png")
     let video: (name: String, type: String) = ("", "")
     
