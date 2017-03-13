@@ -92,7 +92,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         apptVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: apptVC, action: #selector(AppointmentViewController.cancel))
         
         // Add the done button in the navigation bar and color it
-        apptVC.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: apptVC, action: #selector(AppointmentViewController.done))
+        apptVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: apptVC, action: #selector(AppointmentViewController.done))
         
         // Present this modal view controller
         let navVC = UINavigationController(rootViewController: apptVC)

@@ -24,6 +24,11 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     var placeholderLabel = UILabel()
     let notesHeight: CGFloat = 150
     
+    // When the user begins editing notes, a done button will appear in the
+    // top-right and potentially overwrite an existing button. We will keep
+    // track of that button here to display when the user is done editing notes.
+    var rightBarButtonItemUnderneath: UIBarButtonItem?
+    
     
     // MARK: - Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -73,7 +78,8 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     func doneEditing() {
         self.endEditing(true)
         
-        self.parentViewController?.navigationItem.rightBarButtonItem = nil
+        // Reset the right bar button item
+        self.parentViewController?.navigationItem.rightBarButtonItem = rightBarButtonItemUnderneath
     }
     
     
@@ -83,6 +89,7 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         
         // Add the done button in the navigation bar
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(NotesTableViewCell.doneEditing))
+        rightBarButtonItemUnderneath = self.parentViewController?.navigationItem.rightBarButtonItem
         self.parentViewController?.navigationItem.rightBarButtonItem = doneButton
         
         return true
