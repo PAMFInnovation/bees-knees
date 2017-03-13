@@ -130,6 +130,8 @@
 		9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EFDA05C1D8370F400FD6763 /* LaunchScreen.storyboard */; };
 		9EFDA0691D8370F400FD6763 /* Bees_KneesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0681D8370F400FD6763 /* Bees_KneesTests.swift */; };
 		9EFDA0741D8370F400FD6763 /* Bees_KneesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFDA0731D8370F400FD6763 /* Bees_KneesUITests.swift */; };
+		9EFFA1A51E771C88003B57B1 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFFA1A41E771C88003B57B1 /* ContactUsViewController.swift */; };
+		9EFFA1A91E772767003B57B1 /* String+TypeFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFFA1A81E772767003B57B1 /* String+TypeFace.swift */; };
 		D23DC5CD1DFB640200663595 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */; };
 		D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */; };
 		D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */; };
@@ -421,6 +423,8 @@
 		9EFDA06F1D8370F400FD6763 /* Bees KneesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bees KneesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFDA0731D8370F400FD6763 /* Bees_KneesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bees_KneesUITests.swift; sourceTree = "<group>"; };
 		9EFDA0751D8370F400FD6763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFFA1A41E771C88003B57B1 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactUsViewController.swift; path = "contact-us/ContactUsViewController.swift"; sourceTree = "<group>"; };
+		9EFFA1A81E772767003B57B1 /* String+TypeFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+TypeFace.swift"; path = "extensions/String+TypeFace.swift"; sourceTree = "<group>"; };
 		D23DC5CC1DFB640200663595 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+TopViewController.swift"; path = "extensions/UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 		D24439671DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OCKInsightItem+EmptyMessage.swift"; path = "extensions/OCKInsightItem+EmptyMessage.swift"; sourceTree = "<group>"; };
 		D244396F1DECBDEA00D00C0F /* Calendar+Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calendar+Dates.swift"; path = "extensions/Calendar+Dates.swift"; sourceTree = "<group>"; };
@@ -591,6 +595,7 @@
 				9E7AAF131E43B85700FABC23 /* UIDevice+Model.swift */,
 				9E7AAF381E45505A00FABC23 /* UIView+ViewController.swift */,
 				9E0F59831E495005004ED1F8 /* Date+DayOfWeek.swift */,
+				9EFFA1A81E772767003B57B1 /* String+TypeFace.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				D2C5AA221E6DF8B000F65201 /* ck-assessments */,
 				D2C5AA231E6DF8B400F65201 /* ck-insights */,
 				D2C5AA251E6DF8BF00F65201 /* consent */,
+				9EFFA19F1E771BF4003B57B1 /* contact-us */,
 				9E43C42E1DDBB80E00EF986C /* content */,
 				D2C5AAAB1E6F3AF900F65201 /* date-of-surgery */,
 				9E429DC31DC29E240066FF20 /* extensions */,
@@ -890,6 +896,14 @@
 				9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */,
 			);
 			name = "Linked frameworks";
+			sourceTree = "<group>";
+		};
+		9EFFA19F1E771BF4003B57B1 /* contact-us */ = {
+			isa = PBXGroup;
+			children = (
+				9EFFA1A41E771C88003B57B1 /* ContactUsViewController.swift */,
+			);
+			name = "contact-us";
 			sourceTree = "<group>";
 		};
 		D2C5AA211E6DF8A600F65201 /* ck-activities */ = {
@@ -1477,6 +1491,7 @@
 				D2C5AA351E6DF8D900F65201 /* QueryActivityEventsOperation.swift in Sources */,
 				D2C5AAF21E6F3FB700F65201 /* ChecklistItem.swift in Sources */,
 				9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */,
+				9EFFA1A91E772767003B57B1 /* String+TypeFace.swift in Sources */,
 				D2C5AAD41E6F3B5E00F65201 /* ResourcesViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				D2C5AAF41E6F3FB700F65201 /* PreSurgeryChecklistViewController.swift in Sources */,
@@ -1486,6 +1501,7 @@
 				D2C5AAA71E6F3AF600F65201 /* NotesTableViewCell.swift in Sources */,
 				D2C5AAD01E6F3B5E00F65201 /* ResourceCollectionHeaderView.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
+				9EFFA1A51E771C88003B57B1 /* ContactUsViewController.swift in Sources */,
 				D2C5AAB71E6F3B1D00F65201 /* FAQItem.swift in Sources */,
 				D2C5AA3D1E6DF8E000F65201 /* KneePain.swift in Sources */,
 				9ED188031E382F0F009E5126 /* UIView+RoundCorners.swift in Sources */,
