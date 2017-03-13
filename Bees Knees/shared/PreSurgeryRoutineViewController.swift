@@ -68,7 +68,7 @@ class PreSurgeryRoutineViewController: UITabBarController, UITabBarControllerDel
         super.viewWillAppear(animated)
         
         // Set default tab
-        self.selectedIndex = 0
+        //self.selectedIndex = 0
     }
 }
 

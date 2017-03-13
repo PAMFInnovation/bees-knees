@@ -55,14 +55,6 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         // Check for transition to post-surgery by checking the surgery date against today's date
         if /*ProfileManager.sharedInstance.user.flowState == .Launch ||
@@ -96,9 +88,11 @@ class RootViewController: UIViewController {
             break
             
         case .PostSurgeryWelcome:
-            let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-            vc.classDelegate = self
-            self.present(vc, animated: true, completion: nil)
+            // Add the pre-surgery routine here.
+            // The viewDidAppear will display the post-surgery welcome on top
+            // of this view so if they decide to close it, they can easily
+            // return back to the pre-surgery routine.
+            self.view.addSubview(preSurgeryRoutineFlow.view)
             break
             
         case .PostSurgeryRoutine:
@@ -110,6 +104,23 @@ class RootViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // If the user closes the app while in the post-surgery transition, we
+        // want to re-open that here so it's guaranteed to be presented on top
+        // of an existing view
+        if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryWelcome {
+            let vc = PostWelcomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+            vc.classDelegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
