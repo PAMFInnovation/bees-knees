@@ -100,6 +100,8 @@ class WelcomeInstructionsViewController: UIViewController {
             featureText.textColor = UIColor.white
             featureText.backgroundColor = UIColor.clear
             featureText.isScrollEnabled = false
+            featureText.isSelectable = false
+            featureText.isEditable = false
             featureText.translatesAutoresizingMaskIntoConstraints = false
             featureStackView.addArrangedSubview(featureText)
             

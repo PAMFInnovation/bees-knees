@@ -69,9 +69,21 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     }
     
     
+    // MARK: - Helper functions
+    func doneEditing() {
+        self.endEditing(true)
+        
+        self.parentViewController?.navigationItem.rightBarButtonItem = nil
+    }
+    
+    
     // MARK: - Text View Delegate
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         delegate?.beginEditing(sender: textView)
+        
+        // Add the done button in the navigation bar
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(NotesTableViewCell.doneEditing))
+        self.parentViewController?.navigationItem.rightBarButtonItem = doneButton
         
         return true
     }
