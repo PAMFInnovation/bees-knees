@@ -11,27 +11,27 @@ import Gloss
 
 struct LocationContentModel: Glossy, GlossModel {
     
-    //let appointments: [AppointmentModel]
-    //let activities: [ActivityModel]
+    let appointments: [AppointmentModel]
+    let activities: [String]
     let checklist: [String]
-    //let binder: [BinderModel]
+    let binder: [BinderSectionModel]
     let faq: [FAQModel]
     
     
     init(json: JSON) {
-        //self.appointments = ("appointments" <~~ json)!
-        //self.activities = ("activities" <~~ json)!
+        self.appointments = ("appointments" <~~ json)!
+        self.activities = ("activities" <~~ json)!
         self.checklist = ("checklist" <~~ json)!
-        //self.binder = ("binder" <~~ json)!
+        self.binder = ("binder" <~~ json)!
         self.faq = ("faq" <~~ json)!
     }
     
     func toJSON() -> JSON? {
         return jsonify([
-            //"appointments" ~~> self.appointments,
-            //"activities" ~~> self.activities,
+            "appointments" ~~> self.appointments,
+            "activities" ~~> self.activities,
             "checklist" ~~> self.checklist,
-            //"binder" ~~> self.binder,
+            "binder" ~~> self.binder,
             "faq" ~~> self.faq
         ])
     }

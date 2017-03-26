@@ -1,7 +1,35 @@
 {
-	"appointments": [],
-	"activities": [],
-	"checklist": [],
-	"binder": [],
-	"faq": []
+	"appointments": [
+		{
+			"title": "Pre-operative appointment",
+			"type": "PreOp"
+		}
+    ],
+	"activities": [
+		"Walk"
+	],
+	"checklist": [
+		"Verify insurance with surgeon's office"
+	],
+	"binder": [
+		{
+			"section": "Knee Replacement Exercises",
+			"subsections": [
+				{
+					"title": "Total Knee Replacement Exercises",
+					"file": "altabates/6-knee-replacement-exercises/total-knee-replacement-exercises"
+				},
+            	{
+            		"title": "How to Use an Incentive Spirometer",
+            		"file": "altabates/6-knee-replacement-exercises/how-to-use-an-incentive-spirometer"
+            	}
+			]
+		}
+	],
+	"faq": [
+		{
+        	"question": "What else can I do to improve my recovery from surgery?",
+        	"answer": "Stop smoking, avoid alcoholic beverages, eat a nutritious diet, and follow your doctor's orders."
+        }
+	]
 }

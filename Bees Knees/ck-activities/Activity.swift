@@ -41,3 +41,22 @@ enum ActivityType: String {
     case IncisionPain
     case Recovery
 }
+
+class ActivityFactory {
+    
+    static func activityWithType(_ type: ActivityType) -> Activity? {
+        switch type {
+        case .Walk: return Walk()
+        case .QuadSets: return QuadSets()
+        case .AnklePumps: return AnklePumps()
+        case .GluteSets: return GluteSets()
+        case .HeelSlides: return HeelSlides()
+        case .StraightLegRaises: return StraightLegRaises()
+        case .SeatedHeelSlides: return SeatedHeelSlides()
+        case .HamstringSets: return HamstringSets()
+        case .ChairPressUps: return ChairPressUps()
+        case .AbdominalBracing: return AbdominalBracing()
+        default: return nil
+        }
+    }
+}

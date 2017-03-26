@@ -32,6 +32,20 @@ import RealmSwift
         case .Surgery: return "Surgery"
         }
     }
+    
+    static func getEnumFromString(string: String) -> AppointmentType? {
+        switch string {
+        case "CheckUp": return .CheckUp
+        case "Consultation": return .Consultation
+        case "PreOp": return .PreOp
+        case "Orthopedic": return .Orthopedic
+        case "FollowUp2Week": return .FollowUp2Week
+        case "FollowUp6Week": return .FollowUp6Week
+        case "FollowUp12Week": return .FollowUp12Week
+        case "Surgery": return .Surgery
+        default: return nil
+        }
+    }
 }
 
 

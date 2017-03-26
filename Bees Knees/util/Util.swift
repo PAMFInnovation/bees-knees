@@ -66,11 +66,8 @@ class Util {
     static func getJSONForResource<T:GlossModel>(resource: String) -> T {
         if let path = Bundle.main.path(forResource: resource, ofType: "json") {
             do {
-                print(path)
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                print(data)
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                print(json)
                 return T(json: json as! JSON)
             }
             catch let error {

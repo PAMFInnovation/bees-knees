@@ -41,20 +41,6 @@ class CarePlanStoreManager : NSObject {
     // Care Card activities will be populated as the user progresses through the app
     fileprivate var activities: [Activity] = []
     
-    // Base activities to add at the start of the app
-    fileprivate var baseActivities: [Activity] = [
-        Walk(),
-        QuadSets(),
-        AnklePumps(),
-        GluteSets(),
-        HeelSlides(),
-        StraightLegRaises(),
-        SeatedHeelSlides(),
-        HamstringSets(),
-        ChairPressUps(),
-        AbdominalBracing()
-    ]
-    
     // Reference to the delegate
     weak var delegate: CarePlanStoreManagerDelegate?
     
@@ -93,20 +79,7 @@ class CarePlanStoreManager : NSObject {
         // Register this object as the store's delegate to be notified of changes.
         store.delegate = self
         
-        // TEMP: clear the store each time the app is run
-        //self._clearStore()
-        
-        // Add activities to the store
-        for activity in baseActivities {
-            activities.append(activity)
-            let carePlanActivity = activity.carePlanActivity()
-            
-            self.store.add(carePlanActivity) { success, error in
-                if !success {
-                    print("Error adding activity to the store: ", error?.localizedDescription)
-                }
-            }
-        }
+        // Add the recovery assessment if we're in the post surgery routine
         if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
             self.addRecoveryAssessment()
         }
@@ -133,18 +106,6 @@ class CarePlanStoreManager : NSObject {
         
         // Remove the passcode
         ORKPasscodeViewController.removePasscodeFromKeychain()
-        
-        // Add activities to the store
-        for activity in baseActivities {
-            activities.append(activity)
-            let carePlanActivity = activity.carePlanActivity()
-            
-            self.store.add(carePlanActivity) { success, error in
-                if !success {
-                    print("Error adding activity to the store: ", error?.localizedDescription)
-                }
-            }
-        }
     }
     
     fileprivate func _clearStore() {
@@ -284,6 +245,26 @@ class CarePlanStoreManager : NSObject {
             return (activity as! Assessment)
         }
         return nil
+    }
+    
+    func addBaseActivities(_ locationActivities: [String]) {
+        for activity in locationActivities {
+            // Create the activity
+            if let activityType = ActivityType(rawValue: activity) {
+                if let instantiatedActivity = ActivityFactory.activityWithType(activityType) {
+                    // Add the activity to the list
+                    activities.append(instantiatedActivity)
+                    let carePlanActivity = instantiatedActivity.carePlanActivity()
+                    
+                    // Add the activity to the store
+                    self.store.add(carePlanActivity) { success, error in
+                        if !success {
+                            print("Error adding activity to the store: ", error?.localizedDescription)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func addRecoveryAssessment() {

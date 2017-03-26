@@ -1,6 +1,30 @@
 {
-	"appointments": [],
-	"activities": [],
+	"appointments": [
+		{
+			"title": "Pre-operative appointment",
+			"type": "PreOp"
+		},
+		{
+			"title": "Orthopedic surgeon appointment",
+			"type": "Orthopedic"
+		},
+		{
+			"title": "Follow up",
+			"type": "FollowUp2Week"
+		}
+	],
+	"activities": [
+		"Walk",
+        "QuadSets",
+        "AnklePumps",
+        "GluteSets",
+        "HeelSlides",
+        "StraightLegRaises",
+        "SeatedHeelSlides",
+        "HamstringSets",
+        "ChairPressUps",
+        "AbdominalBracing"
+	],
 	"checklist": [
 		"Verify insurance with surgeon's office",
         "Schedule out appointments",
@@ -28,7 +52,207 @@
         "Secure handrails on stairs and tub",
         "Pack your bag"
 	],
-	"binder": [],
+	"binder": [
+		{
+			"section": "Before Surgery",
+			"subsections": [
+				{
+					"title": "Understanding Knee Replacement",
+					"file": "altabates/2-understanding-knee-replacement/understanding-knee-replacement"
+				},
+				{
+					"title": "Select a Coach",
+					"file": "altabates/3-before-surgery/select-your-coach"
+				},
+	            {
+	            	"title": "Surgical Clearance",
+	            	"file": "altabates/3-before-surgery/surgical-clearance"
+	            },
+	            {
+	            	"title": "Pre-op Appointment",
+	            	"file": "altabates/3-before-surgery/pre-operative-appointments"
+	            },
+	            {
+	            	"title": "Dental Work",
+	            	"file": "altabates/3-before-surgery/dental-work"
+	            },
+	            {
+	            	"title": "Exercise",
+	            	"file": "altabates/3-before-surgery/exercise-before-surgery"
+	            },
+	            {
+	            	"title": "Nutrition",
+	            	"file": "altabates/3-before-surgery/nutrition"
+	            },
+	            {
+	            	"title": "Home Prep",
+	            	"file": "altabates/3-before-surgery/preparing-for-your-return-home"
+	            },
+	            {
+	            	"title": "Pack Your Bag",
+	            	"file": "altabates/3-before-surgery/packing-your-bag"
+	            },
+	            {
+	            	"title": "Getting Sick",
+	            	"file": "altabates/3-before-surgery/last-minute-illness"
+	            },
+	            {
+	            	"title": "Food Before Surgery",
+	            	"file": "altabates/3-before-surgery/no-eating-or-drinking-before-surgery"
+	            },
+	            {
+	            	"title": "Smoking Cessation",
+	            	"file": "altabates/3-before-surgery/smoking-cessation"
+	            }
+			]
+		},
+		{
+			"section": "Your Surgery and Hospital Stay",
+			"subsections": [
+				{
+					"title": "Arriving for Surgery",
+					"file": "altabates/4-your-surgery-and-hospital-stay/arriving-for-surgery"
+				},
+	            {
+	            	"title": "Your Orthopedic Healthcare Team",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/your-orthopedic-healthcare-team"
+	            },
+	            {
+	            	"title": "Surgery",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/surgery"
+	            },
+	            {
+	            	"title": "After Surgery",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/after-surgery"
+	            },
+	            {
+	            	"title": "Pain Management",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/pain-management"
+	            },
+	            {
+	            	"title": "During Your Hospitalization",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/during-your-hospitalization"
+	            },
+	            {
+	            	"title": "Types of Pain Management",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/types-of-pain-management"
+	            },
+	            {
+	            	"title": "Questions About Pain",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/questions-about-pain"
+	            },
+	            {
+	            	"title": "Patient Information",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/patient-information-from-easy-bay-anesthesia-medical-group"
+	            },
+	            {
+	            	"title": "Daily Post-Operative Expectations",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/daily-post-operative-expectations"
+	            },
+	            {
+	            	"title": "Possible Complications",
+	            	"file": "altabates/4-your-surgery-and-hospital-stay/possible-complications"
+	            }
+			]
+		},
+		{
+			"section": "Rehabilitation and Home Recovery",
+			"subsections": [
+				{
+					"title": "Rehabilitation",
+					"file": "altabates/5-rehabilitation-and-home-recovery/rehabilitation"
+				},
+	            {
+	            	"title": "Physical Therapy in the Hospital, SNF and Acute Rehabilitation",
+	            	"file": "altabates/5-rehabilitation-and-home-recovery/physical-therapy-in-the-hospital-snf-and-acute-rehabilitation"
+	            },
+	            {
+	            	"title": "Occupational Therapy in the Hospital, SNF, Acute Rehabilitation",
+	            	"file": "altabates/5-rehabilitation-and-home-recovery/occupational-therapy-in-the-hospital-snf-acute-rehabilitation"
+	            },
+	            {
+	            	"title": "After the Hospital",
+	            	"file": "altabates/5-rehabilitation-and-home-recovery/after-the-hospital"
+	            },
+	            {
+	            	"title": "Post-Hospital Discharge",
+	            	"file": "altabates/5-rehabilitation-and-home-recovery/post-hospital-discharge"
+	            },
+	            {
+	            	"title": "Home Recovery",
+	            	"file": "altabates/5-rehabilitation-and-home-recovery/home-recovery"
+	            }
+			]
+		},
+		{
+			"section": "Knee Replacement Exercises",
+			"subsections": [
+				{
+					"title": "Total Knee Replacement Exercises",
+					"file": "altabates/6-knee-replacement-exercises/total-knee-replacement-exercises"
+				},
+            	{
+            		"title": "How to Use an Incentive Spirometer",
+            		"file": "altabates/6-knee-replacement-exercises/how-to-use-an-incentive-spirometer"
+            	}
+			]
+		},
+		{
+			"section": "Life with Your New Knee",
+			"subsections": [
+				{
+					"title": "Quick Guide to Home Care Instructions",
+					"file": "altabates/7-life-with-your-new-knee/quick-guide-to-home-care-instructions"
+				},
+	            {
+	            	"title": "Follow-up Appointments",
+	            	"file": "altabates/7-life-with-your-new-knee/follow-up-appointments"
+	            },
+	            {
+	            	"title": "Dental Work Precautions",
+	            	"file": "altabates/7-life-with-your-new-knee/dental-work-precautions"
+	            },
+	            {
+	            	"title": "Driving",
+	            	"file": "altabates/7-life-with-your-new-knee/driving"
+	            },
+	            {
+	            	"title": "Air Travel and Metal Detectors",
+	            	"file": "altabates/7-life-with-your-new-knee/air-travel-and-metal-detectors"
+	            },
+	            {
+	            	"title": "Sexual Activities",
+	            	"file": "altabates/7-life-with-your-new-knee/sexual-activities"
+	            }
+			]
+		},
+		{
+			"section": "Knee Replacement Resources",
+			"subsections": [
+				{
+					"title": "Alta Bates Summit Medical Center",
+					"file": "altabates/8-knee-replacement-resources/alta-bates-summit-medical-center"
+				},
+	            {
+	            	"title": "Other Websites",
+	            	"file": "altabates/8-knee-replacement-resources/other-websites"
+	            },
+	            {
+	            	"title": "Other Exercise Resources",
+	            	"file": "altabates/8-knee-replacement-resources/other-exercise-resources"
+	            }
+			]
+		},
+		{
+			"section": "Alta Bates Summit Map",
+			"subsections": [
+				{
+					"title": "Alta Bates Summit Campus Locations",
+					"file": "altabates/9-alta-bates-summit-map/alta-bates-summit-campus-locations"
+				}
+			]
+		}
+	],
 	"faq": [
 		{
 			"question": "Will the operation relieve my knee pain? What are the benefits?",

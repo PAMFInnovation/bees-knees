@@ -289,8 +289,20 @@ class ProfileManager {
     func loadLocationContent() {
         let location = getUserLocation()
         
+        //
+        // Activities
+        //
+        CarePlanStoreManager.sharedInstance.addBaseActivities(location.activities)
+        
         // Add the location content
         try! realm.write {
+            //
+            // Appointments
+            //
+            for appointment in location.appointments {
+                user.appointments.append(Appointment(title: appointment.title, type: AppointmentType.getEnumFromString(string: appointment.type)!))
+            }
+            
             //
             // Checklist
             //
@@ -307,11 +319,6 @@ class ProfileManager {
         
         // Reset location data
         userLocation = nil
-        
-        // Add placeholder appointments
-        user.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
-        user.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
-        user.appointments.append(Appointment(title: "Follow up", type: .FollowUp2Week))
         
         // Save the user object
         try! realm.write {

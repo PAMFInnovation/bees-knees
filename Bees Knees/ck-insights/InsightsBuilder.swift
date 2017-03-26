@@ -127,7 +127,7 @@ class InsightsBuilder {
     private func calculateQueryDateRange(_ granularity: InsightGranularity = .None) -> (start: DateComponents, end: DateComponents) {
         let calendar = Calendar.current
         let now = Date()
-        print(granularity)
+        
         var components = DateComponents()
         switch granularity {
         case .Month:
