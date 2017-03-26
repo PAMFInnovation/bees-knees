@@ -54,9 +54,6 @@ class InsightsBuilder {
         // Cancel any in-progress operations.
         updateOperationQueue.cancelAllOperations()
         
-        // Get the dates for the current and previous weeks.
-        let queryDateRange = calculateQueryDateRange()
-        
         var components = DateComponents()
         let dayDate = (Calendar.current as NSCalendar).date(byAdding: components, to: ProfileManager.sharedInstance.getPostSurgeryStartDate(), options: [])!
         
@@ -72,7 +69,9 @@ class InsightsBuilder {
         let incisionPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.IncisionPain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)*/
         
         // Create an operation to query for events for the previous week's 'Mood' activity
-        let moodEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.Mood.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
+        // Get the dates for the current and previous weeks.
+        let moodQueryDateRange = calculateQueryDateRange(CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment("Mood"))
+        let moodEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.Mood.rawValue, startDate: moodQueryDateRange.start, endDate: moodQueryDateRange.end)
         
         // Create a 'BuildInsightsOperation' to create insights from the data collected by query operations.
         let buildInsightsOperation = BuildInsightsOperation()
@@ -125,12 +124,20 @@ class InsightsBuilder {
         ], waitUntilFinished: false)
     }
     
-    private func calculateQueryDateRange() -> (start: DateComponents, end: DateComponents) {
+    private func calculateQueryDateRange(_ granularity: InsightGranularity = .None) -> (start: DateComponents, end: DateComponents) {
         let calendar = Calendar.current
         let now = Date()
-        
+        print(granularity)
         var components = DateComponents()
-        components.day = -6
+        switch granularity {
+        case .Month:
+            components.month = -1
+        case .Week:
+            components.day = -6
+        default:
+            components.day = -6
+        }
+        
         let startDate = calendar.date(byAdding: components, to: now)!
         
         let queryRangeStart = NSDateComponents(date: startDate, calendar: calendar)

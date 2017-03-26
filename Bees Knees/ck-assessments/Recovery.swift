@@ -42,7 +42,6 @@ struct Recovery: Assessment {
         return activity
     }
     
-    
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
         let prompts: [(String, String, String)] = [

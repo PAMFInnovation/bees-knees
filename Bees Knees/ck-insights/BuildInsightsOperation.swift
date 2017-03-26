@@ -122,7 +122,7 @@ class BuildInsightsOperation: Operation {
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
         lineGraph.title = "Pain & Recovery"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100))
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100)), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
     
@@ -163,7 +163,7 @@ class BuildInsightsOperation: Operation {
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
         lineGraph.title = "Pain"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
     
@@ -204,7 +204,7 @@ class BuildInsightsOperation: Operation {
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
         lineGraph.title = "Mood"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
 
@@ -245,7 +245,7 @@ class BuildInsightsOperation: Operation {
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
         lineGraph.title = "Incision Pain"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = LineGraphDataSource(plotPoints, labels: labels)
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
 }

@@ -38,25 +38,10 @@ protocol CarePlanStoreManagerDelegate: class {
 
 class CarePlanStoreManager : NSObject {
     
-    // Care Card activities
-    fileprivate var activities: [Activity] = [
-        /*Walk(),
-        QuadSets(),
-        AnklePumps(),
-        GluteSets(),
-        HeelSlides(),
-        StraightLegRaises(),
-        SeatedHeelSlides(),
-        HamstringSets(),
-        ChairPressUps(),
-        AbdominalBracing(),
-        PhotoLog()*/
-        //KneePain(),
-        //Mood()
-        //IncisionPain(),
-        //Recovery()
-    ]
+    // Care Card activities will be populated as the user progresses through the app
+    fileprivate var activities: [Activity] = []
     
+    // Base activities to add at the start of the app
     fileprivate var baseActivities: [Activity] = [
         Walk(),
         QuadSets(),
@@ -67,8 +52,7 @@ class CarePlanStoreManager : NSObject {
         SeatedHeelSlides(),
         HamstringSets(),
         ChairPressUps(),
-        AbdominalBracing()/*,
-        PhotoLog()*/
+        AbdominalBracing()
     ]
     
     // Reference to the delegate
@@ -83,7 +67,7 @@ class CarePlanStoreManager : NSObject {
     }
     private let insightsBuilder: InsightsBuilder
     
-    var insightsData: [String: LineGraphDataSource] = [String: LineGraphDataSource]()
+    var insightsData: [String: (LineGraphDataSource, InsightGranularity)] = [String: (LineGraphDataSource, InsightGranularity)]()
     
     
     // Singleton
@@ -130,9 +114,6 @@ class CarePlanStoreManager : NSObject {
         // TEMP: add sample data
         //self._addSampleInterventionData()
         //self._addSampleAssessmentData()
-        
-        // Update insights on launch
-        updateInsights()
     }
     
     func updateInsights() {
@@ -298,6 +279,13 @@ class CarePlanStoreManager : NSObject {
         return nil
     }
     
+    func assessmentWithType(_ type: ActivityType) -> Assessment? {
+        for activity in activities where activity.activityType == type {
+            return (activity as! Assessment)
+        }
+        return nil
+    }
+    
     func addRecoveryAssessment() {
         let recoveryActivity = Recovery()
         activities.append(recoveryActivity)
@@ -329,6 +317,11 @@ class CarePlanStoreManager : NSObject {
                 print("Error adding activity to the store: ", error?.localizedDescription)
             }
         }
+    }
+    
+    func getInsightGranularityForAssessment(_ assessment: String) -> InsightGranularity {
+        guard let value = insightsData[assessment] else { return .None }
+        return value.1
     }
 }
 

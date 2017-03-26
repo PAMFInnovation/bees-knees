@@ -8,6 +8,7 @@
 
 import Foundation
 import ResearchKit
+import Gloss
 
 
 class Util {
@@ -60,6 +61,26 @@ class Util {
         
         let url: NSURL = NSURL(fileURLWithPath: path)
         return url
+    }
+    
+    static func getJSONForResource<T:GlossModel>(resource: String) -> T {
+        if let path = Bundle.main.path(forResource: resource, ofType: "json") {
+            do {
+                print(path)
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                print(data)
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                print(json)
+                return T(json: json as! JSON)
+            }
+            catch let error {
+                print("getJSONForResource error", error.localizedDescription)
+            }
+        }
+        else {
+            print("Invalid filename/path.")
+        }
+        return T(json: JSON())
     }
     
     static func isSimulator() -> Bool {

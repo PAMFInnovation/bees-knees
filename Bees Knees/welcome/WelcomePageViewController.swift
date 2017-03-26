@@ -45,6 +45,9 @@ class WelcomePageViewController: UIPageViewController {
         let terms = WelcomeTACController(mainText: "Before we get started, let's review terms of use.", secondaryText: "Please note: this app is just for you! The info that you record in this app will not be sent to your care team. Feel free to share the app with your care team at any visit.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_legal")
         terms.delegate = self
         orderedViewControllers.append(terms)
+        let location = WelcomeLocationViewController(mainText: "Where will you be receiving surgery?", secondaryText: "Please choose the hospital your surgery will take place for an app experience consistent with that hospital's resources.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
+        location.delegate = self
+        orderedViewControllers.append(location)
         let passcode = WelcomePasscodeViewController(mainText: "Next step is to set up an optional passcode to secure your information.", secondaryText: "You'll enter your passcode when you open this app, and you can change your passcode at any time.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
         passcode.delegate = self
         orderedViewControllers.append(passcode)
@@ -54,34 +57,6 @@ class WelcomePageViewController: UIPageViewController {
         let transition = WelcomeTransitionViewController(mainText: "You're all set! Now let's get started with your routine.", secondaryText: "On the next page, you can add all your appointments and what's ahead.\n\nThen, explore all the tabs along the bottom for more helpful tools, like \"Activities\" for exercises, and \"More\" for the binder.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_done")
         transition.delegate = self
         orderedViewControllers.append(transition)
-        
-        /*// Add the background image
-        let imageView = UIImageView(frame: self.view.frame)
-        imageView.image = UIImage(named: "background-image")
-        mainView.addSubview(imageView)
-        
-        // Setup the view
-        mainView.frame = self.view.frame
-        mainView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
-        
-        if !UIAccessibilityIsReduceTransparencyEnabled() {
-            mainView.backgroundColor = UIColor.clear
-            
-            let blurEffect = UIBlurEffect(style: .light)
-            
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            // Always fill the view
-            blurEffectView.frame = self.view.frame
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            mainView.addSubview(blurEffectView)
-        }
-        else {
-            mainView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
-        }
-        
-        self.view.insertSubview(mainView, at: 0)*/
         
         // Set the data source
         self.dataSource = self
@@ -150,8 +125,15 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        if orderedViewControllers[nextIndex] is WelcomePasscodeViewController &&
+        // Signing consent form is required
+        if orderedViewControllers[nextIndex] is WelcomeLocationViewController &&
             ProfileManager.sharedInstance.getSignedConsentDocument() == nil {
+            return nil
+        }
+        
+        // Setting surgery location is required
+        if orderedViewControllers[nextIndex] is WelcomePasscodeViewController &&
+            ProfileManager.sharedInstance.getSurgeryLocation() == "" {
             return nil
         }
         
@@ -176,11 +158,14 @@ extension WelcomePageViewController: WelcomeTaskViewControllerDelegate {
             if sender is WelcomeTACController {
                 self.goToViewControllerAtIndex(3)
             }
-            else if sender is WelcomePasscodeViewController {
+            else if sender is WelcomeLocationViewController {
                 self.goToViewControllerAtIndex(4)
             }
-            else if sender is WelcomeDateViewController {
+            else if sender is WelcomePasscodeViewController {
                 self.goToViewControllerAtIndex(5)
+            }
+            else if sender is WelcomeDateViewController {
+                self.goToViewControllerAtIndex(6)
             }
         }
     }

@@ -13,6 +13,7 @@ import ResearchKit
 protocol Assessment: Activity {
     func task() -> ORKTask
     func buildResultForCarePlanEvent(_ event: OCKCarePlanEvent, taskResult: ORKTaskResult) -> OCKCarePlanEventResult
+    func getInsightGranularity() -> [String]
 }
 
 extension Assessment {
@@ -27,4 +28,14 @@ extension Assessment {
         
         fatalError("Unexpected task result type")
     }
+    
+    func getInsightGranularity() -> [String] {
+        return []
+    }
+}
+
+enum InsightGranularity: String {
+    case None
+    case Week
+    case Month
 }

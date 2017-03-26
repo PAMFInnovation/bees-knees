@@ -27,6 +27,9 @@ final class User: Object {
     // Notes
     dynamic var notes: String = ""
     
+    // Surgery location
+    dynamic var surgeryLocation: String = ""
+    
     // Signed consent data
     dynamic var didConsent: Bool = false
     dynamic var consentData: Data = Data()
@@ -62,7 +65,7 @@ class ProfileManager {
         
         // Set the configuration
         let config = Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: 3,
             migrationBlock: { migration, oldSchemaVersion in
                 migration.enumerateObjects(ofType: User.className(), { oldObject, newObject in
                     // Version 1 changes:
@@ -81,6 +84,12 @@ class ProfileManager {
                     if oldSchemaVersion < 2 {
                         newObject!["preSurgeryStartDate"] = Date()
                         newObject!["postSurgeryStartDate"] = Date()
+                    }
+                    
+                    // Version 3 changes:
+                    // added surgeryLocation: String
+                    if oldSchemaVersion < 3 {
+                        newObject!["surgeryLocation"] = ""
                     }
                 })
             }
@@ -107,6 +116,10 @@ class ProfileManager {
     // MARK: - Members
     let realm: Realm        // Realm object
     var user: User = User() // User object
+    
+    // List of locations and current location
+    var surgeryLocations: [LocationModel]?
+    var userLocation: LocationContentModel?
     
     
     // MARK: - Helper functions
@@ -164,6 +177,16 @@ class ProfileManager {
     func updateFlowState(_ flowState: FlowState) {
         try! realm.write {
             user.flowState = flowState
+        }
+    }
+    
+    func getSurgeryLocation() -> String {
+        return user.surgeryLocation
+    }
+    
+    func setSurgeryLocation(_ surgeryLocation: String) {
+        try! realm.write {
+            user.surgeryLocation = surgeryLocation
         }
     }
     
@@ -241,48 +264,54 @@ class ProfileManager {
         }
     }
     
+    func getLocations() -> [LocationModel] {
+        if surgeryLocations == nil {
+            surgeryLocations = []
+            let locationsModel = (Util.getJSONForResource(resource: "locations") as LocationsCollectionModel)
+            addLocations(locationsModel)
+        }
+        return surgeryLocations!
+    }
+    
+    func addLocations(_ locations: LocationsCollectionModel) {
+        for location in locations.locations {
+            surgeryLocations?.append(location)
+        }
+    }
+    
+    func getUserLocation() -> LocationContentModel {
+        if userLocation == nil {
+            userLocation = (Util.getJSONForResource(resource: user.surgeryLocation) as LocationContentModel)
+        }
+        return userLocation!
+    }
+    
+    func loadLocationContent() {
+        let location = getUserLocation()
+        
+        // Add the location content
+        try! realm.write {
+            //
+            // Checklist
+            //
+            for checklistItem in location.checklist {
+                user.checklist.append(ChecklistItem(text: checklistItem))
+            }
+            // Append an empty string ChecklistItem which serves as the "add" cell
+            user.checklist.append(ChecklistItem(text: ""))
+        }
+    }
+    
     func createNewUser() {
         user = User()
+        
+        // Reset location data
+        userLocation = nil
         
         // Add placeholder appointments
         user.appointments.append(Appointment(title: "Pre-operative appointment", type: .PreOp))
         user.appointments.append(Appointment(title: "Orthopedic surgeon appointment", type: .Orthopedic))
         user.appointments.append(Appointment(title: "Follow up", type: .FollowUp2Week))
-        //user.appointments.append(Appointment(title: "6-week follow up", type: .FollowUp6Week))
-        
-        /*
-        user.appointments.append(Appointment(title: "12-week follow up", type: .FollowUp12Week, date: Util.getDateFromString("4/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        user.appointments.append(Appointment(title: "Past", type: .CheckUp, date: Util.getDateFromString("1/10/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        user.appointments.append(Appointment(title: "Future", type: .CheckUp, date: Util.getDateFromString("1/19/2017 2:00 pm", format: "MM/dd/yyyy h:mm a")))
-        */
-        
-        // Add the checklist
-        user.checklist.append(ChecklistItem(text: "Verify insurance with surgeon's office"))
-        user.checklist.append(ChecklistItem(text: "Schedule out appointments"))
-        user.checklist.append(ChecklistItem(text: "Complete dental work 3 months before"))
-        user.checklist.append(ChecklistItem(text: "Arrange time off from work, if needed"))
-        user.checklist.append(ChecklistItem(text: "Fill out medication list"))
-        user.checklist.append(ChecklistItem(text: "Fill out Anesthesia Questionnaire"))
-        user.checklist.append(ChecklistItem(text: "Fill out Plans of Discharge Form"))
-        user.checklist.append(ChecklistItem(text: "Prepare advanced directive, if desired"))
-        user.checklist.append(ChecklistItem(text: "Fill out Sleep Apnea Questionnaire"))
-        user.checklist.append(ChecklistItem(text: "Complete DMV handicap application"))
-        user.checklist.append(ChecklistItem(text: "Stop smoking, if applicable"))
-        user.checklist.append(ChecklistItem(text: "Find helpers for housework/meals/pets"))
-        user.checklist.append(ChecklistItem(text: "Arrange help with transportation"))
-        user.checklist.append(ChecklistItem(text: "Arrange day care needs, if needed"))
-        user.checklist.append(ChecklistItem(text: "Prepare food or arrange meal-delivery"))
-        user.checklist.append(ChecklistItem(text: "Arrange for lawn care, if needed"))
-        user.checklist.append(ChecklistItem(text: "See \"Preparing for your return home\""))
-        user.checklist.append(ChecklistItem(text: "Reorganize storage to easily access"))
-        user.checklist.append(ChecklistItem(text: "Move items to lower fridge shelves"))
-        user.checklist.append(ChecklistItem(text: "Remove and store rugs to avoid snags"))
-        user.checklist.append(ChecklistItem(text: "Clear clutter/cords from walkways"))
-        user.checklist.append(ChecklistItem(text: "Have a sleeping area on 1st floor"))
-        user.checklist.append(ChecklistItem(text: "Ensure non-slip surfaces in bathtub"))
-        user.checklist.append(ChecklistItem(text: "Secure handrails on stairs and tub"))
-        user.checklist.append(ChecklistItem(text: "Pack your bag"))
-        user.checklist.append(ChecklistItem(text: ""))
         
         // Save the user object
         try! realm.write {

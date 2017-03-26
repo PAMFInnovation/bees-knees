@@ -40,7 +40,6 @@ struct Mood: Assessment {
         return activity
     }
     
-    
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
         let question = NSLocalizedString("On a scale from 1 to 10, how would you rate your mood today?", comment: "")
@@ -65,5 +64,9 @@ struct Mood: Assessment {
         let task = ORKOrderedTask(identifier: activityType.rawValue, steps: [questionStep])
         
         return task
+    }
+    
+    func getInsightGranularity() -> [String] {
+        return [InsightGranularity.Week.rawValue, InsightGranularity.Month.rawValue]
     }
 }

@@ -29,7 +29,7 @@ class RootViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         // First-time call to CarePlanStoreManager
-        CarePlanStoreManager.sharedInstance
+        CarePlanStoreManager.sharedInstance.updateInsights()
         
         // First-time call to ProfileManager
         ProfileManager.sharedInstance
@@ -167,6 +167,10 @@ extension RootViewController: WelcomePageViewControllerDelegate {
     func completeWelcome(sender: WelcomePageViewController) {
         ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
         ProfileManager.sharedInstance.setPreSurgeryStartDate(Date())
+        
+        // By this point, the user will have already selected the location they will be receiving
+        // surgery. This is where we should set the location-based content.
+        ProfileManager.sharedInstance.loadLocationContent()
         
         // Add the pre-surgery routine view to the hierarchy, which will be displayed underneath
         // the welcome flow. The welcome flow will do a custom transition out by swiping right

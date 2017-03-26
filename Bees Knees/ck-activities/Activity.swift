@@ -15,11 +15,11 @@ struct ActivityContainer {
 }
 
 protocol Activity {
+    var activityType: ActivityType { get }
+    
     var rationale: String { get }
     var image: (name: String, type: String) { get }
     var video: (name: String, type: String) { get }
-    
-    var activityType: ActivityType { get }
     
     func carePlanActivity() -> OCKCarePlanActivity
 }

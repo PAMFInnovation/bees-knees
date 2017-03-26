@@ -49,16 +49,6 @@
 		9E3E6B631DD50FC0000E92E1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3E6B621DD50FC0000E92E1 /* Util.swift */; };
 		9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */; };
 		9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */; };
-		9E4D58401E085891008953E2 /* binder_sec0_introduction.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D582D1E085891008953E2 /* binder_sec0_introduction.pdf */; };
-		9E4D58411E085891008953E2 /* binder_sec1_faq.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D582E1E085891008953E2 /* binder_sec1_faq.pdf */; };
-		9E4D58421E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D582F1E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf */; };
-		9E4D58431E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58301E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf */; };
-		9E4D58441E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58311E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf */; };
-		9E4D58451E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58321E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf */; };
-		9E4D58461E085891008953E2 /* binder_sec6_exercises.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58331E085891008953E2 /* binder_sec6_exercises.pdf */; };
-		9E4D58471E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58341E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf */; };
-		9E4D58481E085891008953E2 /* binder_sec8_resources.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58351E085891008953E2 /* binder_sec8_resources.pdf */; };
-		9E4D58491E085891008953E2 /* binder_sec9_altabatessummitmap.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58361E085891008953E2 /* binder_sec9_altabatessummitmap.pdf */; };
 		9E4D584A1E085891008953E2 /* ref_abdominalbracing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58371E085891008953E2 /* ref_abdominalbracing.png */; };
 		9E4D584B1E085891008953E2 /* ref_anklepumps.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58381E085891008953E2 /* ref_anklepumps.png */; };
 		9E4D584C1E085891008953E2 /* ref_chairpressups.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D58391E085891008953E2 /* ref_chairpressups.png */; };
@@ -68,6 +58,17 @@
 		9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583D1E085891008953E2 /* ref_quadsets.png */; };
 		9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583E1E085891008953E2 /* ref_seatedheelslides.png */; };
 		9E4D58521E085891008953E2 /* ref_straightlegraises.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E4D583F1E085891008953E2 /* ref_straightlegraises.png */; };
+		9E5167A01E87885500448BE4 /* WelcomeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51679F1E87885500448BE4 /* WelcomeLocationViewController.swift */; };
+		9E5167A81E878F8400448BE4 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5167A71E878F8400448BE4 /* Gloss.framework */; };
+		9E5167A91E878F8400448BE4 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5167A71E878F8400448BE4 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E5167AC1E8790AF00448BE4 /* altabates.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5167AB1E8790AF00448BE4 /* altabates.json */; };
+		9E5167AE1E8790C900448BE4 /* millspeninsula.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5167AD1E8790C900448BE4 /* millspeninsula.json */; };
+		9E5167B11E87921A00448BE4 /* LocationContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5167B01E87921A00448BE4 /* LocationContentModel.swift */; };
+		9E5167B31E8793AA00448BE4 /* GlossModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5167B21E8793AA00448BE4 /* GlossModel.swift */; };
+		9E5167B51E87950000448BE4 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5167B41E87950000448BE4 /* FAQModel.swift */; };
+		9E5167B71E88064900448BE4 /* LocationsCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5167B61E88064900448BE4 /* LocationsCollectionModel.swift */; };
+		9E5167B91E88082600448BE4 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 9E5167B81E88082600448BE4 /* locations.json */; };
+		9E5167BB1E880DE800448BE4 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5167BA1E880DE800448BE4 /* LocationModel.swift */; };
 		9E6829051E4902D700568DB6 /* AnklePumps.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829041E4902D700568DB6 /* AnklePumps.mp4 */; };
 		9E6829071E4917D300568DB6 /* QuadSets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829061E4917D300568DB6 /* QuadSets.mp4 */; };
 		9E68290C1E49429400568DB6 /* GluteSets.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9E6829081E49429400568DB6 /* GluteSets.mp4 */; };
@@ -290,6 +291,7 @@
 				9E8A05F41E27011F00A36B72 /* Realm.framework in Embed Frameworks */,
 				9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */,
 				9E130AFC1E2EB05B0032AC96 /* ResearchKit.framework in Embed Frameworks */,
+				9E5167A91E878F8400448BE4 /* Gloss.framework in Embed Frameworks */,
 				9E8A05F61E27012000A36B72 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -338,16 +340,6 @@
 		9E3E6B621DD50FC0000E92E1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = util/Util.swift; sourceTree = "<group>"; };
 		9E429DBF1DC288CE0066FF20 /* DateOfSurgeryInterface.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateOfSurgeryInterface.xib; path = interfaces/DateOfSurgeryInterface.xib; sourceTree = "<group>"; };
 		9E429DC41DC29E370066FF20 /* UIView+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+UIColor.swift"; path = "extensions/UIView+UIColor.swift"; sourceTree = "<group>"; };
-		9E4D582D1E085891008953E2 /* binder_sec0_introduction.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec0_introduction.pdf; path = content/binder_sec0_introduction.pdf; sourceTree = "<group>"; };
-		9E4D582E1E085891008953E2 /* binder_sec1_faq.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec1_faq.pdf; path = content/binder_sec1_faq.pdf; sourceTree = "<group>"; };
-		9E4D582F1E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec2_understandingkneereplacement.pdf; path = content/binder_sec2_understandingkneereplacement.pdf; sourceTree = "<group>"; };
-		9E4D58301E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec3_beforeyoursurgery.pdf; path = content/binder_sec3_beforeyoursurgery.pdf; sourceTree = "<group>"; };
-		9E4D58311E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec4_yoursurgeryandhospitalstay.pdf; path = content/binder_sec4_yoursurgeryandhospitalstay.pdf; sourceTree = "<group>"; };
-		9E4D58321E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec5_rehabilitationandhomerecovery.pdf; path = content/binder_sec5_rehabilitationandhomerecovery.pdf; sourceTree = "<group>"; };
-		9E4D58331E085891008953E2 /* binder_sec6_exercises.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec6_exercises.pdf; path = content/binder_sec6_exercises.pdf; sourceTree = "<group>"; };
-		9E4D58341E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec7_lifewithyournewknee.pdf; path = content/binder_sec7_lifewithyournewknee.pdf; sourceTree = "<group>"; };
-		9E4D58351E085891008953E2 /* binder_sec8_resources.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec8_resources.pdf; path = content/binder_sec8_resources.pdf; sourceTree = "<group>"; };
-		9E4D58361E085891008953E2 /* binder_sec9_altabatessummitmap.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = binder_sec9_altabatessummitmap.pdf; path = content/binder_sec9_altabatessummitmap.pdf; sourceTree = "<group>"; };
 		9E4D58371E085891008953E2 /* ref_abdominalbracing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_abdominalbracing.png; path = content/ref_abdominalbracing.png; sourceTree = "<group>"; };
 		9E4D58381E085891008953E2 /* ref_anklepumps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_anklepumps.png; path = content/ref_anklepumps.png; sourceTree = "<group>"; };
 		9E4D58391E085891008953E2 /* ref_chairpressups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_chairpressups.png; path = content/ref_chairpressups.png; sourceTree = "<group>"; };
@@ -357,6 +349,16 @@
 		9E4D583D1E085891008953E2 /* ref_quadsets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_quadsets.png; path = content/ref_quadsets.png; sourceTree = "<group>"; };
 		9E4D583E1E085891008953E2 /* ref_seatedheelslides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_seatedheelslides.png; path = content/ref_seatedheelslides.png; sourceTree = "<group>"; };
 		9E4D583F1E085891008953E2 /* ref_straightlegraises.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_straightlegraises.png; path = content/ref_straightlegraises.png; sourceTree = "<group>"; };
+		9E51679F1E87885500448BE4 /* WelcomeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeLocationViewController.swift; path = welcome/WelcomeLocationViewController.swift; sourceTree = "<group>"; };
+		9E5167A71E878F8400448BE4 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
+		9E5167AB1E8790AF00448BE4 /* altabates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = altabates.json; path = content/locations/altabates.json; sourceTree = "<group>"; };
+		9E5167AD1E8790C900448BE4 /* millspeninsula.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = millspeninsula.json; path = content/locations/millspeninsula.json; sourceTree = "<group>"; };
+		9E5167B01E87921A00448BE4 /* LocationContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationContentModel.swift; path = models/LocationContentModel.swift; sourceTree = "<group>"; };
+		9E5167B21E8793AA00448BE4 /* GlossModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlossModel.swift; path = models/GlossModel.swift; sourceTree = "<group>"; };
+		9E5167B41E87950000448BE4 /* FAQModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQModel.swift; path = models/FAQModel.swift; sourceTree = "<group>"; };
+		9E5167B61E88064900448BE4 /* LocationsCollectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsCollectionModel.swift; path = models/LocationsCollectionModel.swift; sourceTree = "<group>"; };
+		9E5167B81E88082600448BE4 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = locations.json; path = content/locations/locations.json; sourceTree = "<group>"; };
+		9E5167BA1E880DE800448BE4 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationModel.swift; path = models/LocationModel.swift; sourceTree = "<group>"; };
 		9E6829041E4902D700568DB6 /* AnklePumps.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = AnklePumps.mp4; path = content/AnklePumps.mp4; sourceTree = "<group>"; };
 		9E6829061E4917D300568DB6 /* QuadSets.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = QuadSets.mp4; path = content/QuadSets.mp4; sourceTree = "<group>"; };
 		9E6829081E49429400568DB6 /* GluteSets.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = GluteSets.mp4; path = content/GluteSets.mp4; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				9E8A05F31E27011F00A36B72 /* Realm.framework in Frameworks */,
 				9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */,
 				9E130AFB1E2EB05B0032AC96 /* ResearchKit.framework in Frameworks */,
+				9E5167A81E878F8400448BE4 /* Gloss.framework in Frameworks */,
 				9E8A05F51E27012000A36B72 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +606,7 @@
 		9E43C42E1DDBB80E00EF986C /* content */ = {
 			isa = PBXGroup;
 			children = (
+				9E5167AA1E8790A300448BE4 /* locations */,
 				9E6829081E49429400568DB6 /* GluteSets.mp4 */,
 				9E6829091E49429400568DB6 /* HamstringSets.mp4 */,
 				9E68290A1E49429400568DB6 /* HeelSlide.mp4 */,
@@ -610,16 +614,6 @@
 				9E6829061E4917D300568DB6 /* QuadSets.mp4 */,
 				9E6829041E4902D700568DB6 /* AnklePumps.mp4 */,
 				9ED187EE1E37C034009E5126 /* binder */,
-				9E4D582D1E085891008953E2 /* binder_sec0_introduction.pdf */,
-				9E4D582E1E085891008953E2 /* binder_sec1_faq.pdf */,
-				9E4D582F1E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf */,
-				9E4D58301E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf */,
-				9E4D58311E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf */,
-				9E4D58321E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf */,
-				9E4D58331E085891008953E2 /* binder_sec6_exercises.pdf */,
-				9E4D58341E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf */,
-				9E4D58351E085891008953E2 /* binder_sec8_resources.pdf */,
-				9E4D58361E085891008953E2 /* binder_sec9_altabatessummitmap.pdf */,
 				9E4D58371E085891008953E2 /* ref_abdominalbracing.png */,
 				9E4D58381E085891008953E2 /* ref_anklepumps.png */,
 				9E4D58391E085891008953E2 /* ref_chairpressups.png */,
@@ -631,6 +625,28 @@
 				9E4D583F1E085891008953E2 /* ref_straightlegraises.png */,
 			);
 			name = content;
+			sourceTree = "<group>";
+		};
+		9E5167AA1E8790A300448BE4 /* locations */ = {
+			isa = PBXGroup;
+			children = (
+				9E5167B81E88082600448BE4 /* locations.json */,
+				9E5167AB1E8790AF00448BE4 /* altabates.json */,
+				9E5167AD1E8790C900448BE4 /* millspeninsula.json */,
+			);
+			name = locations;
+			sourceTree = "<group>";
+		};
+		9E5167AF1E8791E200448BE4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				9E5167B21E8793AA00448BE4 /* GlossModel.swift */,
+				9E5167B01E87921A00448BE4 /* LocationContentModel.swift */,
+				9E5167B41E87950000448BE4 /* FAQModel.swift */,
+				9E5167B61E88064900448BE4 /* LocationsCollectionModel.swift */,
+				9E5167BA1E880DE800448BE4 /* LocationModel.swift */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		9E77478D1E3C5A61004F6FB3 /* 2-understanding-knee-replacement */ = {
@@ -812,6 +828,7 @@
 		9EFDA0471D8370F400FD6763 = {
 			isa = PBXGroup;
 			children = (
+				9E5167A71E878F8400448BE4 /* Gloss.framework */,
 				9E8A05F11E27011F00A36B72 /* Realm.framework */,
 				9E8A05F21E27011F00A36B72 /* RealmSwift.framework */,
 				9EFDA0521D8370F400FD6763 /* Bees Knees */,
@@ -850,6 +867,7 @@
 				9E17D3A91DBEB0D60072CDC1 /* interfaces */,
 				D2C5AAAE1E6F3B0800F65201 /* internal */,
 				D2C5AAAD1E6F3B0300F65201 /* legal */,
+				9E5167AF1E8791E200448BE4 /* models */,
 				D2C5AAAF1E6F3B0C00F65201 /* notes */,
 				D2C5AA241E6DF8BA00F65201 /* passcode */,
 				D2C5AA791E6DFCC600F65201 /* post-transition */,
@@ -977,6 +995,7 @@
 				D2C5AA8B1E6F3AAC00F65201 /* WelcomeTaskViewController.swift */,
 				D2C5AA8C1E6F3AAC00F65201 /* WelcomeTextViewController.swift */,
 				D2C5AA8D1E6F3AAC00F65201 /* WelcomeTransitionViewController.swift */,
+				9E51679F1E87885500448BE4 /* WelcomeLocationViewController.swift */,
 			);
 			name = welcome;
 			sourceTree = "<group>";
@@ -1184,7 +1203,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = K65HQ235M5;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					9EFDA0631D8370F400FD6763 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1280,30 +1299,27 @@
 				9E7747BA1E3C5A61004F6FB3 /* daily-post-operative-expectations.html in Resources */,
 				9E296E6A1E46E7DC00C66EE5 /* map.JPG in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
+				9E5167AE1E8790C900448BE4 /* millspeninsula.json in Resources */,
 				9E296E351E46560300C66EE5 /* occupational-therapy-in-the-hospital-snf-acute-rehabilitation.html in Resources */,
 				9ED188051E387C77009E5126 /* down-arrow.png in Resources */,
 				9E7747C21E3C5A61004F6FB3 /* your-orthopedic-healthcare-team.html in Resources */,
+				9E5167B91E88082600448BE4 /* locations.json in Resources */,
 				9E296E371E46560300C66EE5 /* post-hospital-discharge.html in Resources */,
 				9E7747B31E3C5A61004F6FB3 /* pre-operative-appointments.html in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9E296E6F1E46E7DC00C66EE5 /* spirometer.JPG in Resources */,
+				9E5167AC1E8790AF00448BE4 /* altabates.json in Resources */,
 				9E7747BF1E3C5A61004F6FB3 /* questions-about-pain.html in Resources */,
-				9E4D58421E085891008953E2 /* binder_sec2_understandingkneereplacement.pdf in Resources */,
 				9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */,
 				9E7747B11E3C5A61004F6FB3 /* nutrition.html in Resources */,
-				9E4D58481E085891008953E2 /* binder_sec8_resources.pdf in Resources */,
 				9E7747C01E3C5A61004F6FB3 /* surgery.html in Resources */,
 				9E296E6C1E46E7DC00C66EE5 /* quad-set.jpg in Resources */,
-				9E4D58411E085891008953E2 /* binder_sec1_faq.pdf in Resources */,
-				9E4D58461E085891008953E2 /* binder_sec6_exercises.pdf in Resources */,
 				9E296E651E46E7DC00C66EE5 /* chair-press-ups-1.jpg in Resources */,
 				9E296E541E46562500C66EE5 /* alta-bates-summit-campus-locations.html in Resources */,
 				9E7747CB1E3C5BF1004F6FB3 /* knee-diagram.jpg in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9E296E341E46560300C66EE5 /* home-recovery.html in Resources */,
 				9E296E381E46560300C66EE5 /* rehabilitation.html in Resources */,
-				9E4D58431E085891008953E2 /* binder_sec3_beforeyoursurgery.pdf in Resources */,
-				9E4D58441E085891008953E2 /* binder_sec4_yoursurgeryandhospitalstay.pdf in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9E6829051E4902D700568DB6 /* AnklePumps.mp4 in Resources */,
 				9E7747BE1E3C5A61004F6FB3 /* possible-complications.html in Resources */,
@@ -1334,13 +1350,10 @@
 				9E296E471E46561800C66EE5 /* air-travel-and-metal-detectors.html in Resources */,
 				9E4D584A1E085891008953E2 /* ref_abdominalbracing.png in Resources */,
 				9E296E491E46561800C66EE5 /* driving.html in Resources */,
-				9E4D58401E085891008953E2 /* binder_sec0_introduction.pdf in Resources */,
-				9E4D58451E085891008953E2 /* binder_sec5_rehabilitationandhomerecovery.pdf in Resources */,
 				9E296E401E46561000C66EE5 /* total-knee-replacement-exercises.html in Resources */,
 				9E296E6D1E46E7DC00C66EE5 /* seated-heel-slides.JPG in Resources */,
 				9E296E701E46E7DC00C66EE5 /* straight-leg-raises.JPG in Resources */,
 				9E296E4B1E46561800C66EE5 /* quick-guide-to-home-care-instructions.html in Resources */,
-				9E4D58491E085891008953E2 /* binder_sec9_altabatessummitmap.pdf in Resources */,
 				9E296E691E46E7DC00C66EE5 /* heel-slides.jpg in Resources */,
 				9E7747CA1E3C5BF1004F6FB3 /* binder.jpg in Resources */,
 				9E296E511E46561F00C66EE5 /* other-exercise-resources.html in Resources */,
@@ -1348,7 +1361,6 @@
 				9E7747CC1E3C5BF1004F6FB3 /* nutrition.jpg in Resources */,
 				9E296E6B1E46E7DC00C66EE5 /* pain-scale.JPG in Resources */,
 				9E68290F1E49429400568DB6 /* StraighLegRaises.mp4 in Resources */,
-				9E4D58471E085891008953E2 /* binder_sec7_lifewithyournewknee.pdf in Resources */,
 				9E7747C11E3C5A61004F6FB3 /* types-of-pain-management.html in Resources */,
 				9E296E631E46E7DC00C66EE5 /* abdominal-bracing.jpg in Resources */,
 				9E7747BD1E3C5A61004F6FB3 /* patient-information-from-easy-bay-anesthesia-medical-group.html in Resources */,
@@ -1399,6 +1411,7 @@
 				D2C5AAA31E6F3AF600F65201 /* AppointmentTableViewCell.swift in Sources */,
 				D2C5AAA61E6F3AF600F65201 /* DateTableViewCell.swift in Sources */,
 				D2C5AAB81E6F3B1D00F65201 /* FAQTableViewCell.swift in Sources */,
+				9E5167B11E87921A00448BE4 /* LocationContentModel.swift in Sources */,
 				D2C5AA8F1E6F3AAC00F65201 /* WelcomeInstructionsViewController.swift in Sources */,
 				D2C5AAA11E6F3AF600F65201 /* Appointment.swift in Sources */,
 				D2C5AAE31E6F3B8700F65201 /* PreSurgeryRoutineViewController.swift in Sources */,
@@ -1454,10 +1467,12 @@
 				D24439701DECBDEA00D00C0F /* Calendar+Dates.swift in Sources */,
 				D24439681DECBC1500D00C0F /* OCKInsightItem+EmptyMessage.swift in Sources */,
 				D2C5AAB91E6F3B1D00F65201 /* FAQViewController.swift in Sources */,
+				9E5167B51E87950000448BE4 /* FAQModel.swift in Sources */,
 				D2C5AAD11E6F3B5E00F65201 /* ResourceCollectionViewCell.swift in Sources */,
 				9EC4F6F11E328787008E8DB6 /* SlideInPresentationAnimator.swift in Sources */,
 				9EB5FC411DC1111300F9A53E /* HighlightButton.swift in Sources */,
 				D2C5AA701E6DF8F700F65201 /* GluteSets.swift in Sources */,
+				9E5167B71E88064900448BE4 /* LocationsCollectionModel.swift in Sources */,
 				D2C5AAE71E6F3E7C00F65201 /* DocViewController.swift in Sources */,
 				9E429DC51DC29E370066FF20 /* UIView+UIColor.swift in Sources */,
 				9E7AAF391E45505A00FABC23 /* UIView+ViewController.swift in Sources */,
@@ -1465,6 +1480,7 @@
 				D2C5AA741E6DF8F700F65201 /* QuadSets.swift in Sources */,
 				D2C5AA751E6DF8F700F65201 /* SeatedHeelSlides.swift in Sources */,
 				9E6E8C8C1DD67F8100D0740F /* Copy.swift in Sources */,
+				9E5167A01E87885500448BE4 /* WelcomeLocationViewController.swift in Sources */,
 				D2C5AA931E6F3AAC00F65201 /* WelcomeTaskViewController.swift in Sources */,
 				D2C5AAA51E6F3AF600F65201 /* AppointmentViewController.swift in Sources */,
 				D2C5AA7E1E6F3A7A00F65201 /* GuideTableViewCell.swift in Sources */,
@@ -1477,6 +1493,7 @@
 				D2C5AA3E1E6DF8E000F65201 /* Mood.swift in Sources */,
 				D2C5AA771E6DF8F700F65201 /* Walk.swift in Sources */,
 				9E7747D51E3CE45A004F6FB3 /* CustomButton.swift in Sources */,
+				9E5167BB1E880DE800448BE4 /* LocationModel.swift in Sources */,
 				D2C5AA321E6DF8D900F65201 /* InsightsBuilder.swift in Sources */,
 				D2C5AA3F1E6DF8E000F65201 /* Recovery.swift in Sources */,
 				D2C5AAD51E6F3B5E00F65201 /* ResourceTableHeaderView.swift in Sources */,
@@ -1494,6 +1511,7 @@
 				9EFFA1A91E772767003B57B1 /* String+TypeFace.swift in Sources */,
 				D2C5AAD41E6F3B5E00F65201 /* ResourcesViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
+				9E5167B31E8793AA00448BE4 /* GlossModel.swift in Sources */,
 				D2C5AAF41E6F3FB700F65201 /* PreSurgeryChecklistViewController.swift in Sources */,
 				9E0F59841E495005004ED1F8 /* Date+DayOfWeek.swift in Sources */,
 				D2C5AACF1E6F3B5E00F65201 /* Resource.swift in Sources */,
@@ -1667,14 +1685,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1bc0d0f6-3f58-4ea4-b9e0-3d720dc42cc2";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1686,20 +1705,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = K65HQ235M5;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Bees Knees/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sutterhealth.legup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "037abc7d-52f7-497a-8e6f-72ac538e8843";
+				PROVISIONING_PROFILE_SPECIFIER = "Leg Up App Store";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -32,7 +32,6 @@ struct KneePain: Assessment {
         return activity
     }
     
-    
     func task() -> ORKTask {
         // Get the localized strings to use for the task.
         let question = NSLocalizedString("How would you rate your pain on average today?", comment: "")
