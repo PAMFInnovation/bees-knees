@@ -14,14 +14,19 @@ git clone https://github.com/PAMFInnovation/bees-knees
 git clone https://github.com/carekit-apple/CareKit
 git clone https://github.com/ResearchKit/ResearchKit
 ```
+**Step 2:** Set up Carthage on your local machine. You can install it from 
+https://github.com/Carthage/Carthage/releases
 
-**Step 2:** Open the *bees-knees* project:
+Once you install Carthage, update the project using Terminal.
+Run "carthage update" from your project root folder.
+
+**Step 3:** Open the *bees-knees* project:
 
 ```
 open Bees\ Knees.xcodeproj/
 ```
 
-**Step 3:** Build and Run in XCode
+**Step 4:** Build and Run in XCode
 
 -
 
@@ -47,6 +52,15 @@ Apple's open-source framework that provides modules for tracking exercises, reco
 3) [ResearchKit](https://github.com/researchkit/researchkit)  
 
 Apple's open-source framework that provides tools for integrating tasks into the app, including surveys, consent, active tasks, and charts. This framework is used specifically to build the consent form, build the custom line graph that is presented on the Progress History page, and other views that use the task flow.meat
+
+4) [Gloss](https://github.com/hkellaway/Gloss)  
+
+An open-source framework that provides tools JSON mapping. 
+    Mapping JSON to objects, 
+    Mapping objects to JSON
+    Nested objects
+    Custom transformations
+  
 
 ###Source Code:
 The directory structure is mostly defined by app feature. At the root exists `RootViewController.swift` which is the top-level view controller added to the stack. It primarily governs the flow of the app, including switching view controllers when necessary.
