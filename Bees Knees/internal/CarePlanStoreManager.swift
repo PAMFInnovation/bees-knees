@@ -79,6 +79,12 @@ class CarePlanStoreManager : NSObject {
         // Register this object as the store's delegate to be notified of changes.
         store.delegate = self
         
+        // Add the base activities if we're not in the welcome
+        if ProfileManager.sharedInstance.getFlowState() != .Launch &&
+            ProfileManager.sharedInstance.getFlowState() != .PreSurgeryWelcome {
+            let location = ProfileManager.sharedInstance.getUserLocation()
+            self.addBaseActivities(location.activities)
+        }
         // Add the recovery assessment if we're in the post surgery routine
         if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
             self.addRecoveryAssessment()

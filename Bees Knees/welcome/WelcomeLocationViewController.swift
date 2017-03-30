@@ -19,17 +19,6 @@ class WelcomeLocationViewController: WelcomeTaskViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup the location picker view
-        let locationPickerView: UIPickerView = UIPickerView()
-        locationPickerView.dataSource = self
-        locationPickerView.delegate = self
-        locationPickerView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(locationPickerView)
-        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -100))
-        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 240))
-        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
-        
         // Setup the continue button
         continueButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0), primaryColor: UIColor.white, secondaryColor: UIColor.clear, disabledColor: UIColor.lightGray, textDownColor: Colors.turquoise.color)
         continueButton?.borderColor = UIColor.white
@@ -45,6 +34,17 @@ class WelcomeLocationViewController: WelcomeTaskViewController {
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -20))
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
         self.view.addConstraint(NSLayoutConstraint(item: continueButton!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50))
+        
+        // Setup the location picker view
+        let locationPickerView: UIPickerView = UIPickerView()
+        locationPickerView.dataSource = self
+        locationPickerView.delegate = self
+        locationPickerView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(locationPickerView)
+        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .bottom, relatedBy: .equal, toItem: continueButton!, attribute: .top, multiplier: 1.0, constant: -20))
+        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 240))
+        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 120))
         
         // Set default picker cell if it's saved
         let userLocation = ProfileManager.sharedInstance.getSurgeryLocation()
