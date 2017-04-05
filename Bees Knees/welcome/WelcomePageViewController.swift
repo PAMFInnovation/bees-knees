@@ -45,7 +45,7 @@ class WelcomePageViewController: UIPageViewController {
         let terms = WelcomeTACController(mainText: "Before we get started, let's review terms of use.", secondaryText: "Please note: this app is just for you! The info that you record in this app will not be sent to your care team. Feel free to share the app with your care team at any visit.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_legal")
         terms.delegate = self
         orderedViewControllers.append(terms)
-        let location = WelcomeLocationViewController(mainText: "Where will you be receiving surgery?", secondaryText: "Please choose the hospital your surgery will take place for an app experience consistent with that hospital's resources.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
+        let location = WelcomeLocationViewController(mainText: "Please select the hospital where you will have your surgery?", secondaryText: "Please choose the hospital your surgery will take place for an app experience consistent with that hospital's resources.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
         location.delegate = self
         orderedViewControllers.append(location)
         let passcode = WelcomePasscodeViewController(mainText: "Next step is to set up an optional passcode to secure your information.", secondaryText: "You'll enter your passcode when you open this app, and you can change your passcode at any time.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_passcode")
