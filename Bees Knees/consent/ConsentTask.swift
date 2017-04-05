@@ -22,7 +22,7 @@ public var ConsentTask: ORKOrderedTask {
     //reviewConsentStep.
     
     reviewConsentStep.text = "Review Consent!"
-    reviewConsentStep.reasonForConsent = "Consent to join study"
+    reviewConsentStep.reasonForConsent = "I agree to these terms"
     
     steps += [reviewConsentStep]
     
