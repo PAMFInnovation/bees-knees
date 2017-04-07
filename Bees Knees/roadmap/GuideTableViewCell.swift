@@ -116,7 +116,8 @@ class GuideTableViewCell: UITableViewCell {
             // Set text
             self.title.text = self.appointment?.title
             self.subtitle.text = Util.getFormattedDate((self.appointment?.date)!, dateFormat: "EEE, MMM d yyyy - h:mma")
-            self.detail.text = isNextAppointment ? Copy.getWildernessGuideCopy(type: appointment.type) : ""
+            self.detail.text = isNextAppointment ? ProfileManager.sharedInstance.getPlanTo(appointmentType: appointment.type.description): ""
+            //isNextAppointment ? Copy.getWildernessGuideCopy(type: appointment.type) : ""
             self.dateText.text = Util.getFormattedDate((self.appointment?.date)!, dateFormat: "MMM d\nh:mm a")
             
             // For dates that have passed, italicize the text
