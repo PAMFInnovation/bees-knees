@@ -48,6 +48,8 @@ final class User: Object {
     // Checklist
     let checklist = List<ChecklistItem>()
     
+    // Plan To
+    var planTo = List<PlanToItem>()
     
     override static func primaryKey() -> String? {
         return "id"
@@ -264,6 +266,20 @@ class ProfileManager {
         }
     }
     
+    func getPlanTo(appointmentType: String) -> String {
+        for planToRecord in user.planTo {
+            if(planToRecord.appointmentType == appointmentType) {
+                return planToRecord.planToItems
+            }
+        }
+        return ""
+    }
+    
+    func addPlanTo(item: PlanToItem) {
+        try! realm.write {
+            user.planTo.append(item)
+        }
+    }
     func getLocations() -> [LocationModel] {
         if surgeryLocations == nil {
             surgeryLocations = []
@@ -311,7 +327,11 @@ class ProfileManager {
             }
             // Append an empty string ChecklistItem which serves as the "add" cell
             user.checklist.append(ChecklistItem(text: ""))
-        }
+            
+            // set Plan To data
+            for planToItem in location.planTo {
+                user.planTo.append(PlanToItem(text: planToItem.appointmentType, planTo: planToItem.planToItems))
+            }        }
     }
     
     func createNewUser() {
