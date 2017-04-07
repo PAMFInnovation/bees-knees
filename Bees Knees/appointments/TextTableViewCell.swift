@@ -13,7 +13,8 @@ class TextTableViewCell: AppointmentTableViewCell {
     
     override var appointment: Appointment? {
         willSet(appt) {
-            notesTextArea.text = Copy.getWildernessGuideCopy(type: (appt?.type)!)
+            notesTextArea.text = ProfileManager.sharedInstance.getPlanTo(appointmentType: (appt?.type.description)!)
+            //Copy.getWildernessGuideCopy(type: (appt?.type)!)
         }
     }
     
