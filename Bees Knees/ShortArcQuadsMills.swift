@@ -1,5 +1,5 @@
 //
-//  ShortArcQuads.swift
+//  ShortArcQuadsMills.swift
 //  Bees Knees
 //
 //  Created by Kranthi Vallamreddy on 4/10/17.
@@ -12,8 +12,8 @@ import CareKit
 struct ShortArcQuadsMills: Activity {
     let activityType: ActivityType = .ShortArcQuadsMills
     
-    let rationale: String = NSLocalizedString("[NEED RATIONALE]", comment: "")
-    let image: (name: String, type: String) = ("", "")
+    let rationale: String = NSLocalizedString("[NEEDS RATIONALE]", comment: "")
+    let image: (name: String, type: String) = ("ref_shortarcquads_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {
@@ -42,4 +42,5 @@ struct ShortArcQuadsMills: Activity {
         return activity
     }
 }
+
 
