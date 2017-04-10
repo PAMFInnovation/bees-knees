@@ -1,5 +1,5 @@
 //
-//  HeelSlides.swift
+//  HeelSlidesMills.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 11/30/16.
@@ -13,7 +13,7 @@ struct HeelSlidesMills: Activity {
     let activityType: ActivityType = .HeelSlidesMills
     
     let rationale: String = NSLocalizedString("\u{2022} Increases knee’s range of motion\n\u{2022} Promotes circulation\n\u{2022} Builds strength in surgical knee and leg\n\u{2022} Assists with getting out of bed", comment: "")
-    let image: (name: String, type: String) = ("ref_heelslides", "png")
+    let image: (name: String, type: String) = ("ref_heelslides_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {

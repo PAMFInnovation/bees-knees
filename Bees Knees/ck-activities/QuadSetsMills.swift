@@ -1,5 +1,5 @@
 //
-//  QuadSets.swift
+//  QuadSetsMills.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 11/30/16.
@@ -13,7 +13,7 @@ struct QuadSetsMills: Activity {
     let activityType: ActivityType = .QuadSetsMills
     
     let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in your thigh muscles\n\u{2022} Reminds your body how to activate quad/thigh muscle\n\u{2022} Practices straightening surgical knee\n\u{2022} Decreases swelling in the knee", comment: "")
-    let image: (name: String, type: String) = ("ref_quadsets", "png")
+    let image: (name: String, type: String) = ("ref_quadsets_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {

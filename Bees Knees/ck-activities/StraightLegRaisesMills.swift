@@ -1,5 +1,5 @@
 //
-//  StraightLegRaises.swift
+//  StraightLegRaisesMills.swift
 //  Bees Knees
 //
 //  Created by Ben Dapkiewicz on 11/30/16.
@@ -13,7 +13,7 @@ struct StraightLegRaisesMills: Activity {
     let activityType: ActivityType = .StraightLegRaisesMills
     
     let rationale: String = NSLocalizedString("", comment: "")
-    let image: (name: String, type: String) = ("ref_straightlegraises", "png")
+    let image: (name: String, type: String) = ("ref_straightlegraises_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {
