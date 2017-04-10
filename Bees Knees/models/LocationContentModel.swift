@@ -16,7 +16,7 @@ struct LocationContentModel: Glossy, GlossModel {
     let checklist: [String]
     let binder: [BinderSectionModel]
     let faq: [FAQModel]
-    
+    let planTo: [PlanToModel]
     
     init(json: JSON) {
         self.appointments = ("appointments" <~~ json)!
@@ -24,6 +24,7 @@ struct LocationContentModel: Glossy, GlossModel {
         self.checklist = ("checklist" <~~ json)!
         self.binder = ("binder" <~~ json)!
         self.faq = ("faq" <~~ json)!
+        self.planTo = ("planto" <~~ json)!
     }
     
     func toJSON() -> JSON? {
@@ -32,7 +33,8 @@ struct LocationContentModel: Glossy, GlossModel {
             "activities" ~~> self.activities,
             "checklist" ~~> self.checklist,
             "binder" ~~> self.binder,
-            "faq" ~~> self.faq
+            "faq" ~~> self.faq,
+            "planto" ~~> self.planTo
         ])
     }
 }
