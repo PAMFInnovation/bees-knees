@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9313B6771E9C3995008E990F /* StraightLegRaisesMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6761E9C3995008E990F /* StraightLegRaisesMills.swift */; };
+		9313B67D1E9C399F008E990F /* AnklePumpsMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B67C1E9C399F008E990F /* AnklePumpsMills.swift */; };
+		9313B67F1E9C39A6008E990F /* HeelSlidesMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B67E1E9C39A6008E990F /* HeelSlidesMills.swift */; };
+		9313B6811E9C39AC008E990F /* QuadSetsMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6801E9C39AC008E990F /* QuadSetsMills.swift */; };
+		9313B6851E9C3B1A008E990F /* LongArcQuadsMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6841E9C3B1A008E990F /* LongArcQuadsMills.swift */; };
+		9313B6871E9C3BB4008E990F /* KneeSlidesMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6861E9C3BB4008E990F /* KneeSlidesMills.swift */; };
+		9313B6891E9C3C4F008E990F /* ShortArcQuadsMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6881E9C3C4F008E990F /* ShortArcQuadsMills.swift */; };
+		9313B68B1E9C3D6F008E990F /* PlanToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B68A1E9C3D6F008E990F /* PlanToModel.swift */; };
+		93B114161E9C3FAB00873264 /* PlanToItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B114151E9C3FAB00873264 /* PlanToItem.swift */; };
+		93B1141C1E9C418900873264 /* ref_anklepumps_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1141B1E9C418900873264 /* ref_anklepumps_mills.png */; };
+		93B1141E1E9C419600873264 /* ref_heelslides_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1141D1E9C419600873264 /* ref_heelslides_mills.png */; };
+		93B114201E9C419D00873264 /* ref_kneeslides_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1141F1E9C419D00873264 /* ref_kneeslides_mills.png */; };
+		93B114221E9C41A200873264 /* ref_longarcquads_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B114211E9C41A200873264 /* ref_longarcquads_mills.png */; };
+		93B114241E9C41A700873264 /* ref_quadsets_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B114231E9C41A700873264 /* ref_quadsets_mills.png */; };
+		93B114261E9C41AD00873264 /* ref_shortarcquads_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B114251E9C41AD00873264 /* ref_shortarcquads_mills.png */; };
+		93B114281E9C41B200873264 /* ref_straightlegraises_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B114271E9C41B200873264 /* ref_straightlegraises_mills.png */; };
 		9E018F8E1E15DDEE008250FA /* UIView+Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */; };
 		9E0C95B41DA5539200DD9254 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; };
 		9E0C95B51DA5539200DD9254 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0C95AD1DA5536C00DD9254 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -244,6 +260,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9313B6761E9C3995008E990F /* StraightLegRaisesMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StraightLegRaisesMills.swift; path = "ck-activities/StraightLegRaisesMills.swift"; sourceTree = "<group>"; };
+		9313B67C1E9C399F008E990F /* AnklePumpsMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnklePumpsMills.swift; path = "ck-activities/AnklePumpsMills.swift"; sourceTree = "<group>"; };
+		9313B67E1E9C39A6008E990F /* HeelSlidesMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeelSlidesMills.swift; path = "ck-activities/HeelSlidesMills.swift"; sourceTree = "<group>"; };
+		9313B6801E9C39AC008E990F /* QuadSetsMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuadSetsMills.swift; path = "ck-activities/QuadSetsMills.swift"; sourceTree = "<group>"; };
+		9313B6841E9C3B1A008E990F /* LongArcQuadsMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongArcQuadsMills.swift; path = "ck-activities/LongArcQuadsMills.swift"; sourceTree = "<group>"; };
+		9313B6861E9C3BB4008E990F /* KneeSlidesMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KneeSlidesMills.swift; sourceTree = "<group>"; };
+		9313B6881E9C3C4F008E990F /* ShortArcQuadsMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortArcQuadsMills.swift; sourceTree = "<group>"; };
+		9313B68A1E9C3D6F008E990F /* PlanToModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanToModel.swift; sourceTree = "<group>"; };
+		93B114151E9C3FAB00873264 /* PlanToItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanToItem.swift; sourceTree = "<group>"; };
+		93B1141B1E9C418900873264 /* ref_anklepumps_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_anklepumps_mills.png; path = content/ref_anklepumps_mills.png; sourceTree = "<group>"; };
+		93B1141D1E9C419600873264 /* ref_heelslides_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_heelslides_mills.png; path = content/ref_heelslides_mills.png; sourceTree = "<group>"; };
+		93B1141F1E9C419D00873264 /* ref_kneeslides_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_kneeslides_mills.png; path = content/ref_kneeslides_mills.png; sourceTree = "<group>"; };
+		93B114211E9C41A200873264 /* ref_longarcquads_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_longarcquads_mills.png; path = content/ref_longarcquads_mills.png; sourceTree = "<group>"; };
+		93B114231E9C41A700873264 /* ref_quadsets_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_quadsets_mills.png; path = content/ref_quadsets_mills.png; sourceTree = "<group>"; };
+		93B114251E9C41AD00873264 /* ref_shortarcquads_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_shortarcquads_mills.png; path = content/ref_shortarcquads_mills.png; sourceTree = "<group>"; };
+		93B114271E9C41B200873264 /* ref_straightlegraises_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_straightlegraises_mills.png; path = content/ref_straightlegraises_mills.png; sourceTree = "<group>"; };
 		9E018F8D1E15DDEE008250FA /* UIView+Mask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Mask.swift"; path = "extensions/UIView+Mask.swift"; sourceTree = "<group>"; };
 		9E0C95A61DA5536C00DD9254 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../carekit/CareKit.xcodeproj; sourceTree = "<group>"; };
 		9E0F59831E495005004ED1F8 /* Date+DayOfWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+DayOfWeek.swift"; path = "extensions/Date+DayOfWeek.swift"; sourceTree = "<group>"; };
@@ -494,6 +526,13 @@
 		9E43C42E1DDBB80E00EF986C /* content */ = {
 			isa = PBXGroup;
 			children = (
+				93B114271E9C41B200873264 /* ref_straightlegraises_mills.png */,
+				93B114251E9C41AD00873264 /* ref_shortarcquads_mills.png */,
+				93B114231E9C41A700873264 /* ref_quadsets_mills.png */,
+				93B114211E9C41A200873264 /* ref_longarcquads_mills.png */,
+				93B1141F1E9C419D00873264 /* ref_kneeslides_mills.png */,
+				93B1141D1E9C419600873264 /* ref_heelslides_mills.png */,
+				93B1141B1E9C418900873264 /* ref_anklepumps_mills.png */,
 				9E5167AA1E8790A300448BE4 /* locations */,
 				9E6829081E49429400568DB6 /* GluteSets.mp4 */,
 				9E6829091E49429400568DB6 /* HamstringSets.mp4 */,
@@ -536,6 +575,7 @@
 				9E5168401E88621400448BE4 /* BinderSectionModel.swift */,
 				9E5168421E88629C00448BE4 /* BinderSubsectionModel.swift */,
 				9E5168441E886B9300448BE4 /* AppointmentModel.swift */,
+				9313B68A1E9C3D6F008E990F /* PlanToModel.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -687,6 +727,10 @@
 		D2C5AA211E6DF8A600F65201 /* ck-activities */ = {
 			isa = PBXGroup;
 			children = (
+				9313B6801E9C39AC008E990F /* QuadSetsMills.swift */,
+				9313B67E1E9C39A6008E990F /* HeelSlidesMills.swift */,
+				9313B67C1E9C399F008E990F /* AnklePumpsMills.swift */,
+				9313B6761E9C3995008E990F /* StraightLegRaisesMills.swift */,
 				D2C5AA601E6DF8F700F65201 /* AbdominalBracing.swift */,
 				D2C5AA611E6DF8F700F65201 /* Activity.swift */,
 				D2C5AA621E6DF8F700F65201 /* AnklePumps.swift */,
@@ -699,6 +743,9 @@
 				D2C5AA691E6DF8F700F65201 /* SeatedHeelSlides.swift */,
 				D2C5AA6A1E6DF8F700F65201 /* StraightLegRaises.swift */,
 				D2C5AA6B1E6DF8F700F65201 /* Walk.swift */,
+				9313B6841E9C3B1A008E990F /* LongArcQuadsMills.swift */,
+				9313B6861E9C3BB4008E990F /* KneeSlidesMills.swift */,
+				9313B6881E9C3C4F008E990F /* ShortArcQuadsMills.swift */,
 			);
 			name = "ck-activities";
 			sourceTree = "<group>";
@@ -799,6 +846,7 @@
 				D2C5AA9E1E6F3AF600F65201 /* PlaceTableViewCell.swift */,
 				D2C5AA9F1E6F3AF600F65201 /* TextTableViewCell.swift */,
 				D2C5AAA01E6F3AF600F65201 /* TitleTableViewCell.swift */,
+				93B114151E9C3FAB00873264 /* PlanToItem.swift */,
 			);
 			name = appointments;
 			sourceTree = "<group>";
@@ -1046,19 +1094,26 @@
 				9E4D584C1E085891008953E2 /* ref_chairpressups.png in Resources */,
 				9E4D584F1E085891008953E2 /* ref_heelslides.png in Resources */,
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
+				93B114241E9C41A700873264 /* ref_quadsets_mills.png in Resources */,
 				9E6829071E4917D300568DB6 /* QuadSets.mp4 in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
+				93B1141E1E9C419600873264 /* ref_heelslides_mills.png in Resources */,
 				9E5167AE1E8790C900448BE4 /* millspeninsula.json in Resources */,
 				9E51683F1E88385F00448BE4 /* altabates in Resources */,
 				9E5167B91E88082600448BE4 /* locations.json in Resources */,
 				9E429DC01DC288CE0066FF20 /* DateOfSurgeryInterface.xib in Resources */,
 				9E5167AC1E8790AF00448BE4 /* altabates.json in Resources */,
 				9E4D58511E085891008953E2 /* ref_seatedheelslides.png in Resources */,
+				93B114261E9C41AD00873264 /* ref_shortarcquads_mills.png in Resources */,
 				9EFDA05B1D8370F400FD6763 /* Assets.xcassets in Resources */,
 				9EFDA0591D8370F400FD6763 /* Main.storyboard in Resources */,
 				9E6829051E4902D700568DB6 /* AnklePumps.mp4 in Resources */,
+				93B114221E9C41A200873264 /* ref_longarcquads_mills.png in Resources */,
 				9E4D58521E085891008953E2 /* ref_straightlegraises.png in Resources */,
+				93B1141C1E9C418900873264 /* ref_anklepumps_mills.png in Resources */,
 				9E4D584B1E085891008953E2 /* ref_anklepumps.png in Resources */,
+				93B114281E9C41B200873264 /* ref_straightlegraises_mills.png in Resources */,
+				93B114201E9C419D00873264 /* ref_kneeslides_mills.png in Resources */,
 				9E68290C1E49429400568DB6 /* GluteSets.mp4 in Resources */,
 				9E68290E1E49429400568DB6 /* HeelSlide.mp4 in Resources */,
 				9E4D584D1E085891008953E2 /* ref_glutesets.png in Resources */,
@@ -1143,6 +1198,7 @@
 				D2C5AA951E6F3AAC00F65201 /* WelcomeTransitionViewController.swift in Sources */,
 				9E3E6B5D1DD4EF20000E92E1 /* Colors.swift in Sources */,
 				D23DC5CD1DFB640200663595 /* UIApplication+TopViewController.swift in Sources */,
+				93B114161E9C3FAB00873264 /* PlanToItem.swift in Sources */,
 				9E7AAF1D1E43F8BE00FABC23 /* ActivityDetailViewController.swift in Sources */,
 				D24AD4DF1DCBBE8700984EED /* HorizontalRule.swift in Sources */,
 				9E7AAF271E445BB300FABC23 /* ActivityDetailImageTableViewCell.swift in Sources */,
@@ -1152,6 +1208,7 @@
 				D2C5AADF1E6F3B6500F65201 /* SettingsViewController.swift in Sources */,
 				D2C5AA811E6F3A8100F65201 /* TutorialViewController.swift in Sources */,
 				9EFDA0561D8370F400FD6763 /* RootViewController.swift in Sources */,
+				9313B67F1E9C39A6008E990F /* HeelSlidesMills.swift in Sources */,
 				D2C5AAE81E6F3E7C00F65201 /* ImageViewController.swift in Sources */,
 				D2C5AAA81E6F3AF600F65201 /* PlaceTableViewCell.swift in Sources */,
 				D2C5AA8E1E6F3AAC00F65201 /* WelcomeDateViewController.swift in Sources */,
@@ -1159,6 +1216,7 @@
 				D2C5AADE1E6F3B6500F65201 /* SettingsItemNavigation.swift in Sources */,
 				D2C5AAA91E6F3AF600F65201 /* TextTableViewCell.swift in Sources */,
 				D2C5AA3C1E6DF8E000F65201 /* IncisionPain.swift in Sources */,
+				9313B6771E9C3995008E990F /* StraightLegRaisesMills.swift in Sources */,
 				9E7AAF1F1E43F8E800FABC23 /* ActivityDetailHeaderView.swift in Sources */,
 				D2C5AA6F1E6DF8F700F65201 /* ChairPressUps.swift in Sources */,
 				D2C5AA2B1E6DF8D100F65201 /* PasscodeTask.swift in Sources */,
@@ -1192,6 +1250,7 @@
 				D2C5AAF31E6F3FB700F65201 /* ChecklistItemTableViewCell.swift in Sources */,
 				D2C5AAC01E6F3B2A00F65201 /* CarePlanStoreManager.swift in Sources */,
 				D2C5AAED1E6F3F4E00F65201 /* DateOfSurgeryView.swift in Sources */,
+				9313B6871E9C3BB4008E990F /* KneeSlidesMills.swift in Sources */,
 				9EC4F6EF1E31634D008E8DB6 /* SlideInPresentationController.swift in Sources */,
 				D2C5AAD71E6F3B5E00F65201 /* ResourceViewController.swift in Sources */,
 				D2C5AA3E1E6DF8E000F65201 /* Mood.swift in Sources */,
@@ -1206,20 +1265,25 @@
 				D2C5AA6E1E6DF8F700F65201 /* AnklePumps.swift in Sources */,
 				D2C5AA921E6F3AAC00F65201 /* WelcomeTACController.swift in Sources */,
 				D2C5AA7F1E6F3A7A00F65201 /* WildernessGuideViewController.swift in Sources */,
+				9313B67D1E9C399F008E990F /* AnklePumpsMills.swift in Sources */,
 				D2C5AADC1E6F3B6500F65201 /* SettingsItem.swift in Sources */,
 				D2C5AA341E6DF8D900F65201 /* LineGraphDataSource.swift in Sources */,
+				9313B6811E9C39AC008E990F /* QuadSetsMills.swift in Sources */,
 				9E7AAF141E43B85700FABC23 /* UIDevice+Model.swift in Sources */,
 				D2C5AA351E6DF8D900F65201 /* QueryActivityEventsOperation.swift in Sources */,
 				D2C5AAF21E6F3FB700F65201 /* ChecklistItem.swift in Sources */,
 				9E7747D31E3C776B004F6FB3 /* UIButton+Factory.swift in Sources */,
+				9313B6891E9C3C4F008E990F /* ShortArcQuadsMills.swift in Sources */,
 				9EFFA1A91E772767003B57B1 /* String+TypeFace.swift in Sources */,
 				D2C5AAD41E6F3B5E00F65201 /* ResourcesViewController.swift in Sources */,
 				9EFDA0541D8370F400FD6763 /* AppDelegate.swift in Sources */,
 				9E5167B31E8793AA00448BE4 /* GlossModel.swift in Sources */,
 				D2C5AAF41E6F3FB700F65201 /* PreSurgeryChecklistViewController.swift in Sources */,
 				9E0F59841E495005004ED1F8 /* Date+DayOfWeek.swift in Sources */,
+				9313B6851E9C3B1A008E990F /* LongArcQuadsMills.swift in Sources */,
 				D2C5AACF1E6F3B5E00F65201 /* Resource.swift in Sources */,
 				D2C5AAC11E6F3B2A00F65201 /* ProfileManager.swift in Sources */,
+				9313B68B1E9C3D6F008E990F /* PlanToModel.swift in Sources */,
 				D2C5AAA71E6F3AF600F65201 /* NotesTableViewCell.swift in Sources */,
 				D2C5AAD01E6F3B5E00F65201 /* ResourceCollectionHeaderView.swift in Sources */,
 				D2BE64E51DDCBC9500EAEB7C /* ImageScrollView.swift in Sources */,
