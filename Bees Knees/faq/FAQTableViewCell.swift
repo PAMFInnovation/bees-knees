@@ -39,13 +39,13 @@ class FAQTableViewCell: UITableViewCell {
         self.question.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
         self.question.numberOfLines = 0
         self.question.lineBreakMode = .byWordWrapping
-        //self.question.backgroundColor = UIColor.yellow
+        self.question.translatesAutoresizingMaskIntoConstraints = false;
         
         self.caret.font = UIFont(name: "ArialMT", size: 12)
         self.caret.textAlignment = .right
         self.caret.textColor = UIColor.lightGray
         self.deselect()
-        //self.caret.backgroundColor = UIColor.red
+        self.caret.translatesAutoresizingMaskIntoConstraints = false;        //self.caret.backgroundColor = UIColor.red
         
         self.answer.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightRegular)
         self.answer.textAlignment = .left
@@ -74,8 +74,35 @@ class FAQTableViewCell: UITableViewCell {
         
         self.icon.frame = CGRect(x: iconOffset.x, y: iconOffset.y, width: iconSize, height: iconSize)
 
-        self.question.frame = CGRect(x: labelXOffset, y: iconOffset.y, width: self.frame.width - labelXOffset - 35, height: iconSize)
-        self.caret.frame = CGRect(x: self.question.frame.minX + self.question.frame.width + 5, y: iconOffset.y, width: 15, height: iconSize)
+       // self.question.frame = CGRect(x: labelXOffset, y: iconOffset.y, width: self.frame.width - labelXOffset - 35, height: iconSize)
+        
+        let customLabelTopConstraint = NSLayoutConstraint(item: self.question, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 3)
+        
+        let customLabelBottomConstraint = NSLayoutConstraint(item: self.question, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal
+            , toItem: self.answer, attribute: NSLayoutAttribute.top, multiplier: 1, constant: -3)
+        
+        let customLabelLeadingConstraint = NSLayoutConstraint(item: self.question, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: labelXOffset)
+        
+        let customLabelTrailingConstraint = NSLayoutConstraint(item: self.question, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -50)
+        
+        NSLayoutConstraint.activate([customLabelTopConstraint, customLabelBottomConstraint, customLabelLeadingConstraint, customLabelTrailingConstraint])
+        
+        
+        //self.caret.frame = CGRect(x: self.question.frame.minX + self.question.frame.width + 5, y: iconOffset.y, width: 15, height: iconSize)
+        let caretTopConstraint = NSLayoutConstraint(item: self.caret, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 5)
+        
+        let caretBottomConstraint = NSLayoutConstraint(item: self.caret, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal
+            , toItem: self.answer, attribute: NSLayoutAttribute.top, multiplier: 1, constant: -3)
+        
+        let caretLeadingConstraint = NSLayoutConstraint(item: self.caret, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
+            , toItem: self.question, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 10)
+        
+        let caretTrailingConstraint = NSLayoutConstraint(item: self.caret, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -20)
+        
+        NSLayoutConstraint.activate([caretTopConstraint, caretBottomConstraint, caretLeadingConstraint, caretTrailingConstraint])
         
         self.answer.frame = CGRect(x: labelXOffset - 4, y: collapsedHeight + iconOffset.y, width: self.frame.width - labelXOffset - 35, height: 100)
         self.answer.sizeToFit()
