@@ -330,7 +330,7 @@ class ProfileManager {
             
             // set Plan To data
             for planToItem in location.planTo {
-                user.planTo.append(PlanToItem(text: planToItem.appointmentType, planTo: planToItem.planToItems))
+                user.planTo.append(PlanToItem(appointmentType: planToItem.appointmentType, planToItems: planToItem.planToItems))
             }        }
     }
     
