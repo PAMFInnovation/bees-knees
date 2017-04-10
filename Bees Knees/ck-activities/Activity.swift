@@ -40,6 +40,13 @@ enum ActivityType: String {
     case Mood
     case IncisionPain
     case Recovery
+    case AnklePumpsMills
+    case QuadSetsMills
+    case HeelSlidesMills
+    case LongArcQuadsMills
+    case KneeSlidesMills
+    case ShortArcQuadsMills
+    case StraightLegRaisesMills
 }
 
 class ActivityFactory {
@@ -52,10 +59,16 @@ class ActivityFactory {
         case .GluteSets: return GluteSets()
         case .HeelSlides: return HeelSlides()
         case .StraightLegRaises: return StraightLegRaises()
-        case .SeatedHeelSlides: return SeatedHeelSlides()
         case .HamstringSets: return HamstringSets()
         case .ChairPressUps: return ChairPressUps()
         case .AbdominalBracing: return AbdominalBracing()
+        case .QuadSetsMills: return QuadSetsMills()
+        case .AnklePumpsMills: return AnklePumpsMills()
+        case .StraightLegRaisesMills: return StraightLegRaisesMills()
+        case .LongArcQuadsMills: return LongArcQuadsMills()
+        case .KneeSlidesMills: return KneeSlidesMills()
+        case .ShortArcQuadsMills: return ShortArcQuadsMills()
+        case .HeelSlidesMills: return HeelSlidesMills()
         default: return nil
         }
     }
