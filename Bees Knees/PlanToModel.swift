@@ -2,14 +2,14 @@
 //  PlanToModel.swift
 //  Bees Knees
 //
-//  Created by Kranthi Vallamreddy on 4/5/17.
+//  Created by Kranthi Vallamreddy on 4/10/17.
 //  Copyright © 2017 Sutter Health. All rights reserved.
 //
 
 import Gloss
 
 
-final class PlanToModel: Glossy, GlossModel {
+struct PlanToModel: Glossy, GlossModel {
     
     let appointmentType: String
     let planToItems: String
@@ -26,5 +26,4 @@ final class PlanToModel: Glossy, GlossModel {
             "planToItems" ~~> self.planToItems
             ])
     }
-    
 }
