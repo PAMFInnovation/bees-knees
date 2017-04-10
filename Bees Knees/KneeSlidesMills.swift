@@ -12,8 +12,8 @@ import CareKit
 struct KneeSlidesMills: Activity {
     let activityType: ActivityType = .KneeSlidesMills
     
-    let rationale: String = NSLocalizedString("\u{2022} Activate hip muscles which are important for walking\n\u{2022} Practices using hip muscles and knee together", comment: "")
-    let image: (name: String, type: String) = ("ref_straightlegraises", "png")
+    let rationale: String = NSLocalizedString("\u{2022} Activates hip muscles which are important for walking \nu{2022}Practices using hip muscles and knee together", comment: "")
+    let image: (name: String, type: String) = ("ref_kneeslides_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
     func carePlanActivity() -> OCKCarePlanActivity {
