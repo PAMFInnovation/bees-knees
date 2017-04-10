@@ -1,15 +1,69 @@
 {
-	"appointments": [
-		{
-			"title": "Pre-operative appointment",
-			"type": "PreOp"
-		}
+    "appointments": [
+            {
+                "title": "Pre-operative Surgery",
+                "type": "PreOp"
+            },
+            {
+                "title": "Orthopedic surgeon appointment",
+                "type": "Orthopedic"
+            },
+            {
+                "title": "Follow up",
+                "type": "FollowUp2Week"
+            }
+    ],
+    "planto":[
+            {
+              "appointmentType" : "Pre-operative appointment",
+              "planToItems" : "Plan to: \n-Bring your binder and medication list \n-Bring completed Anesthesia questionnaire \n-Bring completed Advanced Joint Care and Replacement Center questionnaire \n-Bring your list of questions, if any \n-Bring your health insurance info \n-Bring a copy if Advanced Health Care Directive"
+            },
+            {
+              "appointmentType" : "Orthopedic surgeon appointment",
+              "planToItems" : "Plan to: \n- Bring your binder and medication list \n- Bring your list of questions, if any \n- Confirm surgery details with surgeon"
+            },
+            {
+              "appointmentType" : "Surgery",
+              "planToItems" : "Plan to: \n- Shower with antiseptic sponges the night befrore and mornign of surgery \n- Not eat or drint after midnight of surgery \n- Brush your teeth and rinse \n- Bring your binder and packed bag \n- Arrive at hospital 1 1/2 hours before surgery"
+            },
+            {
+              "appointmentType" : "Follow up",
+              "planToItems" : "Plan to: \n- Check the range of motion and strength \n- Bring your list of questions, if any \n- Share any difficulties in increasing activity levels"
+            }
     ],
 	"activities": [
-		"Walk"
-	],
+                   "AnklePumpsMills",
+                   "QuadSetsMills",
+                   "HeelSlidesMills",
+                   "LongArcQuadsMills",
+                   "KneeSlidesMills",
+                   "ShortArcQuadsMills",
+                   "StraightLegRaisesMills"
+    ],
 	"checklist": [
-		"Verify insurance with surgeon's office"
+                  "Check with surgeon about current medications",
+                  "Schedule pre-admission testing appointment",
+                  "Fill out Anesthesia Questionnaire",
+                  "Fill out Advanced Joint Care Questionnaire",
+                  "Register for joint replacement class",
+                  "Review American Joint Replacement Registry info",
+                  "Obtain prescription for post-op PT appointments",
+                  "Get a dental exam",
+                  "Get DMV application for temporary disability parking placard",
+                  "Find helpers post surgery for housework/meals",
+                  "Eat a healthy diet",
+                  "Quit smoking",
+                  "Start doing strengthening exercises (both legs)",
+                  "Discuss home health needs with care manager",
+                  "Prepare meals for post- surgery",
+                  "Place food and utensils in easy-to-reach places",
+                  "Make clear paths between rooms",
+                  "Remove rugs",
+                  "Find a stable chair with arm rests",
+                  "Place a non-skid bath mat in your tub/shower",
+                  "Place everyday items at arm level",
+                  "Have extra pillows for positioning",
+                  "Pack your bag"
 	],
 	"binder": [
 		{
