@@ -14,16 +14,16 @@ struct QuadSetsMills: Activity {
     
     let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in your thigh muscles\n\u{2022} Reminds your body how to activate quad/thigh muscle\n\u{2022} Practices straightening surgical knee\n\u{2022} Decreases swelling in the knee", comment: "")
     let image: (name: String, type: String) = ("ref_quadsets_mills", "png")
-    let video: (name: String, type: String) = ("", "")
+    let video: (name: String, type: String) = ("QuadSets", "mp4")
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [3, 3, 3, 3, 3, 3, 3])
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [2, 2, 2, 2, 2, 2, 2])
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Quad Sets", comment: "")
-        let summary = NSLocalizedString("10 reps", comment: "")
+        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Slowly tighten muscles on thigh of operated leg while counting out loud to 10. Relax. Repeat.", comment: "")
         
         // Create the intervention activity
