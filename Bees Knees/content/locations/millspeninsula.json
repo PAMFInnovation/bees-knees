@@ -1,7 +1,7 @@
 {
     "appointments": [
             {
-                "title": "Pre-operative Surgery",
+                "title": "Pre-admission appointment",
                 "type": "PreOp"
             },
             {
@@ -27,7 +27,7 @@
               "planToItems" : "Plan to: \n- Shower with antiseptic sponges the night befrore and mornign of surgery \n- Not eat or drint after midnight of surgery \n- Brush your teeth and rinse \n- Bring your binder and packed bag \n- Arrive at hospital 1 1/2 hours before surgery"
             },
             {
-              "appointmentType" : "Follow up",
+              "appointmentType" : "2-week follow up",
               "planToItems" : "Plan to: \n- Check the range of motion and strength \n- Bring your list of questions, if any \n- Share any difficulties in increasing activity levels"
             }
     ],
@@ -81,9 +81,39 @@
 		}
 	],
 	"faq": [
-		{
-        	"question": "What else can I do to improve my recovery from surgery?",
-        	"answer": "Stop smoking, avoid alcoholic beverages, eat a nutritious diet, and follow your doctor's orders."
-        }
+            {
+            "question": "What type of artificial knee is right for me?",
+            "answer": "Your surgeon will choose the artificial knee components based on your age, weight and medical condition. Most orthopedic surgeons prefer a cemented tibial component, but that version isn’t right for every patient. The weight-bearing surfaces in total knee replacement are metal on polyethylene or ceramic on polyethylene."
+            },
+            {
+            "question": "How long will my joint replacement last?",
+            "answer": "Your knee replacement is expected to last for 20 years or more. We are fortunate that modern implant materials have significantly reduced wear rates. These new materials have dramatically increased the life span of today’s total knee replacements."
+            },
+            {
+            "question": "Why do knee replacements sometimes fail?",
+            "answer": "Infection is the primary reason. Also, over years, the surfaces of implant parts may wear down, and the components may loosen. Sometimes, scarring of the knee can occur, and limit motion in the knee."
+            },
+            {
+            "question": "How long will the operation take?",
+            "answer": "The actual surgery usually lasts from one to two hours, plus another one to two hours for prep and recovery in the operating room. The length of the surgery depends on your health and medical needs, as well as your size. Larger patients with more knee problems require longer surgical time."
+            },
+            {
+            "question": "How long will I be in the hospital?",
+            "answer": "The average hospital stay is two nights. Your discharge from the hospital depends on your ability to eat, control your pain and your progress with physical therapy."
+            },
+            {
+            "question": "When can I drive, resume sexual activity, play golf?",
+            "answer": "Your surgeon will advise you regarding resuming your normal activities depending on your individual health and how quickly you recover from surgery. Most people can resume normal activities in four to eight weeks."
+            }
 	]
 }
+
+
+
+
+
+
+
+
+
+
