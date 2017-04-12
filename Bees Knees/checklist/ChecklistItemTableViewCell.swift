@@ -8,23 +8,21 @@
 
 import UIKit
 
-
 protocol ChecklistItemTableViewCellDelegate: class {
-    func beginEditing(element: UIControl)
+    func beginEditing(element: UITextView)
     func doneEditing(sender: ChecklistItemTableViewCell, item: ChecklistItem)
     func toggleCompleted(sender: ChecklistItemTableViewCell, item: ChecklistItem)
 }
 
-class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
+class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
     
     var checklistItem: ChecklistItem?
     
     var toggleButton = UIButton()
     var addButton = UIButton()
-    var itemField = UITextField()
+    var itemField = UITextView()
     
     var delegate: ChecklistItemTableViewCellDelegate?
-    
     
     // MARK: - Initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -34,24 +32,38 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.selectionStyle = .none
         
         // Set text field attributes
-        itemField.returnKeyType = .done
-        itemField.delegate = self
+        self.itemField.returnKeyType = .done
+        self.itemField.delegate = self
+        
+        // self.itemField.textAlignment = .left
+        self.itemField.isScrollEnabled = false
+        
         
         // Create the toggle image
         let normal: UIImage = UIImage(named: "checkbox")!
         let selected: UIImage = UIImage(named: "checkbox-filled")!
         let disabled: UIImage = UIImage(named: "add")!
-        toggleButton = UIButton(type: .custom)
-        toggleButton.setImage(normal, for: .normal)
-        toggleButton.setImage(selected, for: .selected)
-        toggleButton.titleLabel?.text = ""
-        toggleButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.btnTouched), for: .touchUpInside)
+        
+        self.toggleButton = UIButton(type: .custom)
+        self.toggleButton.setImage(normal, for: .normal)
+        self.toggleButton.setImage(selected, for: .selected)
+        self.toggleButton.titleLabel?.text = ""
+        self.toggleButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.btnTouched), for: .touchUpInside)
         
         // Create the add button image
-        addButton = UIButton(type: .custom)
-        addButton.setImage(disabled, for: .normal)
-        addButton.titleLabel?.text = ""
-        addButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.addButtonTouched), for: .touchUpInside)
+        self.addButton = UIButton(type: .custom)
+        self.addButton.setImage(disabled, for: .normal)
+        self.addButton.titleLabel?.text = ""
+        self.addButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.addButtonTouched), for: .touchUpInside)
+        
+        
+        
+        self.addSubview(toggleButton)
+        self.addSubview(itemField)
+       // self.addSubview(addButton)
+        self.itemField.translatesAutoresizingMaskIntoConstraints = false;
+        self.toggleButton.translatesAutoresizingMaskIntoConstraints = false;
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,29 +72,37 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        //self.customLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         
-        // Custom dimensions to fit any device
-        let iconSize = self.frame.height * 0.5
-        let heightOffset = (self.frame.height - iconSize) / 2
-        let iconLeftOffset: CGFloat = 20.0
-        let textOffset: CGFloat = 12.0
-        let textWidth = self.frame.width - textOffset - iconSize - iconLeftOffset
         
-        // Add the toggle button to the subview
-        toggleButton.frame = CGRect(x: 0, y: 0, width: iconSize + iconLeftOffset, height: heightOffset + heightOffset + iconSize)
-        toggleButton.contentEdgeInsets = UIEdgeInsets(top: heightOffset, left: iconLeftOffset, bottom: heightOffset, right: 0)
-        self.addSubview(toggleButton)
+        let customLabelTopConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 3)
         
-        // Add the add button to the subview in the same place as the toggle
-        addButton.frame = CGRect(x: 0, y: 0, width: iconSize + iconLeftOffset, height: heightOffset + heightOffset + iconSize)
-        addButton.contentEdgeInsets = UIEdgeInsets(top: heightOffset, left: iconLeftOffset, bottom: heightOffset, right: 0)
-        self.addSubview(addButton)
+        let customLabelBottomConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -3)
         
-        // Add the label to the subview
-        itemField.frame = CGRect(x: iconSize + textOffset + iconLeftOffset, y: heightOffset, width: textWidth, height: iconSize)
-        self.addSubview(itemField)
+        let customLabelLeadingConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 50)
+        
+        let customLabelTrailingConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -50)
+        
+        NSLayoutConstraint.activate([customLabelTopConstraint, customLabelBottomConstraint, customLabelLeadingConstraint, customLabelTrailingConstraint])
+        
+        let toggleButtonTopConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 3)
+        
+        let toggleButtonBottomConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -3)
+        
+        let toggleButtonLeadingConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
+            , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 20)
+        
+        //        let toggleButtonTrailingConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
+        //            , toItem: self.itemField, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+        
+        NSLayoutConstraint.activate([toggleButtonTopConstraint, toggleButtonBottomConstraint, toggleButtonLeadingConstraint])
+        
+        
     }
-    
     
     // MARK: - Helper functions
     func setChecklistItem(item: ChecklistItem) {
@@ -122,7 +142,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
         addButton.isHidden = false
     }
     
-    func saveText(textField: UITextField) {
+    func saveText(textField: UITextView) {
         if !(checklistItem?.enabled)! && textField.text != "" {
             enable()
         }
@@ -133,21 +153,32 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     
-    // MARK: - Text Field Delegate
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        delegate?.beginEditing(element: textField)
-        
+    
+    
+    // MARK: - Text View Delegate
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        saveText(textField: textView)
+        //textView.resignFirstResponder()
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        saveText(textField: textField)
-        
-        textField.resignFirstResponder()
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        delegate?.beginEditing(element: textView)
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        saveText(textField: textField)
+    func textViewDidEndEditing(_ textView: UITextView) {
+        saveText(textField: textView)
+       // textView.resignFirstResponder()
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text.compare("\n").rawValue == 0) {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+   
+    
 }

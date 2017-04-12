@@ -20,7 +20,7 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
     var tableViewData = [ChecklistItem]()
     
     // Keep track of the observed UI item in case we need to make it visible via scrolling
-    var activeElement: UIControl?
+    var activeElement: UITextView?
     
     // Keep default edge insets for when we need to reset scrolling
     var defaultScrollInsets: UIEdgeInsets?
@@ -61,6 +61,10 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         scrollView.addSubview(self.tableView)
     }
     
@@ -95,6 +99,11 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
         scrollView.keyboardDismissMode = .interactive
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        self.tableView.setNeedsLayout()
+        self.tableView.layoutIfNeeded()
+    }
     
     // MARK: - Table View Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -196,7 +205,7 @@ class PreSurgeryChecklistViewController: UIViewController, UITableViewDelegate, 
 }
 
 extension PreSurgeryChecklistViewController: ChecklistItemTableViewCellDelegate {
-    func beginEditing(element: UIControl) {
+    func beginEditing(element: UITextView) {
         activeElement = element
     }
     
