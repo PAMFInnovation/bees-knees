@@ -61,6 +61,18 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         if textArea.text != "" {
             label.isHidden = true
         }
+        
+        //let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: selector(sender:));
+        //self.navigationItem.rightBarButtonItem = doneItem;
+        // Add done button to navigation bar
+        let b = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(closeNotesView(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItem = b
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +101,9 @@ class NotesViewController: UIViewController, UITextViewDelegate {
         defaultInsets = textArea.contentInset
     }
     
+    func closeNotesView(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - Keyboard events
     public func keyboardOnScreen(notification: NSNotification) {
