@@ -15,6 +15,7 @@
 		9313B6871E9C3BB4008E990F /* KneeSlidesMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6861E9C3BB4008E990F /* KneeSlidesMills.swift */; };
 		9313B6891E9C3C4F008E990F /* ShortArcQuadsMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B6881E9C3C4F008E990F /* ShortArcQuadsMills.swift */; };
 		9313B68B1E9C3D6F008E990F /* PlanToModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9313B68A1E9C3D6F008E990F /* PlanToModel.swift */; };
+		938AEB301E9EB973000E4B57 /* mills in Resources */ = {isa = PBXBuildFile; fileRef = 938AEB2F1E9EB973000E4B57 /* mills */; };
 		93B114161E9C3FAB00873264 /* PlanToItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B114151E9C3FAB00873264 /* PlanToItem.swift */; };
 		93B1141C1E9C418900873264 /* ref_anklepumps_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1141B1E9C418900873264 /* ref_anklepumps_mills.png */; };
 		93B1141E1E9C419600873264 /* ref_heelslides_mills.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1141D1E9C419600873264 /* ref_heelslides_mills.png */; };
@@ -268,6 +269,7 @@
 		9313B6861E9C3BB4008E990F /* KneeSlidesMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KneeSlidesMills.swift; sourceTree = "<group>"; };
 		9313B6881E9C3C4F008E990F /* ShortArcQuadsMills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortArcQuadsMills.swift; sourceTree = "<group>"; };
 		9313B68A1E9C3D6F008E990F /* PlanToModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanToModel.swift; sourceTree = "<group>"; };
+		938AEB2F1E9EB973000E4B57 /* mills */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mills; sourceTree = "<group>"; };
 		93B114151E9C3FAB00873264 /* PlanToItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanToItem.swift; sourceTree = "<group>"; };
 		93B1141B1E9C418900873264 /* ref_anklepumps_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_anklepumps_mills.png; path = content/ref_anklepumps_mills.png; sourceTree = "<group>"; };
 		93B1141D1E9C419600873264 /* ref_heelslides_mills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ref_heelslides_mills.png; path = content/ref_heelslides_mills.png; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 		9ED187EE1E37C034009E5126 /* binder */ = {
 			isa = PBXGroup;
 			children = (
+				938AEB2F1E9EB973000E4B57 /* mills */,
 				9E51683E1E88385F00448BE4 /* altabates */,
 			);
 			name = binder;
@@ -1096,6 +1099,7 @@
 				9EFDA05E1D8370F400FD6763 /* LaunchScreen.storyboard in Resources */,
 				93B114241E9C41A700873264 /* ref_quadsets_mills.png in Resources */,
 				9E6829071E4917D300568DB6 /* QuadSets.mp4 in Resources */,
+				938AEB301E9EB973000E4B57 /* mills in Resources */,
 				9E4D58501E085891008953E2 /* ref_quadsets.png in Resources */,
 				93B1141E1E9C419600873264 /* ref_heelslides_mills.png in Resources */,
 				9E5167AE1E8790C900448BE4 /* millspeninsula.json in Resources */,
