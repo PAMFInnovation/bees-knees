@@ -19,11 +19,11 @@ struct ShortArcQuadsMills: Activity {
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [3, 3, 3, 3, 3, 3, 3])
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [2, 2, 2, 2, 2, 2, 2])
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Short Arc Quads", comment: "")
-        let summary = NSLocalizedString("10 reps", comment: "")
+        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Place a rolled towel under your knee. Raise the lower part of your leg until your knee is straight. Hold for 10 seconds. Relax. Repeat.", comment: "")
         
         // Create the intervention activity

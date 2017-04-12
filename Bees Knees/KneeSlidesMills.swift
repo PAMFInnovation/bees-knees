@@ -19,11 +19,11 @@ struct KneeSlidesMills: Activity {
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [3, 3, 3, 3, 3, 3, 3])
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [2, 2, 2, 2, 2, 2, 2])
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Knee Slides", comment: "")
-        let summary = NSLocalizedString("10 reps", comment: "")
+        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Slowly slide your foot back as far as you can and hold 10 seconds. Relax. Repeat.", comment: "")
         
         // Create the intervention activity
