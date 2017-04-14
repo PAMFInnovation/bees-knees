@@ -1,7 +1,11 @@
 {
     "appointments": [
             {
-                "title": "Pre-admission appointment",
+                "title":"Pre-Operative Class",
+                "type": "Consultation"
+            },
+            {
+                "title": "Pre-admission Testing",
                 "type": "PreOp"
             },
             {
@@ -15,16 +19,20 @@
     ],
     "planto":[
             {
+              "appointmentType" : "Consultation",
+              "planToItems" : "Plan to: \n-Bring your binder \n-Bring completed Advanced Joint Care and Replacement Center questionnaire \n-Bring your list of questions, if any"
+            },
+            {
               "appointmentType" : "Pre-operative appointment",
-              "planToItems" : "Plan to: \n-Bring your binder and medication list \n-Bring completed Anesthesia questionnaire \n-Bring completed Advanced Joint Care and Replacement Center questionnaire \n-Bring your list of questions, if any \n-Bring your health insurance info \n-Bring a copy if Advanced Health Care Directive"
+              "planToItems" : "Plan to: \n-Bring your binder and medication list \n-Bring completed Anesthesia questionnaire \n-Bring your list of questions, if any \n-Bring your health insurance info \n-Bring a copy if Advanced Health Care Directive"
             },
             {
               "appointmentType" : "Orthopedic surgeon appointment",
-              "planToItems" : "Plan to: \n- Bring your binder and medication list \n- Bring your list of questions, if any \n- Confirm surgery details with surgeon"
+              "planToItems" : "Plan to: \n- Bring your binder \n- Bring your list of questions, if any \n- Confirm surgery details with surgeon"
             },
             {
               "appointmentType" : "Surgery",
-              "planToItems" : "Plan to: \n- Shower with antiseptic sponges the night befrore and mornign of surgery \n- Not eat or drint after midnight of surgery \n- Brush your teeth and rinse \n- Bring your binder and packed bag \n- Arrive at hospital 1 1/2 hours before surgery"
+              "planToItems" : "Plan to: \n- Shower with antiseptic sponges the night befrore and mornign of surgery \n- Brush your teeth and rinse \n- Bring your binder and packed bag \n- Arrive at hospital 1 1/2 hours before surgery \n- Follow pre-admission testing instructions for eating, drinking, and taking medications before surgery"
             },
             {
               "appointmentType" : "2-week follow up",
@@ -41,20 +49,20 @@
                    "StraightLegRaisesMills"
     ],
 	"checklist": [
+                  "Register for joint replacement class",
+                  "Fill out Advanced Joint Care Questionnaire",
                   "Check with surgeon about current medications",
                   "Schedule pre-admission testing appointment",
-                  "Fill out Anesthesia Questionnaire",
+                  "Fill out Anesthesia Questionnaire and medication list",
                   "Fill out Advanced Joint Care Questionnaire",
                   "Register for joint replacement class",
                   "Review American Joint Replacement Registry info",
                   "Obtain prescription for post-op PT appointments",
                   "Get a dental exam",
-                  "Get DMV application for temporary disability parking placard",
                   "Find helpers post surgery for housework/meals",
                   "Eat a healthy diet",
                   "Quit smoking",
-                  "Start doing strengthening exercises (both legs)",
-                  "Discuss home health needs with care manager",
+                  "Start doing strengthening exercises (both legs), if instructed by surgeon",
                   "Prepare meals for post- surgery",
                   "Place food and utensils in easy-to-reach places",
                   "Make clear paths between rooms",
@@ -62,23 +70,102 @@
                   "Find a stable chair with arm rests",
                   "Place a non-skid bath mat in your tub/shower",
                   "Place everyday items at arm level",
-                  "Have extra pillows for positioning",
+                  "Have extra pillows for positioning and ice packs for swelling",
                   "Pack your bag"
 	],
 	"binder": [
 		{
-			"section": "Knee Replacement Exercises",
+			"section": "Introduction",
 			"subsections": [
 				{
-					"title": "Total Knee Replacement Exercises",
-					"file": "altabates/6-knee-replacement-exercises/total-knee-replacement-exercises"
+					"title": "Welcome",
+					"file": "mills/1-introduction/welcome"
 				},
-            	{
-            		"title": "How to Use an Incentive Spirometer",
-            		"file": "altabates/6-knee-replacement-exercises/how-to-use-an-incentive-spirometer"
-            	}
+                {
+                    "title": "Visitor Information",
+                    "file": "mills/1-introduction/visitor-information"
+                },
+                {
+                    "title": "Knee Replacement Surgery",
+                    "file": "mills/1-introduction/knee-replacement-surgery"
+                }
 			]
-		}
+		},
+        {
+           "section": "Before Surgery",
+           "subsections": [
+                {
+                    "title": "Your surgery checklist",
+                    "file": "mills/2-before-surgery/your-surgery-checklist"
+                },
+                {
+                    "title": "Prepare your home before surgery",
+                    "file": "mills/2-before-surgery/prepare-your-home-before-surgery"
+                },
+                {
+                    "title": "What to pack for your hospital stay",
+                    "file": "mills/2-before-surgery/what-to-pack-for-your-hospital-stay"
+                },
+                {
+                    "title": "The night before surgery",
+                    "file": "mills/2-before-surgery/the-night-before-surgery"
+                },
+                {
+                    "title": "The day of your surgery",
+                    "file": "mills/2-before-surgery/the-day-of-your-surgery"
+                },
+                {
+                    "title": "Knee exercises",
+                    "file": "mills/2-before-surgery/knee-exercises"
+                }
+            ]
+        },
+        {
+            "section": "At the Hospital",
+            "subsections": [
+                {
+                    "title": "What to expect in the hospital",
+                    "file": "mills/3-at-the-hospital/what-to-expect-in-the-hospital"
+                },
+                {
+                    "title": "What to expect right after surgery",
+                    "file": "mills/3-at-the-hospital/what-to-expect-right-after-surgery"
+                },
+                {
+                    "title": "Pain management in the hospital",
+                    "file": "mills/3-at-the-hospital/pain-management-in-the-hospital"
+                },
+                {
+                    "title": "Pain management at home",
+                    "file": "mills/3-at-the-hospital/pain-management-at-home"
+                },
+                {
+                    "title": "Recovery Tips",
+                    "file": "mills/3-at-the-hospital/recovery-tips"
+                },
+                {
+                    "title": "The day you go home",
+                    "file": "mills/3-at-the-hospital/the-day-you-go-home"
+                }
+            ]
+        },
+        {
+            "section": "Recovery After Surgery",
+            "subsections": [
+                {
+                    "title": "Recovering at home",
+                    "file": "mills/4-recovery-after-surgery/recovering-at-home"
+                },
+                {
+                    "title": "Exercise tips for recovery",
+                    "file": "mills/4-recovery-after-surgery/exercise-tips-for-recovery"
+                },
+                {
+                    "title": "Nutrition tips for recovery",
+                    "file": "mills/4-recovery-after-surgery/nutrition-tips-for-recovery"
+                }
+            ]
+        }
 	],
 	"faq": [
             {
@@ -104,6 +191,10 @@
             {
             "question": "When can I drive, resume sexual activity, play golf?",
             "answer": "Your surgeon will advise you regarding resuming your normal activities depending on your individual health and how quickly you recover from surgery. Most people can resume normal activities in four to eight weeks."
+            },
+            {
+            "question": "Who should I contact if I have questions about surgery?",
+            "answer": "Contact your patient navigator at 650-696-5522 or your surgeon’s office."
             }
 	]
 }
