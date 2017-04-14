@@ -12,7 +12,7 @@ import CareKit
 struct LongArcQuadsMills: Activity {
     let activityType: ActivityType = .LongArcQuadsMills
     
-    let rationale: String = NSLocalizedString("\u{2022} [NEEDS RATIONALE]", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in your thigh muscles\n\u{2022}Reminds your body how to activate your quad/thigh muscle\n\u{2022}Practices straightening surgical knee\n\u{2022}Decreases swelling in knee", comment: "")
     let image: (name: String, type: String) = ("ref_longarcquads_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
@@ -23,7 +23,7 @@ struct LongArcQuadsMills: Activity {
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Long Arc Quads", comment: "")
-        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
+        let summary = NSLocalizedString("Work up to 3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Straighten operated leg and try to hold it for 10 seconds. Relax. Repeat.", comment: "")
         
         // Create the intervention activity

@@ -23,7 +23,7 @@ struct HeelSlidesMills: Activity {
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Heel Slides", comment: "")
-        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
+        let summary = NSLocalizedString("Work up to 3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Bend knee and pull heel toward buttocks. Hold for 10 seconds. Relax. Repeat.", comment: "")
         
         // Create the intervention activity

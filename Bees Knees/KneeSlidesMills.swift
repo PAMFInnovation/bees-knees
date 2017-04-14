@@ -12,7 +12,7 @@ import CareKit
 struct KneeSlidesMills: Activity {
     let activityType: ActivityType = .KneeSlidesMills
     
-    let rationale: String = NSLocalizedString("\u{2022} Activates hip muscles which are important for walking \nu{2022}Practices using hip muscles and knee together", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Activates hamstring muscles which are important for walking", comment: "")
     let image: (name: String, type: String) = ("ref_kneeslides_mills", "png")
     let video: (name: String, type: String) = ("", "")
     
@@ -23,7 +23,7 @@ struct KneeSlidesMills: Activity {
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Knee Slides", comment: "")
-        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
+        let summary = NSLocalizedString("Work up to 3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Slowly slide your foot back as far as you can and hold 10 seconds. Relax. Repeat.", comment: "")
         
         // Create the intervention activity

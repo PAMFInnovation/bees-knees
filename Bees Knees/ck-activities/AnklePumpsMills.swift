@@ -19,11 +19,11 @@ struct AnklePumpsMills: Activity {
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create the weekly schedule
         let startDate = DateComponents(year: 2016, month: 11, day: 01)
-        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [2, 2, 2, 2, 2, 2, 2])
+        let schedule = OCKCareSchedule.weeklySchedule(withStartDate: startDate as DateComponents, occurrencesOnEachDay: [3, 3, 3, 3, 3, 3, 3])
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Ankle Pumps", comment: "")
-        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
+        let summary = NSLocalizedString("10 times per hour", comment: "")
         let instructions = NSLocalizedString("Bend ankles to move feet up and down, alternating feet. 10 times per hour", comment: "")
         
         // Create the intervention activity

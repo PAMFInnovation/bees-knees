@@ -23,7 +23,7 @@ struct QuadSetsMills: Activity {
         
         // Set localized strings to be used in the activity
         let title = NSLocalizedString("Quad Sets", comment: "")
-        let summary = NSLocalizedString("3 sets of 10 reps", comment: "")
+        let summary = NSLocalizedString("Work up to 3 sets of 10 reps", comment: "")
         let instructions = NSLocalizedString("Slowly tighten muscles on thigh of operated leg while counting out loud to 10. Relax. Repeat.", comment: "")
         
         // Create the intervention activity
