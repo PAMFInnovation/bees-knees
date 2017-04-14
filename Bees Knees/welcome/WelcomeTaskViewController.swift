@@ -59,7 +59,7 @@ class WelcomeTaskViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup the icon
-        var image: UIImage = UIImage(named: self.iconName)!
+        let image: UIImage = UIImage(named: self.iconName)!
         self.icon.image = image
         self.icon.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(icon)
