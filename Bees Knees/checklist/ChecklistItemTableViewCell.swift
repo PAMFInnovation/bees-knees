@@ -34,10 +34,8 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
         // Set text field attributes
         self.itemField.returnKeyType = .done
         self.itemField.delegate = self
-        
-        // self.itemField.textAlignment = .left
         self.itemField.isScrollEnabled = false
-        
+        self.itemField.font = .systemFont(ofSize: 16)
         
         // Create the toggle image
         let normal: UIImage = UIImage(named: "checkbox")!
@@ -56,11 +54,9 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
         self.addButton.titleLabel?.text = ""
         self.addButton.addTarget(self, action: #selector(ChecklistItemTableViewCell.addButtonTouched), for: .touchUpInside)
         
-        
-        
         self.addSubview(toggleButton)
         self.addSubview(itemField)
-       // self.addSubview(addButton)
+        self.addSubview(addButton)
         self.itemField.translatesAutoresizingMaskIntoConstraints = false;
         self.toggleButton.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -72,8 +68,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //self.customLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-        
+        self.addButton.frame = CGRect(x: 20, y: 3, width: 30, height: 31)
         
         let customLabelTopConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 3)
         
@@ -81,7 +76,7 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
             , toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -3)
         
         let customLabelLeadingConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
-            , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 50)
+            , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 60)
         
         let customLabelTrailingConstraint = NSLayoutConstraint(item: self.itemField, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
             , toItem: self, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -50)
@@ -96,12 +91,8 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
         let toggleButtonLeadingConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal
             , toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 20)
         
-        //        let toggleButtonTrailingConstraint = NSLayoutConstraint(item: self.toggleButton, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal
-        //            , toItem: self.itemField, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
-        
         NSLayoutConstraint.activate([toggleButtonTopConstraint, toggleButtonBottomConstraint, toggleButtonLeadingConstraint])
-        
-        
+    
     }
     
     // MARK: - Helper functions
@@ -151,9 +142,6 @@ class ChecklistItemTableViewCell: UITableViewCell, UITextViewDelegate {
             delegate?.doneEditing(sender: self, item: checklistItem!)
         }
     }
-    
-    
-    
     
     // MARK: - Text View Delegate
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
