@@ -40,7 +40,7 @@ class ContactUsViewController: UIViewController {
         let iconSize: CGFloat = 100
         
         self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 100))
+        self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 90))
         self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: iconSize))
         self.view.addConstraint(NSLayoutConstraint(item: icon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: iconSize))
         
@@ -64,7 +64,7 @@ class ContactUsViewController: UIViewController {
         
         self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 30))
         self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -30))
-        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .top, relatedBy: .equal, toItem: icon, attribute: .bottom, multiplier: 1.0, constant: 30))
+        self.view.addConstraint(NSLayoutConstraint(item: mainTextView, attribute: .top, relatedBy: .equal, toItem: icon, attribute: .bottom, multiplier: 1.0, constant: 15))
         
         
         // Setup the secondary text view
@@ -84,6 +84,6 @@ class ContactUsViewController: UIViewController {
         
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 30))
         self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -30))
-        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 10))
+        self.view.addConstraint(NSLayoutConstraint(item: secondaryTextView, attribute: .top, relatedBy: .equal, toItem: mainTextView, attribute: .bottom, multiplier: 1.0, constant: 5))
     }
 }
