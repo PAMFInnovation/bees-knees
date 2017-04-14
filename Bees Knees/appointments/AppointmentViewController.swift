@@ -207,9 +207,9 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         cell.delegate = self
         
         // Set the default cell height for this row
+        // Removed cell.appointment?.type == AppointmentType.Consultation check because it is used for MPHS location.-- Kranthi.
         if identifier == "plannerCell" &&
-            (cell.appointment?.type == AppointmentType.CheckUp ||
-            cell.appointment?.type == AppointmentType.Consultation) {
+            (cell.appointment?.type == AppointmentType.CheckUp) {
             self.tableViewData[indexPath.row].defaultHeight = 0
         }
         else {

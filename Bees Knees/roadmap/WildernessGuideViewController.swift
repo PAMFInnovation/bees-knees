@@ -154,6 +154,7 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         self.tableViewData = []
         
         // Check for specific appointments
+        var consultation: Appointment? = nil
         var preOpAppt: Appointment? = nil
         var orthoAppt: Appointment? = nil
         var followUp2Appt: Appointment? = nil
@@ -166,6 +167,9 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
                 appts.append(appt)
             }
             
+            if appt.type == AppointmentType.Consultation {
+                consultation = appt
+            }
             if appt.type == AppointmentType.PreOp {
                 preOpAppt = appt
             }
@@ -222,6 +226,10 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
             if preOpAppt != nil && preOpAppt?.scheduled == false {
                 self.tableViewData.insert(preOpAppt!, at: 0)
             }
+            // Adding consultation type for MPHS
+            if consultation != nil && consultation?.scheduled == false {
+                self.tableViewData.insert(consultation!, at: 0)
+            }
         }
         
         
@@ -248,17 +256,12 @@ class WildernessGuideViewController: UIViewController, UITableViewDelegate, UITa
         if appt.scheduled == false {
             height = 66.0
         }
-        else if appt.type == AppointmentType.Surgery {
+        else if (appt.type == AppointmentType.Surgery || appt.type == AppointmentType.PreOp ||
+            appt.type == AppointmentType.Orthopedic || appt.type  == AppointmentType.Consultation) {
             //height = appt == nextAppointment ? 215 : 86
             height = appt == nextAppointment ? 200 : height
         }
-        else if appt.type == AppointmentType.PreOp {
-            height = appt == nextAppointment ? 200 : height
-        }
-        else if appt.type == AppointmentType.Orthopedic {
-            height = appt == nextAppointment ? 200 : height
-        }
-        else if appt.type == AppointmentType.CheckUp || appt.type == AppointmentType.Consultation {
+        else if appt.type == AppointmentType.CheckUp  {
             //height = height
         }
         else {
