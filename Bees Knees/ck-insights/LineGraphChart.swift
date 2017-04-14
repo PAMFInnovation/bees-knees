@@ -68,7 +68,7 @@ class LineGraphChart: OCKChart {
                 granularityView.addTarget(self, action: #selector(LineGraphChart.granularityViewChanged), for: .valueChanged)
                 
                 // Add the segmented control as a subview
-                //containerView.addSubview(granularityView)
+                containerView.addSubview(granularityView)
                 containerHeight += granularityViewYOffset
                 containerHeight += granularityViewHeight
             }

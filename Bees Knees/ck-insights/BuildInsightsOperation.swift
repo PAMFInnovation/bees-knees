@@ -176,30 +176,70 @@ class BuildInsightsOperation: Operation {
         let calendar = Calendar.current
         let now = Date()
         var components = DateComponents()
-        components.day = -6
-        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
-        let startDate = calendar.date(byAdding: components, to: now)!
         
         // Construct the plot points
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
-        
-        for offset in 0..<7 {
-            // Determine the day components.
-            components.day = offset
-            let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
-            let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
+
+        if (CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment("Mood").rawValue == "Month"){
+            let dateComponents = DateComponents(year: calendar.component(.year, from: now), month: calendar.component(.month, from: now)-1)
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents)!
             
-            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
+            let range = calendar.range(of: .day, in: .month, for: date)!
+            let numDays = range.count
             
-            // Store the mood result for the current day.
-            if let result = moodEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
-                plotPoints.append(ORKValueRange(value: Double(score)))
+            components.day = -numDays + 1
+            //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+            let startDate = calendar.date(byAdding: components, to: now)!
+            
+            var dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
+            for offset in 0..<numDays {
+                // Determine the day components.
+                components.day = offset
+                dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
+                let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
+                if offset%10 == 0 {
+                    labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
+                } else {
+                    labels.append("")
+                }
+                // Store the mood result for the current day.
+                if let result = moodEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+                    plotPoints.append(ORKValueRange(value: Double(score)))
+                }
+                else {
+                    plotPoints.append(ORKValueRange())
+                }
             }
-            else {
-                plotPoints.append(ORKValueRange())
+            labels.removeLast()
+            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
+        }
+        else {
+            components.day = -6
+            //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
+            let startDate = calendar.date(byAdding: components, to: now)!
+            
+            
+            for offset in 0..<7 {
+                // Determine the day components.
+                components.day = offset
+                let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
+                let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
+                labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
+                
+                // Store the mood result for the current day.
+                if let result = moodEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+                    plotPoints.append(ORKValueRange(value: Double(score)))
+                }
+                else {
+                    plotPoints.append(ORKValueRange())
+                }
             }
         }
+        
+        
+        
         
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
