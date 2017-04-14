@@ -42,7 +42,7 @@ class WelcomeLocationViewController: WelcomeTaskViewController {
         locationPickerView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(locationPickerView)
         self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .bottom, relatedBy: .equal, toItem: continueButton!, attribute: .top, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .bottom, relatedBy: .equal, toItem: continueButton!, attribute: .top, multiplier: 1.0, constant: -60))
         self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 240))
         self.view.addConstraint(NSLayoutConstraint(item: locationPickerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 120))
         
