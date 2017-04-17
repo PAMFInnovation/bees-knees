@@ -12,7 +12,7 @@ import CareKit
 struct StraightLegRaisesMills: Activity {
     let activityType: ActivityType = .StraightLegRaisesMills
     
-    let rationale: String = NSLocalizedString("u{2022}Promotes circulation in your thigh muscles\n\u{2022}Reminds your body how to activate your quad/thigh muscle\n\u{2022}Practices straightening surgical knee\n\u{2022}Decreases swelling in knee", comment: "")
+    let rationale: String = NSLocalizedString("\u{2022} Promotes circulation in your thigh muscles\n\u{2022} Reminds your body how to activate your quad/thigh muscle\n\u{2022} Practices straightening surgical knee\n\u{2022} Decreases swelling in knee", comment: "")
     let image: (name: String, type: String) = ("ref_straightlegraises_mills", "png")
     let video: (name: String, type: String) = ("StraighLegRaises", "mp4")
     
