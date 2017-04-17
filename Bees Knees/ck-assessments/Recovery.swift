@@ -99,59 +99,59 @@ struct Recovery: Assessment {
         case 28:
             return "100"
         case 27:
-            return "91.975"
+            return "92.0"
         case 26:
             return "84.6"
         case 25:
-            return "79.914"
+            return "80.0"
         case 24:
-            return "76.332"
+            return "76.3"
         case 23:
-            return "73.342"
+            return "73.3"
         case 22:
-            return "70.704"
+            return "70.7"
         case 21:
-            return "68.284"
+            return "68.3"
         case 20:
-            return "65.994"
+            return "66.0"
         case 19:
-            return "63.776"
+            return "63.8"
         case 18:
-            return "61.583"
+            return "61.6"
         case 17:
-            return "59.381"
+            return "59.4"
         case 16:
-            return "57.140"
+            return "57.1"
         case 15:
-            return "54.840"
+            return "54.8"
         case 14:
-            return "52.465"
+            return "52.5"
         case 13:
-            return "50.012"
+            return "50.0"
         case 12:
-            return "47.487"
+            return "47.5"
         case 11:
-            return "44.905"
+            return "45.0"
         case 10:
-            return "42.281"
+            return "42.3"
         case 9:
-            return "39.625"
+            return "39.6"
         case 8:
-            return "36.931"
+            return "37.0"
         case 7:
-            return "34.174"
+            return "34.2"
         case 6:
-            return "31.307"
+            return "31.3"
         case 5:
-            return "28.251"
+            return "28.3"
         case 4:
-            return "24.875"
+            return "24.9"
         case 3:
-            return "20.941"
+            return "21.0"
         case 2:
-            return "15.939"
+            return "16.0"
         case 1:
-            return "8.291"
+            return "8.3"
         case 0:
             return "0"
         default:
