@@ -24,7 +24,7 @@
               },
               {
               "appointmentType" : "Surgery",
-              "planToItems" : "Plan to: \n- Start HibiClens shower routine 2-3 days before \n- Follow fasting instructions provided by your surgeon or anesthesiologist \n- Arrive at the hospital at least 2 hours beforehand- Bring your coach \n- Bring your binder and packed bag \n- Be asked many questions for surgery safety \n- Use your spirometer before and after surgery"
+              "planToItems" : "Pl                                                                                                                                                                                                   an to: \n- Start HibiClens shower routine 2-3 days before \n- Follow fasting instructions provided by your surgeon or anesthesiologist \n- Arrive at the                                                                                                                                                                                                                                                                     hospital at least 2 hours beforehand- Bring your coach \n- Bring your binder and packed bag \n- Be asked many questions for surgery safety \n- Use your spirometer before and after surgery"
               },
               {
               "appointmentType" : "2-week follow up",
@@ -40,17 +40,97 @@
               }
     ],
 	"activities": [
-		"Walk",
-        "QuadSets",
-        "AnklePumps",
-        "GluteSets",
-        "HeelSlides",
-        "StraightLegRaises",
-        "SeatedHeelSlides",
-        "HamstringSets",
-        "ChairPressUps",
-        "AbdominalBracing"
-	],
+                   {
+                   "type":"Walk",
+                   "title":"Walk",
+                   "instructions":"More than strengthening muscle, walking strengthens the heart and circulatory system, making them more able to cope with the stresses that will be put on them from surgery. Before starting a walking program, please consult with your doctor or therapist. Always use any assistive device already prescribed to you and make sure you walk in a safe environment. Gradually increase the time that you walk so that you can walk up to 30 minutes at a time.",
+                   "rationale":"",
+                   "repetitionsText" : "20-30 minutes",
+                   "bubbles":"1",
+                   "image":"",
+                   "video":""
+                   },
+                   {
+                   "type":"QuadSets",
+                   "title":"QuadSets",
+                   "instructions":"•  Do slowly\n•  Press back of leg into bed tighten the muscles on top of your thigh.\n•  Hold for 5 seconds and then relax.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Promotes circulation in your thigh muscles\n•  Reminds your body how to activate quad/thigh muscle\n•  Practices straightening surgical knee\n•  Decreases swelling in the knee",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_quadsets",
+                   "video":"QuadSets"
+                   },
+                   {
+                   "type":"AnklePumps",
+                   "title":"AnklePumps",
+                   "instructions":"•  Do slowly\n•  Point toes towards foot of bed.\n•  Pull toes towards your head.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Decreases risk of blood clots\n•  Promotes circulation to lower leg and foot\n•  Helps with ankle range of motion\n•  Decreases swelling in knee, if done with other exercises",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_anklepumps",
+                   "video":"AnklePumps"
+                   },
+                   {
+                   "type":"GluteSets",
+                   "title":"GluteSets",
+                   "instructions":"•  Do slowly\n•  Squeeze your buttocks together as tightly as possible.\n•  Hold for 5 seconds and then relax.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Builds strength in glute muscle which is crucial for standing, walking, climbing stairs, good posture, and balance\n•  Promotes circulation in glute muscle\n•  Reminds your body how to activate glute muscle",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_glutesets",
+                   "video":"GluteSets"
+                   },
+                   {
+                   "type":"HeelSlides",
+                   "title":"HeelSlides",
+                   "instructions":"•  Do slowly\n•  Keep kneecaps pointed towards ceiling throughout exercise.\n•  Slide one foot towards your buttocks, bending your hip and knee.\n•  Slowly return to starting position.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Increases knee’s range of motion\n•  Promotes circulation\n•  Builds strength in surgical knee and leg\n•  Assists with getting out of bed",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_heelslides",
+                   "video":"HeelSlide"
+                   },
+                   {
+                   "type":"StraightLegRaises",
+                   "title":"StraightLegRaises",
+                   "instructions":"•  Do slowly\n•  Keep kneecap pointed towards ceiling throughout exercise.\n•  Bend opposite knee so the foot is flat on the bed (this takes the stress off your low back area).\n•  Tighten muscles in your thigh and raise the leg off the bed. Keep the knee as straight as you can as you raise and then lower the leg back to the bed.\n•  Be sure to use your knee immobilizer during this exercise until you are able to raise and lower the leg by yourself. Once you achieve this, remove the immobilizer and continue to work on lifting and lowering the leg without help.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_straightlegraises",
+                   "video":"StraightLegRaises"
+                   },
+                   {
+                   "type":"HamstringSets",
+                   "title":"HamstringSets",
+                   "instructions":"•  Do slowly\n•  Keeping one leg straight, bend the other to the height of about 6 inches. Tighten the bent leg by digging down and back with the heel.\n•  Hold for 5 seconds and then relax.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Promotes circulation in hamstring muscles\n•  Activates hamstring muscles, which help control your knee joint in standing and walking",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_hamstringsets",
+                   "video":"HamstringSets"
+                   },
+                   {
+                   "type":"ChairPressUps",
+                   "title":"ChairPressUps",
+                   "instructions":"•  Do slowly\n•  Sitting in a chair with armrest, place both hands on the armrests.\n•  Push down with your hands and lift your body straight up in the chair.\n•  Hold for 5 seconds then slowly lower your body down.\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Practices sitting to standing to sitting again safely\n•  Practices using legs and arms together",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"3",
+                   "image":"ref_chairpressups",
+                   "video":""
+                   },
+                   {
+                   "type":"AbdominalBracing",
+                   "title":"AbdominalBracing",
+                   "instructions":"•  Do slowly\n•  Lie on your back.\n•  Bend your knees up.\n•  Tighten your abdominal muscles by bringing your belly button in.\n•  Hold for 5 seconds and then relax\n•  Repeat 10 times, gradually building to 20 reps.",
+                   "rationale":"•  Build strength in your lower back and core muscles",
+                   "repetitionsText" : "10-20 reps",
+                   "bubbles":"1",
+                   "image":"ref_abdominalbracing",
+                   "video":""
+                   }
+    ],
 	"checklist": [
 		"Verify insurance with surgeon's office",
         "Schedule out appointments",

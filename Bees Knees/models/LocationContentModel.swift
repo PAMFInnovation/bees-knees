@@ -12,7 +12,7 @@ import Gloss
 struct LocationContentModel: Glossy, GlossModel {
     
     let appointments: [AppointmentModel]
-    let activities: [String]
+    let activities: [ActivityModel]
     let checklist: [String]
     let binder: [BinderSectionModel]
     let faq: [FAQModel]

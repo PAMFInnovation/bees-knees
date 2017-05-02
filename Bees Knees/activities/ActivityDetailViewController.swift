@@ -90,7 +90,7 @@ class ActivityDetailViewController: UITableViewController {
             sectionTitles.append(RationaleTitle)
         }
         
-        if ((activityContainer?.activity.image.name) != "") {
+        if ((activityContainer?.activity.image) != "") {
             sectionTitles.append(ImageTitle)
         }
     }

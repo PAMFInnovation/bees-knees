@@ -64,17 +64,19 @@ class ActivityDetailInstructionsTableViewCell: UITableViewCell {
     func updateView() {
         _textLabel.text = activityContainer?.carePlanActivity.instructions
         
-        guard let path = Bundle.main.path(forResource: (activityContainer?.activity.video.name)!, ofType: (activityContainer?.activity.video.type)!) else {
+        if activityContainer?.activity.video == "" {
             print("Video file not found")
             _videoContainerView.isHidden = true
             return
+        } else {
+            let path = Bundle.main.path(forResource: (activityContainer?.activity.video)!, ofType: ("mp4"))
+            _videoContainerView.isHidden = false
+            self.addConstraint(NSLayoutConstraint(item: _videoContainerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: ContentHeight))
+            
+            let srcURL = URL(fileURLWithPath: path!)
+            let htmlString = "<iframe width=\"100%\" src=\"\(srcURL)\"></iframe>"
+            _webView.loadHTMLString(htmlString, baseURL: nil)
         }
-        _videoContainerView.isHidden = false
-        self.addConstraint(NSLayoutConstraint(item: _videoContainerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: ContentHeight))
-        
-        let srcURL = URL(fileURLWithPath: path)
-        let htmlString = "<iframe width=\"100%\" src=\"\(srcURL)\"></iframe>"
-        _webView.loadHTMLString(htmlString, baseURL: nil)
     }
     
     override func layoutSubviews() {

@@ -48,7 +48,7 @@ class ActivityDetailImageTableViewCell: UITableViewCell {
     }
     
     func updateView() {
-        let image: UIImage = UIImage(named: (activityContainer?.activity.image.name)!)!
+        let image: UIImage = UIImage(named: (activityContainer?.activity.image)!)!
         _imageView.image = image
     }
     

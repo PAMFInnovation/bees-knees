@@ -39,14 +39,77 @@
               "planToItems" : "Plan to: \n- Check the range of motion and strength \n- Bring your list of questions, if any \n- Share any difficulties in increasing activity levels"
             }
     ],
-	"activities": [
-                   "AnklePumpsMills",
-                   "QuadSetsMills",
-                   "HeelSlidesMills",
-                   "LongArcQuadsMills",
-                   "KneeSlidesMills",
-                   "ShortArcQuadsMills",
-                   "StraightLegRaisesMills"
+    "activities": [
+                   {
+                   "type":"AnklePumpsMills",
+                   "title":"Ankle Pumps",
+                   "instructions":"Bend ankles to move feet up and down, alternating feet. 10 times per hour.",
+                   "rationale":"•  Decreases risk of blood clots\n•  Promotes circulation to lower leg and foot\n•  Helps with ankle range of motion\n•  Decreases swelling in knee, if done with other exercises",
+                   "repetitionsText" : "10 times per hour",
+                   "bubbles":"3",
+                   "image":"ref_anklepumps_mills",
+                   "video":"AnklePumps"
+                   },
+                   {
+                   "type":"QuadSetsMills",
+                   "title":"Quad Sets",
+                   "instructions":"Slowly tighten muscles on thigh of operated leg while counting out loud to 10. Relax. Repeat.",
+                   "rationale":"•  Promotes circulation in your thigh muscles\n•  Reminds your body how to activate quad/thigh muscle\n• Practices straightening surgical knee\n•  Decreases swelling in the knee",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_quadsets_mills",
+                   "video":"QuadSets"
+                   },
+                   {
+                   "type":"HeelSlidesMills",
+                   "title":"HeelSlides",
+                   "instructions":"Bend knee and pull heel toward buttocks. Hold for 10 seconds. Relax. Repeat.",
+                   "rationale":"•  Increases knee’s range of motion\n•  Promotes circulation\n•  Builds strength in surgical knee and leg\n•  Assists with getting out of bed",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_heelslides_mills",
+                   "video":"HeelSlide"
+                   },
+                   {
+                   "type":"LongArcQuadsMills",
+                   "title":"Long Arc Quads",
+                   "instructions":"Straighten operated leg and try to hold it for 10 seconds. Relax. Repeat.",
+                   "rationale":"•  Promotes circulation in your thigh muscles\n•  Reminds your body how to activate your quad/thigh muscle\n•  Practices straightening surgical knee\n•  Decreases swelling in knee",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_longarcquads_mills",
+                   "video":""
+                   },
+                   {
+                   "type":"KneeSlidesMills",
+                   "title":"Knee Slides",
+                   "instructions":"Slowly slide your foot back as far as you can and hold 10 seconds. Relax. Repeat.",
+                   "rationale":"•  Activates hamstring muscles which are important for walking",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_kneeslides_mills",
+                   "video":""
+                   },
+                   {
+                   "type":"ShortArcQuadsMills",
+                   "title":"Short Arc Quads",
+                   "instructions":"Place a rolled towel under your knee. Raise the lower part of your leg until your knee is straight. Hold for 10 seconds. Relax. Repeat.",
+                   "rationale":"•  Promotes circulation in your thigh muscles\n•  Reminds your body how to activate your quad/thigh muscle\n•  Practices straightening surgical knee\n•  Decreases swelling in knee",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_shortarcquads_mills",
+                   "video":""
+                   },
+                   {
+                   "type":"StraightLegRaises",
+                   "title":"StraightLegRaises",
+                   "instructions":"Bend non-operative leg. Keep other leg as straight as possible and tighten muscles on top of thigh. Slowly lift straight leg 6-8 inches from bed and hold for 10 seconds. Relax. Repeat.",
+                   "rationale":"• Promotes circulation in your thigh muscles\n•  Reminds your body how to activate your quad/thigh muscle\n•  Practices straightening surgical knee\n•  Decreases swelling in knee",
+                   "repetitionsText" : "Work upto 3 sets of 10 reps",
+                   "bubbles":"2",
+                   "image":"ref_straightlegraises_mills",
+                   "video":"StraightLegRaises"
+                   }
     ],
 	"checklist": [
                   "Register for joint replacement class",

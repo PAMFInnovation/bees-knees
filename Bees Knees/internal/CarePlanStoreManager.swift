@@ -83,7 +83,7 @@ class CarePlanStoreManager : NSObject {
         if ProfileManager.sharedInstance.getFlowState() != .Launch &&
             ProfileManager.sharedInstance.getFlowState() != .PreSurgeryWelcome {
             let location = ProfileManager.sharedInstance.getUserLocation()
-            self.addBaseActivities(location.activities)
+            self.addBaseActivities(location.activities as! [ActivityModel])
         }
         // Add the recovery assessment if we're in the post surgery routine
         if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
@@ -253,14 +253,16 @@ class CarePlanStoreManager : NSObject {
         return nil
     }
     
-    func addBaseActivities(_ locationActivities: [String]) {
+    func addBaseActivities(_ locationActivities: [ActivityModel]) {
         for activity in locationActivities {
             // Create the activity
-            if let activityType = ActivityType(rawValue: activity) {
-                if let instantiatedActivity = ActivityFactory.activityWithType(activityType) {
+            if let activityType = ActivityType(rawValue: activity.type) {
+                let activity:Activity = DynamicActivity(activityType: activityType, title: activity.title, instructions: activity.instructions, repetitionsText: activity.repetitionsText, bubbles: activity.bubbles, rationale: activity.rationale, image: activity.image, video: activity.video)
+
+                //if let instantiatedActivity = activity {
                     // Add the activity to the list
-                    activities.append(instantiatedActivity)
-                    let carePlanActivity = instantiatedActivity.carePlanActivity()
+                    activities.append(activity)
+                    let carePlanActivity = activity.carePlanActivity()
                     
                     // Add the activity to the store
                     self.store.add(carePlanActivity) { success, error in
@@ -268,42 +270,42 @@ class CarePlanStoreManager : NSObject {
                             print("Error adding activity to the store: ", error?.localizedDescription)
                         }
                     }
-                }
+               // }
             }
         }
     }
     
     func addRecoveryAssessment() {
-        let recoveryActivity = Recovery()
-        activities.append(recoveryActivity)
-        
-        let recoveryCareActivity = recoveryActivity.carePlanActivity()
-        self.store.add(recoveryCareActivity) { success, error in
-            if !success {
-                print("Error adding activity to the store: ", error?.localizedDescription)
-            }
-        }
-        
-        
-        /*let painActivity = KneePain()
-        activities.append(painActivity)
-        
-        let painCareActivity = painActivity.carePlanActivity()
-        self.store.add(painCareActivity) { success, error in
-            if !success {
-                print("Error adding activity to the store: ", error?.localizedDescription)
-            }
-        }*/
-        
-        let moodActivity = Mood()
-        activities.append(moodActivity)
-        
-        let moodCareActivity = moodActivity.carePlanActivity()
-        self.store.add(moodCareActivity) { success, error in
-            if !success {
-                print("Error adding activity to the store: ", error?.localizedDescription)
-            }
-        }
+//        let recoveryActivity = Recovery(activityType: <#ActivityType#>, title: <#String#>)
+//        activities.append(recoveryActivity)
+//        
+//        let recoveryCareActivity = recoveryActivity.carePlanActivity()
+//        self.store.add(recoveryCareActivity) { success, error in
+//            if !success {
+//                print("Error adding activity to the store: ", error?.localizedDescription)
+//            }
+//        }
+//        
+//        
+//        /*let painActivity = KneePain()
+//        activities.append(painActivity)
+//        
+//        let painCareActivity = painActivity.carePlanActivity()
+//        self.store.add(painCareActivity) { success, error in
+//            if !success {
+//                print("Error adding activity to the store: ", error?.localizedDescription)
+//            }
+//        }*/
+//        
+//        let moodActivity = Mood(activityType: <#ActivityType#>)
+//        activities.append(moodActivity)
+//        
+//        let moodCareActivity = moodActivity.carePlanActivity()
+//        self.store.add(moodCareActivity) { success, error in
+//            if !success {
+//                print("Error adding activity to the store: ", error?.localizedDescription)
+//            }
+//        }
     }
     
     func getInsightGranularityForAssessment(_ assessment: String) -> InsightGranularity {

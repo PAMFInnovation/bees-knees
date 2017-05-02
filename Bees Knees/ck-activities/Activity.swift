@@ -15,11 +15,18 @@ struct ActivityContainer {
 }
 
 protocol Activity {
+    
     var activityType: ActivityType { get }
     
+    var title: String { get }
+    var instructions: String { get }
+    var repetitionsText: String { get }
+    var bubbles: String { get }
     var rationale: String { get }
-    var image: (name: String, type: String) { get }
-    var video: (name: String, type: String) { get }
+    var image: String { get }
+    var video: String { get }
+    
+    init(activityType: ActivityType, title: String, instructions: String, repetitionsText: String, bubbles: String, rationale: String, image: String, video: String)
     
     func carePlanActivity() -> OCKCarePlanActivity
 }
@@ -49,27 +56,20 @@ enum ActivityType: String {
     case StraightLegRaisesMills
 }
 
-class ActivityFactory {
-    
-    static func activityWithType(_ type: ActivityType) -> Activity? {
-        switch type {
-        case .Walk: return Walk()
-        case .QuadSets: return QuadSets()
-        case .AnklePumps: return AnklePumps()
-        case .GluteSets: return GluteSets()
-        case .HeelSlides: return HeelSlides()
-        case .StraightLegRaises: return StraightLegRaises()
-        case .HamstringSets: return HamstringSets()
-        case .ChairPressUps: return ChairPressUps()
-        case .AbdominalBracing: return AbdominalBracing()
-        case .QuadSetsMills: return QuadSetsMills()
-        case .AnklePumpsMills: return AnklePumpsMills()
-        case .StraightLegRaisesMills: return StraightLegRaisesMills()
-        case .LongArcQuadsMills: return LongArcQuadsMills()
-        case .KneeSlidesMills: return KneeSlidesMills()
-        case .ShortArcQuadsMills: return ShortArcQuadsMills()
-        case .HeelSlidesMills: return HeelSlidesMills()
-        default: return nil
-        }
-    }
-}
+//class ActivityFactory {
+//    
+//    static func activityWithType(_ type: ActivityType) -> Activity? {
+//        switch type {
+//        case .Walk: return DynamicActivity(activityType: ActivityType.Walk, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .QuadSets: return DynamicActivity(activityType: ActivityType.QuadSets, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .AnklePumps: return DynamicActivity(activityType: ActivityType.AnklePumps, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .GluteSets: return DynamicActivity(activityType: ActivityType.GluteSets, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .HeelSlides: return DynamicActivity(activityType: ActivityType.HeelSlides, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .StraightLegRaises: return DynamicActivity(activityType: ActivityType.StraightLegRaises, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .HamstringSets: return DynamicActivity(activityType: ActivityType.HamstringSets, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .ChairPressUps: return DynamicActivity(activityType: ActivityType.ChairPressUps, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        case .AbdominalBracing: return DynamicActivity(activityType: ActivityType.AbdominalBracing, title: "Walk Title", instructions: "Walk Instructions", repetitionsText: "rep text", bubbles: "2", rationale: "rationale", image: "", video: "")
+//        default: return nil
+//        }
+//    }
+//}

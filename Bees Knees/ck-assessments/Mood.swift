@@ -11,12 +11,26 @@ import ResearchKit
 
 
 struct Mood: Assessment {
-    let activityType: ActivityType = .Mood
+    var activityType: ActivityType
     
-    let rationale: String = NSLocalizedString("", comment: "")
-    let image: (name: String, type: String) = ("", "")
-    let video: (name: String, type: String) = ("", "")
+    var title: String
+    var instructions: String
+    var repetitionsText: String
+    var bubbles: String
+    var rationale: String
+    var image: String
+    var video: String
     
+    init(activityType: ActivityType, title: String, instructions: String, repetitionsText: String, bubbles: String, rationale: String, image: String, video: String) {
+        self.activityType = activityType
+        self.title = title
+        self.instructions = instructions
+        self.repetitionsText = repetitionsText
+        self.bubbles = bubbles
+        self.rationale = rationale
+        self.image = image
+        self.video = video
+    }
     
     func carePlanActivity() -> OCKCarePlanActivity {
         // Create a weekly schedule.
