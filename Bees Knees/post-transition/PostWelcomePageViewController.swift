@@ -116,7 +116,11 @@ extension PostWelcomePageViewController: WelcomeTaskViewControllerDelegate {
         if sender is WelcomeTransitionViewController {
             // Add the Recovery assessment to the care store, since it needs to occur on a specific day
             ProfileManager.sharedInstance.setPostSurgeryStartDate(Date())
-            CarePlanStoreManager.sharedInstance.addRecoveryAssessment()
+            //CarePlanStoreManager.sharedInstance.addRecoveryAssessment()
+            // Assessments
+            let location = ProfileManager.sharedInstance.getUserLocation()
+            CarePlanStoreManager.sharedInstance.addProgressTrackerAssessments(location.assessments)
+            
             
             // Complete this flow
             self.classDelegate?.postWelcomeComplete(sender: self)
