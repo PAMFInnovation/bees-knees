@@ -13,6 +13,7 @@ struct LocationContentModel: Glossy, GlossModel {
     
     let appointments: [AppointmentModel]
     let activities: [ActivityModel]
+    let assessments: [AssessmentModel]
     let checklist: [String]
     let binder: [BinderSectionModel]
     let faq: [FAQModel]
@@ -25,6 +26,8 @@ struct LocationContentModel: Glossy, GlossModel {
         self.binder = ("binder" <~~ json)!
         self.faq = ("faq" <~~ json)!
         self.planTo = ("planto" <~~ json)!
+        self.assessments =
+            ("assessments" <~~ json)!
     }
     
     func toJSON() -> JSON? {
@@ -34,7 +37,8 @@ struct LocationContentModel: Glossy, GlossModel {
             "checklist" ~~> self.checklist,
             "binder" ~~> self.binder,
             "faq" ~~> self.faq,
-            "planto" ~~> self.planTo
+            "planto" ~~> self.planTo,
+            "assessments" ~~> self.assessments
         ])
     }
 }
