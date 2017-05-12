@@ -11,6 +11,12 @@ import ResearchKit
 
 
 protocol Assessment: Activity {
+    
+    var questions: [AssessmentQuestionsModel] { get }
+    var subTitle:String { get }
+    
+    init(activityType: ActivityType, title: String, subTitle: String, instructions: String, questions: [AssessmentQuestionsModel], bubbles: String, repetitionsText: String, rationale: String, image: String, video: String)
+    
     func task() -> ORKTask
     func buildResultForCarePlanEvent(_ event: OCKCarePlanEvent, taskResult: ORKTaskResult) -> OCKCarePlanEventResult
     func getInsightGranularity() -> [String]

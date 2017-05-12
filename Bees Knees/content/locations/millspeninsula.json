@@ -110,6 +110,158 @@
                    "image":"ref_straightlegraises_mills",
                    "video":"StraightLegRaises"
                    }
+                   ],
+    "assessments": [
+                    {
+                    "type":"Mood",
+                    "title":"Mood",
+                    "subTitle":"",
+                    "bubbles":"1",
+                    "questions": [{
+                                  "type": "Mood",
+                                  "mainText": "On a scale from 1 to 10, how would you rate your mood today?",
+                                  "subText": "",
+                                  "answers":[
+                                  ],
+                                  "answerType":"",
+                                  "answerFormat":"scale"
+                                  }
+                                  ]
+                    },
+                    {
+                    "type":"Recovery",
+                    "title":"Pain & Recovery",
+                    "subTitle":"Weekly score: 0-100, 100 = no issues",
+                    "bubbles":"1",
+                    "questions": [
+                                  {
+                                  "type": "stiffness",
+                                  "mainText": "How severe is your knee stiffness after first wakening in the morning?",
+                                  "subText": "The following question concerns the amount of joint stiffness you have experienced during the last week in your knee. Stiffness is a sensation of restriction or slowness in the ease with which you move your knee joint.",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type": "twisting",
+                                  "mainText": "Twisting/pivoting on your knee",
+                                  "subText": "What amount of knee pain have you experienced the last week during the following activities?",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type":"straightening-knee",
+                                  "mainText":"Straightening knee fully",
+                                  "subText":"What amount of knee pain have you experienced the last week during the following activities?",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type":"stairs",
+                                  "mainText":"Going up or down stairs",
+                                  "subText":"What amount of knee pain have you experienced the last week during the following activities?",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type":"standing-upright",
+                                  "mainText":"Standing upright",
+                                  "subText":"What amount of knee pain have you experienced the last week during the following activities?",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type":"rising-from-sitting",
+                                  "mainText":"Rising from sitting",
+                                  "subText":"The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your knee.",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  },
+                                  {
+                                  "type":"bending",
+                                  "mainText":"Bending to floor/pick up an object",
+                                  "subText":"The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your knee.",
+                                  "answers":[{"text":"None",
+                                             "value":"4"},
+                                             {"text":"Mild",
+                                             "value":"3"},
+                                             {"text":"Moderate",
+                                             "value":"2"},
+                                             {"text":"Severe",
+                                             "value":"1"},
+                                             {"text":"Extreme",
+                                             "value":"0"}
+                                             ],
+                                  "answerType":"single",
+                                  "answerFormat":"text"
+                                  }
+                            ]
+                    }
     ],
 	"checklist": [
                   "Register for joint replacement class",

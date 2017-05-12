@@ -54,7 +54,7 @@ class InsightsBuilder {
         // Cancel any in-progress operations.
         updateOperationQueue.cancelAllOperations()
         
-        var components = DateComponents()
+        let components = DateComponents()
         let dayDate = (Calendar.current as NSCalendar).date(byAdding: components, to: ProfileManager.sharedInstance.getPostSurgeryStartDate(), options: [])!
         
         // Create an operation to query for events for the previous 'Pain & Recovery' activities

@@ -38,9 +38,9 @@ class BuildInsightsOperation: Operation {
     // MARK: - Properties
     
     var recoveryEvents: DailyEvents?
-    var kneePainEvents: DailyEvents?
     var moodEvents: DailyEvents?
-    var incisionPainEvents: DailyEvents?
+    
+    var events: [DailyEvents]?
     
     var postSurgeryStartDate: Date?
     
@@ -56,21 +56,27 @@ class BuildInsightsOperation: Operation {
         // Create an array of insights.
         var newInsights = [OCKInsightItem]()
         
-        if let insight = createRecoveryInsight() {
-            newInsights.append(insight)
+        
+        
+        if(ProfileManager.sharedInstance.userLocation != nil) {
+            let location = ProfileManager.sharedInstance.getUserLocation()
+            for assessment in location.assessments {
+                if(assessment.title == "Pain & Recovery") {
+                    if let insight = createGenericInsight(assessment: assessment) {
+                        newInsights.append(insight)
+                    }
+                } else {
+                    if let insight = createMoodInsight() {
+                        newInsights.append(insight)
+                    }
+                }
+                
+            }
         }
         
-        /*if let insight = createKneePainInsight() {
-            newInsights.append(insight)
-        }*/
-        
-        if let insight = createMoodInsight() {
-            newInsights.append(insight)
-        }
-        
-        /*if let insight = createIncisionPainInsight() {
-            newInsights.append(insight)
-        }*/
+//        if let insight = createMoodInsight() {
+//            newInsights.append(insight)
+//        }
         
         // Store any new insights that we created.
         if !newInsights.isEmpty {
@@ -79,9 +85,8 @@ class BuildInsightsOperation: Operation {
     }
     
     
-    // MARK: - Convenience
-    
-    func createRecoveryInsight() -> OCKInsightItem? {
+    func createGenericInsight(assessment:AssessmentModel) -> OCKInsightItem? {
+        
         // Make sure there are events to parse
         guard let recoveryEvents = recoveryEvents else { return nil }
         
@@ -121,49 +126,60 @@ class BuildInsightsOperation: Operation {
         
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
-        lineGraph.title = "Pain & Recovery"
+        lineGraph.title = assessment.title
         CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100)), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
+
     
-    func createKneePainInsight() -> OCKInsightItem? {
-        
+    
+    // MARK: - Convenience
+    
+    func createRecoveryInsight() -> OCKInsightItem? {
         // Make sure there are events to parse
-        guard let kneePainEvents = kneePainEvents else { return nil }
+        guard let recoveryEvents = recoveryEvents else { return nil }
+        
+        // Only proceed if the patient is in post surgery
+        guard let postSurgeryStartDate = postSurgeryStartDate else { return nil }
         
         // Determine the start date for the previous week
         let calendar = Calendar.current
-        let now = Date()
         var components = DateComponents()
-        components.day = -6
-        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
-        let startDate = calendar.date(byAdding: components, to: now)!
+        components.day = 0
+        var currentDate = calendar.date(byAdding: components, to: postSurgeryStartDate)!
+        
+        let now = Date()
         
         // Construct the plot points
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
         
-        for offset in 0..<7 {
-            // Determine the day components.
-            components.day = offset
+        // Iterate until we have all dates, ensuring we don't go beyond "today"
+       // var dayComponents = NSDateComponents(date: currentDate, calendar: calendar)
+        while currentDate < Date() {
+            components.day = -6
+            currentDate = calendar.date(byAdding: components, to: postSurgeryStartDate)!
+            let startDate = calendar.date(byAdding: components, to: now)!
+            
             let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
             let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
-            
-            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
-            
-            // Store the knee pain result for the current day.
-            if let result = kneePainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
+            // Get the result and append scores to the plot
+            if let result = recoveryEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
                 plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
                 plotPoints.append(ORKValueRange())
             }
+            
+            // Append labels to the plot
+            labels.append(Util.getFormattedDate(currentDate, dateFormat: "M/d"))
+            
         }
         
         // Create the line graph and set the data
         let lineGraph = LineGraphChart.init()
-        lineGraph.title = "Pain"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
+        lineGraph.title = "Pain & Recovery"
+        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels, valueRange: (0, 100)), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
     
@@ -180,7 +196,7 @@ class BuildInsightsOperation: Operation {
         // Construct the plot points
         var plotPoints: [ORKValueRange] = []
         var labels: [String] = []
-
+        
         if (CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment("Mood").rawValue == "Month"){
             let dateComponents = DateComponents(year: calendar.component(.year, from: now), month: calendar.component(.month, from: now)-1)
             let calendar = Calendar.current
@@ -247,45 +263,5 @@ class BuildInsightsOperation: Operation {
         CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
         return lineGraph
     }
-
-    func createIncisionPainInsight() -> OCKInsightItem? {
-        
-        // Make sure there are events to parse
-        guard let incisionPainEvents = incisionPainEvents else { return nil }
-        
-        // Determine the start date for the previous week
-        let calendar = Calendar.current
-        let now = Date()
-        var components = DateComponents()
-        components.day = -6
-        //let startDate = calendar.weekDatesForDate((calendar as NSCalendar).date(byAdding: components, to: now, options: [])!).start
-        let startDate = calendar.date(byAdding: components, to: now)!
-        
-        // Construct the plot points
-        var plotPoints: [ORKValueRange] = []
-        var labels: [String] = []
-        
-        for offset in 0..<7 {
-            // Determine the day components.
-            components.day = offset
-            let dayDate = (calendar as NSCalendar).date(byAdding: components, to: startDate, options: [])!
-            let dayComponents = NSDateComponents(date: dayDate, calendar: calendar)
-            
-            labels.append(Util.getFormattedDate(dayDate, dateFormat: "M/d"))
-            
-            // Store the incision pain result for the current day.
-            if let result = incisionPainEvents[dayComponents as DateComponents].first?.result, let score = Int(result.valueString), score > 0 {
-                plotPoints.append(ORKValueRange(value: Double(score)))
-            }
-            else {
-                plotPoints.append(ORKValueRange())
-            }
-        }
-        
-        // Create the line graph and set the data
-        let lineGraph = LineGraphChart.init()
-        lineGraph.title = "Incision Pain"
-        CarePlanStoreManager.sharedInstance.insightsData[lineGraph.title!] = (LineGraphDataSource(plotPoints, labels: labels), CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment(lineGraph.title!))
-        return lineGraph
-    }
+    
 }
