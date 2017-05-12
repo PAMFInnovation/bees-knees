@@ -87,7 +87,9 @@ class CarePlanStoreManager : NSObject {
         }
         // Add the recovery assessment if we're in the post surgery routine
         if ProfileManager.sharedInstance.getFlowState() == .PostSurgeryRoutine {
-            self.addRecoveryAssessment()
+            let location = ProfileManager.sharedInstance.getUserLocation()
+            self.addProgressTrackerAssessments(location.assessments as! [AssessmentModel])
+            //self.addRecoveryAssessment()
         }
         
         // TEMP: add sample data
@@ -275,18 +277,39 @@ class CarePlanStoreManager : NSObject {
         }
     }
     
-    func addRecoveryAssessment() {
-//        let recoveryActivity = Recovery(activityType: <#ActivityType#>, title: <#String#>)
-//        activities.append(recoveryActivity)
-//        
-//        let recoveryCareActivity = recoveryActivity.carePlanActivity()
-//        self.store.add(recoveryCareActivity) { success, error in
-//            if !success {
-//                print("Error adding activity to the store: ", error?.localizedDescription)
+    func addProgressTrackerAssessments(_ locationProgressTrackerActivities: [AssessmentModel]) {
+        for activity in locationProgressTrackerActivities {
+            // Create the activity
+            if let activityType = ActivityType(rawValue: activity.type) {
+                let assessment:Assessment =
+                    GenericAssessment(activityType: activityType, title: activity.title, subTitle: activity.subTitle, instructions: activity.title, questions: activity.questions, bubbles: activity.bubbles, repetitionsText: "", rationale: "", image: "", video: "" )
+                
+                activities.append(assessment)
+                let carePlanActivity = assessment.carePlanActivity()
+                
+                // Add the activity to the store
+                self.store.add(carePlanActivity) { success, error in
+                    if !success {
+                        print("Error adding activity to the store: ", error?.localizedDescription)
+                    }
+                }
+            }
+        }
+
+    }
+    
+//    func addRecoveryAssessment() {
+//        if let activityType = ActivityType(rawValue: "Recovery") {
+//            let recoveryActivity = Recovery(activityType: activityType, title: "Pain & Recovery", instructions: "", repetitionsText: "", bubbles: "", rationale: "", image: "", video: "")
+//            activities.append(recoveryActivity)
+//            
+//            let recoveryCareActivity = recoveryActivity.carePlanActivity()
+//            self.store.add(recoveryCareActivity) { success, error in
+//                if !success {
+//                    print("Error adding activity to the store: ", error?.localizedDescription)
+//                }
 //            }
 //        }
-//        
-//        
 //        /*let painActivity = KneePain()
 //        activities.append(painActivity)
 //        
@@ -297,16 +320,18 @@ class CarePlanStoreManager : NSObject {
 //            }
 //        }*/
 //        
-//        let moodActivity = Mood(activityType: <#ActivityType#>)
-//        activities.append(moodActivity)
-//        
-//        let moodCareActivity = moodActivity.carePlanActivity()
-//        self.store.add(moodCareActivity) { success, error in
-//            if !success {
-//                print("Error adding activity to the store: ", error?.localizedDescription)
-//            }
-//        }
-    }
+////        if let activityType = ActivityType(rawValue: "Mood") {
+////            let moodActivity = Mood(activityType: activityType, title: "Mood", instructions: "", repetitionsText: "", bubbles: "", rationale: "", image: "", video: "")
+////            activities.append(moodActivity)
+////            
+////            let moodCareActivity = moodActivity.carePlanActivity()
+////            self.store.add(moodCareActivity) { success, error in
+////                if !success {
+////                    print("Error adding activity to the store: ", error?.localizedDescription)
+////                }
+////            }
+////        }
+//    }
     
     func getInsightGranularityForAssessment(_ assessment: String) -> InsightGranularity {
         guard let value = insightsData[assessment] else { return .None }
