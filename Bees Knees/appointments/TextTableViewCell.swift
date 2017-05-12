@@ -13,13 +13,13 @@ class TextTableViewCell: AppointmentTableViewCell {
     
     override var appointment: Appointment? {
         willSet(appt) {
-            notesTextArea.text = ProfileManager.sharedInstance.getPlanTo(appointmentType: (appt?.type.description)!)
+            planToTextArea.text = ProfileManager.sharedInstance.getPlanTo(appointmentType: (appt?.type.description)!)
             //Copy.getWildernessGuideCopy(type: (appt?.type)!)
         }
     }
     
-    var notesTextArea = UITextView()
-    let notesHeight: CGFloat = 180
+    var planToTextArea = UITextView()
+    let height: CGFloat = 350
     
     
     // MARK: - Initialization
@@ -30,21 +30,21 @@ class TextTableViewCell: AppointmentTableViewCell {
         self.selectionStyle = .none
         
         // Set height values
-        defaultHeight += notesHeight
+        defaultHeight += height
         
         // Update the cell's height to match the needed height for the text area
-        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
+        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + height)
         
         // Add the notes text area
-        notesTextArea.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: notesHeight)
-        notesTextArea.isEditable = false
-        notesTextArea.isSelectable = false
-        notesTextArea.isScrollEnabled = false
-        notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        notesTextArea.font = UIFont(name: "ArialMT", size: 16)
-        notesTextArea.tintColor = UIColor.gray
-        notesTextArea.textColor = UIColor.gray
-        self.addSubview(notesTextArea)
+        planToTextArea.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: height)
+        planToTextArea.isEditable = false
+        planToTextArea.isSelectable = false
+        planToTextArea.isScrollEnabled = false
+        planToTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        planToTextArea.font = UIFont(name: "ArialMT", size: 16)
+        planToTextArea.tintColor = UIColor.gray
+        planToTextArea.textColor = UIColor.gray
+        self.addSubview(planToTextArea)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +55,6 @@ class TextTableViewCell: AppointmentTableViewCell {
         super.layoutSubviews()
         
         // Update the width of the views
-        notesTextArea.frame = CGRect(x: notesTextArea.frame.minX, y: notesTextArea.frame.minY, width: self.frame.width, height: notesTextArea.frame.height)
+        planToTextArea.frame = CGRect(x: planToTextArea.frame.minX, y: planToTextArea.frame.minY, width: self.frame.width, height: planToTextArea.frame.height)
     }
 }
