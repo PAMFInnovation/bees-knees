@@ -81,18 +81,18 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         tableViewData.append(AppointmentCellData(name: "plannerCell"))
         
         // Setup the scrollview
-        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height + 200)
+        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height )
         self.scrollView = UIScrollView(frame: frame)
         self.view.addSubview(scrollView)
         
         // Setup the table view
-        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 60), style: .grouped)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 120), style: .plain)
         self.tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: tableViewData[0].name)
         //self.tableView.register(AppointmentTypeTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
         self.tableView.register(DateTableViewCell.self, forCellReuseIdentifier: tableViewData[1].name)
         self.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: tableViewData[2].name)
         self.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: tableViewData[3].name)
-        self.tableView.register(TextTableViewCell.self, forCellReuseIdentifier: tableViewData[4].name)
+        self.tableView.register(PlanToTableViewCell.self, forCellReuseIdentifier: tableViewData[4].name)
         self.tableView.separatorStyle = .singleLine
         self.tableView.isScrollEnabled = true
         self.tableView.delegate = self
@@ -198,6 +198,8 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the cell in order of identifier
         let identifier = self.tableViewData[indexPath.row].name
+        
+        print("identifier :", identifier)
         let cell: AppointmentTableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! AppointmentTableViewCell
         
         // Set the appointment reference
@@ -206,12 +208,11 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
         // Set a delegate for the cells
         cell.delegate = self
         
-        // Set the default cell height for this row
-        // Removed cell.appointment?.type == AppointmentType.Consultation check because it is used for MPHS location.-- Kranthi.
-        if identifier == "plannerCell" &&
-            (cell.appointment?.type == AppointmentType.CheckUp) {
-            self.tableViewData[indexPath.row].defaultHeight = 0
+        // Set expanded height based on text for PlanTo cells.
+        if (identifier == "plannerCell") {
+            self.tableViewData[indexPath.row].defaultHeight = cell.expandedHeight
         }
+
         else {
             self.tableViewData[indexPath.row].defaultHeight = cell.defaultHeight
         }
@@ -230,7 +231,8 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
             return cellExpandedHeight
         }
         
-        // Return default cell height
+        print("heightForRowAt :", self.tableViewData[indexPath.row].defaultHeight)
+        
         return self.tableViewData[indexPath.row].defaultHeight
     }
     
