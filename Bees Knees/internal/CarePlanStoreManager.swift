@@ -282,7 +282,7 @@ class CarePlanStoreManager : NSObject {
             // Create the activity
             if let activityType = ActivityType(rawValue: activity.type) {
                 let assessment:Assessment =
-                    GenericAssessment(activityType: activityType, title: activity.title, subTitle: activity.subTitle, instructions: activity.title, questions: activity.questions, bubbles: activity.bubbles, repetitionsText: "", rationale: "", image: "", video: "" )
+                    GenericAssessment(activityType: activityType, title: activity.title, subTitle: activity.subTitle, instructions: activity.title, questions: activity.questions, bubbles: activity.bubbles, repetitionsText: "", rationale: "", image: "", video: "", answerMatrix: activity.answerMatrix, unitString: activity.unitString)
                 
                 activities.append(assessment)
                 let carePlanActivity = assessment.carePlanActivity()

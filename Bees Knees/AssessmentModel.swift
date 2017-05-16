@@ -16,6 +16,8 @@ struct AssessmentModel: Glossy, GlossModel {
     let subTitle: String
     let bubbles: String
     let questions: [AssessmentQuestionsModel]
+    let answerMatrix: [AnswerMatrix]
+    let unitString: String
 
     
     init(json: JSON) {
@@ -24,6 +26,8 @@ struct AssessmentModel: Glossy, GlossModel {
         self.subTitle = ("subTitle" <~~ json)!
         self.bubbles = ("bubbles" <~~ json)!
         self.questions = ("questions" <~~ json)!
+        self.answerMatrix = ("answerMatrix" <~~ json)!
+        self.unitString = ("unitString" <~~ json)!
     }
     
     func toJSON() -> JSON? {
@@ -32,7 +36,9 @@ struct AssessmentModel: Glossy, GlossModel {
             "title" ~~> self.title,
             "subTitle" ~~> self.subTitle,
             "bubble" ~~> self.bubbles,
-            "questions" ~~> self.questions
+            "questions" ~~> self.questions,
+            "answerMatrix" ~~> self.answerMatrix,
+            "unitString" ~~> self.unitString
             ])
     }
 }

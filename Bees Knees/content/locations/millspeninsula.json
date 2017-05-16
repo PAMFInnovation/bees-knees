@@ -1,7 +1,7 @@
 {
     "appointments": [
             {
-                "title":"Pre-Operative Class",
+                "title":"Pre-operative Class",
                 "type": "Consultation"
             },
             {
@@ -116,7 +116,7 @@
                     "type":"Mood",
                     "title":"Mood",
                     "subTitle":"",
-                    "bubbles":"1",
+                    "bubbles":"7",
                     "questions": [{
                                   "type": "Mood",
                                   "mainText": "On a scale from 1 to 10, how would you rate your mood today?",

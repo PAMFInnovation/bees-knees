@@ -25,9 +25,11 @@ struct GenericAssessment: Assessment {
     var video: String
     
     var questions: [AssessmentQuestionsModel]
+    var answerMatrix: [AnswerMatrix]
+    var unitString: String
 
     
-    init(activityType: ActivityType, title: String, subTitle:String, instructions: String, questions: [AssessmentQuestionsModel], bubbles: String, repetitionsText: String, rationale: String, image: String, video: String) {
+    init(activityType: ActivityType, title: String, subTitle:String, instructions: String, questions: [AssessmentQuestionsModel], bubbles: String, repetitionsText: String, rationale: String, image: String, video: String, answerMatrix: [AnswerMatrix], unitString: String) {
         
         self.activityType = activityType
         self.title = title
@@ -39,6 +41,8 @@ struct GenericAssessment: Assessment {
         self.image = ""
         self.video = ""
         self.questions = questions
+        self.answerMatrix = answerMatrix
+        self.unitString = unitString
         
     }
     
@@ -53,6 +57,8 @@ struct GenericAssessment: Assessment {
         self.video = video
         self.questions = []
         self.subTitle = ""
+        self.answerMatrix = []
+        self.unitString = ""
     }
     
     
@@ -65,6 +71,7 @@ struct GenericAssessment: Assessment {
         // This event should only occur once a week, starting on the day this activity was accessed
         var occurrences: [Int] = [0, 0, 0, 0, 0, 0, 0]
         let currentDay = ProfileManager.sharedInstance.getPostSurgeryStartDate().dayNumberOfWeek()
+        // Bubbles is the numbre of days in the week the event occurs. Current we support only 1 and 7
         if(Int(self.bubbles)! == 1) {
             occurrences[currentDay! - 1] =  Int(self.bubbles)!
         } else {
@@ -103,8 +110,8 @@ struct GenericAssessment: Assessment {
                 questionStep.isOptional = false
                 questions.append(questionStep)
             } else if(question.answerFormat == "scale") {
-                let maximumValueDescription = NSLocalizedString("            Good", comment: "")
-                let minimumValueDescription = NSLocalizedString("Bad            ", comment: "")
+                let maximumValueDescription = NSLocalizedString("Good", comment: "")
+                let minimumValueDescription = NSLocalizedString("Bad", comment: "")
                 
                 // Create a question and answer format.
                 let answerFormat = ORKScaleAnswerFormat(
@@ -136,95 +143,30 @@ struct GenericAssessment: Assessment {
     func buildResultForCarePlanEvent(_ event: OCKCarePlanEvent, taskResult: ORKTaskResult) -> OCKCarePlanEventResult {
         // Itereate through the results and get the first step result in each
         
-        if(event.activity.title == "Pain & Recovery") {
-            var value: Int = 0
-            for result in taskResult.results! {
-                // Get the first step result and answer
-                let stepResult = (result as? ORKStepResult)?.results?.first
-                let stepAnswer = (stepResult as? ORKChoiceQuestionResult)?.choiceAnswers?.first
-                
-                // Accumulate those answers into one value
-                value += (stepAnswer as! Int)
-            }
+        var value: Int = 0
+        for result in taskResult.results! {
+            // Get the first step result and answer
+            let stepResult = (result as? ORKStepResult)?.results?.first
             
+            if let stepAnswer = stepResult as? ORKChoiceQuestionResult {
+                value += stepAnswer.choiceAnswers?.first as! Int
+            }
+            else if let scaleResult = stepResult as? ORKScaleQuestionResult, let answer = scaleResult.scaleAnswer {
+                value += answer as Int
+            }
             // Return the final value
-            return OCKCarePlanEventResult(valueString: convertRawToPersonal(score: value), unitString: "out of 100", userInfo: nil)
-        } else {
-            // Get the first result for the first step of the task result.
-            guard let firstResult = taskResult.firstResult as? ORKStepResult, let stepResult = firstResult.results?.first else { fatalError("Unexepected task results") }
-            
-            // Determine what type of result should be saved.
-            if let scaleResult = stepResult as? ORKScaleQuestionResult, let answer = scaleResult.scaleAnswer {
-                return OCKCarePlanEventResult(valueString: answer.stringValue, unitString: "out of 10", userInfo: nil)
-            }
-
+            return OCKCarePlanEventResult(valueString: convertRawToPersonal(score: value), unitString: unitString, userInfo: nil)
         }
         fatalError("Unexpected task result type")
     }
 
     
     fileprivate func convertRawToPersonal(score: Int) -> String {
-        switch score {
-        case 28:
-            return "100"
-        case 27:
-            return "92.0"
-        case 26:
-            return "84.6"
-        case 25:
-            return "80.0"
-        case 24:
-            return "76.3"
-        case 23:
-            return "73.3"
-        case 22:
-            return "70.7"
-        case 21:
-            return "68.3"
-        case 20:
-            return "66.0"
-        case 19:
-            return "63.8"
-        case 18:
-            return "61.6"
-        case 17:
-            return "59.4"
-        case 16:
-            return "57.1"
-        case 15:
-            return "54.8"
-        case 14:
-            return "52.5"
-        case 13:
-            return "50.0"
-        case 12:
-            return "47.5"
-        case 11:
-            return "45.0"
-        case 10:
-            return "42.3"
-        case 9:
-            return "39.6"
-        case 8:
-            return "37.0"
-        case 7:
-            return "34.2"
-        case 6:
-            return "31.3"
-        case 5:
-            return "28.3"
-        case 4:
-            return "24.9"
-        case 3:
-            return "21.0"
-        case 2:
-            return "16.0"
-        case 1:
-            return "8.3"
-        case 0:
-            return "0"
-        default:
-            return "0"
+        for answerMatrix: AnswerMatrix in self.answerMatrix {
+            if(Int(answerMatrix.rawScore) == score) {
+                return answerMatrix.intervalScore
+            }
         }
+        return "0"
     }
 }
