@@ -55,24 +55,10 @@ class InsightsBuilder {
         updateOperationQueue.cancelAllOperations()
         
         let components = DateComponents()
-        let dayDate = (Calendar.current as NSCalendar).date(byAdding: components, to: ProfileManager.sharedInstance.getPostSurgeryStartDate(), options: [])!
+        var queryRangeStart:NSDateComponents?
+        var queryRangeEnd:NSDateComponents?
         
-        // Create an operation to query for events for the previous 'Pain & Recovery' activities
-        let queryRangeStart = NSDateComponents(date: dayDate, calendar: Calendar.current)
-        let queryRangeEnd = NSDateComponents(date: Date(), calendar: Calendar.current)
-        let recoveryOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.Recovery.rawValue, startDate: queryRangeStart as DateComponents, endDate: queryRangeEnd as DateComponents)
-        
-        /*// Create an operation to query for events for the previous week's 'KneePain' activity
-        let kneePainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.KneePain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)
-        
-        // Create an operation to query for events for the previous week's 'IncisionPain' activity
-        let incisionPainEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.IncisionPain.rawValue, startDate: queryDateRange.start, endDate: queryDateRange.end)*/
-        
-        // Create an operation to query for events for the previous week's 'Mood' activity
-        // Get the dates for the current and previous weeks.
-        let moodQueryDateRange = calculateQueryDateRange(CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment("Mood"))
-        let moodEventsOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: ActivityType.Mood.rawValue, startDate: moodQueryDateRange.start, endDate: moodQueryDateRange.end)
-        
+        var queryActivityEventsOperations:[QueryActivityEventsOperation] = [QueryActivityEventsOperation]()
         // Create a 'BuildInsightsOperation' to create insights from the data collected by query operations.
         let buildInsightsOperation = BuildInsightsOperation()
         
@@ -80,14 +66,33 @@ class InsightsBuilder {
         
         // Create an operation to aggregate the data from query operations into the 'BuildInsightsOperation'
         let aggregateDateOperations = BlockOperation {
-            // Copy the queried data from the query operations to the 'BuildInsightsOperation'.
-            buildInsightsOperation.recoveryEvents = recoveryOperation.dailyEvents
-            //buildInsightsOperation.kneePainEvents = kneePainEventsOperation.dailyEvents
-            buildInsightsOperation.moodEvents = moodEventsOperation.dailyEvents
+            for i in (0..<ProfileManager.sharedInstance.getUserLocation().assessments.count) {
+                buildInsightsOperation.genericEvents[ProfileManager.sharedInstance.getUserLocation().assessments[i].type] = queryActivityEventsOperations[i].dailyEvents
+            }
+            
             buildInsightsOperation.postSurgeryStartDate = postSurgeryDate
-            //buildInsightsOperation.incisionPainEvents = incisionPainEventsOperation.dailyEvents
         }
         
+        for assessment: AssessmentModel in ProfileManager.sharedInstance.getUserLocation().assessments {
+            
+            if(Int(assessment.bubbles) == 1) {
+                let dayDate = (Calendar.current as NSCalendar).date(byAdding: components, to: ProfileManager.sharedInstance.getPostSurgeryStartDate(), options: [])!
+                // Create an operation to query for events for the previous 'Pain & Recovery' activities
+                queryRangeStart = NSDateComponents(date: dayDate, calendar: Calendar.current)
+                queryRangeEnd = NSDateComponents(date: Date(), calendar: Calendar.current)
+            } else {
+                let moodQueryDateRange = calculateQueryDateRange(CarePlanStoreManager.sharedInstance.getInsightGranularityForAssessment("Mood"))
+                queryRangeStart = moodQueryDateRange.start as NSDateComponents?
+                queryRangeEnd = moodQueryDateRange.end as NSDateComponents?
+            }
+            
+            let assessmentOperation = QueryActivityEventsOperation(store: carePlanStore, activityIdentifier: assessment.type, startDate: queryRangeStart as! DateComponents, endDate: queryRangeEnd as! DateComponents)
+            
+            queryActivityEventsOperations.append(assessmentOperation)
+            aggregateDateOperations.addDependency(assessmentOperation)
+            updateOperationQueue.addOperation(assessmentOperation)
+        }
+
         // Use the completion block of the 'BuildInsightsOperation' to store the new insights and call the completion block passed to this method.
         buildInsightsOperation.completionBlock = { [unowned buildInsightsOperation] in
             let completed = !buildInsightsOperation.isCancelled
@@ -103,25 +108,15 @@ class InsightsBuilder {
                 }
             }
         }
-        
-        // The aggregate operation is dependent on the query operations.
-        aggregateDateOperations.addDependency(recoveryOperation)
-        //aggregateDateOperations.addDependency(kneePainEventsOperation)
-        //aggregateDateOperations.addDependency(incisionPainEventsOperation)
-        aggregateDateOperations.addDependency(moodEventsOperation)
-        
         // The 'BuildInsightsOperation' is dependent on the aggregate operation.
         buildInsightsOperation.addDependency(aggregateDateOperations)
         
-        // Add all the operations to the operation queue.
+        
+        // Add all the operations to the operation queue
         updateOperationQueue.addOperations([
-            recoveryOperation,
-            //kneePainEventsOperation,
-            //incisionPainEventsOperation,
-            moodEventsOperation,
             aggregateDateOperations,
             buildInsightsOperation
-        ], waitUntilFinished: false)
+            ], waitUntilFinished: false)
     }
     
     private func calculateQueryDateRange(_ granularity: InsightGranularity = .None) -> (start: DateComponents, end: DateComponents) {

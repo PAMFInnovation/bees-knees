@@ -57,6 +57,13 @@ class WelcomePageViewController: UIPageViewController {
         let transition = WelcomeTransitionViewController(mainText: "You're all set! Now let's get started with your routine.", secondaryText: "On the next page, you can add all your appointments and what's ahead.\n\nThen, explore all the tabs along the bottom for more helpful tools, like \"Activities\" for exercises, and \"More\" for the binder.", mainFontSize: 22, secondaryFontSize: 16, icon: "welcome_done")
         transition.delegate = self
         orderedViewControllers.append(transition)
+
+        let confirm = PostWelcomeConfirmViewController(mainText: "Had surgery?", secondaryText: "According to the app, your surgery date has passed. If you have had surgery, please confirm by tapping 'Continue' below.\n\nIf you haven't had your surgery, please update the surgery date to keep preparing.", mainFontSize: 22, secondaryFontSize: 16, icon: "post_confirm")
+        confirm.delegate = self
+        orderedViewControllers.append(confirm)
+        let postTransition = WelcomeTransitionViewController(mainText: "Congratulations!", secondaryText: "Surgery is a big step, and you did it! Now, it's time to keep making progress with your recovery.\n\nMake sure to check out a new feature: 'Progress Tracker and History' where you can record pain and monitor how that changes over time.", mainFontSize: 22, secondaryFontSize: 16, icon: "post_congrats")
+        postTransition.delegate = self
+        orderedViewControllers.append(postTransition)
         
         // Set the data source
         self.dataSource = self
@@ -165,8 +172,38 @@ extension WelcomePageViewController: WelcomeTaskViewControllerDelegate {
                 self.goToViewControllerAtIndex(5)
             }
             else if sender is WelcomeDateViewController {
-                self.goToViewControllerAtIndex(6)
+                if ProfileManager.sharedInstance.isSurgerySet() &&
+                    Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()){
+                    self.goToViewControllerAtIndex(7)
+                } else {
+                    self.goToViewControllerAtIndex(6)
+                }
+            }
+            else if sender is PostWelcomeConfirmViewController {
+                self.goToViewControllerAtIndex(8)
             }
         }
+    }
+}
+
+extension RootViewController: PostWelcomePageViewControllerDelegate {
+    func postWelcomeComplete(sender: PostWelcomePageViewController) {
+        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
+        
+        // Remove the Pre-Surgery Routine Flow
+        preSurgeryRoutineFlow.view.removeFromSuperview()
+        preSurgeryRoutineFlow.removeFromParentViewController()
+        
+        // Dismiss the view and the Post Care Card will be waiting underneath
+        self.view.addSubview(postSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func postWelcomeReturn(sender: PostWelcomePageViewController) {
+        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
+        
+        // Dismiss the view and the Pre Care Card will be waiting underneath
+        //self.view.addSubview(preSurgeryRoutineFlow.view)
+        self.dismiss(animated: true, completion: nil)
     }
 }

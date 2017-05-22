@@ -261,8 +261,8 @@ class CarePlanStoreManager : NSObject {
             if let activityType = ActivityType(rawValue: activity.type) {
                 let activity:Activity = DynamicActivity(activityType: activityType, title: activity.title, instructions: activity.instructions, repetitionsText: activity.repetitionsText, bubbles: activity.bubbles, rationale: activity.rationale, image: activity.image, video: activity.video)
 
-                //if let instantiatedActivity = activity {
                     // Add the activity to the list
+                print("activity: ", activity.activityType)
                     activities.append(activity)
                     let carePlanActivity = activity.carePlanActivity()
                     
@@ -271,8 +271,10 @@ class CarePlanStoreManager : NSObject {
                         if !success {
                             print("Error adding activity to the store: ", error?.localizedDescription)
                         }
+                        else {
+                            print ("success")
+                        }
                     }
-               // }
             }
         }
     }

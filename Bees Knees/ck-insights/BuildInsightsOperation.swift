@@ -37,10 +37,10 @@ class BuildInsightsOperation: Operation {
     
     // MARK: - Properties
     
-    var recoveryEvents: DailyEvents?
-    var moodEvents: DailyEvents?
+  //  var recoveryEvents: DailyEvents?
+  //  var moodEvents: DailyEvents?
     
-    var events: [DailyEvents]?
+    var genericEvents:[String: DailyEvents] = [String: DailyEvents]()
     
     var postSurgeryStartDate: Date?
     
@@ -88,7 +88,7 @@ class BuildInsightsOperation: Operation {
     func createGenericInsight(assessment:AssessmentModel) -> OCKInsightItem? {
         
         // Make sure there are events to parse
-        guard let recoveryEvents = recoveryEvents else { return nil }
+        guard let dailyEvents = genericEvents[assessment.type] else { return nil }
         
         // Only proceed if the patient is in post surgery
         guard let postSurgeryStartDate = postSurgeryStartDate else { return nil }
@@ -108,7 +108,7 @@ class BuildInsightsOperation: Operation {
         var dayComponents = NSDateComponents(date: currentDate, calendar: calendar)
         while currentDate < Date() {
             // Get the result and append scores to the plot
-            if let result = recoveryEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
+            if let result = dailyEvents[dayComponents as DateComponents].first?.result, let score = Double(result.valueString), score > 0 {
                 plotPoints.append(ORKValueRange(value: Double(score)))
             }
             else {
@@ -137,7 +137,7 @@ class BuildInsightsOperation: Operation {
     
     func createRecoveryInsight() -> OCKInsightItem? {
         // Make sure there are events to parse
-        guard let recoveryEvents = recoveryEvents else { return nil }
+        guard let recoveryEvents = genericEvents["Recovery"] else { return nil }
         
         // Only proceed if the patient is in post surgery
         guard let postSurgeryStartDate = postSurgeryStartDate else { return nil }
@@ -186,7 +186,7 @@ class BuildInsightsOperation: Operation {
     func createMoodInsight() -> OCKInsightItem? {
         
         // Make sure there are events to parse
-        guard let moodEvents = moodEvents else { return nil }
+        guard let moodEvents = genericEvents["Mood"] else { return nil }
         
         // Determine the start date for the previous week
         let calendar = Calendar.current

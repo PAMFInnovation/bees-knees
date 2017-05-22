@@ -9,7 +9,7 @@
                 "type": "PreOp"
             },
             {
-                "title": "Orthopedic surgeon appointment",
+                "title": "Orthopedic Surgeon Appt",
                 "type": "Orthopedic"
             },
             {
@@ -113,26 +113,128 @@
                    ],
     "assessments": [
                     {
-                    "type":"Mood",
-                    "title":"Mood",
-                    "subTitle":"",
-                    "bubbles":"7",
-                    "questions": [{
-                                  "type": "Mood",
-                                  "mainText": "On a scale from 1 to 10, how would you rate your mood today?",
-                                  "subText": "",
-                                  "answers":[
-                                  ],
-                                  "answerType":"",
-                                  "answerFormat":"scale"
-                                  }
-                                  ]
-                    },
-                    {
                     "type":"Recovery",
                     "title":"Pain & Recovery",
                     "subTitle":"Weekly score: 0-100, 100 = no issues",
                     "bubbles":"1",
+                    "unitString": "out of 100",
+                    "answerMatrix":[
+                                    {
+                                    "rawScore":"0",
+                                    "intervalScore":"100.00"
+                                    },
+                                    {
+                                    "rawScore":"1",
+                                    "intervalScore":"91.975"
+                                    },
+                                    {
+                                    "rawScore":"2",
+                                    "intervalScore":"84.600"
+                                    },
+                                    {
+                                    "rawScore":"3",
+                                    "intervalScore":"79.914"
+                                    },
+                                    {
+                                    "rawScore":"4",
+                                    "intervalScore":"76.322"
+                                    },
+                                    {
+                                    "rawScore":"5",
+                                    "intervalScore":"73.342"
+                                    },
+                                    {
+                                    "rawScore":"6",
+                                    "intervalScore":"70.704"
+                                    },
+                                    {
+                                    "rawScore":"7",
+                                    "intervalScore":"68.284"
+                                    },
+                                    {
+                                    "rawScore":"8",
+                                    "intervalScore":"65.994"
+                                    },
+                                    {
+                                    "rawScore":"9",
+                                    "intervalScore":"63.776"
+                                    },
+                                    {
+                                    "rawScore":"10",
+                                    "intervalScore":"61.583"
+                                    },
+                                    {
+                                    "rawScore":"11",
+                                    "intervalScore":"59.381"
+                                    },
+                                    {
+                                    "rawScore":"12",
+                                    "intervalScore":"57.140"
+                                    },
+                                    {
+                                    "rawScore":"13",
+                                    "intervalScore":"54.840"
+                                    },
+                                    {
+                                    "rawScore":"14",
+                                    "intervalScore":"52.465"
+                                    },
+                                    {
+                                    "rawScore":"15",
+                                    "intervalScore":"50.012"
+                                    },
+                                    {
+                                    "rawScore":"16",
+                                    "intervalScore":"47.487"
+                                    },
+                                    {
+                                    "rawScore":"17",
+                                    "intervalScore":"44.905"
+                                    },
+                                    {
+                                    "rawScore":"18",
+                                    "intervalScore":"42.281"
+                                    },
+                                    {
+                                    "rawScore":"19",
+                                    "intervalScore":"39.625"
+                                    },
+                                    {
+                                    "rawScore":"20",
+                                    "intervalScore":"36.931"
+                                    },
+                                    {
+                                    "rawScore":"21",
+                                    "intervalScore":"34.174"
+                                    },
+                                    {
+                                    "rawScore":"22",
+                                    "intervalScore":"31.307"
+                                    },
+                                    {
+                                    "rawScore":"23",
+                                    "intervalScore":"28.251"
+                                    },
+                                    {
+                                    "rawScore":"24",
+                                    "intervalScore":"24.875"
+                                    },
+                                    {
+                                    "rawScore":"25",
+                                    "intervalScore":"20.941"
+                                    },
+                                    {
+                                    "rawScore":"26",
+                                    "intervalScore":"15.939"
+                                    },
+                                    {
+                                    "rawScore":"27",
+                                    "intervalScore":"8.291"
+                                    },
+                                    {
+                                    "rawScore":"28",
+                                    "intervalScore":"0.000"}
+                                    ],
                     "questions": [
                                   {
                                   "type": "stiffness",
@@ -260,7 +362,71 @@
                                   "answerType":"single",
                                   "answerFormat":"text"
                                   }
-                            ]
+                                  ]
+                    },
+                    {
+                    "type":"Mood",
+                    "title":"Mood",
+                    "subTitle":"",
+                    "bubbles":"7",
+                    "unitString": "out of 10",
+                    "answerMatrix":[
+                                    {
+                                    "rawScore":"0",
+                                    "intervalScore":"0"
+                                    },
+                                    {
+                                    "rawScore":"1",
+                                    "intervalScore":"1"
+                                    },
+                                    {
+                                    "rawScore":"2",
+                                    "intervalScore":"2"
+                                    },
+                                    {
+                                    "rawScore":"3",
+                                    "intervalScore":"3"
+                                    },
+                                    {
+                                    "rawScore":"4",
+                                    "intervalScore":"4"
+                                    },
+                                    {
+                                    "rawScore":"5",
+                                    "intervalScore":"5"
+                                    },
+                                    {
+                                    "rawScore":"6",
+                                    "intervalScore":"6"
+                                    },
+                                    {
+                                    "rawScore":"7",
+                                    "intervalScore":"7"
+                                    },
+                                    {
+                                    "rawScore":"8",
+                                    "intervalScore":"8"
+                                    },
+                                    {
+                                    "rawScore":"9",
+                                    "intervalScore":"9"
+                                    },
+                                    {
+                                    "rawScore":"10",
+                                    "intervalScore":"10"
+                                    }
+                                    
+                                    ],
+                    "questions": [{
+                                  "type": "Mood",
+                                  "mainText": "On a scale from 1 to 10, how would you rate your mood today?",
+                                  "subText": "",
+                                  "answers":[
+                                  ],
+                                  "answerType":"",
+                                  "answerFormat":"scale"
+                                  }
+                                  ]
                     }
     ],
 	"checklist": [

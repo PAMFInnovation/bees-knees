@@ -1,11 +1,11 @@
 {
 	"appointments": [
 		{
-			"title": "Pre-operative appointment",
+			"title": "Pre-operative Appointment",
 			"type": "PreOp"
 		},
 		{
-			"title": "Orthopedic surgeon appointment",
+			"title": "Orthopedic Surgeon Appt",
 			"type": "Orthopedic"
 		},
 		{
@@ -132,70 +132,6 @@
                    }
     ],
     "assessments": [
-                   {
-                   "type":"Mood",
-                   "title":"Mood",
-                   "subTitle":"",
-                   "bubbles":"7",
-                   "unitString": "out of 10",
-                   "answerMatrix":[
-                                   {
-                                    "rawScore":"0",
-                                    "intervalScore":"0"
-                                   },
-                                   {
-                                   "rawScore":"1",
-                                   "intervalScore":"1"
-                                   },
-                                   {
-                                   "rawScore":"2",
-                                   "intervalScore":"2"
-                                   },
-                                   {
-                                   "rawScore":"3",
-                                   "intervalScore":"3"
-                                   },
-                                   {
-                                   "rawScore":"4",
-                                   "intervalScore":"4"
-                                   },
-                                   {
-                                   "rawScore":"5",
-                                   "intervalScore":"5"
-                                   },
-                                   {
-                                   "rawScore":"6",
-                                   "intervalScore":"6"
-                                   },
-                                   {
-                                   "rawScore":"7",
-                                   "intervalScore":"7"
-                                   },
-                                   {
-                                   "rawScore":"8",
-                                   "intervalScore":"8"
-                                   },
-                                   {
-                                   "rawScore":"9",
-                                   "intervalScore":"9"
-                                   },
-                                   {
-                                   "rawScore":"10",
-                                   "intervalScore":"10"
-                                   }
-                                   
-                                ],
-                    "questions": [{
-                                  "type": "Mood",
-                                  "mainText": "On a scale from 1 to 10, how would you rate your mood today?",
-                                  "subText": "",
-                                  "answers":[
-                                  ],
-                                  "answerType":"",
-                                  "answerFormat":"scale"
-                                  }
-                    ]
-                   },
                     {
                     "type":"Recovery",
                     "title":"Pain & Recovery",
@@ -354,7 +290,7 @@
                                              "value":"0"}
                                              ],
                                   "answerType":"single",
-                                  "answerFormat":"scale"
+                                  "answerFormat":"text"
                                   },
                                   {
                                   "type":"straightening-knee",
@@ -447,6 +383,70 @@
                                   "answerFormat":"text"
                                   }
                             ]
+                    },
+                    {
+                    "type":"Mood",
+                    "title":"Mood",
+                    "subTitle":"",
+                    "bubbles":"7",
+                    "unitString": "out of 10",
+                    "answerMatrix":[
+                                    {
+                                    "rawScore":"0",
+                                    "intervalScore":"0"
+                                    },
+                                    {
+                                    "rawScore":"1",
+                                    "intervalScore":"1"
+                                    },
+                                    {
+                                    "rawScore":"2",
+                                    "intervalScore":"2"
+                                    },
+                                    {
+                                    "rawScore":"3",
+                                    "intervalScore":"3"
+                                    },
+                                    {
+                                    "rawScore":"4",
+                                    "intervalScore":"4"
+                                    },
+                                    {
+                                    "rawScore":"5",
+                                    "intervalScore":"5"
+                                    },
+                                    {
+                                    "rawScore":"6",
+                                    "intervalScore":"6"
+                                    },
+                                    {
+                                    "rawScore":"7",
+                                    "intervalScore":"7"
+                                    },
+                                    {
+                                    "rawScore":"8",
+                                    "intervalScore":"8"
+                                    },
+                                    {
+                                    "rawScore":"9",
+                                    "intervalScore":"9"
+                                    },
+                                    {
+                                    "rawScore":"10",
+                                    "intervalScore":"10"
+                                    }
+                                    
+                                    ],
+                    "questions": [{
+                                  "type": "Mood",
+                                  "mainText": "On a scale from 1 to 10, how would you rate your mood today?",
+                                  "subText": "",
+                                  "answers":[
+                                  ],
+                                  "answerType":"",
+                                  "answerFormat":"scale"
+                                  }
+                                  ]
                     }
     ],
 	"checklist": [

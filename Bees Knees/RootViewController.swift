@@ -136,6 +136,14 @@ class RootViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    func transitionToPreSurgeryWelcomeFlow() {
+        postSurgeryRoutineFlow.view.removeFromSuperview()
+        postSurgeryRoutineFlow.removeFromParentViewController()
+
+        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+        self.view.addSubview(preSurgeryRoutineFlow.view)
+    }
+    
     func transitionToLaunch(from: FlowState) {
         // Remove either the pre-surgery routine or the post-surgery routine, whichever
         // may have been active.
@@ -172,32 +180,39 @@ extension RootViewController: WelcomePageViewControllerDelegate {
         // surgery. This is where we should set the location-based content.
         ProfileManager.sharedInstance.loadLocationContent()
         
-        // Add the pre-surgery routine view to the hierarchy, which will be displayed underneath
+        // Add the pre-surgery or post-surgery routine view to the hierarchy, which will be displayed underneath
         // the welcome flow. The welcome flow will do a custom transition out by swiping right
-        // before rmeoving itself.
-        self.view.insertSubview(preSurgeryRoutineFlow.view, belowSubview: welcomeFlow.view)
+        // before removing itself.
+        
+        if ProfileManager.sharedInstance.isSurgerySet() &&
+            Util.isDateInPast(ProfileManager.sharedInstance.getSurgeryDate()) {
+            ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
+            self.view.insertSubview(postSurgeryRoutineFlow.view, belowSubview: welcomeFlow.view)
+        } else {
+            self.view.insertSubview(preSurgeryRoutineFlow.view, belowSubview: welcomeFlow.view)
+        }
         welcomeFlow.dismissSelf()
     }
 }
 
-extension RootViewController: PostWelcomePageViewControllerDelegate {
-    func postWelcomeComplete(sender: PostWelcomePageViewController) {
-        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
-        
-        // Remove the Pre-Surgery Routine Flow
-        preSurgeryRoutineFlow.view.removeFromSuperview()
-        preSurgeryRoutineFlow.removeFromParentViewController()
-        
-        // Dismiss the view and the Post Care Card will be waiting underneath
-        self.view.addSubview(postSurgeryRoutineFlow.view)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func postWelcomeReturn(sender: PostWelcomePageViewController) {
-        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
-        
-        // Dismiss the view and the Pre Care Card will be waiting underneath
-        //self.view.addSubview(preSurgeryRoutineFlow.view)
-        self.dismiss(animated: true, completion: nil)
-    }
-}
+//extension RootViewController: PostWelcomePageViewControllerDelegate {
+//    func postWelcomeComplete(sender: PostWelcomePageViewController) {
+//        ProfileManager.sharedInstance.updateFlowState(.PostSurgeryRoutine)
+//        
+//        // Remove the Pre-Surgery Routine Flow
+//        preSurgeryRoutineFlow.view.removeFromSuperview()
+//        preSurgeryRoutineFlow.removeFromParentViewController()
+//        
+//        // Dismiss the view and the Post Care Card will be waiting underneath
+//        self.view.addSubview(postSurgeryRoutineFlow.view)
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func postWelcomeReturn(sender: PostWelcomePageViewController) {
+//        ProfileManager.sharedInstance.updateFlowState(.PreSurgeryRoutine)
+//        
+//        // Dismiss the view and the Pre Care Card will be waiting underneath
+//        //self.view.addSubview(preSurgeryRoutineFlow.view)
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//}

@@ -86,8 +86,18 @@ class DateTableViewCell: AppointmentTableViewCell, UIPickerViewDelegate {
         dateLabel.text = Util.getFormattedDate(sender.date, dateStyle: .medium, timeStyle: .short)
         
         // If this is the surgery date, set it appropriately
+        // If this is the surgery date, set it appropriately
         if appointment?.type == AppointmentType.Surgery {
-            ProfileManager.sharedInstance.setSurgeryDate(sender.date)
+            // If the surgery date is being changed, make sure to confirm from the user to transition to appropriate layouts.
+            if ProfileManager.sharedInstance.isSurgerySet() {
+                // You are about to change your surgey date, this will change the work flow, choose yes or no ?
+                // If yes
+                ProfileManager.sharedInstance.setSurgeryDate(sender.date)
+                // If not skip setting date and let users know.
+            } else {
+                ProfileManager.sharedInstance.setSurgeryDate(sender.date)
+            }
+            
         }
         // Else set all other appointments normally
         else {

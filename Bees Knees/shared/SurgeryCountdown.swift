@@ -26,7 +26,7 @@ class SurgeryCountdown: UIView {
     var delegate: SurgeryCountdownDelegate?
     
     var manuallyTransitionToPostSurgery: Bool = false
-    
+    var manuallyTransitionToPreSurgery: Bool = false
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -115,12 +115,20 @@ class SurgeryCountdown: UIView {
                 notSetLabel.text = "Already had surgery? Tap to change or transition to your Post-Surgery routine"
                 manuallyTransitionToPostSurgery = true
             }
+            else if days > 0 && ProfileManager.sharedInstance.user.flowState == .PostSurgeryRoutine {
+                subtextLabel.text = ""
+                valueLabel.text = ""
+                notSetLabel.text = "Haven't had your surgery yet? Tap to transition to your pre-surgery routine."
+                manuallyTransitionToPostSurgery = false
+                manuallyTransitionToPreSurgery = true
+            }
             // Else display the counter normally
             else {
                 subtextLabel.text = days < 0 ? "days since surgery" : "days until surgery"
                 valueLabel.text = abs(days).description
                 notSetLabel.text = ""
                 manuallyTransitionToPostSurgery = false
+                manuallyTransitionToPreSurgery = false
             }
         }
         else {
@@ -141,6 +149,9 @@ class SurgeryCountdown: UIView {
                     if manuallyTransitionToPostSurgery == true {
                         //delegate?.transitionToPostSurgery(sender: self)
                         (self.window!.rootViewController as! RootViewController).transitionToPostSurgeryWelcomeFlow()
+                    } else if manuallyTransitionToPreSurgery == true {
+                        //delegate?.transitionToPostSurgery(sender: self)
+                        (self.window!.rootViewController as! RootViewController).transitionToPreSurgeryWelcomeFlow()
                     }
                     else {
                         delegate?.tapEditSurgeryDate(sender: self)

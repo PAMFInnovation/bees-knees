@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO: Commented the code that was written to customize notes text area to expand to the size of text when user is viewing it. Need to work on edit mode if needed.
 
 class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
     
@@ -17,6 +18,22 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
             
             // Show or hide the placeholder label
             placeholderLabel.isHidden = notesTextArea.text == "" ? false : true
+            
+//            
+//            let fixedWidth = notesTextArea.frame.size.width
+//            notesTextArea.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//            let newSize = notesTextArea.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//            var newFrame = notesTextArea.frame
+//            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//            notesTextArea.frame = newFrame;
+//            
+//            print("height", notesTextArea.contentSize.height)
+//            // If cell height is less than 150 based on the text, then set it to 150 to allow users to type more text.
+//            if( notesTextArea.contentSize.height > 200) {
+//                self.expandedHeight = notesTextArea.contentSize.height
+//            } else {
+//                self.expandedHeight = 200
+//            }
         }
     }
     
@@ -39,6 +56,7 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         
         // Set height values
         defaultHeight += notesHeight
+      //  self.expandedHeight = notesHeight
         
         // Update the cell's height to match the needed height for the text area
         self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: self.frame.width, height: self.frame.height + notesHeight)
@@ -46,6 +64,8 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         // Add the notes text area
         notesTextArea.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: notesHeight)
         notesTextArea.isEditable = true
+      //  notesTextArea.scrollsToTop = true
+      //  notesTextArea.isScrollEnabled = false
         notesTextArea.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         notesTextArea.delegate = self
         notesTextArea.font = UIFont(name: "ArialMT", size: 16)
@@ -80,12 +100,27 @@ class NotesTableViewCell: AppointmentTableViewCell, UITextViewDelegate {
         
         // Reset the right bar button item
         self.parentViewController?.navigationItem.rightBarButtonItem = rightBarButtonItemUnderneath
+        
+//        self.notesTextArea.scrollsToTop = true
+//        self.notesTextArea.isScrollEnabled = false
+//        // update notes text area
+//        let fixedWidth = notesTextArea.frame.size.width
+//        notesTextArea.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        let newSize = notesTextArea.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        var newFrame = notesTextArea.frame
+//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//        notesTextArea.frame = newFrame;
+//        
+//        self.layoutSubviews()
     }
     
     
     // MARK: - Text View Delegate
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         delegate?.beginEditing(sender: textView)
+        
+       // notesTextArea.scrollsToTop = false
+       // notesTextArea.isScrollEnabled = true
         
         // Add the done button in the navigation bar
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(NotesTableViewCell.doneEditing))

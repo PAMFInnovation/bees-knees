@@ -231,7 +231,7 @@ class AppointmentViewController: UIViewController, UITableViewDelegate, UITableV
             return cellExpandedHeight
         }
         
-        print("heightForRowAt :", self.tableViewData[indexPath.row].defaultHeight)
+       // print("heightForRowAt :", self.tableViewData[indexPath.row].defaultHeight)
         
         return self.tableViewData[indexPath.row].defaultHeight
     }
